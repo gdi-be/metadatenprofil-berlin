@@ -140,9 +140,9 @@ Metadaten werden analog zur Geodatenbereitstellung im Geoportal Berlin veröffen
 In den Komponenten des BROKER-Informationssystems wurden Validierungsprüfungen implementiert, welche die Konformität zum BE-Profil sicherstellen. Sofern die Erfassungskomponente METEOR zur Erzeugung von Metadaten genutzt wird, kann auf weitere Validierungen verzichtet werden.*
 
 ##### REFERENZEN
-*	[GDI-DE Konventionen MD]: GDI-DE Architektur – Konventionen zu Metadaten“ (Architektur der Geodateninfrastruktur Deutschland: Konventionen zu Metadaten der GDI.DE (Konventionendokument), V1.2, 01.08.2017)
-*	 [INS TG Metadata 1.3]: INSPIRE Metadata Implementing Rules: Technical Guidelines based on EN ISO 19115 and EN ISO 19119, V1.3, 2013-10-29 (last revision)
-*	[INS VO MD]: VERORDNUNG (EG) Nr. 1205/2008 DER KOMMISSION vom 3. Dezember 2008 zur Durchführung der Richtlinie 2007/2/EG des Europäischen Parlaments und des Rates hinsichtlich Metadaten
-*	[ISO 19115 DE-ÜB]: Koordinierungsstelle GDI-DE: Deutsche Übersetzung der Metadatenfelder des ISO 19115 Geographic Information Metadata (Standardversion ISO 19115:2003E/Cor.1:2006E)
-*	[ISO 19119:2005]: ISO 19119 - Geographic Information - Services
+*	[GDI-DE Konventionen MD] GDI-DE Architektur – Konventionen zu Metadaten“ (Architektur der Geodateninfrastruktur Deutschland: Konventionen zu Metadaten der GDI.DE (Konventionendokument), V1.2, 01.08.2017)
+*	 [INS TG Metadata 1.3] INSPIRE Metadata Implementing Rules: Technical Guidelines based on EN ISO 19115 and EN ISO 19119, V1.3, 2013-10-29 (last revision)
+*	[INS VO MD] VERORDNUNG (EG) Nr. 1205/2008 DER KOMMISSION vom 3. Dezember 2008 zur Durchführung der Richtlinie 2007/2/EG des Europäischen Parlaments und des Rates hinsichtlich Metadaten
+*	[ISO 19115 DE-ÜB] Koordinierungsstelle GDI-DE: Deutsche Übersetzung der Metadatenfelder des ISO 19115 Geographic Information Metadata (Standardversion ISO 19115:2003E/Cor.1:2006E)
+*	[ISO 19119:2005] ISO 19119 - Geographic Information - Services
 *	 [OGC CSW 2.0.2 APISO] OpenGIS® Catalogue Services Specification 2.0.2 - ISO Metadata Application Profile: Corrigendum, 07-045r1, 2018-03-07
