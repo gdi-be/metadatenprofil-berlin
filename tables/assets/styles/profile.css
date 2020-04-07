@@ -1,0 +1,112 @@
+/* general styles */
+table,
+tr,
+td {
+    border: 1px inset black;
+    border-collapse: collapse;
+    border-spacing: 0;
+    vertical-align: top;
+}
+
+table {
+  margin-bottom: 40px;
+}
+
+.button {
+    width: 2em;
+    height: 2em;
+    border-radius: 50%;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    margin: 0;
+    padding: 0;
+}
+
+/* complex element in broker type tables */
+tr.complexElement {
+    font-style: italic;
+    font-weight: bold;
+    background-color: rgb(217, 217, 217);
+}
+
+/* header in iso table */
+tr.isoHeader {
+    font-weight: bold;
+    background-color: rgb(191, 191, 191);
+}
+
+/* iso elements */
+tr.isoComplexElement {
+    background-color: rgb(217, 217, 217);
+}
+
+/* not used / internal elements */
+tr.notUsedElement {
+    color: rgb(128, 128, 128);
+}
+
+/* example values */
+.example {
+    font-style: italic !important;
+    font-weight: normal;
+    color: rgb(0, 0, 153);
+}
+
+/* mandatory cell i. e. multiplicity 1..1, 1..* etc. */
+td.mandatoryElement {
+    background-color: rgb(197, 217, 241);
+}
+
+/* multiplicty column */
+td.multiplicity-column {
+    text-align: center;
+}
+
+/* references in profile table */
+td a {
+    color: rgb(31, 73, 125);
+}
+
+/* show lists without bullets */
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+ul.menu-list {
+    width: 100%;
+    background-color: transparent;
+    position: fixed;
+    bottom: 0;
+}
+
+li.menu-item {
+    background-color: #f1f1f1;
+    display: inline;
+}
+
+/* menu links */
+li a {
+    background-color: #f1f1f1;
+    text-decoration: none;
+    float: left;
+    border: 1px solid #ddd;
+    outline: none;
+    cursor: pointer;
+    padding: 10px 16px;
+    color: black;
+}
+
+.right {
+    position: relative !important;
+    float: right !important;
+}
+
+li a:hover {
+    color: white;
+    background-color: #bbb;
+}

@@ -1,0 +1,511 @@
+<!doctype html>
+<html>
+  <head> 
+    <meta charset="UTF-8"> 
+    <title>BE-Metadatenprofil/ATOM-Feed</title> 
+    <link rel="stylesheet" href="../assets/styles/profile.css"> 
+  </head> 
+  <body> 
+    <nav class="menu"> 
+      <ul class="menu-list"> 
+        <li class="menu-item"><a href="datenbestand.html">Datenbestand</a></li> 
+        <li class="menu-item"><a href="iso.html">ISO 19115, 19119</a></li> 
+        <li class="menu-item"><a href="karte.html">Karte</a></li> 
+        <li class="menu-item"><a href="sachdatensatz.html">Sachdatensatz</a></li> 
+        <li class="menu-item"><a href="atom.html">ATOM-Feed</a></li> 
+        <li class="menu-item"><a href="geometriedatensatz.html">Geometriedatensatz</a></li> 
+        <li class="menu-item"><a href="fachverfahren.html">Fachverfahren</a></li> 
+        <li class="menu-item right"><a href="#top">nach oben</a></li> 
+      </ul> 
+    </nav> 
+    <table id="atom"> 
+      <thead> 
+        <tr> 
+          <th>Name des Elements</th> 
+          <th>Name des Attributs</th> 
+          <th>Bezeichnung</th> 
+          <th>Definition 
+            <div class="example">
+               Beispiel 
+            </div> </th> 
+          <th>Multiplizität</th> 
+          <th>Datentyp/Wertebereich</th> 
+          <th>Relation zu</th> 
+          <th>Anmerkung</th>  
+        </tr> 
+      </thead> 
+      <tbody> 
+        <tr class="complexElement"> 
+          <td>AtomFeed</td> 
+          <td></td> 
+          <td>Wurzelelement der Datensatzklasse ATOM-Feed</td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>id</td> 
+          <td>Identifikator</td> 
+          <td>Eindeutiger Bezeichner für die Atom-Feeds innerhalb der GDI Berlin. 
+            <div class="example">
+               a_luftbild2017_rgb@senstadt 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string / 80 Zeichen Hinweis: Die Länge ist abhängig von Konfiguration des Repositorys beim Anwendungsbereiber. Für die Vergabe des Namens sind nur folgende Zeichen zulässig: Buchstaben (ohne Umlaute und ß), Zahlen, Minuszeichen, Punkte, Doppelpunkte und Unterstriche!</td> 
+          <td>ISO: Basis für die Generierung des fileIdentifier [Zeile 2] der 19119</td> 
+          <td>Die Angabe muss immer die entsprechende Domäne enthalten (i.d.R. "senstadt")</td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>metadatenTyp</td> 
+          <td>Metadatentyp</td> 
+          <td>Angabe des Metadatentyps. Über den Metadatentyp werden Inhalte und Pflichten im METEOR gesteuert. Die Angabe "INSPIRE" ist für alle inspirebetroffenen Datenbestände und Datensätze zu verwenden, egal ob sie transformiert sind oder nicht. Alle anderen Datenbestände und Datensätze sind vom Typ "ISO". 
+            <div class="example">
+               INSPIRE 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string / BROKER|<u>ISO</u>|INSPIRE</td> 
+          <td>BROKER: wird bei der Themenzuordnung aus dem Datenbestand in die zugeordneten Broker-Metadatensätze übernommen.</td> 
+          <td>Bitte Schreibweise beachten. Erfolgt keine Angabe, wird der Standardwert "ISO" angenommen. </td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>inspireAnnex</td> 
+          <td>Angabe des INSPIRE-Annex-Themas (Kurzbezeichnung)</td> 
+          <td>Die Angabe des zu beschreibenden Annex-Themas erfolgt über die Kurzbezeichnung, bestehend aus zwei Zeichen. </td> 
+          <td class="multiplicity-column">K..1, nur bei Metadatentyp=INSPIRE</td> 
+          <td>xsd:string / GG|GN|AU|AD|CP|TN|HY|PS|EL|GE|LC|OI|SU|BU|SO| LU|HH|US|EF|PF|AF|PD|AM|NZ|AC|MF|OF|SR|BR|HB|SD|ER|MR</td> 
+          <td>BROKER: wird bei der Themenzuordnung aus dem Datenbestand übernommen. </td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>Titel</td> 
+          <td></td> 
+          <td>Titel</td> 
+          <td>Titel der ATOM-Feeds 
+            <div class="example">
+               Digitale farbige Orthophotos 2017 (DOP20RGB) 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string / 255 Zeichen Hinweis: Die Länge ist abhängig von der Konfiguration des Repositorys beim Anwendungsbereiber</td> 
+          <td>BROKER: wird bei der Themenzuordnung aus dem Datenbestand übernommen. ISO: veranlasst, dass beim Einrichten der 19115 das entsprechende INSPIRE-Schlagwort, die dazugehörige Themenkategoerie (Konventionendokument GDI.DE) und - soweit möglich - die GML-Spezifikation in den Vertriebsangaben gesetzt werden.</td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>Metadaten</td> 
+          <td></td> 
+          <td>Metadaten</td> 
+          <td>weiterführende Informationen zum ATOM-Feed</td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td><a href="#atom_MetadatenType">MetadatenType</a></td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>MetadatenId</td> 
+          <td></td> 
+          <td>Metadatensatz-Identifikator</td> 
+          <td>Fileidentifier (UUID) des Metadatensatzes, auf den sich der Atomfeed bezieht. 
+            <div class="example">
+               947b53e4-f014-3f12-b7a9-f6438f29223e 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string</td> 
+          <td>BROKER: wird bei der Themenzuordnung aus dem Datenbestand übernommen. </td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>ServicedatenId</td> 
+          <td></td> 
+          <td>Identifikator des Dienstedatensatzesr</td> 
+          <td>Fileidentifier (UUID) des Dienstedatensatzes (ISO 19119), auf den sich der ATOM-Feed bezieht. 
+            <div class="example">
+               d49a6b14-521f-3b7c-9e31-a8f9edbc3ced 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string</td> 
+          <td>BROKER: wird bei der Generierung der 19119 automatisch gesetzt. </td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>Entrytitel</td> 
+          <td></td> 
+          <td>Titel des Eintrags</td> 
+          <td>Titel für den im Feed angezeigten Eintrag, wenn er vom Titel des Feeds abweichen soll. </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>Datensatztitel</td> 
+          <td></td> 
+          <td>Datensatztitel</td> 
+          <td>Titel für den eigenständigen Datensatz-Feed, wenn er vom Titel des Feeds abweichen soll </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>Datensatzuntertitel</td> 
+          <td></td> 
+          <td>Datensatzuntertitel</td> 
+          <td>Untertitel des Datensatzes, entspricht der Kurzbeschreibung. Angabe nur dann notwendig, wenn eine zur Kurzbeschreibung abweichende Angabe erfolgen soll.</td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:string</td> 
+          <td> </td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>Rechte</td> 
+          <td></td> 
+          <td>Rechte (SLD)</td> 
+          <td>Angabe zu Nutzungsbedingungen und Zugangsbeschränkungen, vergleichbar mit den Nutzungsbeschränkungen der ISO 19119. 
+            <div class="example">
+               Für die Verwendung der Daten gelten folgende Nutzungsbestimmungen: http://www.stadtentwicklung.berlin.de/geoinformation/download/nutzIII.pdf - Der Quellenvermerk gemäß §2 lautet "Geoportal Berlin / [Titel des Datensatzes]". 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>InspireRegistryLink</td> 
+          <td></td> 
+          <td>Link zur Datensatzbeschreibung</td> 
+          <td>Über diesen Link soll eine Beschreibung der Datensätze verfügbar gemacht werden. </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:anyURI</td> 
+          <td></td> 
+          <td>Für INSPIRE-konforme Datensätze soll nach Anforderung 28 der Technical Guidance for the implementation of INSPIRE Download Services auf die INSPIRE-Registry verlinkt werden. Die URL lautet: http://inspire.ec.europa.eu/featureconcept</td>  
+        </tr> 
+        <tr> 
+          <td>Datensatzidentifikator</td> 
+          <td></td> 
+          <td>Datensatzidentifikator</td> 
+          <td>UUID des Ressourcenidentifiers + Namensraum </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td><a href="#atom_DatensatzIdentifikatorType">DatensatzIdentifikatorType</a></td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>Aktualisierungsdatum</td> 
+          <td></td> 
+          <td>Aktualisierungsdatum</td> 
+          <td>Datum der letzten Aktualisierung. Wird automatisch aktualisiert, wenn der Atomfeed ins Repository übernommen wird. </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string</td> 
+          <td>Wert wird automatisch vom METEOR gesetzt</td> 
+          <td>Formatierung als Zeitstempel (nach ISO 8601): 2018-06-03T14:38:03</td>  
+        </tr> 
+        <tr> 
+          <td>Kontakt</td> 
+          <td></td> 
+          <td>Kontakt</td> 
+          <td>Kontaktangaben zum Datenbestand</td> 
+          <td class="multiplicity-column">0..*</td> 
+          <td><a href="#atom_KontaktType">KontaktType</a></td> 
+          <td> </td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>Kategorie</td> 
+          <td></td> 
+          <td>Kategorie</td> 
+          <td>Informationen zur Datenbeschreibung und Datensätzen</td> 
+          <td class="mandatoryElement multiplicity-column">1..*</td> 
+          <td><a href="#atom_KategorieType">KategorieType</a></td> 
+          <td> </td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>IsoMetadata</td> 
+          <td></td> 
+          <td>ISO 19119</td> 
+          <td>bettet die ISO 19119 in ihrer XML-Struktur ein, um eine gemeinsame Verarbeitung zu ermöglichen</td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td><a href="#iso_MD_Metadata">MD_Metadata</a></td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr class="complexElement"> 
+          <td id="atom_DatensatzidentifikatorType">DatensatzidentifikatorType</td> 
+          <td></td> 
+          <td>Broker-Metadaten</td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>id</td> 
+          <td>Ressourcen-Identifikator</td> 
+          <td>UUID des Datensatzes (DataIdentification der ISO 19115)</td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string</td> 
+          <td>BROKER: wird bei der Themenzuordnung aus dem Datenbestand übernommen</td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>nameSpace</td> 
+          <td>Namensraum</td> 
+          <td>Namensraum des Ressourcen-Identifikators, aktuell wird hier folgende URL gesetzt: 
+            <div class="example">
+               http://www.gdi-de.org/be 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td>Die Angabe entspricht der Angabe "AuthorityURL" im WMS-Capabilities-Response.</td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>nameSpace</td> 
+          <td>Namensraum</td> 
+          <td>Namensraum des Ressourcen-Identifikators, aktuell wird hier folgende URL gesetzt: 
+            <div class="example">
+               http://www.gdi-de.org/be 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td>Die Angabe entspricht der Angabe "AuthorityURL" im WMS-Capabilities-Response.</td>  
+        </tr> 
+        <tr class="complexElement"> 
+          <td id="atom_KategorieType">KategorieType</td> 
+          <td></td> 
+          <td>Feed-Eintrag</td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>crs</td> 
+          <td>Koordinatenreferenzsystem</td> 
+          <td>Koordinatenreferenzsystem des Downloadeintrags 
+            <div class="example">
+               EPSG:25833 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string</td> 
+          <td>ISO: wird in den RS_Identifier/code [Zeile 207] der 19119 übernommen; Codierung wird angepasst: EPSG:25833 --&gt; http://www.opengis.net/def/crs/EPSG/0/25833</td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>Titel</td> 
+          <td></td> 
+          <td>Titel</td> 
+          <td>Titel des Eintrags 
+            <div class="example">
+               Digitale farbige Orthophotos 2017 (DOP20RGB) - Download-Service - EPSG:25833 - ECW, gezippt. 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td>Im Titel sollten Koordinatenreferenzsystem und Download-Format genannt werden (siehe Beispiel).</td>  
+        </tr> 
+        <tr> 
+          <td>Rechte</td> 
+          <td></td> 
+          <td>Rechte</td> 
+          <td>Angabe zu Nutzungsbedingungen und Zugangsbeschränkungen, vergleichbar mit den Nutzungsbeschränkungen der ISO 19119. 
+            <div class="example">
+               Für die Verwendung der Daten gelten folgende Nutzungsbestimmungen: http://www.stadtentwicklung.berlin.de/geoinformation/download/nutzIII.pdf - Der Quellenvermerk gemäß §2 lautet "Geoportal Berlin / [Titel des Datensatzes]". 
+            </div> </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>Datenbeschreibung</td> 
+          <td></td> 
+          <td>Downloadangaben</td> 
+          <td>optionale Angabe zur Beschreibung des Downloades (unformatierter Text) </td> 
+          <td class="multiplicity-column">K..1, alternativ zu DatenbeschreibungsLink</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>DatenbeschreibungsLink</td> 
+          <td></td> 
+          <td>Link zu Downloadangaben</td> 
+          <td>optionale Angabe zur Beschreibung des Downloades (Titel, URL und Dateityp) </td> 
+          <td class="multiplicity-column">K..1, alternativ zu Datenbeschreibung</td> 
+          <td><a href="#atom_LinkType">LinkType</a></td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>Link</td> 
+          <td></td> 
+          <td>Angaben zum Downloadlink</td> 
+          <td>URL auf die Datei, die zum Download bereitgestellt wird</td> 
+          <td class="mandatoryElement multiplicity-column">1..*</td> 
+          <td><a href="#atom_LinkType">LinkType</a></td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>Aktualisierungsdatum</td> 
+          <td></td> 
+          <td>Aktualisierungsdatum</td> 
+          <td>Datum der letzten Aktualisierung. Wird automatisch aktualisiert, wenn der Atomfeed ins Repository übernommen wird. Formatierung als Zeitstempel (nach ISO 8601): 
+            <div class="example">
+               2018-06-03T14:38:03 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..*</td> 
+          <td>xsd:string</td> 
+          <td>BROKER: Wert wird automatisch gesetzt</td> 
+          <td></td>  
+        </tr> 
+        <tr class="complexElement"> 
+          <td id="atom_LinkType">LinkType</td> 
+          <td></td> 
+          <td>Download (Link-URL)</td> 
+          <td>URL des Downloadlinks. Angabe der URL zum direkten Download der Daten. 
+            <div class="example">
+               http://@@Atom@senstadt@@DOP/dop20rgb_2017/Mitte.zip 
+            </div> </td> 
+          <td>erweitert xsd:anyURI</td> 
+          <td></td> 
+          <td></td> 
+          <td>Es handelt sich hierbei um ein "Complex Text-Only Element", d. h. zusätzlich zu den Attributen ist der Wert direkt in den "Content" (auch "Text") des Elements einzutragen. Beispiel für vollständig instanziiertes Element: 
+            <div class="example">
+               &lt;Link title="Mitte" type="application/x-ecw"&gt;http://@@Atom@senstadt@@DOP/dop20rgb_2017/Mitte.zip&lt;/Link&gt; 
+            </div> </td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>title</td> 
+          <td>Titel des Downloadlinks</td> 
+          <td>Titel des Downloadlinks. Wird mehr als eine Datei zum Download angeboten, muss für jeden Eintrag ein Titel angegeben werden. 
+            <div class="example">
+               Mitte 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>type</td> 
+          <td>Dateityp</td> 
+          <td>Dateityp des über den Downloadlink bereitgestellten Datensatzes, valider Medientyp gemäß INSPIRE Media-Types-Register. 
+            <div class="example">
+               application/x-ecw 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string / 
+            <div>
+               application/x-filegdb | application/x-shapefile | application/x-ecw | image/jp2 | application/vnd.google-earth.kmz | application/vnd.google-earth.kml+xml | application/x-gmz | application/gml+xml | image/tiff | text/csv | application/x-worldfile | application/x-tab | application/x-oracledump 
+            </div> </td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr class="complexElement"> 
+          <td id="atom_MetadatenType">MetadatenType</td> 
+          <td></td> 
+          <td>Broker-Metadaten</td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>Kurzbeschreibung</td> 
+          <td></td> 
+          <td>Kurzbeschreibung</td> 
+          <td>Die Kurzbeschreibung bietet die Möglichkeit, kurz über den Inhalt des Atomfeeds zu informieren. 
+            <div class="example">
+               Digitale farbige Orthophotos 2017 (DOP20RGB) für das gesamte Berliner Stadtgebiet, Bodenauflösung 0,20 Meter. 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string / 4000 Zeichen Hinweis: Die Länge ist abhängig von Konfiguration des Repositorys beim Anwendungsbereiber</td> 
+          <td> 
+            <div>
+               ISO: wird in den abstract [Zeile 25] der 19119 übernommen; kann beim Metadatenabgleich mit dem Wert aus der 19115 (Beschreibung) überschrieben werden; 
+            </div> </td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>CapabilitiesUrl</td> 
+          <td></td> 
+          <td>Capabilities-URL</td> 
+          <td>URL zum Atomfeed. Die URL ist Voraussetzung zur Generierung der Dienste-Metadaten (ISO 19119) über den Broker bzw. METEOR. 
+            <div class="example">
+               http://fbinter.stadt-berlin.de/fb/feed/senstadt/[themeId] 
+            </div> </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:anyURI</td> 
+          <td> </td> 
+          <td></td>  
+        </tr> 
+        <tr class="complexElement"> 
+          <td id="atom_KontaktType">KontaktType</td> 
+          <td></td> 
+          <td>Kontakt</td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td> </td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>Name</td> 
+          <td></td> 
+          <td>Name</td> 
+          <td>Name des Ansprechpartners 
+            <div class="example">
+               Senatsverwaltung für Stadtentwicklung und Wohnen Berlin 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>EMail</td> 
+          <td></td> 
+          <td>E-Mail</td> 
+          <td>E-Mail des Ansprechpartners 
+            <div class="example">
+               fisbroker@sensw.berlin.de 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>Webseite</td> 
+          <td></td> 
+          <td>Web-Seite</td> 
+          <td>Adresse für den Online-Zugriff unter Verwendung einer URL. 
+            <div class="example">
+               http://@@ServerName@senstadt@@/fb/?loginkey=showMap&amp;mapId=[themenId]@senstadt 
+            </div> </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:anyURI</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+      </tbody> 
+    </table>  
+  </body>
+</html>

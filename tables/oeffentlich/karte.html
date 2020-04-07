@@ -1,0 +1,2609 @@
+<!doctype html>
+<html>
+  <head> 
+    <meta charset="UTF-8"> 
+    <title>BE-Metadatenprofil/Karte</title> 
+    <link rel="stylesheet" href="../assets/styles/profile.css"> 
+  </head> 
+  <body> 
+    <nav class="menu"> 
+      <ul class="menu-list"> 
+        <li class="menu-item"><a href="datenbestand.html">Datenbestand</a></li> 
+        <li class="menu-item"><a href="iso.html">ISO 19115, 19119</a></li> 
+        <li class="menu-item"><a href="karte.html">Karte</a></li> 
+        <li class="menu-item"><a href="sachdatensatz.html">Sachdatensatz</a></li> 
+        <li class="menu-item"><a href="atom.html">ATOM-Feed</a></li> 
+        <li class="menu-item"><a href="geometriedatensatz.html">Geometriedatensatz</a></li> 
+        <li class="menu-item"><a href="fachverfahren.html">Fachverfahren</a></li> 
+        <li class="menu-item right"><a href="#top">nach oben</a></li> 
+      </ul> 
+    </nav> 
+    <table id="map"> 
+      <thead> 
+        <tr> 
+          <th>Name des Elements</th> 
+          <th>Name des Attributs</th> 
+          <th>Bezeichnung</th> 
+          <th>Definition 
+            <div class="example">
+               Beispiel 
+            </div> </th> 
+          <th>Multiplizität</th> 
+          <th>Datentyp/Wertebereich</th> 
+          <th>Relation zu</th> 
+          <th>Anmerkung</th>  
+        </tr> 
+      </thead> 
+      <tbody> 
+        <tr class="complexElement"> 
+          <td>Karte</td> 
+          <td></td> 
+          <td>Wurzelelement der Datensatzklasse Karte</td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>id</td> 
+          <td>Identifikator</td> 
+          <td>Eindeutiger Bezeichner für die Karte innerhalb der GDI Berlin. 
+            <div class="example">
+               bplan@senstadt 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string / 80 Zeichen Hinweis: Die Länge ist abhängig von Konfiguration des Repositorys beim Anwendungsbereiber. Für die Vergabe des Namens sind nur folgende Zeichen zulässig: Buchstaben (ohne Umlaute und ß), Zahlen, Minuszeichen, Punkte, Doppelpunkte und Unterstriche!</td> 
+          <td>ISO: Basis für die Generierung des fileIdentifier [Zeile 2] der 19119 OGC: letzter Bestandteil der Dienste-URL (https://[rechner]/fb/wms/senstadt/[id]</td> 
+          <td>Die Angabe muss immer die entsprechende Domäne enthalten (i.d.R. "senstadt")</td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>rbz_klasse</td> 
+          <td>Raumbezugsklasse</td> 
+          <td>Über die Raumbezugsklasse wird gesteuert, ob im Client Karten überlagert werden oder nicht. Karten gleicher RBZ können überlagert werden. Zur Zuweisung einer RBZ muss Kontakt mit dem Betreiber der Anwendung aufgenommen werden.</td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td>Bei der Übernahme der XML ins Repository muss die RBZ dort vorhanden sein. Die Angabe muss immer die entsprechende Domäne enthalten. Fehlt eine passende RBZ, muss Verbindung zum Administrator (Betreiber der GDI-BE) aufgenommen werden. Nur dieser kann eine RBZ definieren und für die Nutzung zur Verfügung stellen. </td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>metadatenTyp</td> 
+          <td>Metadatentyp</td> 
+          <td>Angabe des Metadatentyps. Über den Metadatentyp werden Inhalte und Pflichten im METEOR gesteuert. Die Angabe "INSPIRE" ist für alle inspirebetroffenen Datenbestände und Datensätze zu verwenden, egal ob sie transformiert sind oder nicht. Alle anderen Datenbestände und Datensätze sind vom Typ "ISO". 
+            <div class="example">
+               INSPIRE 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string / BROKER|<u>ISO</u>|INSPIRE</td> 
+          <td>BROKER: wird bei der Themenzuordnung aus dem Datenbestand in die zugeordneten Broker-Metadatensätze übernommen.</td> 
+          <td>Bitte Schreibweise beachten. Erfolgt keine Angabe, wird der Standardwert "ISO" angenommen. </td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>inspireAnnex</td> 
+          <td>Angabe des INSPIRE-Annex-Themas (Kurzbezeichnung)</td> 
+          <td>Die Angabe des zu beschreibenden Annex-Themas erfolgt über die Kurzbezeichnung, bestehend aus zwei Zeichen. </td> 
+          <td class="multiplicity-column">K..1, nur bei Metadatentyp=INSPIRE</td> 
+          <td>xsd:string / GG|GN|AU|AD|CP|TN|HY|PS|EL|GE|LC|OI|SU|BU|SO| LU|HH|US|EF|PF|AF|PD|AM|NZ|AC|MF|OF|SR|BR|HB|SD|ER|MR</td> 
+          <td>BROKER: wird bei der Themenzuordnung aus dem Datenbestand übernommen. ISO: veranlasst, dass beim Einrichten der 19119 das entsprechende INSPIRE-Schlagwort, die dazugehörige Themenkategoerie (Konventionendokument GDI.DE) und - soweit möglich - die GML-Spezifikation in den Vertriebsangaben gesetzt werden.</td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>wmskategoriename</td> 
+          <td>WMS-Kategoriename</td> 
+          <td>Angabe wird im METEOR beim Einrichten mit der Karten-ID vorbelegt 
+            <div class="example">
+               bplan 
+            </div> </td> 
+          <td class="multiplicity-column">K..1, Pflicht für Metadatentyp=INSPIRE</td> 
+          <td>xsd:string Für die Vergabe des Namens sind nur folgende Zeichen zulässig: Buchstaben (ohne Umlaute und ß), Zahlen, Minuszeichen, Punkte, Doppelpunkte und Unterstriche!</td> 
+          <td>OGC: wird als Name des Rootlayers in den WMS gegeben.</td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>noBackground</td> 
+          <td>kein Hintergrund</td> 
+          <td>Gibt an ob beim Aufruf einer Karte in der Kartenpräsentation eine Hintergrundkarte angezeigt wird. 
+            <div class="example">
+               false 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:boolean / true|<u>false</u></td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>Titel</td> 
+          <td></td> 
+          <td>Titel</td> 
+          <td>Titel der Karte 
+            <div class="example">
+               Bebauungspläne, vorhabenbezogene Bebauungspläne (Geltungsbereiche) 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string / 255 Zeichen Hinweis: Die Länge ist abhängig von der Konfiguration des Repositorys beim Anwendungsbereiber</td> 
+          <td>ISO: wird im METEOR aus den Broker-Metadaten automatisch in den title [Zeile 360] der 19119 übernommen (bidirektional); kann beim Metadatenabgleich mit dem Wert aus der 19115 überschrieben werden. OGC: Anzeige des title aus der 19119 als Title des Rootlayers im WMS </td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>Metadaten</td> 
+          <td></td> 
+          <td>Metadaten</td> 
+          <td>weiterführende Informationen zur Karte</td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td><a href="#map_MetadatenType">MetadatenType</a></td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>GIS-Typ</td> 
+          <td></td> 
+          <td>GIS-Typ</td> 
+          <td>Angabe der Datenquelle. Aktuell stehen folgende Typen zur Auswahl: YADE, WMS-Karte, spatiale Karte Es sollte die Datenquelle angegeben werden, die in der Mehrzahl der Ebenen verwendet wird. Bei Beschreibung einer Karte aus verschiedenen Datenquellen können in den Kartenebenen abweichende Angabe gemacht werden. 
+            <div class="example">
+               yade 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string / yade|ogcmap|spatial</td> 
+          <td></td> 
+          <td>siehe BE-Profil, Teil A Dokumentation, Kap. 2.3.1 </td>  
+        </tr> 
+        <tr> 
+          <td>GIS-ServerName</td> 
+          <td></td> 
+          <td>GIS-Server-Name</td> 
+          <td>Adresse der Datenquelle Eintrag für Yade-Zugriff: 
+            <div class="example">
+               MapService@senstadt 
+            </div>MapService@senstadt Eintrag für WMS-Zugriff: 
+            <div class="example">
+               https://[WMS-URL]/ 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td><a href="#map_GIS-ServerNameType">GIS-ServerNameType / MapService@senstadt| WMS-Adresse </a></td> 
+          <td></td> 
+          <td>bleibt bei der Auswahl "spatiale Karte" (Code: spatial) leer </td>  
+        </tr> 
+        <tr> 
+          <td>DefaultCRS</td> 
+          <td></td> 
+          <td>Standardkoordinatensystem</td> 
+          <td>Standardkoordinatensystem der Karte 
+            <div class="example">
+               EPSG:25833 
+            </div> In der Ausdehung der Karte und in der Beschreibung der Zugriffsinformation in den Kartenebenen muss mindestens die Angabe im DefaultCRS erfolgen. </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string </td> 
+          <td>ISO: wird in den RS_Identifier/code [Zeile 207] der 19119 übernommen; Codierung wird angepasst: EPSG:25833 --&gt; http://www.opengis.net/def/crs/EPSG/0/25833</td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>Uebersichtskarte</td> 
+          <td></td> 
+          <td>Übersichtskarte (extern)</td> 
+          <td>Angabe einer Übersichtskarte zur Visualisierung und Anpassung des angezeigten Kartenausschnittes. Wird in gesondertem Frame angezeigt. Anzeige auch im Kartenbild, wenn keine interne Übersichtskarte definiert wird.</td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td><a href="#map_UebersichtskarteType">UebersichtskarteType / in X- und Y-Richtung &gt; 0</a></td> 
+          <td></td> 
+          <td>Die angegebenen Koordinaten (inkl. Projektion) müssen mit den bei der Erstellung des Bildes verwendeten Koordinaten identisch sein! </td>  
+        </tr> 
+        <tr> 
+          <td>UebersichtskarteIntern</td> 
+          <td></td> 
+          <td>Übersichtskarte (intern)</td> 
+          <td>Angabe einer Übersichtskarte im Kartenbild (i.d.R. kleiner als die Übersichtskarte) zur Visualisierung und Anpassung des angezeigten Kartenausschnittes.</td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td><a href="#map_UebersichtskarteType">UebersichtskarteType / in X- und Y-Richtung &gt; 0</a></td> 
+          <td></td> 
+          <td>Die angegebenen Koordinaten (inkl. Projektion) müssen mit den bei der Erstellung des Bildes verwendeten Koordinaten identisch sein! </td>  
+        </tr> 
+        <tr> 
+          <td>Anfangsausschnitt</td> 
+          <td></td> 
+          <td>Anfangsausschnitt</td> 
+          <td>Ausschnitt, in dem die Karte nach Aufruf aus dem Geodatenkatalog gezeigt wird, wenn keine Raumauswahl vorgenommen wurde.</td> 
+          <td class="multiplicity-column">K..1, alternativ zu Anfangsmaßstab</td> 
+          <td><a href="#map_AusdehnungType">AusdehnungType</a></td> 
+          <td></td> 
+          <td>Erfolgt keine Angabe, wird auf die maximale Ausdehnung gezoomt - unter Berücksichtigung der in allen Kartenebenenen definierten Maßstabsbereiche. </td>  
+        </tr> 
+        <tr> 
+          <td>Ausdehnung</td> 
+          <td></td> 
+          <td>Ausdehnung</td> 
+          <td>Die Ausdehnung der Karte wird in erster Linie bei der Recherche ausgewertet. Mindestens eine Ausdehnung muss mit dem Standardkoordinatensystem (DefaultCRS) übereinstimmen.</td> 
+          <td class="mandatoryElement multiplicity-column">1..*</td> 
+          <td><a href="#map_AusdehnungType">AusdehnungType</a></td> 
+          <td> 
+            <div>
+               ISO: wird in geographicElement [Zeile 336] der 19119 übernommen - umgerechnet in 4326. 
+            </div> 
+            <div>
+               OGC: bei der Abgabe über WMS werden die Ausdehnungen als begrenzende Rechtecke (Boundingbox) abgegeben 
+            </div> </td> 
+          <td>Erfolgt keine Angabe, wird auf die maximale Ausdehnung gezoomt - unter Berücksichtigung der in allen Kartenebenenen definierten Maßstabsbereiche. </td>  
+        </tr> 
+        <tr> 
+          <td>Kartenebene</td> 
+          <td></td> 
+          <td>Kartenebene</td> 
+          <td>Beschreibung der Kartenebene</td> 
+          <td class="mandatoryElement multiplicity-column">1..*</td> 
+          <td><a href="#map_KartenebeneType">KartenebeneType</a></td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>Gruppenebene</td> 
+          <td></td> 
+          <td>Gruppenebene</td> 
+          <td>Gruppierung von Kartenebenen</td> 
+          <td class="multiplicity-column">K..*</td> 
+          <td><a href="#map_GruppenebeneType">GruppenebeneType</a></td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>IsoMetadata</td> 
+          <td></td> 
+          <td>ISO 19119</td> 
+          <td>bettet die ISO 19119 in ihrer XML-Struktur ein, um eine gemeinsame Verarbeitung zu ermöglichen</td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td><a href="#iso_MD_Metadata">MD_Metadata</a></td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr class="complexElement"> 
+          <td id="map_MetadatenType">MetadatenType</td> 
+          <td></td> 
+          <td>Broker-Metadaten</td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>Kurzbeschreibung</td> 
+          <td></td> 
+          <td>Kurzbeschreibung</td> 
+          <td>Kurze inhaltliche Beschreibung der Karte. Im Client werden nur die ersten 500 Zeichen angezeigt, die restlichen Zeichen können dazugeschaltet werden. 
+            <div class="example">
+               Geltungsbereiche der verbindlichen Bauleitplanung. Gesamtbestand festgesetzter und im Verfahren befindlicher Bebauungspläne, einschließlich vorhabenbezogener Bebauungspläne sowie der generellen Bebauungspläne 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string / 4000 Zeichen Hinweis: Die Länge ist abhängig von Konfiguration des Repositorys beim Anwendungsbereiber</td> 
+          <td> 
+            <div>
+               ISO: wird in den abstract [Zeile 25] der 19119 übernommen; 
+            </div> 
+            <div>
+               OGC: Anzeige des abstract aus der 19119 als Abstract im WMS 
+            </div> </td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>Themennutzung</td> 
+          <td></td> 
+          <td>Beschreibung der Nutzungsmöglichkeiten der Karte im Client</td> 
+          <td>URL auf eine Datei, in der beschrieben ist, was man mit der Karte in der Anwendung machen kann. In der Oberfläche wird statt des Links der Text "zur Information" angezeigt. 
+            <div class="example">
+               https://www.waskannich.pdf 
+            </div> </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:anyURI</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>InhaltlicheBeschreibung</td> 
+          <td></td> 
+          <td>Inhaltliche Beschreibung</td> 
+          <td>URL auf eine detaillierte inhaltliche Beschreibung der Karte. 
+            <div class="example">
+               http://@@ServerName@senstadt@@@@text@senstadt@@geltungsbereiche.html 
+            </div> </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:anyURI</td> 
+          <td> 
+            <div>
+               ISO: wird bei der Generierung der ISO 19119 in die Vertriebsangaben in linkage [Zeile 397] und description [Zeile 401] übernommen. Es erfolgt keine Aktualisierung bei Anpassung im Broker, eine erneute Generierung wäre für die Aktualisierung erforderlich. 
+            </div> </td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>TechnischeBeschreibung</td> 
+          <td></td> 
+          <td>Technische Beschreibung</td> 
+          <td>URL auf eine detaillierte technische Beschreibung der Karte. 
+            <div class="example">
+               http://@@ServerName@senstadt@@@@text@senstadt@@tech.html 
+            </div> </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:anyURI</td> 
+          <td> 
+            <div>
+               ISO: wird bei der Generierung der ISO 19119 in die Vertriebsangaben in linkage [Zeile 397] und description [Zeile 401] übernommen. Es erfolgt keine Aktualisierung bei Anpassung im Broker, eine erneute Generierung wäre für die Aktualisierung erforderlich. 
+            </div> </td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>Dienstebeschreibung</td> 
+          <td></td> 
+          <td>Dienstebeschreibung</td> 
+          <td>Angabe der Dienste, welche die in dieser Karte visualisierten Daten bereitstellen. Die Anzeige erfolgt in der Ergebnisliste und Kurzinformation mit Link auf das entsprechende Dienstblatt </td> 
+          <td class="multiplicity-column">0..*</td> 
+          <td><a href="#map_DienstebeschreibungType">DienstebeschreibungType</a></td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>Legende</td> 
+          <td></td> 
+          <td>Legende</td> 
+          <td>Legende zur Karte. Es können ein Text, eine HTML-Seite, eine URL oder ein Link auf ein Bild angegeben werden.</td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td><a href="#map_InhaltType">InhaltType</a></td> 
+          <td> 
+            <div>
+               OGC: Wird als LegendURL in den WMS abgegeben, wenn kein Legendenbild definiert wurde - allerdings nicht mit der korrekten Angabe von Format und Größe, sondern mit Standardwerten. Wird in den Ebenen keine Legende/Legendenbild beschrieben wird die Angabe automatisch an die Ebenen vererbt. 
+            </div> </td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>LegendImage</td> 
+          <td></td> 
+          <td>Legendenbild</td> 
+          <td>Legendenbild zur Karte. Neben der URL zum Bild müssen Format und Größe angegeben werden. Wird für die PDF-Ausgabe und die Abgabe per WMS verwendet." </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td><a href="#map_LegendImageType">LegendImageType</a></td> 
+          <td> 
+            <div>
+               ISO: Wird mit dem Dateinamen (inkl. Pfad), der Beschreibung "Legende" und dem Bildformat in MD_BrowseGraphic [Zeile 48] der ISO 19119 übernommen. 
+            </div> 
+            <div>
+               OGC: Wird als LegendURL in den WMS abgegeben. Wird in den Ebenen keine Legende/Legendenbild beschrieben wird die Angabe automatisch an die Ebenen vererbt. 
+            </div> </td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>Datengrundlage</td> 
+          <td></td> 
+          <td>Datengrundlage</td> 
+          <td>Angabe, auf welcher Datengrundlage die beschriebene Karte erfasst wurde. </td> 
+          <td class="multiplicity-column">0..*</td> 
+          <td><a href="#map_InhaltType">InhaltType</a></td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>Veroeffentlichung</td> 
+          <td></td> 
+          <td>Veröffentichung</td> 
+          <td>Hinweise auf weitere Veröffentlichungen zu den in dem Metadatensatz beschriebenen Daten. </td> 
+          <td class="multiplicity-column">0..*</td> 
+          <td><a href="#map_InhaltType">InhaltType</a></td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>Schlagwoerter</td> 
+          <td></td> 
+          <td>Schlagwörter</td> 
+          <td>Suchbegriffe, Schlüsselwörter, ihr Typ und Quellenangabe; GDI-DE: Keyword "inspireidentifiziert" muss für alle Georessourcen geführt werden, welche inspireidentifiziert sind; Keyword "opendata" wenn zutreffend (siehe Architektur der Geodateninfrastruktur Deutschland: Konventionen zu Metadaten der GDI.DE (Konventionendokument), V1.2, 01.08.2017, Kapitel 2.2 bzw. Kap. 3.5) 
+            <div class="example">
+               Geltungsbereiche, Bebauungsplan, B-Plan, Bplan, Bpläne, B-Pläne 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..*</td> 
+          <td>xsd:string</td> 
+          <td> 
+            <div>
+               ISO: Die Schlagworte werden - ohne Angabe eines Thesaurus in keyword [Zeile 53] der ISO 19119 übernommen. Bei Generierung der 19119 wird das Schlagwort "infoMapAccessService" mit dem GEMET als Thesaurus gesetzt. 
+            </div> 
+            <div>
+               OGC: Anzeige der keywords aus der 19119 als KeywordList im WMS. 
+            </div> </td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>Erstellungsdatum</td> 
+          <td></td> 
+          <td>Erstellungsdatum</td> 
+          <td>Gibt eine Information darüber, wann der beschriebene Datenbestand erzeugt wurde. 
+            <div class="example">
+               2004-05-03 
+            </div> </td> 
+          <td class="multiplicity-column">K..1, eine der drei Datumsangaben ist Pflicht</td> 
+          <td>xsd:string</td> 
+          <td> 
+            <div>
+               ISO: wird als date [Zeile 362] in die 19119 übernommen; kann beim Metadatenabgleich mit dem Wert aus der 19115 (Datum) überschrieben werden 
+            </div> </td> 
+          <td>Schreibweise yyyy-mm-dd beachten: Vier Ziffern für das Jahr, zwei Ziffern für den Monat, zwei Ziffern für den Tag</td>  
+        </tr> 
+        <tr> 
+          <td>Revisionsdatum</td> 
+          <td></td> 
+          <td>Revisionsdatum</td> 
+          <td>Gibt eine Information darüber, wann der beschriebene Datenbestand geändert wurde. 
+            <div class="example">
+               2004-05-03 
+            </div> </td> 
+          <td class="multiplicity-column">K..1, eine der drei Datumsangaben ist Pflicht</td> 
+          <td>xsd:string</td> 
+          <td> 
+            <div>
+               ISO: wird als date [Zeile 362] in die 19119 übernommen; kann beim Metadatenabgleich mit dem Wert aus der 19115 (Datum) überschrieben werden 
+            </div> </td> 
+          <td>Schreibweise yyyy-mm-dd beachten: Vier Ziffern für das Jahr, zwei Ziffern für den Monat, zwei Ziffern für den Tag</td>  
+        </tr> 
+        <tr> 
+          <td>Veroeffentlichungsdatum</td> 
+          <td></td> 
+          <td>Veroeffentlichungsdatum</td> 
+          <td>Gibt eine Information darüber, wann der beschriebene Datenbestand geändert wurde. 
+            <div class="example">
+               2004-05-03 
+            </div> </td> 
+          <td class="multiplicity-column">K..1, eine der drei Datumsangaben ist Pflich</td> 
+          <td>xsd:anyURI</td> 
+          <td> 
+            <div>
+               ISO: wird als date [Zeile 362] in die 19119 übernommen; kann beim Metadatenabgleich mit dem Wert aus der 19115 (Datum) überschrieben werden 
+            </div> </td> 
+          <td>Schreibweise yyyy-mm-dd beachten: Vier Ziffern für das Jahr, zwei Ziffern für den Monat, zwei Ziffern für den Tag</td>  
+        </tr> 
+        <tr> 
+          <td>gueltigVon</td> 
+          <td></td> 
+          <td>gültig von</td> 
+          <td>Gibt eine Information darüber, ab wann der beschriebene Datenbestand gültig ist. </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:string</td> 
+          <td> 
+            <div>
+               ISO: wird als EX_TemporalExtent/extent [351] die 19119 übernommen. 
+            </div> </td> 
+          <td>Schreibweise yyyy-mm-dd beachten: Vier Ziffern für das Jahr, zwei Ziffern für den Monat, zwei Ziffern für den Tag</td>  
+        </tr> 
+        <tr> 
+          <td>gueltigBis</td> 
+          <td></td> 
+          <td>gültig bis</td> 
+          <td>Gibt eine Information darüber, bis wann der beschriebene Datenbestand gültig ist. </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:string</td> 
+          <td> 
+            <div>
+               ISO: wird als EX_TemporalExtent/extent [351] die 19119 übernommen. 
+            </div> </td> 
+          <td>Schreibweise yyyy-mm-dd beachten: Vier Ziffern für das Jahr, zwei Ziffern für den Monat, zwei Ziffern für den Tag</td>  
+        </tr> 
+        <tr> 
+          <td>Vorschau</td> 
+          <td></td> 
+          <td>Vorschau</td> 
+          <td>Vorschaubild zur Anzeige im Client (nur im Geodatenkatalog). </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td><a href="#map_InhaltType">InhaltType</a></td> 
+          <td> 
+            <div>
+               ISO: Wird mit der Beschreibung "Vorschaugrafik" in MD_BrowseGraphic [Zeile 48] der ISO 19119 übernommen. 
+            </div> </td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>RufUrl</td> 
+          <td></td> 
+          <td>Direktstart-URL</td> 
+          <td>URL zum Start der Anwendung mit Anzeige der Karte (externer Aufruf) 
+            <div class="example">
+               http://@@ServerName@senstadt@@/fb/?loginkey=showMap&amp;mapId=[themenId]@senstadt 
+            </div> Wird im METEOR beim Einrichten automatisch gesetzt. </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:anyURI</td> 
+          <td> 
+            <div>
+               ISO: wird bei der Generierung der ISO 19119 in die Vertriebsangaben in linkage [Zeile 397] übernommen. 
+            </div> </td> 
+          <td>Verwendung der externen Aufrufe der Anwendung.</td>  
+        </tr> 
+        <tr> 
+          <td>CapabilitiesUrl</td> 
+          <td></td> 
+          <td>Capabilities-URL</td> 
+          <td>URL zum Dienst der Karte (WMS). Die URL ist Voraussetzung zur Generierung der Dienste-Metadaten (ISO 19119) über den Broker bzw. METEOR. 
+            <div class="example">
+               http://@@ServerName@senstadt@@/fb/wms/senstadt/[themenId] 
+            </div> </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:anyURI</td> 
+          <td> 
+            <div>
+               ISO: beim Generieren der Dienste-Metadaten wird der Wert erstellt und in den connectPoint der Dienste-Metadaten übernommen. 
+            </div> </td> 
+          <td>Verwendung der externen Aufrufe der Anwendung.</td>  
+        </tr> 
+        <tr> 
+          <td>Kontakt</td> 
+          <td></td> 
+          <td>Kontakt</td> 
+          <td>Kontaktangaben zum Datenbestand</td> 
+          <td class="mandatoryElement multiplicity-column">1..*</td> 
+          <td><a href="#map_KontaktType">KontaktType</a></td> 
+          <td> </td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>Bodenaufloesung</td> 
+          <td></td> 
+          <td>Bodenauflösung</td> 
+          <td>Angabe der Bodenauflösung (für Orthophotos). Angabe in Meter. 
+            <div class="example">
+               0.2 
+            </div> </td> 
+          <td class="multiplicity-column">K..1, alternativ zu Maßstabszahl</td> 
+          <td>xsd:double</td> 
+          <td>ISO: kann beim Metadatenabgleich mit dem Wert aus der 19115 (räumliche Auflösung) überschrieben werden </td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>Massstabszahl</td> 
+          <td></td> 
+          <td>Maßstabszahl</td> 
+          <td>Angabe des Erfasungsmaßstabes für die Karte. Dieser gibt Auskunft über die Detailgenauigkeit der Karte. 
+            <div class="example">
+               1000 
+            </div> </td> 
+          <td class="multiplicity-column">K..1, alternativ zu Bodenauflösung</td> 
+          <td>xsd:long</td> 
+          <td>ISO: kann beim Metadatenabgleich mit dem Wert aus der 19115 (räumliche Auflösung) überschrieben werden </td> 
+          <td></td>  
+        </tr> 
+        <tr class="complexElement"> 
+          <td id="map_InhaltType">InhaltType</td> 
+          <td></td> 
+          <td>InhaltType</td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td> </td> 
+          <td>universelles Element zur Kennzeichnung textueller Daten und Referenzen</td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>Typ</td> 
+          <td>Typ</td> 
+          <td>Typ des zu beschreibenden Inhalts. 
+            <div class="example">
+               HTML 
+            </div> Beispiel eines Elements in XML für übergeordnetes Element "Vorschau" (Vorschaugrafik): 
+            <div class="example">
+               &lt;Vorschau Typ="URL"&gt;&lt;Inhalt&gt;http://@@ServerName@senstadt@@@@vorschau@senstadt@@karten/kvor_bplan.gif&lt;/Inhalt&gt;&lt;/Vorschau&gt; 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string / HTML|IMG|URL|XML</td> 
+          <td></td> 
+          <td>Das Element "Inhalt" wird im übergeordneten Element eingetragen, das Attribut "Typ" wird als Attribut im übergeordneten Element angegeben (siehe XML-Beispiel)</td>  
+        </tr> 
+        <tr> 
+          <td>Inhalt</td> 
+          <td></td> 
+          <td>Inhalt</td> 
+          <td>Angabe eines Links, unformatierten bzw. formatierten Textes - in Abhängigkeit des ausgewählten Typs. Typ HTML: 
+            <div class="example">
+               Daten aus der Kaufpreissammlung 
+            </div> Typ IMG: 
+            <div class="example">
+               http://@@ServerName@senstadt@@@@leg@senstadt@@leg_bplan2005.gif 
+            </div> Typ URL: 
+            <div class="example">
+               http://@@ServerName@senstadt@@@@text@senstadt@@geltungsbereiche.html 
+            </div> Typ XML: 
+            <div class="example">
+               &lt;a href="http://www.stadtentwicklung.berlin.de/planen/b-planverfahren/berlin/de/allg.shtml" target="_blank"&gt;Allgemeine Informationen zu Bebauungsplanverfahren&lt;/a&gt; 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td>Soll formatierter Text hinterlegt werden, ist der Typ=XML zu wählen und der Text zusätzlich in ein &lt;div&gt;-Element einzubetten. Er muss den Regeln der HTML-Codierung entsprechen.</td>  
+        </tr> 
+        <tr class="complexElement"> 
+          <td id="map_DienstebeschreibungType">DienstebeschreibungType</td> 
+          <td></td> 
+          <td>Dienstebeschreibung</td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td> </td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>typ</td> 
+          <td>Service-Typ</td> 
+          <td>Typ des Services / Dienstes 
+            <div class="example">
+               WMS 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string 
+            <div>
+               WMS|WFS|ATOM 
+            </div> </td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>url</td> 
+          <td>Service-URL</td> 
+          <td>Angabe eines Links, unformatierten bzw. formatierten Textes - in Abhängigkeit des ausgewählten Typs. 
+            <div class="example">
+               http://@@ServerName@senstadt@@/fb/berlin/service.jsp?id=bplan@senstadt&amp;type=WMS 
+            </div> oder 
+            <div class="example">
+               http://@@ServerName@senstadt@@/fb/berlin/service.jsp?id=re_bplan@senstadt&amp;type=WFS&amp;themeType=spatial 
+            </div> oder 
+            <div class="example">
+               http://@@ServerName@senstadt@@/fb/berlin/service.jsp?id=a_fnp_2015@senstadt&amp;type=FEED 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:anyURI</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr class="complexElement"> 
+          <td id="map_LegendImageType">LegendImageType</td> 
+          <td></td> 
+          <td>Legendenbild</td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td> </td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>format</td> 
+          <td>Format</td> 
+          <td>Bildformat des Legendenbildes 
+            <div class="example">
+               image/gif 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string 
+            <div>
+               image/gif|image/jpg|image/png 
+            </div> </td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>url</td> 
+          <td>URL</td> 
+          <td>URL des Legendenbildes 
+            <div class="example">
+               http://@@ServerName@senstadt@@@@leg@senstadt@@leg_bplan2005.gif 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:anyURI</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>width</td> 
+          <td>Breite</td> 
+          <td>Breite des Legendenbildes in Pixeln 
+            <div class="example">
+               261 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:integer</td> 
+          <td></td> 
+          <td>Legendenbreite (ca. 350px) so wählen, dass die Anzeige im Client möglichst ohne horizontales Scrollen erfolgen kann.</td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>height</td> 
+          <td>Höhe</td> 
+          <td>Höhe des Legendenbildes in Pixeln 
+            <div class="example">
+               494 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:integer</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr class="complexElement"> 
+          <td id="map_KontaktType">KontaktType</td> 
+          <td></td> 
+          <td>Kontakt</td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td> </td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>Name</td> 
+          <td></td> 
+          <td>Name</td> 
+          <td>Name des Ansprechpartners 
+            <div class="example">
+               Herr Mustermann 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string</td> 
+          <td>ISO: Angabe aus dem 1. Kontakt wird als individualName [Zeile 375] in den 1. Kontakt der 19119 übernommen</td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>Organisationsname</td> 
+          <td></td> 
+          <td>Organisationsname</td> 
+          <td>Organisationsname des Ansprechpartners 
+            <div class="example">
+               Senatsverwaltung für Stadtentwicklung und Wohnen Berlin 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string</td> 
+          <td>ISO: Angabe aus dem 1. Kontakt wird als organisationName [Zeile 376] in den 1. Kontakt der 19119 übernommen</td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>Kontaktart</td> 
+          <td></td> 
+          <td>Kontaktart</td> 
+          <td>„fachlicher“ oder „technischer“ Ansprechpartner 
+            <div class="example">
+               fachlich 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string 
+            <div>
+               fachlich|technisch 
+            </div> </td> 
+          <td>ISO: Kontaktart wird in "Funktion/Rolle" in Dienste-Metadaten abgebildet --&gt; 1. Kontakt wird als "pointOfContact" in Dienste-Metadaten angegeben.</td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>Telefon</td> 
+          <td></td> 
+          <td>Telefon</td> 
+          <td>Telefonnummer des Ansprechpartners 
+            <div class="example">
+               +49-30-9025-0000 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string</td> 
+          <td>ISO: Angabe aus dem 1. Kontakt wird als voice [Zeile 408] in den 1. Kontakt der 19119 übernommen</td> 
+          <td>BE: Langschreibweise, wie im Beispiel gezeigt, verwenden</td>  
+        </tr> 
+        <tr> 
+          <td>Fax</td> 
+          <td></td> 
+          <td>Fax</td> 
+          <td>Faxnummer des Ansprechpartners 
+            <div class="example">
+               +49-30-9025-0099 
+            </div> </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:string</td> 
+          <td>ISO: Angabe aus dem 1. Kontakt wird als facsimile [Zeile 409] in den 1. Kontakt der 19119 übernommen</td> 
+          <td>BE: Langschreibweise, wie im Beispiel gezeigt, verwenden</td>  
+        </tr> 
+        <tr> 
+          <td>Adresse</td> 
+          <td></td> 
+          <td>Adresse</td> 
+          <td>Adresse des Ansprechpartners</td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td><a href="#map_AdresseType">AdresseType</a></td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr class="complexElement"> 
+          <td id="map_AdresseType">AdresseType</td> 
+          <td></td> 
+          <td>Adresse</td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td> </td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>Strasse</td> 
+          <td></td> 
+          <td>Strasse</td> 
+          <td>Strasse und Hausnummer in der Adressenangabe 
+            <div class="example">
+               Württembergische Straße 6 
+            </div> </td> 
+          <td class="multiplicity-column">0..*</td> 
+          <td>xsd:string</td> 
+          <td>ISO: Angabe aus dem 1. Kontakt wird als deliveryPoint [Zeile 381] in den 1. Kontakt der 19119 übernommen</td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>Stadt</td> 
+          <td></td> 
+          <td>Stadt</td> 
+          <td>Ortsname in der Adressenangabe 
+            <div class="example">
+               Berlin 
+            </div> </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:string</td> 
+          <td>ISO: Angabe aus dem 1. Kontakt wird als city [Zeile 382] in den 1. Kontakt der 19119 übernommen</td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>Bundesland</td> 
+          <td></td> 
+          <td>Bundesland</td> 
+          <td>Bundesland in der Adressenangabe 
+            <div class="example">
+               Berlin 
+            </div> </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:string 
+            <div>
+               fachlich|technisch 
+            </div> </td> 
+          <td>ISO:Angabe aus dem 1. Kontakt wird als administriveArea [Zeile 383] in den 1. Kontakt der 19119 übernommen </td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>Postleitzahl</td> 
+          <td></td> 
+          <td>Postleitzahl</td> 
+          <td>Postleitzahl in der Adressenangabe 
+            <div class="example">
+               10707 
+            </div> </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:string</td> 
+          <td>ISO: Angabe aus dem 1. Kontakt wird als postalCode [Zeile 384] in den 1. Kontakt der 19119 übernommen</td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>Land</td> 
+          <td></td> 
+          <td>Land</td> 
+          <td>Land in der Adressenangabe 
+            <div class="example">
+               Deutschland 
+            </div> </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:string</td> 
+          <td>ISO: Angabe aus dem 1. Kontakt wird als country [Zeile 385] in den 1. Kontakt der 19119 übernommen</td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>EMail</td> 
+          <td></td> 
+          <td>E-Mail</td> 
+          <td>E-Mail des Ansprechpartners 
+            <div class="example">
+               mail@sensw.berlin.de 
+            </div> </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:string</td> 
+          <td>ISO: Angabe aus dem 1. Kontakt wird als electronicMailAddress [Zeile 386] in den 1. Kontakt der 19119 übernommen </td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>WWW</td> 
+          <td></td> 
+          <td>Web-Site</td> 
+          <td>Link auf eine Web-Seite des Ansprechpartners 
+            <div class="example">
+               https://www.stadtentwicklung.berlin.de/kontakt/ 
+            </div> </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:anyURI</td> 
+          <td>ISO: Angabe aus dem 1. Kontakt wird als linkage [Zeile 387] in den 1. Kontakt der 19119 übernommen </td> 
+          <td></td>  
+        </tr> 
+        <tr class="complexElement"> 
+          <td id="map_AusdehnungType">AusdehnungType</td> 
+          <td></td> 
+          <td>Ausdehnung</td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>crs</td> 
+          <td>Koordinatenreferenzsystem</td> 
+          <td>Koordinatenreferenzsystem des Ausschnitts 
+            <div class="example">
+               EPSG:25833 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>xlu</td> 
+          <td>x-Koordinate / links unten</td> 
+          <td>x-Koordinate / links unten der BBOX 
+            <div class="example">
+               369097.8529 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:double</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>ylu</td> 
+          <td>y-Koordinate / links unten</td> 
+          <td>y-Koordinate / links unten der BBOX 
+            <div class="example">
+               5799298.1358 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:double</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>xro</td> 
+          <td>x-Koordinate / rechts oben</td> 
+          <td>x-Koordinate / rechts oben der BBOX 
+            <div class="example">
+               416865.038 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:double</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>yro</td> 
+          <td>y-Koordinate / rechts oben</td> 
+          <td>y-Koordinate / rechts oben der BBOX 
+            <div class="example">
+               5838236.2097 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:double</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr class="complexElement"> 
+          <td id="map_UebersichtskarteType">UebersichtskarteType</td> 
+          <td></td> 
+          <td>Übersichtskarte</td> 
+          <td></td> 
+          <td></td> 
+          <td>erweitert AusdehnungType</td> 
+          <td> </td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>url</td> 
+          <td>URL</td> 
+          <td>URL auf das Bild der Übersichtskarte 
+            <div class="example">
+               http://@@ServerName@senstadt@@/fb_daten/uekarten/uekarte/bplan.gif 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:anyURI</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr class="complexElement"> 
+          <td id="map_GruppenebeneType">GruppenebeneType</td> 
+          <td></td> 
+          <td>Gruppenebene</td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td> </td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>name</td> 
+          <td>Identifikator</td> 
+          <td>ID der Gruppenebene 
+            <div class="example">
+               8 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string 
+            <div>
+               Für die Vergabe des Namens sind nur folgende Zeichen zulässig: Buchstaben (ohne Umlaute und ß), Zahlen, Minuszeichen, Punkte, Doppelpunkte und Unterstriche! 
+            </div> </td> 
+          <td>OGC: Anzeige der id als Name des Layers im WMS</td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>Titel</td> 
+          <td></td> 
+          <td>Titel</td> 
+          <td>Titel der Gruppenebene 
+            <div class="example">
+               Siedlung 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string</td> 
+          <td>OGC: Anzeige des Titel als Title Layers im WMS</td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>Gruppenebene</td> 
+          <td></td> 
+          <td>Gruppenebene</td> 
+          <td>Untergruppenebene 
+            <div>
+               Beispiel siehe Zeile 102 
+            </div> </td> 
+          <td class="multiplicity-column">K..*</td> 
+          <td><a href="#map_GruppenebeneType">GruppenebeneType</a></td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr class="complexElement"> 
+          <td id="map_KartenebeneType">KartenebeneType</td> 
+          <td></td> 
+          <td>Kartenebene</td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td> </td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>activeLayer</td> 
+          <td>aktive Ebene</td> 
+          <td>Kennzeichnung, ob in der Kartenebene standardmäßig (beim Aufruf der Karte) selektiert werden kann 
+            <div class="example">
+               true 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:boolean / true|<u>false</u></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>activeLinkLayer</td> 
+          <td>aktive Linkebene</td> 
+          <td>Kennzeichnung, ob in der Kartenebene standardmäßig (beim Aufruf der Karte) die hinterlegten Links abgerufen werden können. 
+            <div class="example">
+               false 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:boolean / true|<u>false</u></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>layerAlias</td> 
+          <td>Layer-Alias</td> 
+          <td>Definition eines Alias für die Kartenebene. Dieser wird bei der Beschreibung eines Sachdatensatzes angegeben, um aus der Sachdatenpräsentation in die Karte zu wechseln und auf ein Element zoomen zu können. 
+            <div class="example">
+               bp_fest 
+            </div> </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:string / true|<u>false</u></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>mt_klasse</td> 
+          <td>Merkmalsträgerklasse</td> 
+          <td>Metadatensätze mit gleicher Merkmalsträgerklasse sind miteinander verknüpft. 
+            <div class="example">
+               bplan@senstadt 
+            </div> für alle Daten, die sich auf die Geometrien der Bebauungspläne (Geltungsbereiche) beziehen </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td>bei der Aufnahme des Metadatensatzes ins Repository muss die MTK dort vorhanden sein. Die Angabe muss immer die entsprechende Domäne enthalten: none@senstadt, denkmal@senstadt</td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>name</td> 
+          <td>Identifikator</td> 
+          <td>Bezeichnung der Kartenebene für die Abgabe über WMS 
+            <div class="example">
+               5 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string / 80 Zeichen 
+            <div>
+               Hinweis: Die Länge ist abhängig von Konfiguration des Repositorys beim Anwendungsbereiber. Für die Vergabe des Namens sind nur folgende Zeichen zulässig: Buchstaben (ohne Umlaute und ß), Zahlen, Minuszeichen, Punkte, Doppelpunkte und Unterstriche! 
+            </div> </td> 
+          <td> 
+            <div>
+               BROKER: Vom System wird ein Name vorgegeben. Dieser kann vom METEOR-Redakteur jederzeit geändert werden. Der Ebenenname wird für die interne Verarbeitung der Ebene benötigt und - wenn die Karte über einen Web Map Service abgegeben wird - als Layername publiziert. Aus diesem Grund muss er den unter "Hinweise" aufgeführten technischen Vorgaben entsprechen. 
+            </div> 
+            <div>
+               OGC: Anzeige des name als Name des Layers im WMS 
+            </div> </td> 
+          <td>bei der Aufnahme des Metadatensatzes ins Repository muss die MTK dort vorhanden sein. Die Angabe muss immer die entsprechende Domäne enthalten: none@senstadt, denkmal@senstadt</td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>Reihenfolge</td> 
+          <td>Reihenfolge</td> 
+          <td>Konfiguration der Anzeige der Ebenen in der Kartenstruktur. Soll eine Ebene nur im Kartenbild sichtbar sein, aber nicht in der Kartenstruktur (Broker-Client) angezeigt sein, darf für diese Ebene dieses Attribut nicht vergeben werden. Erfolgt keine Angabe, werden die Ebenen in Zeichenreihenfolge angezeigt. 
+            <div class="example">
+               2 
+            </div> </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:integer</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>selektierbar</td> 
+          <td>selektierbar</td> 
+          <td>Hier kann angegeben werden, ob in dieser Brokerebene überhaupt selektiert werden kann. Die Angabe, ob sofort nach Aufruf der Karte in dieser Ebene selektiert wird (aktive Selektionsebene), erfolgt über "aktive Ebene". 
+            <div class="example">
+               true 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:boolean / true|<u>false</u></td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>sichtbar</td> 
+          <td>sichtbar</td> 
+          <td>Vorbelegung, ob die Ebene beim Start der Kartenpräsentation angezeigt werden soll. 
+            <div class="example">
+               true 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:boolean / <u>true</u>|false</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>Titel</td> 
+          <td></td> 
+          <td>Titel</td> 
+          <td>Titel der Kartenebene 
+            <div class="example">
+               Baudenkmal 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string / 255 Zeichen Hinweis: Die Länge ist abhängig von Konfiguration des Repositorys beim Anwendungsbereiber.</td> 
+          <td>OGC: Anzeige des Titel als Title Layers im WMS </td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>Kurzbeschreibung</td> 
+          <td></td> 
+          <td>Kurzbeschreibung</td> 
+          <td>Kurzbeschreibung der Kartenebene 
+            <div class="example">
+               Baudenkmal 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string</td> 
+          <td>OGC: Anzeige der Kurzbeschreibung als Abstract im WMS des Layers im WMS </td> 
+          <td>Sollte die Zeichenlänge der Kurzbeschreibung der Karte nicht überschreiten</td>  
+        </tr> 
+        <tr> 
+          <td>Legende</td> 
+          <td></td> 
+          <td>Legende</td> 
+          <td>Legende zur Kartenebene. Es können ein Text, eine HTML-Seite, eine URL oder ein Link auf ein Bild angegeben werden </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td><a href="#map_InhaltType">InhaltType</a></td> 
+          <td>OGC: Wird als LegendURL in den WMS abgegeben, wenn kein Legendenbild definiert wurde - allerdings nicht mit der korrekten Angabe von Format und Größe, sondern mit Standardwerten. Wird in den Ebenen keine Legende/Legendenbild beschrieben wird die Angabe aus der Karte automatisch an die Ebenen vererbt.</td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>LegendImage</td> 
+          <td></td> 
+          <td>Legendenbild</td> 
+          <td>Legendenbild zur Kartenebene. Neben der URL zum Bild müssen Format und Größe angegeben werden. Wird für die Abgabe per WMS verwendet. </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td><a href="#map_LegendImageType">LegendImageType</a></td> 
+          <td>OGC: Wird als LegendURL in den WMS abgegeben. Wird in den Ebenen keine Legende/Legendenbild beschrieben wird die Angabe aus der Karte automatisch an die Ebenen vererbt.</td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>SachdatenID</td> 
+          <td></td> 
+          <td>Sachdaten-ID</td> 
+          <td>ID des zugeordneten Sachdatensatzes </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>SelektionsAlias</td> 
+          <td></td> 
+          <td>Selektionsalias</td> 
+          <td>Die Definition einer alternativen Selektionsdarstellung ist nur für Kartenebenen von GIS-TYP YADE relevant, für die eine Selektion definiert wurde. Für spatiale Karte und WMS-Karten kann die alternative Selektionsdarstellung direkt in der Kartenebene definiert werden. </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td><a href="#map_SelektionsAliasType">SelektionsAliasType</a></td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>Textposition</td> 
+          <td></td> 
+          <td>Tooltip</td> 
+          <td>Tooltip beim Mouseover in der Karte. </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td><a href="#map_TextpositionType">TextpositionType</a></td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>SignaturText</td> 
+          <td></td> 
+          <td>Signatur-Text</td> 
+          <td>Angabe einer Signatur. </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td><a href="#map_SignaturTextType">SignaturTextType</a></td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>GIS-Typ</td> 
+          <td></td> 
+          <td>GIS-Typ</td> 
+          <td>GIS-Typ Beschreibung der Art der Datenquelle 
+            <div class="example">
+               yade 
+            </div> </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>yade|ogcmap|spatial</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>GIS-Typ</td> 
+          <td></td> 
+          <td>GIS-Typ</td> 
+          <td>Adresse der Datenquelle 
+            <div>
+               Beispiel siehe Datentyp GIS-ServerNameType 
+            </div> </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td><a href="#map_GIS-ServerNameType">GIS-ServerNameType</a></td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>CrsInfo</td> 
+          <td></td> 
+          <td>Koordinatenreferenzsysteme</td> 
+          <td>Koordinatenreferenzsysteme der Kartenebene </td> 
+          <td class="multiplicity-column">0..*</td> 
+          <td><a href="#map_CrsInfoType">CrsInfoType</a></td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>Style</td> 
+          <td></td> 
+          <td>Style</td> 
+          <td>Für jede Kartenebene kann ein Style angegeben werden. Für INSPIRE-betroffene Datensätze (mit ausgewähltem Annex-Thema) ist die Angabe Pflicht. Die Anzeige des Styles im WMS erfolgt nach folgenden Regeln: Metadatentyp 
+            <div>
+               ISO: 
+              <div class="example">
+                 gdi_default 
+              </div> 
+            </div> 
+            <div>
+               INSPIRE betroffen (ohne Annex-Thema): 
+              <div class="example">
+                 inspire_common:Default 
+              </div> 
+            </div> 
+            <div>
+               INSPIRE transfomiert (mit Annex-Thema): 
+              <div class="example">
+                 [Verwendung des hier angegebenen Styles] 
+              </div> 
+            </div> </td> 
+          <td class="multiplicity-column">K..1, Pflicht wenn inspireID angegeben</td> 
+          <td><a href="#map_StyleType">StyleType</a></td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr class="complexElement"> 
+          <td id="#map_SelektionsAliasType">SelektionsAliasType</td> 
+          <td></td> 
+          <td>Selektionsalias</td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>aktiv</td> 
+          <td>aktiv</td> 
+          <td>Kennzeichnung, ob SelektionsAlias aktiv 
+            <div class="example">
+               true 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:boolean / <u>true</u>|false</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>SelektionsServer</td> 
+          <td></td> 
+          <td>Selektionsserver</td> 
+          <td>Auswahl der Datenquelle für den Selektionsalias, aktuell nur "Datenbank" verfügbar </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td id="#map_SelektionsServerType">SelektionsServerType</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>Darstellung</td> 
+          <td></td> 
+          <td>Darstellung</td> 
+          <td>Angaben zu Schriftfarbe, Schriftart, Schriftgröße und Schriftstil </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td id="#map_DarstellungType">DarstellungType</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr class="complexElement"> 
+          <td id="map_SelektionsServerType">SelektionsServerType</td> 
+          <td></td> 
+          <td>Selektionsserver</td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>Datenbank</td> 
+          <td></td> 
+          <td>Datenbank</td> 
+          <td>Informationen über die Datenbank </td> 
+          <td class="multiplicity-column">K..1</td> 
+          <td id="#map_DatenbankType">DatenbankType</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr class="complexElement"> 
+          <td id="map_DatenbankType">DatenbankType</td> 
+          <td></td> 
+          <td>Datenbank</td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>Datenbankverbindung</td> 
+          <td></td> 
+          <td>Datenbankverbindung</td> 
+          <td>Beschreibung der Datenbankverbindung </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td><a href="#map_DatenbankverbindungType">DatenbankverbindungType</a></td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>Datenbanktabelle</td> 
+          <td></td> 
+          <td>Datenbanktabelle</td> 
+          <td>Beschreibung der Datenbanktabelle </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td><a href="#map_DatenbanktabelleType">DatenbanktabelleType</a></td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr class="complexElement"> 
+          <td id="map_DatenbankverbindungType">DatenbankverbindungType</td> 
+          <td></td> 
+          <td>Datenbankverbindung</td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>connect</td> 
+          <td>Verbindungsstring</td> 
+          <td>Verbindungsstring der Datenbank 
+            <div class="example">
+               jdbc:oracle:thin:[dbuser]/[dbpasswd]@[server]:1521:[dbAlias] 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>driver</td> 
+          <td>Datenbanktreiber</td> 
+          <td>Name des Datenbanktreibers 
+            <div class="example">
+               oracle.jdbc.OracleDriver 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr class="complexElement"> 
+          <td id="map_DatenbanktabelleType">DatenbanktabelleType</td> 
+          <td></td> 
+          <td>Datenbanktabelle</td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>name</td> 
+          <td>Datenbanktabelle</td> 
+          <td>Name der Datenbanktabelle </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>keyColumn</td> 
+          <td>Schlüsselspalte</td> 
+          <td>Name der Schlüsselspalte </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>valueColumn</td> 
+          <td>Wertespalte</td> 
+          <td>Name der Wertespalte </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr class="complexElement"> 
+          <td id="map_DarstellungType">DarstellungType</td> 
+          <td></td> 
+          <td>Darstellung</td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>Font</td> 
+          <td></td> 
+          <td>Schriftart</td> 
+          <td>Angabe zur verwendeten Schrift </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td><a href="#map_FontType">FontType</a></td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr class="complexElement"> 
+          <td id="map_FontType">FontType</td> 
+          <td></td> 
+          <td>Schrift</td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>color</td> 
+          <td>Farbe</td> 
+          <td>Schriftfarbe 
+            <div class="example">
+               #FF0000 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>name</td> 
+          <td>Bezeichnung</td> 
+          <td>Schriftart 
+            <div class="example">
+               Arial 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>size</td> 
+          <td>Schriftgröße</td> 
+          <td>Schriftgröße 
+            <div class="example">
+               12 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:integer</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>style</td> 
+          <td>Schriftstil</td> 
+          <td>Schriftstil 
+            <div class="example">
+               BOLD 
+            </div> </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr class="complexElement"> 
+          <td id="map_TextPositionType">TextPositionType</td> 
+          <td></td> 
+          <td>Textposition</td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>TextpositionDatenbank</td> 
+          <td></td> 
+          <td>Datenbank</td> 
+          <td>Informationen über die Datenbank</td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td><a href="#map_TextpositionDatenbankType">TextpositionDatenbankType</a></td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr class="complexElement"> 
+          <td id="map_TextpositionDatenbankType">TextpositionDatenbankType</td> 
+          <td></td> 
+          <td>Textposition: Datenbank</td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>TextpositionDatenbankverbindung</td> 
+          <td></td> 
+          <td>Datenbankverbindung</td> 
+          <td>Beschreibung der Datenbankverbindung </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td><a href="#map_TextpositionDatenbankverbindungType">TextpositionDatenbankverbindungType</a></td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>Datenbanktabelle</td> 
+          <td></td> 
+          <td>Datenbanktabelle</td> 
+          <td>Beschreibung der Datenbanktabelle </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td><a href="#map_TextpositionDatenbanktabelleType">TextpositionDatenbanktabelleType</a></td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr class="complexElement"> 
+          <td id="map_TextpositionDatenbankverbindungType">TextpositionDatenbankverbindungType</td> 
+          <td></td> 
+          <td>Textposition: Datenbankverbindung</td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>connect</td> 
+          <td>Verbindungsstring</td> 
+          <td>Verbindungsstring der Datenbank 
+            <div class="example">
+               jdbc:oracle:thin:[dbuser]/[dbpasswd]@[server]:1521:[dbAlias] 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td>Es handelt sich hierbei um ein "Complex Text-Only Element", d. h. zusätzlich zu den Attributen ist der Wert direkt in den "Content" (auch "Text") des Elements einzutragen. Beispiel für vollständig instanziiertes Element:</td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>driver</td> 
+          <td>Datenbanktreiber</td> 
+          <td>Name des Datenbanktreibers 
+            <div class="example">
+               oracle.jdbc.OracleDriver 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr class="complexElement"> 
+          <td id="map_TextpositionDatenbanktabelleType">TextpositionDatenbanktabelleType</td> 
+          <td></td> 
+          <td>Textposition: Datenbankwerte</td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>crs</td> 
+          <td>Koordinatenreferenzsystem</td> 
+          <td>Koordinatenreferenzsystem der BBOX der Tooltips 
+            <div class="example">
+               EPSG:25833 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>name</td> 
+          <td>Datenbanktabelle</td> 
+          <td>Name der Datenbanktabelle </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>xpos</td> 
+          <td>x-Tooltip-Koordinate</td> 
+          <td>Name der Tabellenspalte, die die x-Koordinate der Position des Tooltips enthält </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>ypos</td> 
+          <td>y-Tooltip-Koordinate</td> 
+          <td>Name der Tabellenspalte, die die y-Koordinate der Position des Tooltips enthält </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>x1</td> 
+          <td>x-Koordinate / links unten</td> 
+          <td>Spalte mit der x-Koordinate der linken unteren Ecke des Bereichs, in dem der Tooltip angezeigt wird </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>x2</td> 
+          <td>x-Koordinate / rechts oben</td> 
+          <td>Spalte mit der x-Koordinate der rechten oberen Ecke des Bereichs, in dem der Tooltip angezeigt wird </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>y1</td> 
+          <td>y-Koordinate / links unten</td> 
+          <td>Spalte mit der y-Koordinate der linken unteren Ecke des Bereichs, in dem der Tooltip angezeigt wird </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>y2</td> 
+          <td>y-Koordinate / rechts oben</td> 
+          <td>Spalte mit der y-Koordinate der rechten oberen Ecke des Bereichs, in dem der Tooltip angezeigt wird </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr class="complexElement"> 
+          <td id="map_SignaturTextType">SignaturTextType</td> 
+          <td></td> 
+          <td>Signatur</td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>font</td> 
+          <td>Schriftart</td> 
+          <td>Schriftart des Signaturtexts 
+            <div class="example">
+               Arial 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>fontColor</td> 
+          <td>Farbe</td> 
+          <td>Schriftfarbe des Signaturtexts 
+            <div class="example">
+               #0066FF 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>fontSize</td> 
+          <td>Schriftgröße</td> 
+          <td>Schriftgröße des Signaturtexts 
+            <div class="example">
+               12 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:integer</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>fontStyle</td> 
+          <td>Schriftstil</td> 
+          <td>Schriftstil 
+            <div class="example">
+               BOLD 
+            </div> </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:string / BOLD|ITALIC|BOLDITALIC</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>fontTransparenz</td> 
+          <td>Transparenz</td> 
+          <td>Transparenz des Signaturtexts 0: vollständig transparent 255: vollständig deckend (opaque) wird im METEOR vom Benutzer von 0 - 100 angegeben und umgerechnet auf den Bereich 0 - 255 
+            <div class="example">
+               128 
+            </div> </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:integer</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr class="complexElement"> 
+          <td id="map_GIS-ServerNameType">GIS-ServerNameType</td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td>erweitert xsd:string</td> 
+          <td></td> 
+          <td>Es handelt sich hierbei um ein "Complex Text-Only Element", d. h. zusätzlich zu den Attributen ist der Wert direkt in den "Content" (auch "Text") des Elements einzutragen. Beispiel für vollständig instanziiertes Element: 
+            <div class="example">
+               &lt;GIS-ServerName httpUserName="DerBenutzernameZuEinemGisServer" httpUserPassword="DasPasswortZuEinemGisServer"&gt;[GisServerUrl]&lt;/GIS-ServerName&gt; 
+            </div> </td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>httpUserName</td> 
+          <td>Benutzername</td> 
+          <td>Name des Benutzers </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td>kann auch für HTTPS-Authentifizierung verwendet werden.</td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>httpUserPassword</td> 
+          <td>Benutzerpasswort</td> 
+          <td>Passwort des Benutzers </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td>kann auch für HTTPS-Authentifizierung verwendet werden.</td>  
+        </tr> 
+        <tr class="complexElement"> 
+          <td id="map_CrsInfoType">CrsInfoType</td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>crs</td> 
+          <td>Koordinatenreferenzsystem</td> 
+          <td>Koordinatenreferenzsystem für die Anzeige im Client und im WMS-Dienst 
+            <div class="example">
+               EPSG:25833 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>minZoomExtent</td> 
+          <td>Mindestausschnitt</td> 
+          <td>Mindestwert für die Ausschnittsgröße beim Wechsel von Sachdaten- in die Kartenpräsentation 
+            <div class="example">
+               5.5 
+            </div> </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:double</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>Spatial</td> 
+          <td></td> 
+          <td>Datenquelle: Datenbank</td> 
+          <td>Datenbankbasierte Datenquelle </td> 
+          <td class="multiplicity-column">K..1, Alternative zu Ogc und Zugriffsinfo</td> 
+          <td><a href="#map_SpatialType">SpatialType</a></td> 
+          <td></td> 
+          <td>.</td>  
+        </tr> 
+        <tr> 
+          <td>Ogc</td> 
+          <td></td> 
+          <td>Datenquelle: Datenbank</td> 
+          <td>Datenbankbasierte Datenquelle </td> 
+          <td class="multiplicity-column">K..1, Alternative zu Spatial und Zugriffsinfo</td> 
+          <td><a href="#map_OgcType">OgcType</a></td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>Zugriffsinfo</td> 
+          <td></td> 
+          <td>Datenquelle: YADE</td> 
+          <td>Datenquelle: YADE 
+            <div class="example"> 
+              <div>
+                 mapGisMetaData.Yade.Layer.0=Baudenkmal 
+              </div> 
+              <div>
+                 mapGisMetaData.Yade.selectionLayer.0=Baudenkmal 
+              </div> 
+              <div>
+                 mapGisMetaData.Yade.pickMode=pmAll 
+              </div> 
+              <div>
+                 mapGisMetaData.Yade.selectionElements=seArea 
+              </div> 
+              <div>
+                 mapGisMetadata.Yade.yka=k:\[pfadangabe]\[dateiname].YKA 
+              </div> 
+            </div> </td> 
+          <td class="multiplicity-column">K..1, Alternative zu Ogc und Spatial</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>Scale</td> 
+          <td></td> 
+          <td>Maßstabsbereich</td> 
+          <td>Maßstabsbereich, in dem die Karte verfügbar ist </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td><a href="#map_ScaleType">ScaleType</a></td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr class="complexElement"> 
+          <td id="map_StyleType">StyleType</td> 
+          <td></td> 
+          <td>Style</td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>name</td> 
+          <td>Stylename</td> 
+          <td>Name des Styles </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:string</td> 
+          <td>OGC: Name des Styles an der Kartenebene im WMS</td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>title</td> 
+          <td>Titel des Styles</td> 
+          <td> </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:string</td> 
+          <td>OGC: Title des Styles an der Kartenebene im WMS</td> 
+          <td></td>  
+        </tr>  
+        <tr class="complexElement"> 
+          <td id="map_OgcType">OgcType</td> 
+          <td></td> 
+          <td>Datenquelle: OGC</td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>activeLayer</td> 
+          <td></td> 
+          <td> </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:boolean</td> 
+          <td>OGC: Name des Styles an der Kartenebene im WMS</td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>crs</td> 
+          <td>Koordinatenreferenzsystem</td> 
+          <td>Koordinatenreferenzsystem der Daten. Die Koordinatenreferenzsysteme sollen mit dem im CrsInfo angegebenen Koordinatenreferenzsystem übereinstimmen 
+            <div class="example">
+               EPSG:25833 
+            </div> </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>httpUserName</td> 
+          <td>Benutzername</td> 
+          <td>Name des Benutzers </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td>kann auch für HTTPS-Authentifizierung verwendet werden.</td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>httpUserPassword</td> 
+          <td>Benutzerpasswort</td> 
+          <td>Passwort des Benutzers </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td>kann auch für HTTPS-Authentifizierung verwendet werden.</td>  
+        </tr> 
+        <tr> 
+          <td>SelectionStyleUrl</td> 
+          <td></td> 
+          <td>SLD-URL</td> 
+          <td>Angabe einer URL einer SLD für die Darstellung der selektierten Geometrien. 
+            <div class="example">
+               file:/e:/pfadangabe/sld/selection.sld 
+            </div> </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:anyURI</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>Oracle9iServer</td> 
+          <td></td> 
+          <td>Oracle9i-Spatialserver</td> 
+          <td>Spatialserver vom Typ Oracle9i </td> 
+          <td class="multiplicity-column">K..1, Pflicht wenn PostGis oder WFS nicht angegeben</td> 
+          <td><a href="map_Oracle9iServerType">Oracle9iServerType</a></td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>PostGisServer</td> 
+          <td></td> 
+          <td>PostGis-Spatialserver</td> 
+          <td>Spatialserver vom Typ PostGis </td> 
+          <td class="multiplicity-column">K..1, Pflicht wenn Oracle9i oder WFS nicht angegeben</td> 
+          <td><a href="#map_PostGisServerType">PostGisServerType</a></td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>WfsServer</td> 
+          <td></td> 
+          <td>WFS-Spatialserver</td> 
+          <td>Spatialserver vom Typ WFS </td> 
+          <td class="multiplicity-column">K..1, Pflicht wenn PostGis oder Oracle9i nicht angegeben</td> 
+          <td><a href="#map_WfsServerType">WfsServerType</a></td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>LayerName</td> 
+          <td></td> 
+          <td>Layer-Name</td> 
+          <td>Name der Kartenebene des WMS-Dienstes 
+            <div class="example">
+               41 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>StyleName</td> 
+          <td></td> 
+          <td>Style-Name</td> 
+          <td>Name des Styles der Kartenebene 
+            <div class="example">
+               default 
+            </div> </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr class="complexElement"> 
+          <td id="map_SpatialType">Spatial</td> 
+          <td></td> 
+          <td>Datenquelle: Spatial allgemein</td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>activeLayer</td> 
+          <td></td> 
+          <td> </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:boolean</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>crs</td> 
+          <td>Koordinatenreferenzsystem</td> 
+          <td>Koordinatenreferenzsystem der Daten. Bestehen zw. diesem CRS und dem CRS in CRSInfo Unterschiede, rechnet der Broker um! 
+            <div class="example">
+               EPSG:25833 
+            </div> </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>drawOnlySelection</td> 
+          <td>Auswahlzeichnung</td> 
+          <td>Kennzeichnung, ob nur selektierte Elemente gezeichnet werden sollen 
+            <div class="example">
+               false 
+            </div> </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:boolean</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>selectionDistance</td> 
+          <td>Selektionstoleranz</td> 
+          <td>"Fangbereich" für die Einzelselektion. Sollte immer dann angegeben werden, wenn punktförmige und ggf. linienförmige Elemente im Datenbestand enthalten sind. Der Wert erzeugt aus der Position der Einzelselektion ein Selektionsrechteck, in dem die Geometrie gesucht wird. 
+            <div class="example">
+               10.0 
+            </div> Der angegebene Wert bezieht sich auf Koordinateneinheiten des verwendeten Koordinatensystems. </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:double</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>DrawStyleUrl</td> 
+          <td></td> 
+          <td>Geometrie-URL</td> 
+          <td>Angabe einer URL auf eine SLD für die Darstellung der Geometrien. 
+            <div class="example">
+               file:/e:/pfadangabe/sld/[theme].sld 
+            </div> </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:anyURI</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>SelectionStyleUrl</td> 
+          <td></td> 
+          <td>SLD-URL</td> 
+          <td>Angabe einer URL auf eine SLD für die Darstellung der Geometrien. 
+            <div class="example">
+               file:/e:/pfadangabe/sld/[theme].sld 
+            </div> </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:anyURI</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>Oracle9iServer</td> 
+          <td></td> 
+          <td>Oracle9i-Spatialserver</td> 
+          <td>Spatialserver vom Typ Oracle9i </td> 
+          <td class="multiplicity-column">K..1</td> 
+          <td><a href="map_Oracle9iServerType">Oracle9iServerType</a></td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>PostGisServer</td> 
+          <td></td> 
+          <td>PostGis-Spatialserver</td> 
+          <td>Spatialserver vom Typ PostGis </td> 
+          <td class="multiplicity-column">K..1</td> 
+          <td><a href="map_PostGisServerType">PostGisServerType</a></td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>SqlServer</td> 
+          <td></td> 
+          <td>SQLServer-Spatialserver</td> 
+          <td>Spatialserver vom Typ SQLServer </td> 
+          <td class="multiplicity-column">K..1</td> 
+          <td><a href="map_SqlServerType">SqlServerType</a></td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>WfsServer</td> 
+          <td></td> 
+          <td>WFS-Spatialserver</td> 
+          <td>Spatialserver vom Typ WFS </td> 
+          <td class="multiplicity-column">K..1</td> 
+          <td><a href="map_WfsServerType">WfsServerType</a></td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr class="complexElement"> 
+          <td id="#map_DatabaseServerType">DatabaseServerType</td> 
+          <td></td> 
+          <td>Datenquelle: spatial, Datenbank</td> 
+          <td> </td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>ConnectString</td> 
+          <td></td> 
+          <td>Verbindungsstring</td> 
+          <td>Verbindungsstring zur Datenbank ORACLE: 
+            <div class="example">
+               jdbc:oracle:thin:[dbuser]/[dbpasswd]@[server]:1521:[dbAlias] 
+            </div> PostGre: 
+            <div class="example">
+               jdbc:postgresql://[server]:5432/[db]?user=[dbuser]&amp;password=[dbpasswd] 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>TableName</td> 
+          <td></td> 
+          <td>Tabellenname</td> 
+          <td>Tabellenname in der Datenbank </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>ShapeColumnName</td> 
+          <td></td> 
+          <td>Shape-Spaltenname</td> 
+          <td>Name der Spalte in dem die Geometriedaten hinterlegt sind </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>IdColumnName</td> 
+          <td></td> 
+          <td>ID-Spaltenname</td> 
+          <td>Name der Spalte, in dem die ID gespeichert ist </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>AliasColumnName</td> 
+          <td></td> 
+          <td>Alias-Spaltenname</td> 
+          <td>Name der Spalte, in dem der Alias gespeichert ist </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>WhereCondition</td> 
+          <td></td> 
+          <td>Abfragebeschränkung</td> 
+          <td>Beschränkung der Datenabfrage mittels SQL WHERE</td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>SelectColumn</td> 
+          <td></td> 
+          <td>Erweiterte Sachdaten</td> 
+          <td>Für die Ausprägung einer thematische Karte können hier Sachdatenspalten zur Auswertung angegeben werden. Die SLD zur Ausprägung ist entsprechend anzupassen.</td> 
+          <td class="multiplicity-column">0..*</td> 
+          <td><a href="map_SelectColumnType">SelectColumnType</a></td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr class="complexElement"> 
+          <td id="map_Oracle9iServerType">Oracle9iServerType</td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td>erweitert DatabaseServerType</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr class="complexElement"> 
+          <td id="map_PostGisServerType">PostGisServerType</td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td>erweitert DatabaseServerType</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr class="complexElement"> 
+          <td id="map_SqlServerType">SqlServerType</td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td>erweitert DatabaseServerType</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr class="complexElement"> 
+          <td id="map_WfsServerType">WfsServerType</td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td>erweitert DatabaseServerType</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>httpUserName</td> 
+          <td>Benutzername</td> 
+          <td>Name des Benutzers </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td>kann auch für HTTPS-Authentifizierung verwendet werden.</td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>httpUserPassword</td> 
+          <td>Benutzerpasswort</td> 
+          <td>Passwort des Benutzers </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td>kann auch für HTTPS-Authentifizierung verwendet werden.</td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>maxFeatures</td> 
+          <td>Featureanzahlbegrenzung</td> 
+          <td>max. Anzahl der zu holenden Features 
+            <div class="example">
+               100 
+            </div> </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:integer</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>FeatureURL</td> 
+          <td></td> 
+          <td>Feature-URL</td> 
+          <td>URL des WFS-GetFeature-Requests 
+            <div class="example">
+               http://[WFS-Server-URL]/ 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:anyURI</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>FeatureTypeName</td> 
+          <td></td> 
+          <td>Feature-Type</td> 
+          <td>Angabe eines FeatureType des WFS-Servers </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td><a href="#map_FeatureTypeName">FeatureTypeName</a></td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>ShapePropertyName</td> 
+          <td></td> 
+          <td>Geometrie-Spaltenname</td> 
+          <td>Name der Spalte in dem die Geometriedaten hinterlegt sind 
+            <div class="example">
+               Shape 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>AliasPropertyName</td> 
+          <td></td> 
+          <td>Alias-Spaltenname</td> 
+          <td>Name der Spalte, in dem der Alias gespeichert ist 
+            <div class="example">
+               STRNAME 
+            </div> </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>Version</td> 
+          <td></td> 
+          <td>WFS-Version</td> 
+          <td>Version des WFS 
+            <div class="example">
+               1.1.0 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr class="complexElement"> 
+          <td id="map_FeatureTypeName">FeatureTypeName</td> 
+          <td></td> 
+          <td>Datenquelle: spatial, WFS (FeatureTypename)</td> 
+          <td> </td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>name</td> 
+          <td>Feature-Type-Name</td> 
+          <td>Name des FeatureTypes </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>nameSpace</td> 
+          <td>Feature-Type-Namensraum</td> 
+          <td>Namensraum des FeatureTypes </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr class="complexElement"> 
+          <td id="#map_ScaleType">ScaleType</td> 
+          <td></td> 
+          <td>Maßstabsbereich</td> 
+          <td> </td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>min</td> 
+          <td>Minimale Maßstabszahl</td> 
+          <td>Angabe der Maßstabszahl für den größten anzuzeigenden Maßstab 
+            <div class="example">
+               250 
+            </div> </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:double</td> 
+          <td>OGC: die Angabe wird für die Ebenen in den WMS gegeben (MinScaleDenominator/MaxScaleDenominator im WMS 1.3.0)</td> 
+          <td>Wird der Maßstabsbereich für alle Projektionen in allen Ebenenen gesetzt, begrenzt der Client den Zoombereich. Ebenen außerhalb des sichtbaren Bereiches werden in der Kartenstruktur grau dargestellt.</td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>max</td> 
+          <td>Maximale Maßstabszahl</td> 
+          <td>Angabe der Maßstabszahl für den kleinsten anzuzeigenden Maßstab. 
+            <div class="example">
+               50000 
+            </div> </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:double</td> 
+          <td></td> 
+          <td>Wird der Maßstabsbereich für alle Projektionen in allen Ebenenen gesetzt, begrenzt der Client den Zoombereich. Ebenen außerhalb des sichtbaren Bereiches werden in der Kartenstruktur grau dargestellt.</td>  
+        </tr> 
+        <tr class="complexElement"> 
+          <td id="#map_SelectColumnType">SelectColumnType</td> 
+          <td></td> 
+          <td>Datenquelle: spatial, Datenbank/Datenbankspalte</td> 
+          <td> </td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>columnName</td> 
+          <td>Spaltenname</td> 
+          <td>Name der Sachdatenspalte </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>columnLabel</td> 
+          <td>Spaltenbezeichner</td> 
+          <td>Bezeichner der Sachdatenspalte </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>columnFunction</td> 
+          <td>Spaltenfunktion</td> 
+          <td>Datenbankfunktion der Sachdatenspalt </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>columnType</td> 
+          <td>Spaltentyp</td> 
+          <td>Typ der Sachdatenspalte </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string / string|number|byte|double|float|integer| long|short|date|time|timestamp|boolean</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>schema</td> 
+          <td>Sachdatenschema</td> 
+          <td>Schema der Sachdaten </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>tableName</td> 
+          <td>Sachdaten-Tabellename</td> 
+          <td>Tabellenname der Sachdaten </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+      </tbody> 
+    </table>  
+  </body>
+</html>

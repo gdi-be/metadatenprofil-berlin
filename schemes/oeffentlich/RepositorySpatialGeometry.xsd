@@ -1,0 +1,164 @@
+<?xml version="1.0"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" version="1.0">
+   <xsd:element name="Raumbezug_geometrisch" type="Raumbezug_geometrischType"/>
+   <xsd:complexType name="Raumbezug_geometrischType">
+      <xsd:sequence>
+         <xsd:element name="Titel" type="xsd:string"/>
+         <xsd:element name="Metadaten" type="MetadatenType"/>
+         <xsd:element name="SpatialServerType" type="SpatialServerTypeType"/>
+         <xsd:element name="DefaultCRS" type="xsd:string"/>
+         <xsd:element name="OtherCRS" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+         <xsd:element name="Ausdehnung" type="AusdehnungType" maxOccurs="unbounded"/>
+         <xsd:element name="SLD" type="xsd:anyURI" minOccurs="0"/>
+         <xsd:element name="SD_ID" type="xsd:string" minOccurs="0"/>
+         <xsd:element name="KartenUrl" type="xsd:anyURI" minOccurs="0"/>
+         <xsd:element name="ZusatzText" type="xsd:string" minOccurs="0"/>
+      </xsd:sequence>
+      <xsd:attribute name="id" type="xsd:string" use="required"/>
+      <xsd:attribute name="mt_klasse" type="xsd:string" use="required"/>
+      <xsd:attribute name="rbz_klasse" type="xsd:string" use="required"/>
+      <xsd:attribute name="metadatenTyp" type="xsd:string" use="required"/>
+      <xsd:attribute name="inspireAnnex" type="xsd:string"/>
+   </xsd:complexType>
+   <xsd:complexType name="MetadatenType">
+      <xsd:sequence>
+         <xsd:element name="Kurzbeschreibung" type="xsd:string"/>
+         <xsd:element name="InhaltlicheBeschreibung" type="xsd:anyURI" minOccurs="0"/>
+         <xsd:element name="TechnischeBeschreibung" type="xsd:anyURI" minOccurs="0"/>
+         <xsd:element name="Datengrundlage" type="InhaltType" minOccurs="0" maxOccurs="unbounded"/>
+         <xsd:element name="Schlagwoerter" type="xsd:string" maxOccurs="unbounded"/>
+         <xsd:choice>
+           <xsd:sequence>
+             <xsd:element name="Erstellungsdatum" type="xsd:string"/>
+             <xsd:element name="Revisionsdatum" type="xsd:string" minOccurs="0"/>
+             <xsd:element name="Veroeffentlichungsdatum" type="xsd:string" minOccurs="0"/>
+           </xsd:sequence>
+           <xsd:sequence>
+             <xsd:element name="Revisionsdatum" type="xsd:string"/>
+             <xsd:element name="Veroeffentlichungsdatum" type="xsd:string" minOccurs="0"/>
+           </xsd:sequence>
+           <xsd:sequence>
+             <xsd:element name="Veroeffentlichungsdatum" type="xsd:string"/>
+           </xsd:sequence>
+         </xsd:choice>
+         <xsd:element name="gueltigVon" type="xsd:string" minOccurs="0"/>
+         <xsd:element name="gueltigBis" type="xsd:string" minOccurs="0"/>
+         <xsd:element name="Vorschau" type="InhaltType" minOccurs="0"/>
+         <xsd:element name="CapabilitiesUrl" type="xsd:anyURI" minOccurs="0"/>
+         <xsd:element name="Kontakt" type="KontaktType" maxOccurs="unbounded"/>
+         <xsd:element name="Massstabszahl" type="xsd:long"/>
+      </xsd:sequence>
+   </xsd:complexType>
+   <xsd:complexType name="KontaktType">
+      <xsd:sequence>
+         <xsd:element name="Name" type="xsd:string"/>
+         <xsd:element name="Organisationsname" type="xsd:string"/>
+         <xsd:element name="Kontaktart" type="xsd:string" minOccurs="0"/>
+         <xsd:element name="Telefon" type="xsd:string"/>
+         <xsd:element name="Fax" type="xsd:string" minOccurs="0"/>
+         <xsd:element name="Adresse" type="AdresseType" minOccurs="0"/>
+      </xsd:sequence>
+   </xsd:complexType>
+   <xsd:complexType name="AdresseType">
+      <xsd:sequence>
+         <xsd:element name="Strasse" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+         <xsd:element name="Stadt" type="xsd:string" minOccurs="0"/>
+         <xsd:element name="Bundesland" type="xsd:string" minOccurs="0"/>
+         <xsd:element name="Postleitzahl" type="xsd:string" minOccurs="0"/>
+         <xsd:element name="Land" type="xsd:string" minOccurs="0"/>
+         <xsd:element name="EMail" type="xsd:string"/>
+         <xsd:element name="WWW" type="xsd:anyURI" minOccurs="0"/>
+      </xsd:sequence>
+   </xsd:complexType>
+   <xsd:complexType name="InhaltType">
+      <xsd:sequence>
+         <xsd:element name="Inhalt" type="xsd:string"/>
+      </xsd:sequence>
+      <xsd:attribute name="Typ" type="xsd:string" use="required"/>
+   </xsd:complexType>
+   <xsd:complexType name="SpatialServerTypeType">
+      <xsd:sequence>
+         <xsd:choice>
+            <xsd:element name="Oracle8iServer" type="Oracle8iServerType"/>
+            <xsd:element name="Oracle9iServer" type="Oracle9iServerType"/>
+            <xsd:element name="MySQLServer" type="MySQLServerType"/>
+            <xsd:element name="PostGisServer" type="PostGisServerType"/>
+            <xsd:element name="SqlServerServer" type="SqlServerServerType"/>
+            <xsd:element name="WfsServer" type="WfsServerType"/>
+         </xsd:choice>
+      </xsd:sequence>
+      <xsd:attribute name="selectionDistance" type="xsd:double"/>
+      <xsd:attribute name="maxCount" type="xsd:int"/>
+   </xsd:complexType>
+   <xsd:complexType name="DatabaseServerType">
+      <xsd:sequence>
+         <xsd:element name="ConnectString" type="xsd:string"/>
+         <xsd:element name="TableName" type="xsd:string"/>
+         <xsd:element name="ShapeColumnName" type="xsd:string"/>
+         <xsd:element name="IdColumnName" type="xsd:string"/>
+         <xsd:element name="IdColumnType" type="xsd:string" minOccurs="0"/>
+         <xsd:element name="AliasColumnName" type="xsd:string" minOccurs="0"/>
+         <xsd:element name="WhereCondition" type="xsd:string" minOccurs="0"/>
+         <xsd:element name="MaxExtent" type="xsd:int"/>
+         <xsd:element name="OtherCrs" type="OtherCrsType" minOccurs="0" maxOccurs="unbounded"/>
+      </xsd:sequence>
+   </xsd:complexType>
+   <xsd:complexType name="Oracle8iServerType">
+      <xsd:complexContent>
+         <xsd:extension base="DatabaseServerType"/>
+      </xsd:complexContent>
+   </xsd:complexType>
+   <xsd:complexType name="Oracle9iServerType">
+      <xsd:complexContent>
+         <xsd:extension base="DatabaseServerType"/>
+      </xsd:complexContent>
+   </xsd:complexType>
+   <xsd:complexType name="MySQLServerType">
+      <xsd:complexContent>
+         <xsd:extension base="DatabaseServerType"/>
+      </xsd:complexContent>
+   </xsd:complexType>
+   <xsd:complexType name="PostGisServerType">
+      <xsd:complexContent>
+         <xsd:extension base="DatabaseServerType"/>
+      </xsd:complexContent>
+   </xsd:complexType>
+   <xsd:complexType name="SqlServerServerType">
+      <xsd:complexContent>
+         <xsd:extension base="DatabaseServerType"/>
+      </xsd:complexContent>
+   </xsd:complexType>
+   <xsd:complexType name="WfsServerType">
+      <xsd:sequence>
+         <xsd:element name="FeatureURL" type="xsd:anyURI"/>
+         <xsd:element name="FeatureTypeName" type="FeatureTypeName"/>
+         <xsd:element name="ShapePropertyName" type="xsd:string"/>
+         <xsd:element name="IdPropertyName" type="xsd:string"/>
+         <xsd:element name="AliasPropertyName" type="xsd:string" minOccurs="0"/>
+         <xsd:element name="Version" type="xsd:string" minOccurs="0"/>
+         <xsd:element name="MaxExtent" type="xsd:double"/>
+         <xsd:element name="SupportedCrs" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+      </xsd:sequence>
+      <xsd:attribute name="httpUserName" type="xsd:string"/>
+      <xsd:attribute name="httpUserPassword" type="xsd:string"/>
+      <xsd:attribute name="maxFeatures" type="xsd:int"/>
+   </xsd:complexType>
+   <xsd:complexType name="FeatureTypeName">
+      <xsd:attribute name="name" type="xsd:string" use="required"/>
+      <xsd:attribute name="nameSpace" type="xsd:string"/>
+   </xsd:complexType>
+   <xsd:complexType name="AusdehnungType">
+      <xsd:attribute name="crs" type="xsd:string" use="required"/>
+      <xsd:attribute name="xlu" type="xsd:double" use="required"/>
+      <xsd:attribute name="ylu" type="xsd:double" use="required"/>
+      <xsd:attribute name="xro" type="xsd:double" use="required"/>
+      <xsd:attribute name="yro" type="xsd:double" use="required"/>
+   </xsd:complexType>
+   <xsd:complexType name="OtherCrsType">    
+      <xsd:attribute name="crs" type="xsd:string" use="required"/>
+      <xsd:attribute name="tableName" type="xsd:string" use="required"/>    
+      <xsd:attribute name="shapeColumnName" type="xsd:string" use="required"/>
+      <xsd:attribute name="idColumnName" type="xsd:string" use="required"/>
+      <xsd:attribute name="aliasColumnName" type="xsd:string"/>
+   </xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,4546 @@
+<!doctype html>
+<html>
+  <head> 
+    <meta charset="UTF-8"> 
+    <title>BE-Metadatenprofil/ISO</title> 
+    <link rel="stylesheet" href="../assets/styles/profile.css"> 
+  </head> 
+  <body> 
+    <nav class="menu"> 
+      <ul class="menu-list"> 
+        <li class="menu-item"><a href="datenbestand.html">Datenbestand</a></li> 
+        <li class="menu-item"><a href="iso.html">ISO 19115, 19119</a></li> 
+        <li class="menu-item"><a href="karte.html">Karte</a></li> 
+        <li class="menu-item"><a href="sachdatensatz.html">Sachdatensatz</a></li> 
+        <li class="menu-item"><a href="atom.html">ATOM-Feed</a></li> 
+        <li class="menu-item"><a href="geometriedatensatz.html">Geometriedatensatz</a></li> 
+        <li class="menu-item"><a href="fachverfahren.html">Fachverfahren</a></li> 
+        <li class="menu-item right"><a href="#top">nach oben</a></li> 
+      </ul> 
+    </nav> 
+    <table id="iso"> 
+      <thead> 
+        <tr> 
+          <th>ISO-Nr.</th> 
+          <th>Name / Rollenname EN</th> 
+          <th>Name / Rollenname DE</th> 
+          <th>Definition DE + Kommentar BE 
+            <div class="example">
+               Beispiel 
+            </div></th> 
+          <th>Multiplizität ISO</th> 
+          <th>Anmerkungen zur ISO</th> 
+          <th>Multiplizität ISO 19115 BE</th> 
+          <th>Multiplizität ISO 19119 BE</th> 
+          <th>Anmerkungen zur ISO nach INSPIRE</th> 
+          <th>Multiplizität INSPIRE 19115 BE</th> 
+          <th>Multiplizität INSPIRE 19119 BE</th> 
+          <th>Datentyp / Wertenbereich</th> 
+          <th>Relation und Vorbelegung</th>  
+        </tr> 
+      </thead> 
+      <tbody> 
+        <tr class="isoHeader"> 
+          <td> B.2.1 Informationen zum Metadatensatz</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+        </tr> 
+        <tr class="isoComplexElement"> 
+          <td> 1</td> 
+          <td id="#iso_MD_Metadata"> <em>MD_Metadata</em></td> 
+          <td> Metadaten</td> 
+          <td> Basisklasse, die Metadaten von einer oder mehreren Ressourcen definiert</td> 
+          <td class="multiplicity-column"> 1..1</td> 
+          <td> </td> 
+          <td class="multiplicity-column"> 1..1</td> 
+          <td class="multiplicity-column"> 1..1</td> 
+          <td> </td> 
+          <td class="multiplicity-column"> 1..1</td> 
+          <td class="multiplicity-column"> 1..1</td> 
+          <td> Zeile 2-22</td> 
+          <td> </td>  
+        </tr> 
+        <tr> 
+          <td> 2</td> 
+          <td> fileIdentifier </td> 
+          <td> Metadatensatzidentifikator</td> 
+          <td> eindeutiger Identifikator für diesen Metadatensatz (Eintrag einer 32-stelligen Zeichenkette in Form einer "UUID"). GDI-DE (Konventionendokument): Ein Metadatensatz besitzt immer einen eindeutigen Identifikator. 
+            <div class="example">
+               38b5dc12-0388-3847-b6d4-193b850c2b95 
+            </div></td> 
+          <td class="multiplicity-column"> 0..1</td> 
+          <td> CSW: Pflicht für GetRecordById (OGC CSW ISO AP, Kap. 7.2.2.1); GDI-DE: Pflicht</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td> </td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td> Freitext</td> 
+          <td> 19115: UUID (Version 4) wird beim Erzeugen über den METEOR gesetzt; 19119: UUID (Version 3) wird beim Erzeugen aus Broker-Datensatzklassenkurzform + Broker-Metadatensatz-ID + _serv@ + Domäne generiert</td>  
+        </tr> 
+        <tr> 
+          <td> 3</td> 
+          <td> language </td> 
+          <td> Sprache [der Metadaten]</td> 
+          <td> zur Dokumentation der Metadaten verwendete Sprache 
+            <div class="example">
+               ger|eng 
+            </div></td> 
+          <td class="multiplicity-column"> K..1</td> 
+          <td> 1, falls nicht im Encoding definiert; BE: aus BE/BB-Profil übernommen</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td> </td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td> ISO 639-2</td> 
+          <td> Wert wird im METEOR beim Einrichten des Metadatensatzes gesetzt.</td>  
+        </tr> 
+        <tr> 
+          <td> 4</td> 
+          <td> characterSet </td> 
+          <td> Zeichensatz [der Metadaten]</td> 
+          <td> 
+            <div class="example">
+               utf8 
+            </div></td> 
+          <td class="multiplicity-column"> K..1</td> 
+          <td> 1, falls ISO/IEC 10646-1 nicht verwendet oder nicht im Encoding definiert; BE: aus BE/BB-Profil übernommen</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td> </td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td> MD_CharacterSetCode &lt;&lt;CodeList&gt;&gt; (B.5.10)</td> 
+          <td> Wert wird im METEOR beim Einrichten des Metadatensatzes gesetzt.</td>  
+        </tr> 
+        <tr> 
+          <td> 5</td> 
+          <td> parentIdentifier </td> 
+          <td> Identifikator des übergeordneten Metadatensatzes </td> 
+          <td> eindeutiger Identifikator des übergeordneten Metadatensatzes (Elternobjekt), auf den sich der aktuelle Metadatensatz (Kindobjekt) bezieht. BE: wird z.Z. nicht genutzt, da Serien nicht mit ISO-Metadaten beschrieben werden.</td> 
+          <td class="multiplicity-column"> K..1</td> 
+          <td> 1, falls eine übergeordnete Hierarchieebene vorhanden ist</td> 
+          <td class="multiplicity-column"> K..1</td> 
+          <td class="multiplicity-column"> 0..1</td> 
+          <td> </td> 
+          <td class="multiplicity-column"> K..1</td> 
+          <td class="multiplicity-column"> 0..1</td> 
+          <td> Freitext</td> 
+          <td> </td>  
+        </tr> 
+        <tr> 
+          <td> 6</td> 
+          <td> hierarchyLevel </td> 
+          <td> Hierarchieebene</td> 
+          <td> Bereich, auf den sich die Metadaten beziehen (Weitere Informationen zu Hierarchieebenen sind dem ISO 19115 - Anhang H zu entnehmen) BE: In der GDI Berlin sind folgende Typen zu verwenden: dataset|series|application|service 
+            <div class="example">
+               service 
+            </div></td> 
+          <td class="multiplicity-column"> K..*</td> 
+          <td> Pflicht, falls Hierarchieebene nicht „dataset“ ist; BE: aus BE/BB-Profil übernommen</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td> Pflicht, berücksichtigt aber nur erste Instanz</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td> MD_ScopeCode &lt;&lt;CodeList&gt;&gt; (B.5.25)</td> 
+          <td> Wert wird im METEOR beim Einrichten des Metadatensatzes gesetzt.</td>  
+        </tr> 
+        <tr> 
+          <td> 7</td> 
+          <td> hierarchyLevelName </td> 
+          <td> Bezeichnung der Hierarchieebene</td> 
+          <td> Bezeichnung der Hierarchieebene, auf die sich die Metadaten beziehen 
+            <div class="example">
+               Bebauungspläne, vorhabenbezogene Bebauungspläne (Geltungsbereiche) Dienst 
+            </div></td> 
+          <td class="multiplicity-column"> K..*</td> 
+          <td> Pflicht, falls Hierarchieebene nicht „dataset“ ist</td> 
+          <td class="multiplicity-column"> K..1</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td> </td> 
+          <td class="multiplicity-column"> K..1</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td> Freitext</td> 
+          <td> 19119: Wert wird im METEOR beim Einrichten des Metadatensatzes gesetzt: [Titel] Dienst</td>  
+        </tr> 
+        <tr> 
+          <td> 8</td> 
+          <td> contact</td> 
+          <td> Kontakt [der Metadaten]</td> 
+          <td> für die Metadaten verantwortliche Stelle</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..*</td> 
+          <td> </td> 
+          <td class="mandatoryElement multiplicity-column"> 1..*</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..*</td> 
+          <td> Pflicht: Angabe eines Werts für organisationName, Angabe eines Werts für electronicMailAdress und Angabe des Codelisten-Werts pointOfContact im Element role</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..*</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..*</td> 
+          <td> CI_ResponsibleParty &lt;&lt;DataType&gt;&gt; (B.3.2) ; Zeile 374</td> 
+          <td> Werte werden im METEOR beim Einrichten des Metadatensatzes gesetzt.</td>  
+        </tr> 
+        <tr> 
+          <td> 9</td> 
+          <td> dateStamp </td> 
+          <td> Datum/Stand [ der Metadaten]</td> 
+          <td> Datum, zu dem der Metadatensatz erzeugt/ geändert wurde. Format: yyyy-mm-dd (laut ISO8601) 
+            <div class="example">
+               2018-04-13 
+            </div></td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td> </td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td> </td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td> Date (B.4.2)</td> 
+          <td> Wert wird beim Speichern (Übernahme ins Repository) gesetzt/aktualisiert.</td>  
+        </tr> 
+        <tr> 
+          <td> 10</td> 
+          <td> metadataStandardName </td> 
+          <td> Bezeichnung des Metadatenstandards</td> 
+          <td> Bezeichnung des verwendeten Metadatenstandards (einschl. Profilname) 
+            <div class="example">
+               ISO 19115/19119 – BE 
+            </div></td> 
+          <td class="multiplicity-column"> 0..1</td> 
+          <td> BE: aus BE/BB-Profil übernommen</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td> </td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td> Freitext</td> 
+          <td> Wert wird im METEOR beim Einrichten des Metadatensatzes gesetzt.</td>  
+        </tr> 
+        <tr> 
+          <td> 11</td> 
+          <td> metadataStandardVersion </td> 
+          <td> Version des Metadatenstandards</td> 
+          <td> Version des verwendeten Metadatenstandards bzw. des genutzten Profils 
+            <div class="example">
+               1.0.0 
+            </div> (akt. Version)</td> 
+          <td class="multiplicity-column"> 0..1</td> 
+          <td> BE: aus BE/BB-Profil übernommen</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td> </td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td> Freitext</td> 
+          <td> Wert wird im METEOR beim Einrichten des Metadatensatzes gesetzt.</td>  
+        </tr>     
+        <tr> 
+          <td> 13</td> 
+          <td> <em>Role name</em>: referenceSystemInfo</td> 
+          <td> Referenzsystem</td> 
+          <td> Beschreibung der räumlichen und zeitlichen Referenzsysteme, die im Datenbestand benutzt werden </td> 
+          <td class="multiplicity-column"> 0..*</td> 
+          <td> BE: Pflicht für Karten und Geometriedatensätze</td> 
+          <td class="multiplicity-column"> K..*</td> 
+          <td class="multiplicity-column"> 0..*</td> 
+          <td> Interoperabilitätsver-ordnung (Art. 13): Pflicht für dataset/series</td> 
+          <td class="multiplicity-column"> K..*</td> 
+          <td class="multiplicity-column"> 0..*</td> 
+          <td> MD_ReferenceSystem (B.2.7); Zeile 186</td> 
+          <td> 19115: Wert wird beim Neuerstellen aus der properties-Datei übernommen 19119: beim Generieren der Dienste-Metadaten wird der Wert aus den Broker-Metadaten übernommen.</td>  
+        </tr>  
+        <tr> 
+          <td> 15</td> 
+          <td> <em>Role name</em>: identificationInfo</td> 
+          <td> Basisinformation </td> 
+          <td> Basisinformation zur Ressource, auf die sich die Metadaten beziehen;</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..*</td> 
+          <td> OGC CSW ISO AP: berücksichtigt nur genau ein identificationInfo-Element</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td> [INS TG MD], 1.2 - SC5: berücksichtigt nur genau ein identificationInfo-Element; alle INSPIRE-relevanten Informationen im ersten identificationInfo-Element angeben</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td> MD_Identification &lt;&lt;Abstract&gt;&gt; (B.2.2); Zeile 23</td> 
+          <td> </td>  
+        </tr>  
+        <tr> 
+          <td> 17</td> 
+          <td> <em>Role name</em>: distributionInfo </td> 
+          <td> Vertriebsinformation</td> 
+          <td> Information zum Vertrieb und Bezug der Ressource; BE: in den Dienste-Metadaten ist die Start-URL (externer Aufruf) auf die Karte/die Sachdaten anzugeben.</td> 
+          <td class="multiplicity-column"> 0..1</td> 
+          <td> </td> 
+          <td class="multiplicity-column"> K..1</td> 
+          <td class="multiplicity-column"> K..1</td> 
+          <td> dataset / service: ’distributionInfo/*/transferOptions/*/onLine/*/linkage’ muss dokumentiert werden, wenn eine URL mit Informationen zur Ressource / zum Dienst verfügbar ist; Pflicht für Annex address</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td> MD_Distribution (B.2.10); Zeile 270</td> 
+          <td> Wert wird aus der properties-Datei übernommen 19115: für Metadatensätze mit inspireID werden Textvorgaben der entsprechenden Daten-spezifikation gesetzt 19119: beim Generieren der Dienste-Metadaten wird die zugehörige FIS-Broker-Start-URL in die transferOptions übernommen.</td>  
+        </tr> 
+        <tr> 
+          <td> 18</td> 
+          <td> <em>Role name</em>: dataQualityInfo</td> 
+          <td> Datenqualität</td> 
+          <td> umfassende Qualitätsbewertung der Ressource</td> 
+          <td class="multiplicity-column"> 0..*</td> 
+          <td> BE: aus BE/BB-Profil übernommen</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..*</td> 
+          <td class="multiplicity-column"> K..*</td> 
+          <td> dataset: Pflicht, da mind. lineage einmal angegeben werden muss service: Pflicht für report, falls ein Konformitätstest durchgeführt wurde</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..*</td> 
+          <td class="multiplicity-column"> K..*</td> 
+          <td> DQ_DataQuality (B.2.4); Zeile 78</td> 
+          <td> Datenqualität wird vom METEOR beim Einrichten des Metadatensatzes vorbelegt</td>  
+        </tr>  
+        <tr> 
+          <td> 20</td> 
+          <td> <em>Role name</em>: metadataConstraints</td> 
+          <td> Metadateneinschränkungen</td> 
+          <td> Einschränkungen in Zugriff und Benutzung der Metadaten; BE: Es gelten Vorgaben für die Angaben der Nutzungsbeschränkungen: Amt für Statistik | SenStadtWohn, allgemein | SenStadtWohn, allgemein | unbekannt (siehe BE-Profil, Teil A Dokumentation, Kap. 2.3.2)</td> 
+          <td class="multiplicity-column"> 0..*</td> 
+          <td> BE: aus BE/BB-Profil übernommen</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..*</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..*</td> 
+          <td> </td> 
+          <td class="mandatoryElement multiplicity-column"> 1..*</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..*</td> 
+          <td> MD_Constraints (B.2.3); Zeile 67</td> 
+          <td> Bei der erstmaligen Generierung von der ISO 19119 im METEOR werden die Angaben automatisch aus der ISO 19115 übernommen. Mit dem Metadatenabgleich können die Angaben, wenn gewünscht, übernommen werden.</td>  
+        </tr>  
+        <tr> 
+          <td> 22</td> 
+          <td> <em>Role name</em>: metadataMaintenance</td> 
+          <td> Metadatenpflege</td> 
+          <td> Information über die Häufigkeit und den Umfang der Aktualisierung der Metadaten</td> 
+          <td class="multiplicity-column"> 0..*</td> 
+          <td> </td> 
+          <td class="multiplicity-column"> 0..*</td> 
+          <td class="multiplicity-column"> 0..*</td> 
+          <td> </td> 
+          <td class="multiplicity-column"> 0..*</td> 
+          <td class="multiplicity-column"> 0..*</td> 
+          <td> MD_MaintenanceInformation (B.2.5); Zeile 142</td> 
+          <td> </td>  
+        </tr> 
+        <tr class="isoHeader"> 
+          <td> B.2.2 Datensatzbeschreibung</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td>  
+        </tr> 
+        <tr class="isoHeader"> 
+          <td> B.2.2.1 Allgemein</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td>  
+        </tr> 
+        <tr class="isoComplexElement"> 
+          <td> 23</td> 
+          <td> <em>MD_Identification</em></td> 
+          <td> Basisinformation </td> 
+          <td> Basisinformationen zur eindeutigen Beschreibung der Ressource</td> 
+          <td> </td> 
+          <td> vererbt vom übergeordneten Objekt</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> Zeile 24-35.1 </td> 
+          <td> </td>  
+        </tr> 
+        <tr> 
+          <td> 24</td> 
+          <td> citation</td> 
+          <td> Bibliographische Angaben (allgemeine Angaben)</td> 
+          <td> Angaben darüber, wie Bezug auf die beschriebene Ressource genommen werden soll</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td> </td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td> </td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td> CI_Citation &lt;&lt;DataType&gt;&gt; (B.3.2); Zeile 359</td> 
+          <td> </td>  
+        </tr> 
+        <tr> 
+          <td> 25</td> 
+          <td> abstract</td> 
+          <td> Kurzbeschreibung</td> 
+          <td> kurze, beschreibende Zusammenfassung des Inhalts der Ressource</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td> </td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td> </td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td> Freitext</td> 
+          <td>  wird entsprechend der Kurzbeschreibung aus den Broker-Metadaten in die 19119 synchronisiert; beim Metadatenabgleich kann die Angabe aus der 19115 die Angabe in den Broker-Metadaten und somit auch in der 19119 überschreiben</td>  
+        </tr>    
+        <tr> 
+          <td> 29</td> 
+          <td> pointOfContact</td> 
+          <td> Kontakt [zur Ressource]</td> 
+          <td> Kontaktinformation zu Person(en) und Organisation(en), welche im Bezug zur Ressource stehen</td> 
+          <td class="multiplicity-column"> 0..*</td> 
+          <td> </td> 
+          <td class="mandatoryElement multiplicity-column"> 1..*</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..*</td> 
+          <td> INSPIRE: verpflichtende Angabe der Organisation + electronicMailAdress; jede Organisation darf nur einmal mit einer Rolle auftreten</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..*</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..*</td> 
+          <td> CI_ResponsibleParty &lt;&lt;DataType&gt;&gt; (B.3.2); Zeile 374</td> 
+          <td> beim Generieren der Dienste-Metadaten wird der erste Kontakt aus den Broker-Metadaten in die 19119 übernommen.</td>  
+        </tr> 
+        <tr> 
+          <td> 30</td> 
+          <td> <em>Role name</em>: resourceMaintenance</td> 
+          <td> Pflege der Ressource</td> 
+          <td> Information über die Häufigkeit und den Umfang der Aktualisierung der Ressource </td> 
+          <td class="multiplicity-column"> 0..*</td> 
+          <td> </td> 
+          <td class="multiplicity-column"> 0..*</td> 
+          <td class="multiplicity-column"> 0..*</td> 
+          <td> </td> 
+          <td class="multiplicity-column"> 0..*</td> 
+          <td class="multiplicity-column"> 0..*</td> 
+          <td> MD_MaintenanceInformation (B.2.5); Zeile 142</td> 
+          <td> beim Metadatenabgleich kann die Angabe des Fortführungsintervalls der ISO 19115 in die ISO 19119 übernommen werden.</td>  
+        </tr> 
+        <tr> 
+          <td> 31</td> 
+          <td> <em>Role name</em>: graphicOverview</td> 
+          <td> Grafische Darstellung (Graphikbeispiel)</td> 
+          <td> Grafik, die die Ressource darstellt (möglichst einschließlich Legende)</td> 
+          <td class="multiplicity-column"> 0..*</td> 
+          <td> </td> 
+          <td class="multiplicity-column"> 0..*</td> 
+          <td class="multiplicity-column"> 0..*</td> 
+          <td> </td> 
+          <td class="multiplicity-column"> 0..*</td> 
+          <td class="multiplicity-column"> 0..*</td> 
+          <td> MD_BrowseGraphic (B.2.2.2); Zeile 48</td> 
+          <td> beim Generieren der Dienste-Metadaten werden das Vorschaubild (Vorschaugrafik) und das Legendenbild (Legende) aus den Broker-Metadaten in die 19119 übernommen.</td>  
+        </tr>  
+        <tr> 
+          <td> 33</td> 
+          <td> <em>Role name</em>: descriptiveKeywords</td> 
+          <td> Schlüsselwörter</td> 
+          <td> Schlüsselwörter, ihr Typ und Quellenangabe; GDI-DE: Keyword "inspireidentifiziert" muss für alle Georessourcen geführt werden, welche inspireidentifiziert sind; Keyword "opendata" wenn zutreffend (siehe Architektur der Geodateninfrastruktur Deutschland: Konventionen zu Metadaten der GDI.DE (Konventionendokument), V1.2, 01.08.2017, Kapitel 2.2 bzw. Kap. 3.5) </td> 
+          <td class="multiplicity-column"> 0..*</td> 
+          <td> </td> 
+          <td class="multiplicity-column"> 0..* oder 2..*</td> 
+          <td class="multiplicity-column"> 0..* oder 2..*</td> 
+          <td> dataset/series: mind. 1 Schlüsselwort aus dem allgemeinen mehrsprachigen Umwelt-Thesaurus (GEMET); service: mind. 1 Schlüsselwort aus Teil D Ziffer 4 der Durchführungs-bestimmung</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..* oder 2..*</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..* oder 2..*</td> 
+          <td> MD_Keywords (B.2.2.3); Zeile 52</td> 
+          <td> Für Metadatensätze vom Metadatentyp "INSPIRE" und zugeordneter inspireID wird das entsprechende INSPIRE-Schlagwort aus dem Umwelt-Thesaurus (GEMET) beim Einrichten des Metadatensatzes gesetzt. dataset: Angaben können beim Metadatenabgleich aus der 19115 in die Broker-Metadaten und von dort in die 19119 übernommen werden. service: Angaben werden aus den Broker-Metadaten in die 19119 synchronisiert. Datensatzklasse Fachverfahren: humanGeographicViewer Datensatzklasse Sachdatendatensatz, Geometriedatensatz oder ATOM: infoFeatureAccessService Datensatzklasse Karte: infoMapAccessService</td>  
+        </tr> 
+        <tr> 
+          <td> 34</td> 
+          <td> <em>Role name</em>: resourceSpecificUsage</td> 
+          <td> Nutzungsinformation</td> 
+          <td> grundlegende Information über spezifische Anwendungen, für die die Ressource von Nutzern verwendet wurde oder wird </td> 
+          <td class="multiplicity-column"> 0..*</td> 
+          <td> </td> 
+          <td class="multiplicity-column"> 0..*</td> 
+          <td class="multiplicity-column"> 0..*</td> 
+          <td> </td> 
+          <td class="multiplicity-column"> 0..*</td> 
+          <td class="multiplicity-column"> 0..*</td> 
+          <td> MD_Usage (B.2.2.6); Zeile 62</td> 
+          <td> </td>  
+        </tr> 
+        <tr> 
+          <td> 35</td> 
+          <td> <em>Role name</em>: resourceConstraints</td> 
+          <td> Ressourceneinschränkungen (Nutzungsbeschränkungen) </td> 
+          <td> Einschränkungen bezüglich der Ressource</td> 
+          <td class="multiplicity-column"> 0..*</td> 
+          <td> </td> 
+          <td class="mandatoryElement multiplicity-column"> 1..*</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..*</td> 
+          <td> dataset / service: Pflicht</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..*</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..*</td> 
+          <td> MD_Constraints (B.2.3); Zeile 67</td> 
+          <td> dataset: Angaben können beim Metadatenabgleich aus der 19115 in die Broker-Metadaten und von dort in die 19119 übernommen werden.</td>  
+        </tr>  
+        <tr class="isoComplexElement"> 
+          <td> 36</td> 
+          <td> <em>MD_DataIdentification</em></td> 
+          <td> Basisinformation zum Datenbestand</td> 
+          <td> Basisinformation zur eindeutigen Beschreibung des Datenbestands</td> 
+          <td> </td> 
+          <td> vererbt vom übergeordneten Objekt</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> Zeile 37-46 und 24-35.1</td> 
+          <td> </td>  
+        </tr> 
+        <tr> 
+          <td> 37</td> 
+          <td> spatialRepresentationType</td> 
+          <td> Räumliche Darstellungsart</td> 
+          <td> Methode, mit der geografische Informationen räumlich dargestellt werden</td> 
+          <td class="multiplicity-column"> 0..*</td> 
+          <td> </td> 
+          <td class="multiplicity-column"> 0..*</td> 
+          <td> </td> 
+          <td> </td> 
+          <td class="mandatoryElement multiplicity-column"> 1..*</td> 
+          <td> </td> 
+          <td> MD_SpatialRepresentation TypeCode &lt;&lt;CodeList&gt;&gt; (B.5.26)</td> 
+          <td> </td>  
+        </tr> 
+        <tr> 
+          <td> 38</td> 
+          <td> spatialResolution</td> 
+          <td> Räumliche Auflösung</td> 
+          <td> Angaben über die räumliche Auflösung der geografischen Informationen </td> 
+          <td class="multiplicity-column"> 0..*</td> 
+          <td> </td> 
+          <td class="multiplicity-column"> K..*</td> 
+          <td> </td> 
+          <td> Verpflichtende Angabe im dataset, falls Vergleichsmaßstab oder Bodenauflösung festgelegt werden kann</td> 
+          <td class="multiplicity-column"> K..*</td> 
+          <td> </td> 
+          <td> MD_Resolution &lt;&lt;Union&gt;&gt; (B.2.2.5); Zeile 59</td> 
+          <td> </td>  
+        </tr> 
+        <tr> 
+          <td> 39</td> 
+          <td> language</td> 
+          <td> Sprache [im Datenbestand]</td> 
+          <td> im Datenbestand verwendete Sprache 
+            <div class="example">
+               ger|eng 
+            </div></td> 
+          <td class="mandatoryElement multiplicity-column"> 1..*</td> 
+          <td> </td> 
+          <td class="mandatoryElement multiplicity-column"> 1..*</td> 
+          <td> </td> 
+          <td> </td> 
+          <td class="mandatoryElement multiplicity-column"> 1..*</td> 
+          <td> </td> 
+          <td> ISO 639-2</td> 
+          <td> Wert wird im METEOR beim Einrichten des Metadatensatzes gesetzt.</td>  
+        </tr> 
+        <tr> 
+          <td> 40</td> 
+          <td> characterSet</td> 
+          <td> Zeichensatz [im Datenbestand]</td> 
+          <td> exakte Bezeichnung des Zeichencodestandards, der im Datenbestand verwendet wird 
+            <div class="example">
+               utf8 
+            </div></td> 
+          <td class="multiplicity-column"> K..*</td> 
+          <td> Pflicht, falls ISO/IEC 10646-1 nicht verwendet </td> 
+          <td class="mandatoryElement multiplicity-column"> 1..*</td> 
+          <td> </td> 
+          <td> dataset: Pflicht</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..*</td> 
+          <td> </td> 
+          <td> MD_CharacterSetCode &lt;&lt;CodeList&gt;&gt; (B.5.10)</td> 
+          <td> Wert wird im METEOR beim Einrichten des Metadatensatzes gesetzt.</td>  
+        </tr> 
+        <tr> 
+          <td> 41</td> 
+          <td> topicCategory</td> 
+          <td> Thematik (Themenkategorie)</td> 
+          <td> thematische Einordnung des Datenbestands; GDI-DE (Konventionendokument): Zuordnung der Annex-Themen zur den ISO-Themenkategorien </td> 
+          <td class="multiplicity-column"> 0..*</td> 
+          <td> </td> 
+          <td class="multiplicity-column"> 0..*</td> 
+          <td> </td> 
+          <td> dataset: Pflicht ([INS VO MD], B2.13) </td> 
+          <td class="mandatoryElement multiplicity-column"> 1..*</td> 
+          <td> </td> 
+          <td> MD_TopicCategoryCode &lt;&lt;Enumeration&gt;&gt; (B.5.27)</td> 
+          <td> Für Metadatensätze vom Metadatentyp "INSPIRE" und zugeordneter inspireID wird der Wert beim Einrichten des Metadatensatzes gesetzt.</td>  
+        </tr>    
+        <tr> 
+          <td> 45</td> 
+          <td> extent</td> 
+          <td> Ausdehnung</td> 
+          <td> Ausdehnungsinformation einschließlich des Begrenzungsrechtecks (Bounding Box), des Begrenzungspolygons sowie der vertikalen und zeitlichen Ausdehnung des Datenbestands </td> 
+          <td class="multiplicity-column"> K..*</td> 
+          <td> Pflicht, falls Hierarchieebene „dataset“ ist </td> 
+          <td class="mandatoryElement multiplicity-column"> 1..*</td> 
+          <td> </td> 
+          <td> dataset: Pflicht </td> 
+          <td class="mandatoryElement multiplicity-column"> 1..*</td> 
+          <td> </td> 
+          <td> EX_Extent &lt;&lt;DataType&gt;&gt; (B.3.1); Zeile 334</td> 
+          <td> </td>  
+        </tr>  
+        <tr class="isoComplexElement"> 
+          <td> 19119: table C.1</td> 
+          <td> <em>C2.2 Data dictionary for SV_ServiceIdentification</em></td> 
+          <td> Basisinformation zum Dienst</td> 
+          <td> Basisinformation zum Leistungsumfang des bereit gestellten Dienstes s. ISO 19119 für weitere Informationen</td> 
+          <td> </td> 
+          <td> vererbt vom übergeordneten Objekt</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> Zeile 24-35.1 und C.1.1-1.9</td> 
+          <td> </td>  
+        </tr> 
+        <tr> 
+          <td> C.1.1</td> 
+          <td> serviceType</td> 
+          <td> Servicetyp</td> 
+          <td> Standardisierter Name eines Dienstetyps. 
+            <div class="example">
+               view|download 
+            </div>GDI-DE (Konventionendokument): Die von INSPIRE vorgesehene Werteliste ([INS TG MD], Tabelle 1.3.1) ist nicht konform zur OGC CSW-Spezifikation [OGC CSW ISO AP]. Letztere verlangt die OGC-Bezeichnungen der Dienste. Trotzdem muss die INSPIRE-Vorgabe umgesetzt werden. Daher wird empfohlen, die Art des Geodatendienstes im Element serviceTypeVersion weiter zu spezifizieren.</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td> </td> 
+          <td> </td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td> es ist einer der folgenden Werte einzutragen: view|discovery|download| transformation|invoke| other (ISO 19119, Table C.1)</td> 
+          <td> </td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td> GenericName</td> 
+          <td> beim Generieren der Dienste-Metadaten wird der Service-Typ in Abhängigkeit der Broker-Datensatzklasse gesetzt: Karte: view Sachdatensatz: download Geometriedatensatz: download ATOM: download</td>  
+        </tr> 
+        <tr> 
+          <td> C.1.2</td> 
+          <td> serviceTypeVersion</td> 
+          <td> Versionsnummer</td> 
+          <td> Version des Dienstes (siehe Metadaten-Konventionendokument). Angabe: OGC-Kurzbezeichnung und Version view = 
+            <div class="example">
+               OGC:WMS 1.1.0|OGC:WMS 1.1.0|OGC:WMS 1.1.1|OGC:WMS 1.3.0 
+            </div>download = 
+            <div class="example">
+               predefinedATOM|OGC:WFS 1.0.0|OGC:WFS 1.1.0|OGC:WFS 2.0 
+            </div></td> 
+          <td class="multiplicity-column"> 0..*</td> 
+          <td> </td> 
+          <td> </td> 
+          <td class="mandatoryElement multiplicity-column"> 1..*</td> 
+          <td> </td> 
+          <td> </td> 
+          <td class="mandatoryElement multiplicity-column"> 1..*</td> 
+          <td> Freitext</td> 
+          <td> OGC: CSW-Spezifikation [OGC CSW ISO AP] verlangt die OGC-Bezeichnungen der Dienste.</td>  
+        </tr>   
+        <tr> 
+          <td> C.1.5</td> 
+          <td> extent</td> 
+          <td> Ausdehnung</td> 
+          <td> Geographische und zeitliche Ausdehnung für den Service</td> 
+          <td class="multiplicity-column"> K..*</td> 
+          <td> Pflicht, falls coupingType 'mixed' or 'tight'</td> 
+          <td> </td> 
+          <td class="mandatoryElement multiplicity-column"> 1..*</td> 
+          <td> Angabe der Ausdehnung verpflichtend, wenn für den Dienst eine explizite Ausdehnung existiert</td> 
+          <td> </td> 
+          <td class="mandatoryElement multiplicity-column"> 1..*</td> 
+          <td> ISO 19115 EX_Extent &lt;&lt;DataType&gt;&gt; (B.3.1); Zeile 334</td> 
+          <td> wird aus der in den Broker-Metadaten angegebenen räumlichen Ausdehnung in die 19119 übernommen, umgerechnet in 4326</td>  
+        </tr> 
+        <tr> 
+          <td> C1.6</td> 
+          <td> couplingType</td> 
+          <td> Kopplungstyp</td> 
+          <td> Art der Kopplung zwischen den Metadaten der Dienste und den der Geodaten 
+            <div class="example">
+               tight|mixed|loose 
+            </div>tight: Dienstebeschreibung hat eine feste Kopplung mit der Datenbeschreibung (WMS, WFS); MD_DataIdentification MUSS beschrieben werden mixed: Dienstebeschreibung hat eine gemischte Kopplung mit mehreren Datenbeschreibungen; MD_DataIdentification zum verknüpften Datensatz und zusätzlich zu weiteren Servicebeschreibungen wie WMS, WFS loose: Dienstebeschreibung hat eine lose Kopplung zur Datenbeschreibung (CSW); MD_DataIdentification wird nicht beschrieben</td> 
+          <td class="multiplicity-column"> 1..1</td> 
+          <td> ISO-Pflicht, falls eine Kopplung existiert</td> 
+          <td> </td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td> </td> 
+          <td> </td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td> SV_CouplingType &lt;&lt;CodeList&gt;&gt; </td> 
+          <td> beim Generieren der Dienste-Metadaten wird der Wert auf "tight" gesetzt</td>  
+        </tr>  
+        <tr> 
+          <td> C.1.8</td> 
+          <td> <em>Role name</em>: containsOperations</td> 
+          <td> Operationsspektrum</td> 
+          <td> Information über die Operation, die der Service anbietet</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..*</td> 
+          <td> </td> 
+          <td> </td> 
+          <td class="mandatoryElement multiplicity-column"> 1..*</td> 
+          <td> </td> 
+          <td> </td> 
+          <td class="mandatoryElement multiplicity-column"> 1..*</td> 
+          <td> SV_OperationMetadata; Zeile C.2</td> 
+          <td> beim Generieren der Dienste-Metadaten wird der Wert auf "WebServices" gesetzt</td>  
+        </tr> 
+        <tr> 
+          <td> C.1.9</td> 
+          <td> <em>Role name</em>: operatesOn</td> 
+          <td> Verbindung zu Geodaten</td> 
+          <td> Informationen über die Geodaten, die über den Dienst bereit gestellt werden GDI-DE: operatesOn wird angegeben, wenn es eine Kopplung eines Dienstes mit den Daten gibt (Kopplungstyp mixed/tight); für die Verknüpfung wird die eindeutige ID des entsprechenden Datensatzes verwendet --&gt; anzugeben als xlink:href</td> 
+          <td class="multiplicity-column"> 0..*</td> 
+          <td> </td> 
+          <td> </td> 
+          <td class="mandatoryElement multiplicity-column"> 1..*</td> 
+          <td> service: wird angegeben, wenn es eine Kopplung des Dienstes mit den Daten gibt </td> 
+          <td> </td> 
+          <td class="mandatoryElement multiplicity-column"> 1..*</td> 
+          <td> MD_DataIdentification (B.2.2.1); Zeile 23</td> 
+          <td> wird bei der Themenzuordnung gesetzt</td>  
+        </tr> 
+        <tr class="isoComplexElement"> 
+          <td> </td> 
+          <td> <em>SV_CoupledResource</em></td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> ISO 19119 - NUR für 'services'</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> ISO 19119 - NUR für 'services'</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td>  
+        </tr>  
+        <tr class="isoComplexElement"> 
+          <td> 19119: table C.2</td> 
+          <td> <em>SV_OperationMetadata</em></td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> ISO 19119 - NUR für 'service'</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> ISO 19119 - NUR für 'service'</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td>  
+        </tr> 
+        <tr> 
+          <td> C.2.1</td> 
+          <td> operationName</td> 
+          <td> Operationsname</td> 
+          <td> Ein eindeutiger Identifikator für die Schnittstelle 
+            <div class="example">
+               GetCapabilities 
+            </div></td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td> </td> 
+          <td> </td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td> </td> 
+          <td> </td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td> Freitext</td> 
+          <td> beim Generieren der Dienste-Metadaten wird der Wert auf "GetCapabilities" gesetzt</td>  
+        </tr> 
+        <tr> 
+          <td> C.2.2</td> 
+          <td> DCP</td> 
+          <td> Protokollliste</td> 
+          <td> Softwaretechnische Basis für implementierte Operationen. 
+            <div class="example">
+               WebServices 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column"> 1..*</td> 
+          <td> </td> 
+          <td> </td> 
+          <td class="mandatoryElement multiplicity-column"> 1..*</td> 
+          <td> </td> 
+          <td> </td> 
+          <td class="mandatoryElement multiplicity-column"> 1..*</td> 
+          <td> siehe Code-Liste (DCPList erweiterbar)</td> 
+          <td> </td>  
+        </tr>    
+        <tr> 
+          <td> C.2.6</td> 
+          <td> connectPoint</td> 
+          <td> Serviceaufruf</td> 
+          <td> URL des Service 
+            <div class="example">
+               http://fbinter.stadt-berlin.de/fb/wms/senstadt/bplan/ 
+            </div></td> 
+          <td class="mandatoryElement multiplicity-column"> 1..*</td> 
+          <td> </td> 
+          <td> </td> 
+          <td class="mandatoryElement multiplicity-column"> 1..*</td> 
+          <td> </td> 
+          <td> </td> 
+          <td class="mandatoryElement multiplicity-column"> 1..*</td> 
+          <td> CI_OnlineResource</td> 
+          <td> beim Generieren der Dienste-Metadaten wird der Wert auf die GetCapabilities-URL des Dienstes gesetzt</td>  
+        </tr>  
+        <tr class="isoComplexElement"> 
+          <td> table C.3</td> 
+          <td> <em>Data dictionary for SV_ServiceProvider</em></td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> ISO 19119 - NUR für 'services'</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> ISO 19119 - NUR für 'services'</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td>  
+        </tr> 
+        <tr> 
+          <td> C.3.1</td> 
+          <td> providerName</td> 
+          <td> Operationsname</td> 
+          <td> Ein eindeutiger Identifikator für die Organisation </td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td> </td> 
+          <td> </td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td> </td> 
+          <td> </td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td> Freitext</td> 
+          <td> </td>  
+        </tr> 
+        <tr> 
+          <td> C.3.2</td> 
+          <td> serviceContact</td> 
+          <td> Kontakt</td> 
+          <td> Angaben zum Kontaktieren des Service-Providers </td> 
+          <td class="mandatoryElement multiplicity-column"> 1..*</td> 
+          <td> </td> 
+          <td> </td> 
+          <td class="mandatoryElement multiplicity-column"> 1..*</td> 
+          <td> </td> 
+          <td> </td> 
+          <td class="mandatoryElement multiplicity-column"> 1..*</td> 
+          <td> CL_ResponsibleParty</td> 
+          <td> </td>  
+        </tr> 
+        <tr class="isoHeader"> 
+          <td> B.2.2.2 Vorschaugrafik</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td>  
+        </tr> 
+        <tr class="isoComplexElement"> 
+          <td> 48</td> 
+          <td> <em>MD_BrowseGraphic</em></td> 
+          <td> Grafische Darstellung</td> 
+          <td> Grafik, die die Ressource darstellt (möglichst einschließlich Legende)</td> 
+          <td> </td> 
+          <td> vererbt vom übergeordneten Objekt</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> Zeile 49-51</td> 
+          <td> beim Generieren der Dienste-Metadaten werden das Vorschaubild (Vorschaugrafik) und das Legendenbild (Legende) aus den Broker-Metadaten in die 19119 übernommen.</td>  
+        </tr> 
+        <tr> 
+          <td> 49</td> 
+          <td> fileName</td> 
+          <td> Dateiname</td> 
+          <td> Dateiname der Grafik. BE (service): Legendenbild der Karte und Vorschaugrafik werden aus den Broker-Metadaten übernommen. Der Dateiname ist mit vollständiger Pfadangabe anzugeben. 
+            <div class="example">
+               http://fbinter.stadt-berlin.de/fb_daten/vorschau/karten/kvor_bplan.gif 
+            </div></td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td> </td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td> </td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td> Freitext</td> 
+          <td> siehe 48</td>  
+        </tr> 
+        <tr> 
+          <td> 50</td> 
+          <td> fileDescription</td> 
+          <td> Dateibeschreibung</td> 
+          <td> textliche Beschreibung des Inhalts der Grafik; BE (service): Die Beschreibung ist fest zu setzen. 
+            <div class="example">
+               Vorschaugrafik 
+            </div> für Vorschau 
+            <div class="example"> 
+            </div>und 
+            <div class="example">
+               Legende 
+            </div>für Legendenbild </td> 
+          <td class="multiplicity-column"> 0..1</td> 
+          <td> </td> 
+          <td class="multiplicity-column"> 0..1</td> 
+          <td class="multiplicity-column"> 0..1</td> 
+          <td> </td> 
+          <td class="multiplicity-column"> 0..1</td> 
+          <td class="multiplicity-column"> 0..1</td> 
+          <td> Freitext</td> 
+          <td> siehe 48: Die Bezeichnungen "Vorschaugrafik" und "Legende" werden fest gesetzt.</td>  
+        </tr> 
+        <tr> 
+          <td> 51</td> 
+          <td> fileType</td> 
+          <td> Dateiformat</td> 
+          <td> Dateiformat der Grafik 
+            <div class="example">
+               image/gif 
+            </div></td> 
+          <td class="multiplicity-column"> 0..1</td> 
+          <td> </td> 
+          <td class="multiplicity-column"> 0..1</td> 
+          <td class="multiplicity-column"> 0..1</td> 
+          <td> </td> 
+          <td class="multiplicity-column"> 0..1</td> 
+          <td class="multiplicity-column"> 0..1</td> 
+          <td> Freitext</td> 
+          <td> siehe 48: für das Legendenbild wird das Format übernommen</td>  
+        </tr> 
+        <tr class="isoHeader"> 
+          <td> B.2.2.3 Schlüsselwörter</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td>  
+        </tr> 
+        <tr class="isoComplexElement"> 
+          <td> 52</td> 
+          <td> <em>MD_Keywords</em></td> 
+          <td> Schlüsselwörter</td> 
+          <td> Schlüsselwörter, ihr Typ und die Referenzquelle</td> 
+          <td> </td> 
+          <td> vererbt vom übergeordneten Objekt</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> Zeile 53-55</td> 
+          <td> Für Metadatensätze vom Metadatentyp "INSPIRE" und zugeordneter inspireID wird das entsprechende INSPIRE-Schlagwort aus dem Umwelt-Thesaurus (GEMET) beim Einrichten des Metadatensatzes gesetzt. dataset: Angaben können beim Metadatenabgleich aus der 19115 in die Broker-Metadaten und von dort in die 19119 übernommen werden. service: Angaben werden aus den Broker-Metadaten in die 19119 synchronisiert. Datensatzklasse Fachverfahren: humanGeographicViewer Datensatzklasse Sachdatendatensatz, Geometriedatensatz oder ATOM: infoFeatureAccessService Datensatzklasse Karte: infoMapAccessService</td>  
+        </tr> 
+        <tr> 
+          <td> 53</td> 
+          <td> keyword</td> 
+          <td> Schlüsselwort</td> 
+          <td> umgangssprachlich verwendete Wörter, Ausdrücke oder formalisierte Fachbegriffe, die den Inhalt beschreiben GDI-DE: Keyword "inspireidentifiziert" muss für alle Georessourcen geführt werden, welche inspireidentifiziert sind; Keyword "opendata" wenn zutreffend (siehe Architektur der Geodateninfrastruktur Deutschland: Konventionen zu Metadaten der GDI.DE (Konventionendokument), V1.2, 01.08.2017, Kapitel 2.2 bzw. Kap. 3.5) 
+            <div class="example">
+               Geltungsbereiche, Bebauungsplan, B-Plan, Bplan, Bpläne, B-Pläne 
+            </div></td> 
+          <td class="mandatoryElement multiplicity-column"> 1..*</td> 
+          <td> </td> 
+          <td class="mandatoryElement multiplicity-column"> 1..*</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..*</td> 
+          <td> Pflicht: ein Schlüsselwort aus Thesaurus GEMET INSPIRE themes und das Keyword 'inspireidentifiziert'</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..*</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..*</td> 
+          <td> Freitext</td> 
+          <td> </td>  
+        </tr> 
+        <tr> 
+          <td> 54</td> 
+          <td> Type</td> 
+          <td> Schlüsselworttyp</td> 
+          <td> Einteilung von Schlüsselwörtern in inhaltlich verwandte Sachgebiete</td> 
+          <td class="multiplicity-column"> 0..1</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> MD_KeywordTypeCode &lt;&lt;CodeList&gt;&gt; (B.5.17)</td> 
+          <td> wird fest gesetzt Von den möglichen Werten der Code-Liste wird verwendet: 
+            <div class="example">
+               THEME 
+            </div></td>  
+        </tr> 
+        <tr> 
+          <td> 55</td> 
+          <td> ThesaurusName</td> 
+          <td> Thesaurus</td> 
+          <td> Name eines formell registrierten Wortschatzes oder einer ähnlich verbindlichen Quelle von Schlüsselwörtern z.B. für INSPIRE: 
+            <div class="example"> 
+            </div>title: 
+            <div class="example">
+               GEMET - INSPIRE themes, version 1.0 
+            </div>date: 
+            <div class="example">
+               2008-06-01 
+            </div>dateType: 
+            <div class="example">
+               publication 
+            </div></td> 
+          <td class="multiplicity-column"> 0..1</td> 
+          <td> </td> 
+          <td class="multiplicity-column"> K..1</td> 
+          <td class="multiplicity-column"> K..1</td> 
+          <td> INSPIRE: verpflichtend, falls das Schlüsselwort aus einem festgelegten Thesaurus stammt; GEMET INSPIRE muss mind. 1x angegeben werden</td> 
+          <td class="multiplicity-column"> K..1</td> 
+          <td class="multiplicity-column"> K..1</td> 
+          <td> CI_Citation &lt;&lt;DataType&gt;&gt; (B.3.2)</td> 
+          <td> wird für INSPIRE-Schlagwort fest gesetzt Titel: 
+            <div class="example">
+               GEMET - INSPIRE themes, version 1.0 
+            </div></td>  
+        </tr> 
+        <tr class="isoHeader"> 
+          <td> B.2.2.4 Maßstab</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td>  
+        </tr> 
+        <tr class="isoComplexElement"> 
+          <td> 56</td> 
+          <td> <em>MD_RepresentativeFraction</em></td> 
+          <td> Maßstab</td> 
+          <td> hergeleitet vom ISO 19103; Maßstab, wobei MD_RepresentativFraction.denominator = 1 / Scale.measure Und Scale.targetUnits = Scale.sourceUnits </td> 
+          <td> </td> 
+          <td> vererbt vom übergeordneten Objekt</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> ISO 19115 - NICHT für 'services'</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> Zeile 57</td> 
+          <td> beim Metadatenabgleich kann die Angabe aus der 19115 die Angabe im zugeordneten Metadatensatz (Datensatzklassen Karte und Geometriedatensatz) überschreiben</td>  
+        </tr> 
+        <tr> 
+          <td> 57</td> 
+          <td> denominator</td> 
+          <td> Maßstabszahl</td> 
+          <td> Angabe der Maßstabszahl (mz) eines Maßstabs 1 : mz (Nenner ohne Leerzeichen) 
+            <div class="example">
+               10000 
+            </div>Hinweis: Für einen oberen und unteren Maßstabsbereich wird MD_Resolution mehrfach genutzt</td> 
+          <td class="multiplicity-column"> K..1</td> 
+          <td> BE: Pflicht bei Datensatzklassen Karte und Geometriedatensaz</td> 
+          <td class="multiplicity-column"> K..1</td> 
+          <td> </td> 
+          <td> entweder 'equivalentScale' mit 'denominator' oder 'distance' dokumentieren </td> 
+          <td class="multiplicity-column"> K..1</td> 
+          <td> </td> 
+          <td> Ganzzahl &gt; 0</td> 
+          <td> </td>  
+        </tr> 
+        <tr class="isoComplexElement"> 
+          <td> 58</td> 
+          <td> <em>intentionally left blank</em></td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td>  
+        </tr> 
+        <tr class="isoHeader"> 
+          <td> B.2.2.5 Auflösung</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td>  
+        </tr> 
+        <tr class="isoComplexElement"> 
+          <td> 59</td> 
+          <td> <em>MD_Resolution</em></td> 
+          <td> Auflösung</td> 
+          <td> Detailliertheitsgrad, angegeben durch eine Maßstabszahl oder eine Bodenauflösung </td> 
+          <td> </td> 
+          <td> ISO 19115 - NICHT für 'services', vererbt vom übergeordneten Objekt</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> Zeile 60-61</td> 
+          <td> beim Metadatenabgleich kann die Angabe aus der 19115 die Angabe im zugeordneten Metadatensatz (Datensatzklassen Karte) überschreiben</td>  
+        </tr> 
+        <tr> 
+          <td> 60</td> 
+          <td> equivalentScale</td> 
+          <td> Vergleichsmaßstab</td> 
+          <td> Detailliertheitsgrad, angegeben durch den Maßstab einer vergleichbaren gedruckten Karte</td> 
+          <td class="multiplicity-column"> K..1</td> 
+          <td> 1, falls distance nicht angegeben wird</td> 
+          <td class="multiplicity-column"> K..1</td> 
+          <td> </td> 
+          <td> entweder 'equivalentScale' mit 'denominator' oder 'distance' dokumentieren </td> 
+          <td class="multiplicity-column"> K..1</td> 
+          <td> </td> 
+          <td> MD_RepresentativeFraction &lt;&lt;DataType&gt;&gt; (B.2.2.4)</td> 
+          <td> </td>  
+        </tr> 
+        <tr> 
+          <td> 61</td> 
+          <td> distance</td> 
+          <td> Distanz (Bodenauflösung)</td> 
+          <td> Bodenauflösung Angabe in der Einheit des CRS: 
+            <div class="example">
+               0.2 
+            </div></td> 
+          <td class="multiplicity-column"> K..1</td> 
+          <td> 1, falls equivalentScale nicht angegeben wird</td> 
+          <td class="multiplicity-column"> K..1</td> 
+          <td> </td> 
+          <td> entweder 'equivalentScale' mit 'denominator' oder 'distance' dokumentieren </td> 
+          <td class="multiplicity-column"> K..1</td> 
+          <td> </td> 
+          <td> Distance (B.4.3)</td> 
+          <td> </td>  
+        </tr> 
+        <tr class="isoHeader"> 
+          <td> B.2.2.6 Nutzung</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td>  
+        </tr> 
+        <tr class="isoComplexElement"> 
+          <td> 62</td> 
+          <td> <em>MD_Usage</em></td> 
+          <td> Nutzung</td> 
+          <td> kurze Beschreibung, auf welche Art und Weise die Ressource zur Zeit verwendet wird oder verwendet wurde </td> 
+          <td> </td> 
+          <td> vererbt vom übergeordneten Objekt</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> Zeile 63-66</td> 
+          <td> </td>  
+        </tr> 
+        <tr> 
+          <td> 63</td> 
+          <td> specificUsage</td> 
+          <td> Spezifische Nutzung (Eignung/Nutzung) </td> 
+          <td> kurze Beschreibung zur Verwendung der Ressource 
+            <div class="example">
+               Besonders geeignet für die Überlagerung von Gewässern bis zur 3. Ordnung 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td> </td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td> </td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td> Freitext</td> 
+          <td> </td>  
+        </tr>   
+        <tr> 
+          <td> 66</td> 
+          <td> userContactInfo</td> 
+          <td> Nutzerkontakt</td> 
+          <td> Kontaktinformation zu Person(en) und Organisation(en), welche die Ressource verwenden</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..*</td> 
+          <td> </td> 
+          <td class="mandatoryElement multiplicity-column"> 1..*</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..*</td> 
+          <td> </td> 
+          <td class="mandatoryElement multiplicity-column"> 1..*</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..*</td> 
+          <td> CI_ResponsibleParty &lt;&lt;DataType&gt;&gt; (B.3.2)</td> 
+          <td> </td>  
+        </tr> 
+        <tr class="isoHeader"> 
+          <td> B.2.2.7 Aggregation</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td>  
+        </tr> 
+        <tr class="isoComplexElement"> 
+          <td> 66.1</td> 
+          <td> <em>MD_AggregateInformation</em></td> 
+          <td> Aggregationsinformation</td> 
+          <td> Information zu assoziierten Datenbeständen</td> 
+          <td> </td> 
+          <td> vererbt vom übergeordneten Objekt</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> Zeile 66.2-66.5</td> 
+          <td> </td>  
+        </tr>     
+        <tr class="isoHeader"> 
+          <td> B.2.3 Einschränkungen</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td>  
+        </tr> 
+        <tr class="isoComplexElement"> 
+          <td> 67</td> 
+          <td> <em>MD_Constraints</em></td> 
+          <td> Einschränkungen (Beschränkungen) </td> 
+          <td> Zugriffs- und Nutzungseinschränkungen, denen eine Ressource oder ein Metadatensatz unterliegt Einschränkungen in Zugriff und Benutzung der Metadaten; GDI-DE (Konventionsdokument): siehe Kap. 3; BE: Es gelten Vorgaben für die Angaben der Nutzungsbeschränkungen: Amt für Statistik | SenStadtWohn, allgemein | SenStadtWohn, allgemein | unbekannt (siehe BE-Profil, Teil A Dokumentation, Kap. 2.3.2)</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> Zeile 68</td> 
+          <td> beim Metadatenabgleich können die Angaben aus der ISO 19115 in die ISO 19119 übernommen werden.</td>  
+        </tr> 
+        <tr> 
+          <td> 68</td> 
+          <td> useLimitation</td> 
+          <td> Anwendungseinschränkungen</td> 
+          <td> Einschränkungen, die die Eignung der Ressource oder Metadaten betreffen Beispiel. INSPIRE: TG 1.0 fordert die Abbildung von UseConstraints in UseLimitations. GDI-DE: Hier sollen die Nutzungsbedingungen hinterlegt werden, Doppelbelegung wird vorgenommen, um ISO und INSPIRE zu entsprechen (siehe BE-Profil, Teil A Dokumentation, Kap. 2.3.2). 
+            <div class="example">
+               Nutzungsbedingungen: Für die Nutzung der Daten ist die Datenlizenz Deutschland - Namensnennung - Version 2.0 anzuwenden. Die Lizenz ist über https://www.govdata.de/dl-de/by-2-0 abrufbar. Der Quellenvermerk gemäß (2) der Lizenz lautet "Geoportal Berlin / [Titel des Datensatzes]". 
+            </div></td> 
+          <td class="multiplicity-column"> 0..*</td> 
+          <td> </td> 
+          <td class="mandatoryElement multiplicity-column"> 1..*</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..*</td> 
+          <td> für dataset und service: muss bei der ersten Belegung der Klasse MD_Constraints Werte enthalten</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..*</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..*</td> 
+          <td> Freitext</td> 
+          <td> </td>  
+        </tr> 
+        <tr class="isoComplexElement"> 
+          <td> 69</td> 
+          <td> <em>MD_LegalConstraints</em></td> 
+          <td> Rechtliche Einschränkungen (Rechtliche Beschränkungen) </td> 
+          <td> Einschränkungen und rechtliche Voraussetzungen für den Zugriff sowie die Verwendung der Ressource oder der Metadaten</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> Zeile 70-72 and 68</td> 
+          <td> </td>  
+        </tr> 
+        <tr> 
+          <td> 70</td> 
+          <td> accessConstraints</td> 
+          <td> Zugriffseinschränkungen </td> 
+          <td> Zugriffseinschränkungen zum Schutz der Privatsphäre oder des geistigen Eigentums sowie andere besondere Einschränkungen des Zugriffs auf die Ressource oder die Metadaten 
+            <div class="example">
+               other 
+            </div> </td> 
+          <td class="multiplicity-column"> 0..*</td> 
+          <td> wenn 72 angeben wird, muss 70 oder 71 mit 'otherRestriction' belegt sein</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..*</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..*</td> 
+          <td> dataset und service: Pflicht, falls 74 nicht angegeben ist (72 wird im BEBB nicht alternativ gesetzt).</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..*</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..*</td> 
+          <td> MD_RestrictionCode &lt;&lt;CodeList&gt;&gt; (B.5.24)</td> 
+          <td> </td>  
+        </tr> 
+        <tr> 
+          <td> 71</td> 
+          <td> useConstraints</td> 
+          <td> Nutzungseinschränkungen</td> 
+          <td> Einschränkungen zum Schutz der Privatsphäre oder des geistigen Eigentums sowie andere besondere Einschränkungen oder Warnungen bezüglich der Nutzung der Ressource oder der Metadaten 
+            <div class="example">
+               copyright 
+            </div> </td> 
+          <td class="multiplicity-column"> 0..*</td> 
+          <td> wenn 72 angeben wird, muss 70 oder 71 mit 'otherRestriction' belegt sein</td> 
+          <td class="multiplicity-column"> 0..*</td> 
+          <td class="multiplicity-column"> 0..*</td> 
+          <td> </td> 
+          <td class="multiplicity-column"> 0..*</td> 
+          <td class="multiplicity-column"> 0..*</td> 
+          <td> MD_RestrictionCode &lt;&lt;CodeList&gt;&gt; (B.5.24)</td> 
+          <td> </td>  
+        </tr> 
+        <tr> 
+          <td> 72</td> 
+          <td> otherConstraints</td> 
+          <td> Andere Einschränkungen </td> 
+          <td> andere Einschränkungen und rechtliche Voraussetzungen für den Zugriff und die Verwendung der Ressource oder der Metadaten 
+            <div class="example">
+               Es gelten keine Bedingungen. 
+            </div></td> 
+          <td class="multiplicity-column"> K..*</td> 
+          <td> Pflicht, falls accessConstraints oder useConstraints „otherRestrictions“ entspricht</td> 
+          <td class="multiplicity-column"> K..*</td> 
+          <td class="multiplicity-column"> K..*</td> 
+          <td> </td> 
+          <td class="multiplicity-column"> K..*</td> 
+          <td class="multiplicity-column"> K..*</td> 
+          <td> Freitext</td> 
+          <td> </td>  
+        </tr> 
+        <tr class="isoComplexElement"> 
+          <td> 73</td> 
+          <td> <em>MD_SecurityConstraints</em></td> 
+          <td> Sicherheitseinschränkungen</td> 
+          <td> Anwendungseinschränkungen für die Ressource oder für Metadaten zur Wahrung der nationalen Sicherheit oder ähnlicher Sicherheitsbelange </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> Zeile 74-77 und 68</td> 
+          <td> </td>  
+        </tr> 
+        <tr> 
+          <td> 74</td> 
+          <td> classification</td> 
+          <td> Sicherheitseinstufung</td> 
+          <td> Sicherheitseinstufung beim Umgang mit der Ressource oder den Metadaten 
+            <div class="example">
+               secret 
+            </div></td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td> </td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1 Pflicht, falls 70 nicht angegeben ist</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td> MD_ClassificationCode &lt;&lt;CodeList&gt;&gt; (B.5.11)</td> 
+          <td> </td>  
+        </tr>    
+        <tr class="isoHeader"> 
+          <td> B.2.4 Datenqualität</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td>  
+        </tr> 
+        <tr class="isoHeader"> 
+          <td> B.2.4.1 Allgemein</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td>  
+        </tr> 
+        <tr class="isoComplexElement"> 
+          <td> 78</td> 
+          <td> <em>DQ_DataQuality</em></td> 
+          <td> Datenqualität</td> 
+          <td> Informationen über die Qualität des Datenbestandes</td> 
+          <td> </td> 
+          <td> vererbt vom übergeordneten Objekt</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> Zeile 79-81</td> 
+          <td> Datenqualität wird vom METEOR beim Einrichten des Metadatensatzes vorbelegt</td>  
+        </tr> 
+        <tr> 
+          <td> 79</td> 
+          <td> scope</td> 
+          <td> Geltungsbereich</td> 
+          <td> Geltungsbereich der Daten, auf die sich die Qualitätsangaben beziehen (Anmerkung: kann gesamten Datensatz, aber auch nur einzelne Objektbereiche oder -arten betreffen) ISO 19115: 
+            <div class="example">
+               dataset|application 
+            </div>ISO 19119: 
+            <div class="example">
+               service 
+            </div></td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td> </td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td> </td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td> DQ_Scope &lt;&lt;DataType&gt;&gt; (B.2.4.5)</td> 
+          <td> 19115: dataset|application 19119: service</td>  
+        </tr> 
+        <tr> 
+          <td> 80</td> 
+          <td> <em>Role name</em>: report</td> 
+          <td> Qualitätsbericht</td> 
+          <td> quantitative Qualitätsinformation über die Daten, bezogen auf den Geltungsbereich</td> 
+          <td class="multiplicity-column"> K..*</td> 
+          <td> Pflicht für dataset/series, falls lineage nicht angegeben ist</td> 
+          <td class="multiplicity-column"> K..*</td> 
+          <td class="multiplicity-column"> K..*</td> 
+          <td> dataset und service: Pflicht, falls ein Konformitätstest durchgeführt wurde;</td> 
+          <td class="multiplicity-column"> K..*</td> 
+          <td class="multiplicity-column"> K..*</td> 
+          <td> DQ_Element &lt;&lt;Abstract&gt;&gt; (B.2.4.3) Zeile 99</td> 
+          <td> wird vorbelegt mit "Domain Consistency"</td>  
+        </tr> 
+        <tr> 
+          <td> 81</td> 
+          <td> <em>Role name</em>: lineage</td> 
+          <td> Herkunft</td> 
+          <td> nicht-quantitative Qualitätsinformation über die Herkunft der Daten, bezogen auf den Geltungsbereich</td> 
+          <td class="multiplicity-column"> K..1</td> 
+          <td> Pflicht für dataset/series, falls report nicht angegeben ist</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td> </td> 
+          <td> dataset: lineage/statement muss einmal [1] für gesamte Ressource dokumentiert werden; service: lineage/statement ist für services nicht anwendbar</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td> </td> 
+          <td> LI_Lineage (B.2.4.2) Zeile 82</td> 
+          <td> </td>  
+        </tr> 
+        <tr class="isoHeader"> 
+          <td> B.2.4.2 Herkunft</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td>  
+        </tr> 
+        <tr class="isoHeader"> 
+          <td> B.2.4.2.1 Allgemein</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td>  
+        </tr> 
+        <tr class="isoComplexElement"> 
+          <td> 82</td> 
+          <td> <em>LI_Lineage</em></td> 
+          <td> Herkunft</td> 
+          <td> Information über die Datenerzeugung bzw. die dafür genutzten Datenquellen oder den Kenntnismangel ihrer Herkunft </td> 
+          <td> </td> 
+          <td> vererbt vom übergeordneten Objekt</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> Zeile 83-85</td> 
+          <td> </td>  
+        </tr> 
+        <tr> 
+          <td> 83</td> 
+          <td> statement</td> 
+          <td> Erläuterung (Datensatzherkunft)</td> 
+          <td> allgemeine Aussagen des Datenerzeugers zur Herkunft des Datenbestands 
+            <div class="example">
+               Daten aus der Berliner Verwaltung 
+            </div></td> 
+          <td class="multiplicity-column"> K..1</td> 
+          <td> Pflicht, falls DQ_DataQuality.scope.DQ_Scope.level ="dataset" or "series" UND falls source und processStep nicht angegeben sind</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td> </td> 
+          <td> dataset: lineage/statement muss einmal [1] für gesamte Ressource dokumentiert werden service: lineage/statement ist für services nicht anwendbar</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td> </td> 
+          <td> Freitext</td> 
+          <td> 19115: wird beim Einrichten des Metadatensatzes mit Wert aus properties-Datei belegt</td>  
+        </tr> 
+        <tr> 
+          <td> 84</td> 
+          <td> <em>Role name</em>: processStep</td> 
+          <td> Bearbeitungsschritt (Herstellungsprozess)</td> 
+          <td> Information über den Herstellungsprozess des Datenbestands im genannten Geltungsbereich</td> 
+          <td class="multiplicity-column"> K..*</td> 
+          <td> Pflicht, falls statement und processStep nicht angegeben sind (für dataset und series)</td> 
+          <td class="multiplicity-column"> 0..*</td> 
+          <td class="multiplicity-column"> 0..*</td> 
+          <td> dataset: Vereinfachung, da statement Pflicht </td> 
+          <td class="multiplicity-column"> 0..*</td> 
+          <td class="multiplicity-column"> 0..*</td> 
+          <td> LI_ProcessStep (B.2.4.2.2) Zeile 86</td> 
+          <td> </td>  
+        </tr> 
+        <tr> 
+          <td> 85</td> 
+          <td> <em>Role name</em>: source</td> 
+          <td> Datenquellen</td> 
+          <td> Information über die bei der Datenerzeugung genutzten Datenquellen im genannten Geltungsbereich</td> 
+          <td class="multiplicity-column"> K..*</td> 
+          <td> Pflicht, falls statement und processStep nicht angegeben sind (für dataset und series)</td> 
+          <td class="multiplicity-column"> 0..*</td> 
+          <td class="multiplicity-column"> 0..*</td> 
+          <td> dataset: Vereinfachung, da statement Pflicht </td> 
+          <td class="multiplicity-column"> 0..*</td> 
+          <td class="multiplicity-column"> 0..*</td> 
+          <td> LI_Source (B.2.4.2.3) Zeile 92</td> 
+          <td> </td>  
+        </tr> 
+        <tr class="isoHeader"> 
+          <td> B.2.4.2.2 Bearbeitungsschritt</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td>  
+        </tr> 
+        <tr class="isoComplexElement"> 
+          <td> 86</td> 
+          <td> <em>LI_ProcessStep</em></td> 
+          <td> Bearbeitungsschritt (Herstellungsprozess)</td> 
+          <td> Information über einen Schritt im Erstellungs- oder Transformationsprozess der Daten einschließlich der Datenpflege </td> 
+          <td> </td> 
+          <td> vererbt vom übergeordneten Objekt</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> Zeile 87-91</td> 
+          <td> </td>  
+        </tr> 
+        <tr> 
+          <td> 87</td> 
+          <td> description</td> 
+          <td> Beschreibung</td> 
+          <td> Beschreibung des Herstellungsprozesses einschließlich wichtiger Parameter oder Toleranzen</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td> </td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td> </td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td> Freitext</td> 
+          <td> </td>  
+        </tr>    
+        <tr> 
+          <td> 91</td> 
+          <td> <em>Role name</em>: source</td> 
+          <td> Datenquelle</td> 
+          <td> Information über die bei der Datenerzeugung genutzten Datenquelle im genannten Geltungsbereich </td> 
+          <td class="multiplicity-column"> K..*</td> 
+          <td> Pflicht, falls statement und processStep nicht angegeben sind (für dataset und series)</td> 
+          <td class="multiplicity-column"> 0..*</td> 
+          <td class="multiplicity-column"> 0..*</td> 
+          <td> dataset: Vereinfachung, da statement Pflicht </td> 
+          <td class="multiplicity-column"> 0..*</td> 
+          <td class="multiplicity-column"> 0..*</td> 
+          <td> LI_Source (B.2.4.2.3)</td> 
+          <td> </td>  
+        </tr> 
+        <tr class="isoHeader"> 
+          <td> B.2.4.2.3 Datenquelle</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td>  
+        </tr> 
+        <tr class="isoComplexElement"> 
+          <td> 92</td> 
+          <td> <em>LI_Source</em></td> 
+          <td> Datenquelle</td> 
+          <td> Information über die bei der Datenerzeugung genutzten Datenquelle im genannten Geltungsbereich </td> 
+          <td> </td> 
+          <td> vererbt vom übergeordneten Objekt</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> Zeile 93-98</td> 
+          <td> </td>  
+        </tr> 
+        <tr> 
+          <td> 93</td> 
+          <td> description</td> 
+          <td> Beschreibung </td> 
+          <td> detaillierte Beschreibung der Ebene der Quelldaten</td> 
+          <td class="multiplicity-column"> K..1</td> 
+          <td> 1, falls 97-sourceExtent nicht angegeben ist </td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td> </td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td>  
+        </tr>      
+        <tr class="isoHeader"> 
+          <td> B.2.4.3 Datenqualitätselement</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td>  
+        </tr> 
+        <tr class="isoComplexElement"> 
+          <td> 99</td> 
+          <td> <em>DQ_Element</em></td> 
+          <td> Datenqualitätselement</td> 
+          <td> Aspekt der quantitativen Qualitätsinformationen</td> 
+          <td> </td> 
+          <td> vererbt vom übergeordneten Objekt</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> Zeile 100-107</td> 
+          <td> </td>  
+        </tr>        
+        <tr> 
+          <td> 107</td> 
+          <td> result</td> 
+          <td> Ergebnis</td> 
+          <td> Ergebnis (oder eine Menge von Ergebnissen) aus der angewandten Qualitätsprüfung und/oder das Ergebnis, das sich aus dem Vergleich der Ergebnisse mit einem Qualitätskriterium ergeben hat.</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..2</td> 
+          <td> </td> 
+          <td class="mandatoryElement multiplicity-column"> 1..2</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..2</td> 
+          <td> mehr als eine Konformitätsaussage verpflichtend: dataQualityInfo/*/report/*/result/*/pass </td> 
+          <td class="mandatoryElement multiplicity-column"> 1..2</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..2</td> 
+          <td> DQ_Result &lt;&lt;Abstract&gt;&gt; (B.2.4.4)</td> 
+          <td> ISO: bibliografische Angaben zur Produktspezifikation oder zur Benutzeranforderung, anhand derer die Daten bewertet werden. INSPIRE: Für INSPIRE-identifizierte Datensätze gilt, dass hier die entsprechende Datenspezifikation angegeben werden muss</td>  
+        </tr> 
+        <tr class="isoComplexElement"> 
+          <td> 108</td> 
+          <td> <em>DQ_Completeness</em></td> 
+          <td> Vollständigkeit</td> 
+          <td> vorhandene und fehlende Objekte, deren Attribute und Beziehungen</td> 
+          <td> </td> 
+          <td> vererbt vom übergeordneten Objekt</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> Zeile 100-107</td> 
+          <td> </td>  
+        </tr> 
+        <tr class="isoComplexElement"> 
+          <td> 109</td> 
+          <td> <em>DQ_CompletenessCommission</em></td> 
+          <td> Datenüberschuss</td> 
+          <td> Daten, die im Vergleich zum beschriebenen Geltungsbereich überschüssig sind </td> 
+          <td> </td> 
+          <td> vererbt vom übergeordneten Objekt</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> Zeile 100-107</td> 
+          <td> </td>  
+        </tr> 
+        <tr class="isoComplexElement"> 
+          <td> 110</td> 
+          <td> <em>DQ_CompletenessOmission</em></td> 
+          <td> Datendefizit</td> 
+          <td> Daten, die im Vergleich zum beschriebenen Geltungsbereich fehlen</td> 
+          <td> </td> 
+          <td> vererbt vom übergeordneten Objekt</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> Zeile 100-107</td> 
+          <td> </td>  
+        </tr> 
+        <tr class="isoComplexElement"> 
+          <td> 111</td> 
+          <td> <em>DQ_LogicalConsistency</em></td> 
+          <td> Logische Konsistenz</td> 
+          <td> Maß der Einhaltung von logischen Regeln der Datenstruktur, der Attributierung und der Beziehungen. (Die Datenstruktur kann konzeptionell, logisch oder physikalisch sein) </td> 
+          <td> </td> 
+          <td> vererbt vom übergeordneten Objekt</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> Zeile 100-107</td> 
+          <td> </td>  
+        </tr> 
+        <tr class="isoComplexElement"> 
+          <td> 112</td> 
+          <td> <em>DQ_ConceptualConsistency </em></td> 
+          <td> Konzeptionelle Konsistenz</td> 
+          <td> Einhaltung der Regeln des konzeptionellen Schemas</td> 
+          <td> </td> 
+          <td> vererbt vom übergeordneten Objekt</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> Zeile 100-107</td> 
+          <td> </td>  
+        </tr> 
+        <tr class="isoComplexElement"> 
+          <td> 113</td> 
+          <td> <em>DQ_DomainConsistency</em></td> 
+          <td> Konsistenz des Wertebereichs</td> 
+          <td> Einhaltung der Werte in Wertebereichen</td> 
+          <td> </td> 
+          <td> vererbt vom übergeordneten Objekt</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> Zeile 100-107</td> 
+          <td> </td>  
+        </tr> 
+        <tr class="isoComplexElement"> 
+          <td> 114</td> 
+          <td> <em>DQ_FormatConsistency</em></td> 
+          <td> Formatkonsistenz</td> 
+          <td> Maß, wie der im Geltungsbereich definierte Datenbestand in Übereinstimmung mit der physikalischen Datenstruktur gespeichert ist</td> 
+          <td> </td> 
+          <td> vererbt vom übergeordneten Objekt</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> Zeile 100-107</td> 
+          <td> </td>  
+        </tr> 
+        <tr class="isoComplexElement"> 
+          <td> 115</td> 
+          <td> <em>DQ_TopologicalConsistency</em></td> 
+          <td> Topologische Konsistenz</td> 
+          <td> Korrektheit der angegebenen topologischen Eigenschaften des Datenbestands im Geltungsbereich</td> 
+          <td> </td> 
+          <td> vererbt vom übergeordneten Objekt</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> Zeile 100-107</td> 
+          <td> </td>  
+        </tr> 
+        <tr class="isoComplexElement"> 
+          <td> 116</td> 
+          <td> <em>DQ_PositionalAccuracy</em></td> 
+          <td> Positionsgenauigkeit</td> 
+          <td> Positionsgenauigkeiten von Objekten</td> 
+          <td> </td> 
+          <td> vererbt vom übergeordneten Objekt</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> Zeile 100-107</td> 
+          <td> </td>  
+        </tr> 
+        <tr class="isoComplexElement"> 
+          <td> 117</td> 
+          <td> <em>DQ_AbsoluteExternalPositional Accuracy</em></td> 
+          <td> Absolute Positionsgenauigkeit (Lage- oder Höhengenauigkeit)</td> 
+          <td> Abweichung der Ist-Koordinaten von den Soll-Koordinaten</td> 
+          <td> </td> 
+          <td> vererbt vom übergeordneten Objekt</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> Zeile 100-107</td> 
+          <td> </td>  
+        </tr> 
+        <tr class="isoComplexElement"> 
+          <td> 118</td> 
+          <td> <em>DQ_GriddedDataPositional Accuracy</em></td> 
+          <td> Rasterpositionsgenauigkeit</td> 
+          <td> Positionsgenauigkeit im Raster/Gitter im Vergleich zu den Sollwerten</td> 
+          <td> </td> 
+          <td> vererbt vom übergeordneten Objekt</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> Zeile 100-107</td> 
+          <td> </td>  
+        </tr> 
+        <tr class="isoComplexElement"> 
+          <td> 119</td> 
+          <td> <em>DQ_RelativeInternalPositionalA ccuracy</em></td> 
+          <td> Relative Positionsgenauigkeit</td> 
+          <td> Genauigkeitsangabe bezüglich einer als richtig akzeptierten Bezugs- oder Sollposition</td> 
+          <td> </td> 
+          <td> vererbt vom übergeordneten Objekt</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> Zeile 100-107</td> 
+          <td> </td>  
+        </tr> 
+        <tr class="isoComplexElement"> 
+          <td> 120</td> 
+          <td> <em>DQ_TemporalAccuracy </em></td> 
+          <td> Zeitliche Genauigkeit</td> 
+          <td> Genauigkeit von Zeitangaben und zeitlichen Beziehungen der Objekte</td> 
+          <td> </td> 
+          <td> vererbt vom übergeordneten Objekt</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> Zeile 100-107</td> 
+          <td> </td>  
+        </tr> 
+        <tr class="isoComplexElement"> 
+          <td> 121</td> 
+          <td> <em>DQ_AccuracyOfATime Measurement</em></td> 
+          <td> Genauigkeit der Zeitmessung</td> 
+          <td> Korrektheit der Zeitangaben eines Elements (Fehlerbericht einer Zeitmessung)</td> 
+          <td> </td> 
+          <td> vererbt vom übergeordneten Objekt</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> Zeile 100-107</td> 
+          <td> </td>  
+        </tr> 
+        <tr class="isoComplexElement"> 
+          <td> 122</td> 
+          <td> <em>DQ_TemporalConsistency </em></td> 
+          <td> Zeitliche Konsistenz</td> 
+          <td> Korrektheit von geordneten Ereignissen oder Abfolgen</td> 
+          <td> </td> 
+          <td> vererbt vom übergeordneten Objekt</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> Zeile 100-107</td> 
+          <td> </td>  
+        </tr> 
+        <tr class="isoComplexElement"> 
+          <td> 123</td> 
+          <td> <em>DQ_TemporalValidity </em></td> 
+          <td> Zeitliche Gültigkeit</td> 
+          <td> Gültigkeit der Daten bezüglich des zeitlichen Geltungsbereichs</td> 
+          <td> </td> 
+          <td> vererbt vom übergeordneten Objekt</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> Zeile 100-107</td> 
+          <td> </td>  
+        </tr> 
+        <tr class="isoComplexElement"> 
+          <td> 124</td> 
+          <td> <em>DQ_ThematicAccuracy </em></td> 
+          <td> Thematische Genauigkeit</td> 
+          <td> Genauigkeit der quantitativen Angaben und die Korrektheit von nichtquantitativen Angaben sowie der Klassifikation von Objekten und ihrer Beziehungen</td> 
+          <td> </td> 
+          <td> vererbt vom übergeordneten Objekt</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> Zeile 100-107</td> 
+          <td> </td>  
+        </tr> 
+        <tr class="isoComplexElement"> 
+          <td> 125</td> 
+          <td> <em>DQ_ThematicClassification Correctness </em></td> 
+          <td> Korrektheit der thematischen Klassifizierung</td> 
+          <td> Prüfung, ob die für diese Disziplin vorgesehenen Klassen den möglichen Wertebereich vollständig abdecken</td> 
+          <td> </td> 
+          <td> vererbt vom übergeordneten Objekt</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> Zeile 100-107</td> 
+          <td> </td>  
+        </tr> 
+        <tr class="isoComplexElement"> 
+          <td> 126</td> 
+          <td> <em>DQ_NonQuantitativeAttribute Accuracy </em></td> 
+          <td> Genauigkeit nicht-quantitativer Attribute</td> 
+          <td> Genauigkeit von nicht-quantitativen Attributen</td> 
+          <td> </td> 
+          <td> vererbt vom übergeordneten Objekt</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> Zeile 100-107</td> 
+          <td> </td>  
+        </tr> 
+        <tr class="isoComplexElement"> 
+          <td> 127</td> 
+          <td> <em>DQ_QuantitativeAttribute Accuracy </em></td> 
+          <td> Genauigkeit quantitativer Attribute</td> 
+          <td> Genauigkeit von quantitativen Attributen</td> 
+          <td> </td> 
+          <td> vererbt vom übergeordneten Objekt</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> Zeile 100-107</td> 
+          <td> </td>  
+        </tr> 
+        <tr class="isoHeader"> 
+          <td> B.2.4.4 Ergebnis</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td>  
+        </tr> 
+        <tr class="isoComplexElement"> 
+          <td> 128</td> 
+          <td> <em>DQ_Result</em></td> 
+          <td> Ergebnis (Qualitätsergebnis)</td> 
+          <td> Generalisierungsklasse von spezifischen Ergebnisklassen</td> 
+          <td> </td> 
+          <td> vererbt vom übergeordneten Objekt</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> Zeile 130-132</td> 
+          <td> </td>  
+        </tr> 
+        <tr class="isoComplexElement"> 
+          <td> 129</td> 
+          <td> <em>DQ_ConformanceResult</em></td> 
+          <td> Konformitätsergebnis</td> 
+          <td> Beschreibung der Übereinstimmung des Evaluierungsergebnisses nach einem Qualitätsprüfverfahren gegen einen zulässigen Prüfwert GDI-DE (Konventionendokument, Kap. 2.7) und BE: dataset: für INSPIRE mind. 1089/2010 und Datenspezifikation angeben. service: für INSPIRE mind. 976/2009 angeben.</td> 
+          <td> </td> 
+          <td> vererbt vom übergeordneten Objekt</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> Klasse, umfasst die ISO 130-132</td> 
+          <td> </td>  
+        </tr> 
+        <tr> 
+          <td> 130</td> 
+          <td> specification</td> 
+          <td> Verfahrensspezifikation</td> 
+          <td> bibliografische Angaben zur Produktspezifikation oder zur Benutzeranforderung, anhand derer die Daten bewertet werden. BE: title: 
+            <div class="example">
+               INSPIRE Data Specification on Addresses – Guidelines 
+            </div>date: 
+            <div class="example">
+               2009-05-15 
+            </div>dateType: 
+            <div class="example">
+               publication 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td> </td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td> </td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td> CI_Citation &lt;&lt;DataType&gt;&gt; (B.3.2)</td> 
+          <td> BROKER: Wert wird vom System eingetragen, abh. vom Metadatentyp und inspireId des Metadatensatzes wird die entsprechende INSPIRE-Datenspezifikation eingetragen</td>  
+        </tr> 
+        <tr> 
+          <td> 131</td> 
+          <td> explanation</td> 
+          <td> Erklärung</td> 
+          <td> Erklärung der Bedeutung der Konformität für das Ergebnis 
+            <div class="example">
+               Daten entsprechen der gesetzlichen Grundlage 
+            </div>lt. INSPIRE Einheitswerte eintragen, wie 
+            <div class="example">
+               see the referenced specification 
+            </div></td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td> </td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td> </td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td> Freitext</td> 
+          <td> Wert wird mit properties-Datei vorbelegt</td>  
+        </tr> 
+        <tr> 
+          <td> 132</td> 
+          <td> pass</td> 
+          <td> Bestanden</td> 
+          <td> Angabe des Konformitätsergebnisses mit false = nein und true = ja 
+            <div class="example">
+               false 
+            </div></td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td> </td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td> </td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td> true = yes false = no</td> 
+          <td> Wert wird mit false vorbelegt</td>  
+        </tr> 
+        <tr class="isoComplexElement"> 
+          <td> 133</td> 
+          <td> <em>DQ_QuantitativeResult</em></td> 
+          <td> Quantitatives Ergebnis</td> 
+          <td> Werte oder Informationen zu Werten einer Datenqualitätsmessung</td> 
+          <td> </td> 
+          <td> vererbt vom übergeordneten Objekt</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> Zeile 134-137</td> 
+          <td> </td>  
+        </tr>     
+        <tr class="isoHeader"> 
+          <td> B.2.4.5 Geltungsbereich</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td>  
+        </tr> 
+        <tr class="isoComplexElement"> 
+          <td> 138</td> 
+          <td> <em>DQ_Scope</em></td> 
+          <td> Geltungsbereich</td> 
+          <td> zeitliche und/oder räumliche Ausdehnung sowie thematischer Bereich der Daten, für die/den Qualitätsinformationen angegeben werden</td> 
+          <td> </td> 
+          <td> vererbt vom übergeordneten Objekt</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> Zeile 139-141</td> 
+          <td> </td>  
+        </tr> 
+        <tr> 
+          <td> 139</td> 
+          <td> level</td> 
+          <td> Bezugsebene</td> 
+          <td> hierarchische Ebene der Daten dieses Geltungsbereiches ISO 19115: 
+            <div class="example">
+               dataset|application 
+            </div>ISO 19119: 
+            <div class="example">
+               service 
+            </div></td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td> </td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td> </td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td> MD_ScopeCode &lt;&lt;CodeList&gt;&gt; (B.5.25)</td> 
+          <td> </td>  
+        </tr>  
+        <tr> 
+          <td> 141</td> 
+          <td> levelDescription</td> 
+          <td> Ebenenbeschreibung (Inhalt)</td> 
+          <td> detaillierte Beschreibung der Ebene der Daten dieses Geltungsbereichs</td> 
+          <td class="multiplicity-column"> K..*</td> 
+          <td> Pflicht, falls level nicht „dataset“ oder „series“ ist</td> 
+          <td class="multiplicity-column"> K..*</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..*</td> 
+          <td> </td> 
+          <td class="multiplicity-column"> K..*</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..*</td> 
+          <td> MD_ScopeDescription &lt;&lt;Union&gt;&gt; (B.2.5.2); Zeile 149 (154)</td> 
+          <td> </td>  
+        </tr> 
+        <tr class="isoComplexElement"> 
+          <td> 142</td> 
+          <td> <em>MD_MaintenanceInformation</em></td> 
+          <td> Datenpflege (Fortführungs-informationen)</td> 
+          <td> Information zu Umfang und Turnus der Aktualisierung</td> 
+          <td> </td> 
+          <td> vererbt vom übergeordneten Objekt</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> Zeile 143-148.1</td> 
+          <td> beim Metadatenabgleich kann die Angabe des Fortführungsintervalls der ISO 19115 in die ISO 19119 übernommen werden.</td>  
+        </tr> 
+        <tr> 
+          <td> 143</td> 
+          <td> maintenanceAndUpdateFrequency</td> 
+          <td> Pflegeintervall</td> 
+          <td> Intervall, in dem die Ressource nach ihrer Ersterstellung geändert oder ergänzt wird 
+            <div class="example">
+               annually 
+            </div></td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td> </td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td> </td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td> MD_MaintenanceFrequency Code &lt;&lt;CodeList&gt;&gt; (B.5.18)</td> 
+          <td> kann im Metadatenabgleich im METEOR von der ISO 19115 in die ISO 19119 zugeordneter Broker-Metadatensätze übernommen werden</td>  
+        </tr> 
+        <tr> 
+          <td> 144</td> 
+          <td> dateOfNextUpdate</td> 
+          <td> Nächstes Aktualisierungsdatum</td> 
+          <td> Datum der planmäßigen Überarbeitung der Daten</td> 
+          <td class="multiplicity-column"> 0..1</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> Date (B.4.2)</td> 
+          <td> </td>  
+        </tr>  
+        <tr> 
+          <td> 146</td> 
+          <td> updateScope</td> 
+          <td> Datenpflegebereich</td> 
+          <td> Geltungsbereich der Daten, die gepflegt werden</td> 
+          <td class="multiplicity-column"> 0..*</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> MD_ScopeCode &lt;&lt;CodeList&gt;&gt; (B.5.25)</td> 
+          <td> </td>  
+        </tr>  
+        <tr> 
+          <td> 148</td> 
+          <td> maintenanceNote</td> 
+          <td> Anmerkung</td> 
+          <td> Information zu besonderen Anforderungen bei der Pflege der Ressource</td> 
+          <td class="multiplicity-column"> 0..*</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> Freitext</td> 
+          <td> </td>  
+        </tr>  
+        <tr class="isoHeader"> 
+          <td> B.2.5.2 Scope description information</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td>  
+        </tr> 
+        <tr class="isoComplexElement"> 
+          <td> 149</td> 
+          <td> <em>MD_ScopeDescription</em></td> 
+          <td> Beschreibung des Geltungsbereichs</td> 
+          <td> Beschreibung der Klasse, die den Geltungsbereich bildet</td> 
+          <td> </td> 
+          <td> vererbt vom übergeordneten Objekt</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> Zeile 150-155</td> 
+          <td> </td>  
+        </tr>      
+        <tr> 
+          <td> 155</td> 
+          <td> other</td> 
+          <td> Andere</td> 
+          <td> Information, die sich in keiner der anderen Auswahlmöglichkeiten unterbringen lassen 
+            <div class="example">
+               Dienst 
+            </div></td> 
+          <td class="multiplicity-column"> K..1</td> 
+          <td> Pflicht, falls level nicht „dataset“ oder „series“ ist</td> 
+          <td class="multiplicity-column"> K..1</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td> </td> 
+          <td class="multiplicity-column"> K..1</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td> Freitext</td> 
+          <td> </td>  
+        </tr> 
+        <tr class="isoHeader"> 
+          <td> B.2.6 Räumliche Datenstruktur</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td>  
+        </tr> 
+        <tr class="isoHeader"> 
+          <td> B.2.6.1 Allgemein</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td>  
+        </tr> 
+        <tr class="isoComplexElement"> 
+          <td> 156</td> 
+          <td> <em>MD_SpatialRepresentation</em></td> 
+          <td> Struktur der räumlichen Daten</td> 
+          <td> digitale Methode zur Darstellung räumlicher Informationen</td> 
+          <td> </td> 
+          <td> vererbt vom übergeordneten Objekt</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> Zeile 158-161</td> 
+          <td> </td>  
+        </tr> 
+        <tr class="isoComplexElement"> 
+          <td> 157</td> 
+          <td> <em>MD_GridSpatial Representation</em></td> 
+          <td> Rasterdaten</td> 
+          <td> Information über die Strukturelemente der Rasterdaten</td> 
+          <td> </td> 
+          <td> vererbt vom übergeordneten Objekt</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> Zeile 158-161</td> 
+          <td> </td>  
+        </tr>     
+        <tr class="isoComplexElement"> 
+          <td> 162</td> 
+          <td> <em>MD_Georectified</em></td> 
+          <td> Georektifiziertes Raster</td> 
+          <td> Raster, dessen Zellen gleicher Größe in den Einheiten ihres räumlichen Bezugssystems - geografisches Referenzsystem (Länge/Breite) oder Einheiten der Kartenprojektion - regelmäßig angeordnet sind, so dass jede Zelle durch ihre Rasterkoordinate, sowie den Ursprung, die Zellenbreite und Orientierung des Rasters geolokalisiert werden kann</td> 
+          <td> </td> 
+          <td> vererbt vom übergeordneten Objekt</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> Zeile 163-169 und 158-161</td> 
+          <td> </td>  
+        </tr>        
+        <tr class="isoComplexElement"> 
+          <td> 170</td> 
+          <td> <em>MD_Georeferenceable</em></td> 
+          <td> Georeferenzierbares Raster</td> 
+          <td> Raster, dessen Zellen in Bezug auf ein geografisches Koordinatensystem oder ein Kartenprojektionssystem unregelmäßig groß sind, so dass die einzelnen Zellen nur durch Geolokalisierungsinformationen, nicht aber allein aus der Lage des Rasters lokalisiert werden können</td> 
+          <td> </td> 
+          <td> vererbt vom übergeordneten Objekt</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> Zeile 171-175 und 158-161</td> 
+          <td> </td>  
+        </tr>      
+        <tr class="isoComplexElement"> 
+          <td> 176</td> 
+          <td> <em>MD_VectorSpatial Representation</em></td> 
+          <td> Vektordaten</td> 
+          <td> Information über die Strukturelemente der Vektordaten</td> 
+          <td> </td> 
+          <td> vererbt vom übergeordneten Objekt</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> Zeile 177-178</td> 
+          <td> </td>  
+        </tr>   
+        <tr class="isoComplexElement"> 
+          <td> 179</td> 
+          <td> <em>MD_Dimension</em></td> 
+          <td> Achse</td> 
+          <td> Eigenschaften der Achse</td> 
+          <td> </td> 
+          <td> vererbt vom übergeordneten Objekt</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> Zeile 180-182</td> 
+          <td> </td>  
+        </tr>    
+        <tr class="isoHeader"> 
+          <td> B.2.6.3 Geometrische Objekte</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td>  
+        </tr> 
+        <tr class="isoComplexElement"> 
+          <td> 183</td> 
+          <td> <em>MD_GeometricObjects</em></td> 
+          <td> Geometrische Objekte</td> 
+          <td> Angaben zur Anzahl der Objekte im Datenbestand, aufgelistet nach dem geometrischen Objekttyp</td> 
+          <td> </td> 
+          <td> vererbt vom übergeordneten Objekt</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> Zeile 184-185</td> 
+          <td> </td>  
+        </tr>   
+        <tr class="isoHeader"> 
+          <td> B.2.7 Referenzsystem</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td>  
+        </tr> 
+        <tr class="isoHeader"> 
+          <td> B.2.7.1 Allgemein</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td>  
+        </tr> 
+        <tr class="isoComplexElement"> 
+          <td> 186</td> 
+          <td> <em>MD_ReferenceSystem</em></td> 
+          <td> Referenzsystem</td> 
+          <td> Information über das Bezugssystem </td> 
+          <td> </td> 
+          <td> vererbt vom übergeordneten Objekt</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> Zeile 187</td> 
+          <td> 19115: Wert wird aus der properties-Datei übernommen 19119: beim Generieren der Dienste-Metadaten wird der Wert aus den Broker-Metadaten übernommen.</td>  
+        </tr> 
+        <tr> 
+          <td> 187</td> 
+          <td> referenceSystemIdentifier</td> 
+          <td> Identifikator des Referenzsystems</td> 
+          <td> Eindeutige Bezeichnung des Referenzsystems</td> 
+          <td class="multiplicity-column"> K..1</td> 
+          <td> NEU lt. ISO-Berichtigung: Refer to SC_CRS in ISO 19111 when coordinate reference system information is not given through reference system identifier</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td> Pflicht für inspireidentifiziert und Annex I</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td> Gruppenelement; Zeile 208</td> 
+          <td> 19119: Wert wird aus dem in den Broker-Metadaten angegebenen DefaultCRS übernommen; Codierung wird angepasst: EPSG:25833 --&gt; http://www.opengis.net/def/crs/EPSG/0/25833</td>  
+        </tr>        
+        <tr class="isoComplexElement"> 
+          <td> 195</td> 
+          <td> <em>RS_ReferenceSystem</em></td> 
+          <td> Referenzsystem</td> 
+          <td> Beschreibung der im Datensatz verwendeten räumlichen und zeitlichen Referenzsysteme</td> 
+          <td> </td> 
+          <td> vererbt vom übergeordneten Objekt</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> Zeile 196-197</td> 
+          <td> </td>  
+        </tr>   
+        <tr class="isoComplexElement"> 
+          <td> 198</td> 
+          <td> <em>intentionally left blank</em></td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td>  
+        </tr> 
+        <tr class="isoComplexElement"> 
+          <td> 199</td> 
+          <td> <em>intentionally left blank</em></td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td>  
+        </tr> 
+        <tr class="isoComplexElement"> 
+          <td> 200</td> 
+          <td> <em>intentionally left blank</em></td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td>  
+        </tr> 
+        <tr class="isoComplexElement"> 
+          <td> 201</td> 
+          <td> <em>intentionally left blank --&gt; MD_EllipsoidParameters</em></td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td>  
+        </tr>    
+        <tr class="isoHeader"> 
+          <td> B.2.7.3 Identifier information</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td>  
+        </tr> 
+        <tr class="isoComplexElement"> 
+          <td> 205</td> 
+          <td> <em>MD_Identifier</em></td> 
+          <td> Identifikator</td> 
+          <td> eindeutiger Wert, der ein Objekt innerhalb eines Namensraums identifiziert </td> 
+          <td> </td> 
+          <td> vererbt vom übergeordneten Objekt</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> Zeile 206-207</td> 
+          <td> </td>  
+        </tr>  
+        <tr> 
+          <td> 207</td> 
+          <td> code</td> 
+          <td> Code</td> 
+          <td> alphanumerischer Wert, der eine Instanz im Namensraum identifiziert MD_Identifier ISO 19119: 
+            <div class="example">
+               bde1072a-cedf-33ad-827f-53967c832008 
+            </div>RS_Identifier ISO 19119: 
+            <div class="example">
+               http://www.opengis.net/def/crs/EPSG/0/25833 
+            </div></td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td> Pflicht für citation/*/MD_Identifier/code</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td> Pflicht für referenceSystemIdentifier/*/RS_Identifier/code</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td> Freitext</td> 
+          <td> </td>  
+        </tr> 
+        <tr class="isoComplexElement"> 
+          <td> 208</td> 
+          <td> <em>RS_Identifier</em></td> 
+          <td> Identifikator des Bezugssystems</td> 
+          <td> Identifikator des Bezugssystems</td> 
+          <td> </td> 
+          <td> vererbt vom übergeordneten Objekt</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> Zeilen 206-207 und 208.1-208.2</td> 
+          <td> </td>  
+        </tr> 
+        <tr> 
+          <td> 208.1</td> 
+          <td> codeSpace</td> 
+          <td> Namensraum</td> 
+          <td> Name oder Identifikator der Person oder Organisation, die für den Namensraum zuständig ist </td> 
+          <td class="multiplicity-column"> 0..1</td> 
+          <td> </td> 
+          <td class="multiplicity-column"> 0..1</td> 
+          <td class="multiplicity-column"> 0..1</td> 
+          <td> </td> 
+          <td class="multiplicity-column"> 0..1</td> 
+          <td class="multiplicity-column"> 0..1</td> 
+          <td> Freitext</td> 
+          <td> </td>  
+        </tr>  
+        <tr class="isoComplexElement"> 
+          <td> 209</td> 
+          <td> <em>intentionally left blank</em></td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td>  
+        </tr>   
+        <tr class="isoComplexElement"> 
+          <td> 212</td> 
+          <td> <em>intentionally left blank</em></td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td>  
+        </tr>   
+        <tr class="isoComplexElement"> 
+          <td> 215</td> 
+          <td> <em>intentionally left blank</em></td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td>  
+        </tr>                 
+        <tr class="isoHeader"> 
+          <td> B.2.8 Inhalt</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td>  
+        </tr> 
+        <tr class="isoHeader"> 
+          <td> B.2.8.1 Allgemein</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td>  
+        </tr>        
+        <tr class="isoComplexElement"> 
+          <td> 239</td> 
+          <td> <em>MD_CoverageDescription</em></td> 
+          <td> Rasterdateninhalt</td> 
+          <td> Information zum Inhalt einer Rasterdatenzelle</td> 
+          <td> </td> 
+          <td> vererbt vom übergeordneten Objekt</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> Zeile 240-242</td> 
+          <td> </td>  
+        </tr>    
+        <tr class="isoComplexElement"> 
+          <td> 243</td> 
+          <td> <em>MD_ImageDescription</em></td> 
+          <td> Aufnahmeeigenschaften</td> 
+          <td> Information über die Verwendbarkeit eines Bildes</td> 
+          <td> </td> 
+          <td> vererbt vom übergeordneten Objekt</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> Zeile 244-255 und 240-242</td> 
+          <td> </td>  
+        </tr>             
+        <tr class="isoComplexElement"> 
+          <td> 256</td> 
+          <td> <em>MD_RangeDimension</em></td> 
+          <td> Wertebereich</td> 
+          <td> Information über den Wertebereich jeder Achse</td> 
+          <td> </td> 
+          <td> vererbt vom übergeordneten Objekt</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> Zeile 257-258</td> 
+          <td> </td>  
+        </tr>   
+        <tr class="isoComplexElement"> 
+          <td> 259</td> 
+          <td> <em>MD_Band</em></td> 
+          <td> Band</td> 
+          <td> Wellenlängenbereich im elektromagnetischen Spektrum</td> 
+          <td> </td> 
+          <td> vererbt vom übergeordneten Objekt</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> Zeile 260-267 und 257-258</td> 
+          <td> </td>  
+        </tr>         
+        <tr class="isoHeader"> 
+          <td> B.2.9 Darstellungskatalog</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td>  
+        </tr> 
+        <tr class="isoComplexElement"> 
+          <td> 268</td> 
+          <td> <em>MD_PortrayalCatalogue Reference</em></td> 
+          <td> Darstellungskatalog</td> 
+          <td> Referenz zum verwendeten Darstellungskatalog</td> 
+          <td> </td> 
+          <td> vererbt vom übergeordneten Objekt</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> Zeile 269</td> 
+          <td> </td>  
+        </tr>  
+        <tr class="isoHeader"> 
+          <td> B.2.10 Vertrieb</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td>  
+        </tr> 
+        <tr class="isoHeader"> 
+          <td> B.2.10.1 Allgemein</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td>  
+        </tr> 
+        <tr class="isoComplexElement"> 
+          <td> 270</td> 
+          <td> <em>MD_Distribution</em></td> 
+          <td> Vertrieb</td> 
+          <td> Information über die Vertriebsstelle und Optionen für den Bezug der Ressource </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> Zeile 271-273</td> 
+          <td> Werte werden aus der properties-Datei übernommen. 19115: Ist ein INSPIRE-Annex-Thema zugeordnet, so wird die entsprechende Data-Specification im distributionFormat gesetzt 19119: beim Generieren der Dienste-Metadaten wird die zugehörige FIS-Broker-Start-URL in die transferOptions übernommen.</td>  
+        </tr> 
+        <tr> 
+          <td> 271</td> 
+          <td> <em>Role name</em>: distributionFormat</td> 
+          <td> Abgabeformat</td> 
+          <td> Beschreibung des Formats, in dem die Daten bereitgestellt werden</td> 
+          <td class="multiplicity-column"> 1..* </td> 
+          <td> Pflicht, falls MD_Distributor. distributorFormat nicht angegeben ist</td> 
+          <td class="multiplicity-column"> K..*</td> 
+          <td class="multiplicity-column"> 0..*</td> 
+          <td> dataset: Pflicht für inspireidentifiziert und Annex I themes</td> 
+          <td class="multiplicity-column"> K..*</td> 
+          <td class="multiplicity-column"> 0..*</td> 
+          <td> MD_Format (B.2.10.4)</td> 
+          <td> </td>  
+        </tr>  
+        <tr> 
+          <td> 273</td> 
+          <td> <em>Role name</em>: transferOptions</td> 
+          <td> Transferoptionen (technische Abgabebedingungen) </td> 
+          <td> Information über technische Mittel und Medien zum Bezug der Ressource</td> 
+          <td class="multiplicity-column"> 0..*</td> 
+          <td> </td> 
+          <td class="multiplicity-column"> K..*</td> 
+          <td class="multiplicity-column"> K..*</td> 
+          <td> dataset / service: verpflichtend, wenn eine URL mit Informationen zur Ressource verfügbar ist</td> 
+          <td class="multiplicity-column"> K..*</td> 
+          <td class="multiplicity-column"> K..*</td> 
+          <td> MD_DigitalTransferOptions (B.2.10.2)</td> 
+          <td> </td>  
+        </tr> 
+        <tr class="isoHeader"> 
+          <td> B.2.10.2 Digitaler Transfer</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td>  
+        </tr> 
+        <tr class="isoComplexElement"> 
+          <td> 274</td> 
+          <td> <em>MD_DigitalTransferOptions</em></td> 
+          <td> Digitale Transferoptionen (technische Abgabebedingungen) </td> 
+          <td> technische Mittel und Medien zum Bezug der Ressource</td> 
+          <td> </td> 
+          <td> vererbt vom übergeordneten Objekt</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> Zeile 275-278</td> 
+          <td> </td>  
+        </tr>   
+        <tr> 
+          <td> 277</td> 
+          <td> onLine</td> 
+          <td> Online</td> 
+          <td> Information zu Online-Quellen, über die die Ressource bezogen werden kann</td> 
+          <td class="multiplicity-column"> 0..*</td> 
+          <td> </td> 
+          <td class="multiplicity-column"> K..*</td> 
+          <td class="multiplicity-column"> K..*</td> 
+          <td> dataset / service: verpflichtend, wenn eine URL mit Informationen zur Ressource verfügbar ist</td> 
+          <td class="multiplicity-column"> K..*</td> 
+          <td class="multiplicity-column"> K..*</td> 
+          <td> Gruppenelement siehe ISO 396</td> 
+          <td> </td>  
+        </tr>  
+        <tr class="isoHeader"> 
+          <td> B.2.10.3 Vertriebsstelle</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td>  
+        </tr> 
+        <tr> 
+          <td> 279</td> 
+          <td> MD_Distributor</td> 
+          <td> Vertriebsstelle </td> 
+          <td> Information über die Vertriebsstelle</td> 
+          <td> </td> 
+          <td> vererbt vom übergeordneten Objekt</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> Zeile 280-283</td> 
+          <td> </td>  
+        </tr> 
+        <tr> 
+          <td> 280</td> 
+          <td> distributorContact</td> 
+          <td> Kontakt</td> 
+          <td> Kontakt, über den die Datenquelle bezogen werden kann</td> 
+          <td class="multiplicity-column"> 1..1</td> 
+          <td class="multiplicity-column"> 1..1</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td> </td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td> CI_ResponsibleParty &lt;&lt;DataType&gt;&gt; (B.3.2)</td> 
+          <td> </td>  
+        </tr> 
+        <tr> 
+          <td> 281</td> 
+          <td> <em>Role name</em>: distributionOrderProcess</td> 
+          <td> Bestellverfahren</td> 
+          <td> Information über Bestellung, Bezug und Kosten</td> 
+          <td class="multiplicity-column"> 0..*</td> 
+          <td> </td> 
+          <td class="multiplicity-column"> 0..*</td> 
+          <td class="multiplicity-column"> 0..*</td> 
+          <td> </td> 
+          <td class="multiplicity-column"> 0..*</td> 
+          <td class="multiplicity-column"> 0..*</td> 
+          <td> MD_StandardOrderProcess (B.2.10.6)</td> 
+          <td> </td>  
+        </tr> 
+        <tr> 
+          <td> 282</td> 
+          <td> <em>Role name</em>: distributorFormat</td> 
+          <td> Datenformat</td> 
+          <td> Beschreibung des von der Vertriebsstelle verwendeten Formats</td> 
+          <td class="multiplicity-column"> 1..* </td> 
+          <td> Pflicht, falls MD_Distribution. distributionFormat nicht angegeben ist</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..*</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..*</td> 
+          <td> </td> 
+          <td class="mandatoryElement multiplicity-column"> 1..*</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..*</td> 
+          <td> MD_Format (B.2.10.4)</td> 
+          <td> </td>  
+        </tr> 
+        <tr> 
+          <td> 283</td> 
+          <td> <em>Role name</em>: distributorTransferOptions</td> 
+          <td> Transferoptionen</td> 
+          <td> Information über technische Mittel und Medien, die die Vertriebsstelle einsetzt</td> 
+          <td class="multiplicity-column"> 0..*</td> 
+          <td> </td> 
+          <td class="multiplicity-column"> 0..*</td> 
+          <td class="multiplicity-column"> 0..*</td> 
+          <td> </td> 
+          <td class="multiplicity-column"> 0..*</td> 
+          <td class="multiplicity-column"> 0..*</td> 
+          <td> MD_DigitalTransferOptions (B.2.10.2)</td> 
+          <td> </td>  
+        </tr> 
+        <tr class="isoHeader"> 
+          <td> B.2.10.4 Format information</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td>  
+        </tr> 
+        <tr class="isoComplexElement"> 
+          <td> 284</td> 
+          <td> <em>MD_Format</em></td> 
+          <td> Format</td> 
+          <td> Beschreibung der Datenkodierung in einem Datensatz, einer Datei, einer Nachricht, einem Speichermedium oder einem Übermittlungsweg</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> Zeile 285-290</td> 
+          <td> </td>  
+        </tr> 
+        <tr> 
+          <td> 285</td> 
+          <td> name</td> 
+          <td> Bezeichnung</td> 
+          <td> Bezeichnung des Datenformats 
+            <div class="example">
+               Text/HTML 
+            </div>für INSPIRE gibt es Textvorgaben für das Encoding 
+            <div class="example">
+               Addresses GML application schema 
+            </div> für INSPIRE-Annex-Thema Adressen (Annex I)</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td> Pflicht, wenn nur die Klasse MD_Format verwendet wird</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td> dataset: Pflicht für inspireidentifiziert und Annex I themes</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td> Freitext</td> 
+          <td> Wert wird aus der properties-Datei übernommen 19115: für Metadatensätze mit inspireID werden stattdessen Textvorgaben der entsprechenden Datenspezifikation gesetzt</td>  
+        </tr> 
+        <tr> 
+          <td> 286</td> 
+          <td> version</td> 
+          <td> Version</td> 
+          <td> Version des Datenformats 
+            <div class="example">
+               4.01 
+            </div>für INSPIRE gibt es Textvorgaben für das Encoding 
+            <div class="example">
+               version 3.0 
+            </div> für INSPIRE-Annex-Thema Adressen (Annex I)</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td> Pflicht, wenn nur die Klasse MD_Format verwendet wird</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td> dataset: Pflicht für inspireidentifiziert und Annex I themes</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td> Freitext</td> 
+          <td> Wert wird aus der properties-Datei übernommen 19115: für Metadatensätze mit inspireID werden stattdessen Textvorgaben der entsprechenden Datenspezifikation gesetzt</td>  
+        </tr>  
+        <tr> 
+          <td> 288</td> 
+          <td> specification</td> 
+          <td> Spezifikation</td> 
+          <td> Bezeichnung einer Teil-, Profil- oder Produktspezifkation des Formats 
+            <div class="example">
+               8Bit 
+            </div>(Angabe der Bildpunkttiefe bei Rasterdaten) für INSPIRE gibt es Textvorgaben für das Encoding 
+            <div class="example">
+               D2.8.I.5 Data Specification on Addresses 
+            </div> für INSPIRE-Annex-Thema Adressen (Annex I) </td> 
+          <td class="multiplicity-column"> 0..1</td> 
+          <td> </td> 
+          <td class="multiplicity-column"> K..1</td> 
+          <td class="multiplicity-column"> 0..1</td> 
+          <td> dataset: Pflicht für inspireidentifiziert und Annex I themes</td> 
+          <td class="multiplicity-column"> K..1</td> 
+          <td class="multiplicity-column"> 0..1</td> 
+          <td> Freitext</td> 
+          <td> Wert wird aus der properties-Datei übernommen 19115: für Metadatensätze mit inspireID werden stattdessen Textvorgaben der entsprechenden Datenspezifikation gesetzt</td>  
+        </tr>   
+        <tr class="isoHeader"> 
+          <td> B.2.10.5 Medium</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td>  
+        </tr> 
+        <tr class="isoComplexElement"> 
+          <td> 291</td> 
+          <td> <em>MD_Medium</em></td> 
+          <td> Medium</td> 
+          <td> Information über die Medien, auf denen die Ressource vertrieben wird</td> 
+          <td> </td> 
+          <td> vererbt vom übergeordneten Objekt</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> Zeile 292-297</td> 
+          <td> </td>  
+        </tr>       
+        <tr class="isoHeader"> 
+          <td> B.2.10.6 Bestellverfahren</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td>  
+        </tr> 
+        <tr class="isoComplexElement"> 
+          <td> 298</td> 
+          <td> <em>MD_StandardOrderProcess</em></td> 
+          <td> Bestellverfahren</td> 
+          <td> übliches Verfahren zum Bezug der Ressource inklusive Information zu anfallenden Kosten</td> 
+          <td> </td> 
+          <td> vererbt vom übergeordneten Objekt</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> Zeile 299-302</td> 
+          <td> </td>  
+        </tr>     
+        <tr class="isoHeader"> 
+          <td> B.2.11 Metadatenerweiterung</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td>  
+        </tr> 
+        <tr class="isoHeader"> 
+          <td> B.2.11.1 Allgemein</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td>  
+        </tr> 
+        <tr class="isoComplexElement"> 
+          <td> 303</td> 
+          <td> <em>MD_MetadataExtension Information</em></td> 
+          <td> Metadatenerweiterung</td> 
+          <td> Beschreibung der Erweiterung der Metadaten</td> 
+          <td> </td> 
+          <td> vererbt vom übergeordneten Objekt</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> Zeile 304-305</td> 
+          <td> </td>  
+        </tr>   
+        <tr class="isoHeader"> 
+          <td> B.2.11.2 Erweiterungselement</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td>  
+        </tr> 
+        <tr class="isoComplexElement"> 
+          <td> 306</td> 
+          <td> <em>MD_ExtendedElement Information</em></td> 
+          <td> Erweiterungselement</td> 
+          <td> Beschreibung zu neuen Elementen, die nicht im ISO 19115 enthalten sind, die aber zusätzlich notwendig sind, um Ressourcen zu beschreiben.</td> 
+          <td> </td> 
+          <td> vererbt vom übergeordneten Objekt</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> Zeile 307-319</td> 
+          <td> </td>  
+        </tr>              
+        <tr class="isoHeader"> 
+          <td> B.2.12 Anwendungsschema</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td>  
+        </tr> 
+        <tr class="isoComplexElement"> 
+          <td> 320</td> 
+          <td> <em>MD_ApplicationSchemaInformation</em></td> 
+          <td> Anwendungsschema</td> 
+          <td> Information zum Anwendungsschema, das bei der Erstellung des Datenbestands verwendet wurde </td> 
+          <td> </td> 
+          <td> NUR für 'dataset/series', vererbt vom übergeordneten Objekt</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> Zeile 321-327</td> 
+          <td> </td>  
+        </tr>              
+        <tr class="isoHeader"> 
+          <td> B.3 Datentypen</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td>  
+        </tr> 
+        <tr class="isoHeader"> 
+          <td> B.3.1 Ausdehnung</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td>  
+        </tr> 
+        <tr class="isoHeader"> 
+          <td> B.3.1.1 General</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td>  
+        </tr> 
+        <tr class="isoComplexElement"> 
+          <td> 334</td> 
+          <td> <em>EX_Extent</em></td> 
+          <td> Ausdehnung</td> 
+          <td> Information zur horizontalen, vertikalen und zeitlichen Ausdehnung</td> 
+          <td> </td> 
+          <td> vererbt vom übergeordneten Objekt</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> Zeile 335-338</td> 
+          <td> </td>  
+        </tr>  
+        <tr> 
+          <td> 336</td> 
+          <td> <em>Role name</em>: geographicElement</td> 
+          <td> Geografische Ausdehnung</td> 
+          <td> geografische Komponente der Ausdehnung (räumlicher Geltungsbereich, wo gelten die Metadaten?) des betreffenden Objekts</td> 
+          <td class="multiplicity-column"> K..*</td> 
+          <td> Pflicht, falls description und temporalElement und verticalElement nicht angegeben sind</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..*</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..*</td> 
+          <td> dataset: Pflicht service: INSPIRE Pflicht, wenn Ausdehnung vorhanden (couplingType tight oder mixed)</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..*</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..*</td> 
+          <td> EX_GeographicExtent &lt;&lt;Abstract&gt;&gt; (B.3.1.2)</td> 
+          <td> </td>  
+        </tr> 
+        <tr> 
+          <td> 337</td> 
+          <td> <em>Role name</em>: temporalElement</td> 
+          <td> Zeitliche Ausdehnung</td> 
+          <td> zeitliche Komponente der Ausdehnung (wann bzw. von wann bis wann gelten die Metadaten?) des betreffenden Objekts</td> 
+          <td class="multiplicity-column"> K..*</td> 
+          <td> Pflicht, falls description und geographicElement und verticalElement nicht angegeben sind</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> EX_TemporalExtent (B.3.1.3)</td> 
+          <td> </td>  
+        </tr>  
+        <tr class="isoHeader"> 
+          <td> B.3.1.2 Geographic extent information</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td>  
+        </tr> 
+        <tr class="isoComplexElement"> 
+          <td> 339</td> 
+          <td> <em>EX_GeographicExtent</em></td> 
+          <td> Geographische Ausdehnung</td> 
+          <td> geografisches Gebiet des Datenbestands </td> 
+          <td> </td> 
+          <td> vererbt vom übergeordneten Objekt</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> Zeile 340</td> 
+          <td> </td>  
+        </tr> 
+        <tr> 
+          <td> 340</td> 
+          <td> extentTypeCode</td> 
+          <td> Art der Ausdehnungsangabe</td> 
+          <td> Angabe, ob die geografische Ausdehnung ein Gebiet mit Daten umschließt oder ausschließt 
+            <div class="example">
+               true 
+            </div></td> 
+          <td class="multiplicity-column"> 0..1</td> 
+          <td> </td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td> dataset: Pflicht service: Pflicht, wenn Ausdehnung vorhanden (couplingType tight oder mixed)</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td> false - Ausschluss true - Einschluss</td> 
+          <td> </td>  
+        </tr> 
+        <tr class="isoComplexElement"> 
+          <td> 341</td> 
+          <td> <em>EX_BoundingPolygon</em></td> 
+          <td> Begrenzungspolygon</td> 
+          <td> eine Gebietsgrenze des Datenbestands, ausgedrückt als geschlossener Satz von (x,y) Koordinaten des Polygons (der letzte Punkt ist eine Wiederholung des ersten Punkts) </td> 
+          <td> </td> 
+          <td> vererbt vom übergeordneten Objekt</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> Zeile 342 und 340</td> 
+          <td> </td>  
+        </tr>  
+        <tr class="isoComplexElement"> 
+          <td> 343</td> 
+          <td> <em>EX_GeographicBoundingBox</em></td> 
+          <td> Geografisches Begrenzungsrechteck</td> 
+          <td> geografische Lage des Datenbestands Hinweis: nur angenäherte Lage ohne spezifisches Koordinatenbezugssystem! </td> 
+          <td> </td> 
+          <td> vererbt vom übergeordneten Objekt</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> Zeile 344-347 und 340</td> 
+          <td> </td>  
+        </tr> 
+        <tr> 
+          <td> 344</td> 
+          <td> westBoundLongitude</td> 
+          <td> Westliche Länge</td> 
+          <td> westlichste Koordinate des Begrenzungsrechtecks, Länge in Dezimalgrad (positiv: Ost) 
+            <div class="example">
+               13.079 
+            </div></td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td> </td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td> </td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td> -180,0 &lt;= West Bounding Longitude Value &lt;= 180,0</td> 
+          <td> </td>  
+        </tr> 
+        <tr> 
+          <td> 345</td> 
+          <td> eastBoundLongitude</td> 
+          <td> Östliche Länge</td> 
+          <td> östlichste Koordinate des Begrenzungsrechtecks, Länge in Dezimalgrad (positiv: Ost) 
+            <div class="example">
+               13.7701 
+            </div></td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td> </td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td> </td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td> -180,0 &lt;= East Bounding Longitude Value &lt;= 180,0</td> 
+          <td> </td>  
+        </tr> 
+        <tr> 
+          <td> 346</td> 
+          <td> southBoundLatitude</td> 
+          <td> Südliche Breite</td> 
+          <td> südlichste Koordinate des Begrenzungsrechtecks, Breite in Dezimalgrad (positiv: Nord) 
+            <div class="example">
+               52.3284 
+            </div></td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td> </td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td> </td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td> -90,0 &lt;= South Bounding Latitude Value &lt;= 90,0; South Bounding Latitude Value &lt;= North bounding Latitude Value</td> 
+          <td> </td>  
+        </tr> 
+        <tr> 
+          <td> 347</td> 
+          <td> northBoundLatitude</td> 
+          <td> Nördliche Breite</td> 
+          <td> nördlichste Koordinate des Begrenzungsrechtecks, Breite in Dezimalgrad (positiv: Nord) 
+            <div class="example">
+               52.6877 
+            </div></td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td> </td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td> </td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td> -90,0 &lt;= North Bounding Latitude Value &lt;= 90,0; North Bounding Latitude Value &gt;= South Bounding Latitude Value</td> 
+          <td> </td>  
+        </tr> 
+        <tr class="isoComplexElement"> 
+          <td> 348</td> 
+          <td> <em>EX_GeographicDescription</em></td> 
+          <td> Geografische Beschreibung</td> 
+          <td> Beschreibung des geografischen Gebiets durch Identifikatoren</td> 
+          <td> </td> 
+          <td> vererbt vom übergeordneten Objekt</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> Zeile 349 und 340</td> 
+          <td> </td>  
+        </tr>  
+        <tr class="isoHeader"> 
+          <td> B.3.1.3 Zeitliche Ausdehnung</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td>  
+        </tr> 
+        <tr class="isoComplexElement"> 
+          <td> 350</td> 
+          <td> <em>EX_TemporalExtent</em></td> 
+          <td> Zeitliche Ausdehnung</td> 
+          <td> Zeitspanne, die die Ressource abdeckt</td> 
+          <td> </td> 
+          <td> vererbt vom übergeordneten Objekt</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> Zeile 351</td> 
+          <td> </td>  
+        </tr> 
+        <tr> 
+          <td> 351</td> 
+          <td> extent</td> 
+          <td> Zeitliche Ausdehnung</td> 
+          <td> Datum und Zeit des Inhalts der Ressource</td> 
+          <td class="multiplicity-column"> 1..1</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> TM_Primitive (B.4.5)</td> 
+          <td> </td>  
+        </tr> 
+        <tr class="isoComplexElement"> 
+          <td> 352</td> 
+          <td> <em>EX_SpatialTemporalExtent</em></td> 
+          <td> Räumlich-zeitliche Ausdehnung</td> 
+          <td> Ausdehnung hinsichtlich der zeitlichen und der räumlichen Grenzen</td> 
+          <td> </td> 
+          <td> vererbt vom übergeordneten Objekt</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> Zeile 353 und 351</td> 
+          <td> </td>  
+        </tr>  
+        <tr class="isoHeader"> 
+          <td> B.3.1.4 Vertikale Ausdehnung</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td>  
+        </tr> 
+        <tr class="isoComplexElement"> 
+          <td> 354</td> 
+          <td> <em>EX_VerticalExtent</em></td> 
+          <td> Vertikale Ausdehnung</td> 
+          <td> vertikale Ausdehnung der Ressource</td> 
+          <td> </td> 
+          <td> vererbt vom übergeordneten Objekt</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> Zeile 355-358</td> 
+          <td> </td>  
+        </tr>     
+        <tr class="isoHeader"> 
+          <td> B.3.2 Bibliografische Angaben und verantwortliche Stelle</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td>  
+        </tr> 
+        <tr class="isoHeader"> 
+          <td> B.3.2.1 Allgemein</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td>  
+        </tr> 
+        <tr class="isoComplexElement"> 
+          <td> 359</td> 
+          <td> <em>CI_Citation</em></td> 
+          <td> Bibliografische Angaben</td> 
+          <td> bibliografische Beschreibung der Ressource</td> 
+          <td> </td> 
+          <td> vererbt vom übergeordneten Objekt</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> Zeile 360-373</td> 
+          <td> </td>  
+        </tr> 
+        <tr> 
+          <td> 360</td> 
+          <td> title</td> 
+          <td> Titel</td> 
+          <td> Bezeichnung, unter der die Ressource bekannt ist 
+            <div class="example">
+               Bebauungspläne, vorhabenbezogene Bebauungspläne (Geltungsbereiche) 
+            </div>oder INSPIRE Spezifikation beim Konformitätstest 
+            <div class="example">
+               INSPIRE Data Specification on Addresses – Guidelines 
+            </div></td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td> </td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td> </td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td> Freitext</td> 
+          <td> wird aus dem Titel des Broker-Metadatensatzes in die 19119 synchronisiert; beim Metadatenabgleich kann die Angabe aus der 19115 die Angabe in den Broker-Metadaten und somit auch in der 19119 überschreiben</td>  
+        </tr> 
+        <tr> 
+          <td> 361</td> 
+          <td> alternateTitle</td> 
+          <td> Alternativtitel</td> 
+          <td> Kurzbezeichnung oder anderer Titel der Ressource 
+            <div class="example">
+               Geltungsbereichsübersicht 
+            </div></td> 
+          <td class="multiplicity-column"> 0..*</td> 
+          <td> </td> 
+          <td class="multiplicity-column"> 0..*</td> 
+          <td class="multiplicity-column"> 0..*</td> 
+          <td> </td> 
+          <td class="multiplicity-column"> 0..*</td> 
+          <td class="multiplicity-column"> 0..*</td> 
+          <td> Freitext</td> 
+          <td> </td>  
+        </tr> 
+        <tr> 
+          <td> 362</td> 
+          <td> date</td> 
+          <td> Datumsangaben</td> 
+          <td> Datum der Erzeugung, Veröffentlichung oder Überarbeitung der Ressource</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..*</td> 
+          <td> </td> 
+          <td class="mandatoryElement multiplicity-column"> 1..*</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..*</td> 
+          <td> </td> 
+          <td class="mandatoryElement multiplicity-column"> 1..*</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..*</td> 
+          <td> CI_Date &lt;&lt;DataType&gt;&gt; (B.3.2.4)</td> 
+          <td> wird aus den Datumsangaben des Broker-Metadatensatzes in die 19119 synchronisiert; beim Metadatenabgleich kann die Angabe aus der 19115 die Angabe in den Broker-Metadaten und somit auch in der 19119 überschreiben</td>  
+        </tr> 
+        <tr> 
+          <td> 363</td> 
+          <td> edition</td> 
+          <td> Ausgabe</td> 
+          <td> Ausgabe, Auflage oder Version der Ressource</td> 
+          <td class="multiplicity-column"> 0..1</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> Freitext</td> 
+          <td> </td>  
+        </tr> 
+        <tr> 
+          <td> 364</td> 
+          <td> editionDate</td> 
+          <td> Ausgabedatum</td> 
+          <td> Erscheinungsdatum der Ausgabe oder Version</td> 
+          <td class="multiplicity-column"> 0..1</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> Date (B.4.2)</td> 
+          <td> </td>  
+        </tr> 
+        <tr> 
+          <td> 365</td> 
+          <td> identifier</td> 
+          <td> Identifikator</td> 
+          <td> Wert zur eindeutigen Identifikation der Ressource in einem Namensraum Form namespace#identifier muss eingehalten werden</td> 
+          <td class="multiplicity-column"> 0..*</td> 
+          <td> </td> 
+          <td class="multiplicity-column"> K..*</td> 
+          <td class="multiplicity-column"> 0..*</td> 
+          <td> dataset: verpflichtend für MD_Metadata/identificationInfo/*/MD_Identifier.code</td> 
+          <td class="multiplicity-column"> K..*</td> 
+          <td class="multiplicity-column"> 0..*</td> 
+          <td> MD_Identifier &lt;&lt;DataType&gt;&gt; (B.2.7.3)</td> 
+          <td> </td>  
+        </tr>  
+        <tr> 
+          <td> 367</td> 
+          <td> citedResponsibleParty</td> 
+          <td> Verantwortliche Stelle</td> 
+          <td> Name und Funktion der Person oder Organisation, die für die Ressource verantwortlich ist</td> 
+          <td class="multiplicity-column"> 0..*</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> CI_ResponsibleParty &lt;&lt;DataType&gt;&gt; (B.3.2)</td> 
+          <td> </td>  
+        </tr> 
+        <tr> 
+          <td> 368</td> 
+          <td> presentationForm</td> 
+          <td> Präsentationsform</td> 
+          <td> Form, in der die Ressource vorliegt (Darstellungsart)</td> 
+          <td class="multiplicity-column"> 0..*</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> CI_PresentationFormCode &lt;&lt;CodeList&gt;&gt; (B.5.4)</td> 
+          <td> </td>  
+        </tr>    
+        <tr> 
+          <td> 372</td> 
+          <td> ISBN</td> 
+          <td> Internationale Standardbuchnummer</td> 
+          <td> </td> 
+          <td class="multiplicity-column"> 0..1</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> Freitext</td> 
+          <td> </td>  
+        </tr> 
+        <tr> 
+          <td> 373</td> 
+          <td> ISSN</td> 
+          <td> Internationale Standardseriennummer</td> 
+          <td> </td> 
+          <td class="multiplicity-column"> 0..1</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> Freitext</td> 
+          <td> </td>  
+        </tr> 
+        <tr class="isoComplexElement"> 
+          <td> 374</td> 
+          <td> <em>CI_ResponsibleParty</em></td> 
+          <td> Verantwortliche Stelle</td> 
+          <td> Kontaktinformation zur Person und Organisation, welche im Bezug zur Ressource steht </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> Zeile 375-379</td> 
+          <td> dataset / service: Metadatenkontakt (Zeile 8): Werte werden beim Einrichten des Metadatensatzes gesetzt. service: 1. Kontakt aus den Broker-Metadaten wird als pointOfContact in die 19119 übernommen.</td>  
+        </tr> 
+        <tr> 
+          <td> 375</td> 
+          <td> individualName</td> 
+          <td> Person</td> 
+          <td> Name der zuständigen Kontaktperson in der Reihenfolge Name, Vorname, Titel durch Trennzeichen getrennt 
+            <div class="example">
+               Herr Mustermann 
+            </div></td> 
+          <td class="multiplicity-column"> K..1</td> 
+          <td> Pflicht, falls organisationName und positionName nicht angegeben sind</td> 
+          <td class="multiplicity-column"> K..1</td> 
+          <td class="multiplicity-column"> K..1</td> 
+          <td> Pflicht, falls 376 oder 377 nicht angegeben</td> 
+          <td class="multiplicity-column"> K..1</td> 
+          <td class="multiplicity-column"> K..1</td> 
+          <td> Freitext</td> 
+          <td> </td>  
+        </tr> 
+        <tr> 
+          <td> 376</td> 
+          <td> organisationName</td> 
+          <td> Organisation</td> 
+          <td> Bezeichnung der verantwortlichen Organisation 
+            <div class="example">
+               Senatsverwaltung für Stadtentwicklung und Wohnen Berlin 
+            </div></td> 
+          <td class="multiplicity-column"> K..1</td> 
+          <td> Pflicht, falls individualName und positionName nicht angegeben sind</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td> dataset / service: INSPIRE Pflicht für contact und pointOfContact other: dataset: Pflicht falls individualName und positionName nicht angegeben</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td> Freitext</td> 
+          <td> </td>  
+        </tr>  
+        <tr> 
+          <td> 378</td> 
+          <td> contactInfo</td> 
+          <td> Kontaktangaben</td> 
+          <td> Kontaktangaben zur verantwortlichen Stelle</td> 
+          <td class="multiplicity-column"> 0..1</td> 
+          <td> </td> 
+          <td class="multiplicity-column"> K..1</td> 
+          <td class="multiplicity-column"> K..1</td> 
+          <td> dataset / service: Pflicht für contact und pointOfContact</td> 
+          <td class="multiplicity-column"> K..1</td> 
+          <td class="multiplicity-column"> K..1</td> 
+          <td> CI_Contact &lt;&lt;DataType&gt;&gt; (B.3.2.3)</td> 
+          <td> </td>  
+        </tr> 
+        <tr> 
+          <td> 379</td> 
+          <td> role</td> 
+          <td> Funktion</td> 
+          <td> Funktion bzw. Rolle, die die verantwortliche Stelle in Bezug auf die Ressource einnimmt. 
+            <div class="example">
+               pointOfContact 
+            </div></td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td> </td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td> Pflicht für contact und pointOfContact</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td> CI_RoleCode &lt;&lt;CodeList&gt;&gt; (B.5.5)</td> 
+          <td> </td>  
+        </tr> 
+        <tr class="isoHeader"> 
+          <td> B.3.2.2 Adressangaben</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td>  
+        </tr> 
+        <tr class="isoComplexElement"> 
+          <td> 380</td> 
+          <td> <em>CI_Address</em></td> 
+          <td> Adressangaben</td> 
+          <td> Adressangaben zur verantwortlichen Stelle</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> Zeile 381-386</td> 
+          <td> </td>  
+        </tr> 
+        <tr> 
+          <td> 381</td> 
+          <td> deliveryPoint</td> 
+          <td> Adresse</td> 
+          <td> Angabe der Straße und Hausnummer (ggf. auch als Postfach) gemäß ISO 11180, Anhang A</td> 
+          <td class="multiplicity-column"> 0..*</td> 
+          <td> </td> 
+          <td class="multiplicity-column"> 0..*</td> 
+          <td class="multiplicity-column"> 0..*</td> 
+          <td> </td> 
+          <td class="multiplicity-column"> 0..*</td> 
+          <td class="multiplicity-column"> 0..*</td> 
+          <td> Freitext</td> 
+          <td> </td>  
+        </tr> 
+        <tr> 
+          <td> 382</td> 
+          <td> city</td> 
+          <td> Ort</td> 
+          <td> Ortsname (Stadt, Gemeinde) 
+            <div class="example">
+               Berlin 
+            </div></td> 
+          <td class="multiplicity-column"> 0..1</td> 
+          <td> </td> 
+          <td class="multiplicity-column"> 0..1</td> 
+          <td class="multiplicity-column"> 0..1</td> 
+          <td> </td> 
+          <td class="multiplicity-column"> 0..1</td> 
+          <td class="multiplicity-column"> 0..1</td> 
+          <td> Freitext</td> 
+          <td> </td>  
+        </tr> 
+        <tr> 
+          <td> 383</td> 
+          <td> administrativeArea</td> 
+          <td> Verwaltungseinheit</td> 
+          <td> Bundesland oder Kanton 
+            <div class="example">
+               Berlin 
+            </div></td> 
+          <td class="multiplicity-column"> 0..1</td> 
+          <td> </td> 
+          <td class="multiplicity-column"> 0..1</td> 
+          <td class="multiplicity-column"> 0..1</td> 
+          <td> </td> 
+          <td class="multiplicity-column"> 0..1</td> 
+          <td class="multiplicity-column"> 0..1</td> 
+          <td> Freitext</td> 
+          <td> </td>  
+        </tr> 
+        <tr> 
+          <td> 384</td> 
+          <td> postalCode</td> 
+          <td> PLZ</td> 
+          <td> Postleitzahl 
+            <div class="example">
+               10707 
+            </div></td> 
+          <td class="multiplicity-column"> 0..1</td> 
+          <td> </td> 
+          <td class="multiplicity-column"> 0..1</td> 
+          <td class="multiplicity-column"> 0..1</td> 
+          <td> </td> 
+          <td class="multiplicity-column"> 0..1</td> 
+          <td class="multiplicity-column"> 0..1</td> 
+          <td> Freitext</td> 
+          <td> </td>  
+        </tr> 
+        <tr> 
+          <td> 385</td> 
+          <td> country</td> 
+          <td> Staat</td> 
+          <td> Staat 
+            <div class="example">
+               Deutschland 
+            </div></td> 
+          <td class="multiplicity-column"> 0..1</td> 
+          <td> </td> 
+          <td class="multiplicity-column"> 0..1</td> 
+          <td class="multiplicity-column"> 0..1</td> 
+          <td> </td> 
+          <td class="multiplicity-column"> 0..1</td> 
+          <td class="multiplicity-column"> 0..1</td> 
+          <td> Freitext</td> 
+          <td> </td>  
+        </tr> 
+        <tr> 
+          <td> 386</td> 
+          <td> electronicMailAddress</td> 
+          <td> E-Mail</td> 
+          <td> E-Mail-Adresse 
+            <div class="example">
+               mail@sensw.berlin.de 
+            </div></td> 
+          <td class="multiplicity-column"> 0..*</td> 
+          <td> </td> 
+          <td class="mandatoryElement multiplicity-column"> 1..*</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..*</td> 
+          <td> dataset / service: INSPIRE Pflicht für contact und pointOfContact</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..*</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..*</td> 
+          <td> Freitext</td> 
+          <td> </td>  
+        </tr> 
+        <tr class="isoHeader"> 
+          <td> B.3.2.3 Kontaktangaben</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td>  
+        </tr> 
+        <tr class="isoComplexElement"> 
+          <td> 387</td> 
+          <td> <em>CI_Contact</em></td> 
+          <td> Kontaktangaben</td> 
+          <td> notwendige Information zur Kontaktaufnahme mit der zuständigen Person oder Organisation </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> Zeile 388-392</td> 
+          <td> </td>  
+        </tr> 
+        <tr> 
+          <td> 388</td> 
+          <td> phone</td> 
+          <td> Telefon</td> 
+          <td> Telefonnummer (Festnetz/Mobil/Fax) der verantwortlichen Person oder Organisation</td> 
+          <td class="multiplicity-column"> 0..1</td> 
+          <td> </td> 
+          <td class="multiplicity-column"> 0..1</td> 
+          <td class="multiplicity-column"> 0..1</td> 
+          <td> </td> 
+          <td class="multiplicity-column"> 0..1</td> 
+          <td class="multiplicity-column"> 0..1</td> 
+          <td> CI_Telephone &lt;&lt;DataType&gt;&gt; (B.3.2.7)</td> 
+          <td> </td>  
+        </tr> 
+        <tr> 
+          <td> 389</td> 
+          <td> address</td> 
+          <td> Adressangaben</td> 
+          <td> Postanschrift und E-Mail-Adresse, unter der die verantwortliche Person oder Organisation kontaktiert werden kann</td> 
+          <td class="multiplicity-column"> 0..1</td> 
+          <td> </td> 
+          <td class="multiplicity-column"> K..1</td> 
+          <td class="multiplicity-column"> K..1</td> 
+          <td> dataset / service: INSPIRE Pflicht für contact und pointOfContact</td> 
+          <td class="multiplicity-column"> K..1</td> 
+          <td class="multiplicity-column"> K..1</td> 
+          <td> CI_Address &lt;&lt;DataType&gt;&gt; (B.3.2.2)</td> 
+          <td> </td>  
+        </tr> 
+        <tr> 
+          <td> 390</td> 
+          <td> onlineResource</td> 
+          <td> Online-Information</td> 
+          <td> Online-Information zur Kontaktaufnahme mit der Person oder Organisation</td> 
+          <td class="multiplicity-column"> 0..1</td> 
+          <td> </td> 
+          <td class="multiplicity-column"> 0..1</td> 
+          <td class="multiplicity-column"> 0..1</td> 
+          <td> </td> 
+          <td class="multiplicity-column"> 0..1</td> 
+          <td class="multiplicity-column"> 0..1</td> 
+          <td> CI_OnlineResource &lt;&lt;DataType&gt;&gt; (B.3.2.5)</td> 
+          <td> </td>  
+        </tr> 
+        <tr> 
+          <td> 391</td> 
+          <td> hoursOfService</td> 
+          <td> Servicezeiten</td> 
+          <td> Zeitraum inklusive der Zeitzone, wann die verantwortliche Person oder Organisation erreicht werden kann. 
+            <div class="example">
+               Momentan nicht in Gebrauch 
+            </div></td> 
+          <td class="multiplicity-column"> 0..1</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> Freitext</td> 
+          <td> </td>  
+        </tr> 
+        <tr> 
+          <td> 392</td> 
+          <td> contactInstructions</td> 
+          <td> Ergänzende Hinweise</td> 
+          <td> zusätzliche Angaben wie oder wann die verantwortliche Person oder Organisation zu erreichen ist 
+            <div class="example">
+               Momentan nicht in Gebrauch 
+            </div></td> 
+          <td class="multiplicity-column"> 0..1</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> Freitext</td> 
+          <td> </td>  
+        </tr> 
+        <tr class="isoHeader"> 
+          <td> B.3.2.4 Datumsangaben</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td>  
+        </tr> 
+        <tr class="isoComplexElement"> 
+          <td> 393</td> 
+          <td> <em>CI_Date</em></td> 
+          <td> Datumsangaben</td> 
+          <td> Datum und dessen Bezug.</td> 
+          <td> </td> 
+          <td> vererbt vom übergeordneten Objekt</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> Zeile 394-395</td> 
+          <td> </td>  
+        </tr> 
+        <tr> 
+          <td> 394</td> 
+          <td> date</td> 
+          <td> Datum</td> 
+          <td> Datum der Erzeugung, Veröffentlichung oder Überarbeitung der Ressource 
+            <div class="example">
+               2015-01-01 
+            </div></td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td> </td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td> Pflicht zur Angabe eines Datums</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td> Date (B.4.2)</td> 
+          <td> </td>  
+        </tr> 
+        <tr> 
+          <td> 395</td> 
+          <td> dateType</td> 
+          <td> Datumstyp</td> 
+          <td> Art des Datums 
+            <div class="example">
+               publication 
+            </div></td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td> </td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td> Es darf nur 1 Mal 'creation' dokumentiert werden</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td> CI_DateTypeCode &lt;&lt;CodeList&gt;&gt; (B.5.2)</td> 
+          <td> </td>  
+        </tr> 
+        <tr class="isoHeader"> 
+          <td> B.3.2.5 Online-Ressource</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td>  
+        </tr> 
+        <tr class="isoComplexElement"> 
+          <td> 396</td> 
+          <td> <em>CI_OnlineResource</em></td> 
+          <td> Online-Ressource</td> 
+          <td> Information zur Online-Ressource.</td> 
+          <td> </td> 
+          <td> vererbt vom übergeordneten Objekt</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> Zeile 397-402</td> 
+          <td> </td>  
+        </tr> 
+        <tr> 
+          <td> 397</td> 
+          <td> linkage</td> 
+          <td> URL</td> 
+          <td> Adresse für den Online-Zugriff unter Verwendung einer URL (Uniform Resource Locator) 
+            <div class="example">
+               http://@@ServerName@senstadt@@/fb_daten/beschreibung/karte1.html 
+            </div></td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td> </td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td> Pflicht, wenn eine URL vorhanden ist (ISO 19119, Table C.2 No. 6)</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td> URL (IETF RFC1738 IETF RFC 2056)</td> 
+          <td> </td>  
+        </tr>    
+        <tr> 
+          <td> 401</td> 
+          <td> description</td> 
+          <td> Beschreibung</td> 
+          <td> ausführliche Beschreibung der Online-Ressource 
+            <div class="example">
+               Inhaltliche Beschreibung 
+            </div></td> 
+          <td class="multiplicity-column"> 0..1</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> Freitext</td> 
+          <td> </td>  
+        </tr> 
+        <tr> 
+          <td> 402</td> 
+          <td> function</td> 
+          <td> Funktion</td> 
+          <td> Funktion der Online-Ressource Anmerkung: ist als notwendige Ergänzung zur URL verpflichtend festgelegt für GDI-BE 
+            <div class="example">
+               information 
+            </div></td> 
+          <td class="multiplicity-column"> 0..1</td> 
+          <td> </td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td> falls eine URL vorhanden ist</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td class="mandatoryElement multiplicity-column"> 1..1</td> 
+          <td> CI_OnLineFunctionCode &lt;&lt;CodeList&gt;&gt; (B.5.3)</td> 
+          <td> </td>  
+        </tr> 
+        <tr class="isoHeader"> 
+          <td> B.3.2.6 Serienangaben</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td>  
+        </tr> 
+        <tr class="isoComplexElement"> 
+          <td> 403</td> 
+          <td> <em>CI_Series</em></td> 
+          <td> Serienangaben</td> 
+          <td> Information über die Serie oder den Gesamtdatenbestand, wozu der Datenbestand gehört</td> 
+          <td> </td> 
+          <td> vererbt vom übergeordneten Objekt</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> Zeile 404-406</td> 
+          <td> </td>  
+        </tr> 
+        <tr> 
+          <td> 404</td> 
+          <td> name</td> 
+          <td> Bezeichnung</td> 
+          <td> Bezeichnung der Serie oder des Gesamtdatenbestands, wozu der Datenbestand gehört 
+            <div class="example">
+               Momentan nicht in Gebrauch 
+            </div></td> 
+          <td class="multiplicity-column"> 0..1</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> Freitext</td> 
+          <td> </td>  
+        </tr> 
+        <tr> 
+          <td> 405</td> 
+          <td> issueIdentification</td> 
+          <td> Kennung</td> 
+          <td> Kennung eines Elements einer Serie 
+            <div class="example">
+               Momentan nicht in Gebrauch 
+            </div></td> 
+          <td class="multiplicity-column"> 0..1</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> Freitext</td> 
+          <td> </td>  
+        </tr> 
+        <tr> 
+          <td> 406</td> 
+          <td> page</td> 
+          <td> Seitenangabe</td> 
+          <td> Seitenangabe zum Artikel in einer Publikation 
+            <div class="example">
+               Momentan nicht in Gebrauch 
+            </div></td> 
+          <td class="multiplicity-column"> 0..1</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> Freitext</td> 
+          <td> </td>  
+        </tr> 
+        <tr class="isoHeader"> 
+          <td> B.3.2.7 Telefon</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td>  
+        </tr> 
+        <tr class="isoComplexElement"> 
+          <td> 407</td> 
+          <td> <em>CI_Telephone</em></td> 
+          <td> Telefon</td> 
+          <td> Telefonnummern (Festnetz/Mobil/Fax) der verantwortlichen Person oder Organisation </td> 
+          <td> </td> 
+          <td> vererbt vom übergeordneten Objekt</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> Zeile 408-409</td> 
+          <td> </td>  
+        </tr> 
+        <tr> 
+          <td> 408</td> 
+          <td> voice</td> 
+          <td> Telefonnummer</td> 
+          <td> Telefonnummer der verantwortlichen Organisation oder Person 
+            <div class="example">
+               +49-30-9025-0000 
+            </div></td> 
+          <td class="multiplicity-column"> 0..*</td> 
+          <td> </td> 
+          <td class="multiplicity-column"> 0..*</td> 
+          <td class="multiplicity-column"> 0..*</td> 
+          <td> </td> 
+          <td class="multiplicity-column"> 0..*</td> 
+          <td class="multiplicity-column"> 0..*</td> 
+          <td> Freitext</td> 
+          <td> </td>  
+        </tr> 
+        <tr> 
+          <td> 409</td> 
+          <td> facsimile</td> 
+          <td> Telefaxnummer</td> 
+          <td> Telefaxnummer der verantwortlichen Organisation oder Person 
+            <div class="example">
+               +49-30-9025-0099 
+            </div></td> 
+          <td class="multiplicity-column"> 0..*</td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> </td> 
+          <td> Freitext</td> 
+          <td> </td>  
+        </tr> 
+      </tbody> 
+    </table>  
+  </body>
+</html>

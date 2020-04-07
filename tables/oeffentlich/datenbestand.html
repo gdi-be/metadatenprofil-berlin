@@ -1,0 +1,114 @@
+<!doctype html>
+<html>
+  <head> 
+    <meta charset="UTF-8"> 
+    <title>BE-Metadatenprofil/Metadaten</title> 
+    <link rel="stylesheet" href="../assets/styles/profile.css"> 
+  </head> 
+  <body> 
+    <nav class="menu"> 
+      <ul class="menu-list"> 
+        <li class="menu-item"><a href="datenbestand.html">Datenbestand</a></li> 
+        <li class="menu-item"><a href="iso.html">ISO 19115, 19119</a></li> 
+        <li class="menu-item"><a href="karte.html">Karte</a></li> 
+        <li class="menu-item"><a href="sachdatensatz.html">Sachdatensatz</a></li> 
+        <li class="menu-item"><a href="atom.html">ATOM-Feed</a></li> 
+        <li class="menu-item"><a href="geometriedatensatz.html">Geometriedatensatz</a></li> 
+        <li class="menu-item"><a href="fachverfahren.html">Fachverfahren</a></li> 
+        <li class="menu-item right"><a href="#top">nach oben</a></li> 
+      </ul> 
+    </nav> 
+    <table id="metadata"> 
+      <thead> 
+        <tr> 
+          <th>Name des Elements</th> 
+          <th>Name des Attributs</th> 
+          <th>Bezeichnung</th> 
+          <th>Definition 
+            <div class="example">
+               Beispiel 
+            </div> </th> 
+          <th>Multiplizität</th> 
+          <th>Datentyp/Wertebereich</th> 
+          <th>Relation zu</th> 
+          <th>Anmerkung</th>  
+        </tr> 
+      </thead> 
+      <tbody> 
+        <tr class="complexElement"> 
+          <td>Metadaten</td> 
+          <td></td> 
+          <td>Wurzelelement der Datensatzklasse Metadaten</td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>id</td> 
+          <td>Identifikator</td> 
+          <td>Eindeutiger Bezeichner (UUID, Version 4) für einen Datenbestand der GDI-Berlin (Domäne wird mit angegeben) 
+            <div class="example">
+               38b5dc12-0388-3847-b6d4-193b850c2b95@senstadt 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td>Die Angabe muss immer die entsprechende Domäne enthalten (i.d.R. "senstadt")</td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>metadatenTyp</td> 
+          <td>Metadatentyp</td> 
+          <td>Angabe des Metadatentyps. Über den Metadatentyp werden Inhalte und Pflichten im METEOR gesteuert. Die Angabe "INSPIRE" ist für alle inspirebetroffenen Datenbestände und Datensätze zu verwenden, egal ob sie transformiert sind oder nicht. Alle anderen Datenbestände und Datensätze sind vom Typ "ISO". 
+            <div class="example">
+               INSPIRE 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string / BROKER|<u>ISO</u>|INSPIRE</td> 
+          <td>BROKER: wird durch die Themenzuordnung in die zugeordneten Metadatensätze übergeben. Für alle Metadatensätze vom Typ "INSPIRE" wird bei der Freigabe geprüft, ob das Schlagwort "inspireidentifiziert" vorhanden ist. Wenn nicht, wird es gesetzt.</td> 
+          <td> </td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>inspireAnnex</td> 
+          <td>Angabe des INSPIRE-Annex-Themas (Kurzbezeichnung)</td> 
+          <td>Die Angabe des zu beschreibenden Annex-Themas erfolgt über die Kurzbezeichnung, bestehend aus zwei Zeichen. 
+            <div class="example">
+               LU 
+            </div> </td> 
+          <td class="multiplicity-column">K..1, nur bei Metadatentyp=INSPIRE</td> 
+          <td>xsd:string / GG|GN|AU|AD|CP|TN|HY|PS|EL|GE|LC|OI|SU|BU|SO| LU|HH|US|EF|PF|AF|PD|AM|NZ|AC|MF|OF|SR|BR|HB|SD|ER|MR</td> 
+          <td>BROKER: wird durch die Themenzuordnung in die zugeordneten Metadatensätze übergeben. ISO: veranlasst, dass beim Einrichten der 19115 das entsprechende Schlagwort des INSPIRE-Annex-Themas, die dazugehörige Themenkategorie (Konventionendokument GDI-DE), die Datenspezifikation im Qualitätsbericht und - soweit möglich - die GML-Spezifikation in den Vertriebsangaben gesetzt werden. </td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>Titel</td> 
+          <td></td> 
+          <td>Titel</td> 
+          <td>Titel des Datenbestandes 
+            <div class="example">
+               Bebauungspläne, vorhabenbezogene Bebauungspläne (Geltungsbereiche) 
+            </div> </td> 
+          <td class="multiplicity-column">1..1</td> 
+          <td>xsd:string</td> 
+          <td>ISO: wird im METEOR automatisch in den title [Zeile 360] der 19115 übernommen (bidirektional); </td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>IsoMetadata</td> 
+          <td></td> 
+          <td>ISO 19115</td> 
+          <td>bettet die ISO 19115 in ihrer XML-Struktur ein, um eine gemeinsame Verarbeitung (Metadatenübernahme und -abgleich) mit der Broker-XML zu ermöglichen.</td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td><a href="#iso_MD_Metadata">MD_Metadata</a></td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+      </tbody> 
+    </table>  
+  </body>
+</html>

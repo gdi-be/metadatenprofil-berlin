@@ -1,0 +1,1286 @@
+<!doctype html>
+<html>
+  <head> 
+    <meta charset="UTF-8"> 
+    <title>BE-Metadatenprofil/Geometriedatensatz</title> 
+    <link rel="stylesheet" href="../assets/styles/profile.css"> 
+  </head> 
+  <body> 
+    <nav class="menu"> 
+      <ul class="menu-list"> 
+        <li class="menu-item"><a href="datenbestand.html">Datenbestand</a></li> 
+        <li class="menu-item"><a href="iso.html">ISO 19115, 19119</a></li> 
+        <li class="menu-item"><a href="karte.html">Karte</a></li> 
+        <li class="menu-item"><a href="sachdatensatz.html">Sachdatensatz</a></li> 
+        <li class="menu-item"><a href="atom.html">ATOM-Feed</a></li> 
+        <li class="menu-item"><a href="geometriedatensatz.html">Geometriedatensatz</a></li> 
+        <li class="menu-item"><a href="fachverfahren.html">Fachverfahren</a></li> 
+        <li class="menu-item right"><a href="#top">nach oben</a></li> 
+      </ul> 
+    </nav> 
+    <table id="spatial"> 
+      <thead> 
+        <tr> 
+          <th>Name des Elements</th> 
+          <th>Name des Attributs</th> 
+          <th>Bezeichnung</th> 
+          <th>Definition 
+            <div class="example">
+               Beispiel 
+            </div> </th> 
+          <th>Multiplizität</th> 
+          <th>Datentyp/Wertebereich</th> 
+          <th>Relation zu</th> 
+          <th>Anmerkung</th>  
+        </tr> 
+      </thead> 
+      <tbody> 
+        <tr class="complexElement"> 
+          <td>Raumbezug_geometrisch</td> 
+          <td></td> 
+          <td>Wurzelelement der Datensatzklasse Geometriedatensatz</td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>id</td> 
+          <td>Identifikator</td> 
+          <td>Eindeutiger Bezeichner für Geometriedatensätze innerhalb der GDI Berlin. 
+            <div class="example">
+               re_bplan@senstadt 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string / 80 Zeichen Hinweis: Die Länge ist abhängig von Konfiguration des Repositorys beim Anwendungsbereiber. Für die Vergabe des Namens sind nur folgende Zeichen zulässig: Buchstaben (ohne Umlaute und ß), Zahlen, Minuszeichen, Punkte, Doppelpunkte und Unterstriche!</td> 
+          <td>ISO: Basis für die Generierung des fileIdentifier [Zeile 2] der 19119 OGC: letzter Bestandteil der Dienste-URL (https://[rechner]/fb/wfs/data/senstadt/[id]</td> 
+          <td>Die Angabe muss immer die entsprechende Domäne enthalten (i.d.R. "senstadt")</td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>mt_klasse</td> 
+          <td>Merkmalsträgerklasse</td> 
+          <td>Metadatensätze mit gleicher Merkmalsträgerklasse sind miteinander verknüpft. 
+            <div class="example">
+               bplan@senstadt 
+            </div> für alle Daten, die sich auf die Geometrien der Bebauungspläne (Geltungsbereiche) beziehen </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td>Bei der Übernahme der XML ins Repository muss die MTK dort vorhanden sein. Die Angabe muss immer die entsprechende Domäne enthalten. Fehlt eine passende MTK, muss Verbindung zum Administrator (Betreiber der GDI-BE) aufgenommen werden. Nur dieser kann eine MTK definieren und für die Nutzung zur Verfügung stellen. </td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>rbz_klasse</td> 
+          <td>Raumbezugsklasse</td> 
+          <td>Über die Raumbezugsklasse wird gesteuert, ob im Client Karten überlagert werden oder nicht. Karten gleicher RBZ können überlagert werden. Folgende Angaben sind zu verwenden: für alle Karten mit CRS 3068: 
+            <div class="example">
+               3068@senstadt 
+            </div> für alle anderen: 
+            <div class="example">
+               M1000@senstadt 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td>Bei der Übernahme der XML ins Repository muss die RBZ dort vorhanden sein. Die Angabe muss immer die entsprechende Domäne enthalten. Fehlt eine passende RBZ, muss Verbindung zum Administrator (Betreiber der GDI-BE) aufgenommen werden. Nur dieser kann eine RBZ definieren und für die Nutzung zur Verfügung stellen. </td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>metadatenTyp</td> 
+          <td>Metadatentyp</td> 
+          <td>Angabe des Metadatentyps. Über den Metadatentyp werden Inhalte und Pflichten im METEOR gesteuert. Die Angabe "INSPIRE" ist für alle inspirebetroffenen Datenbestände und Datensätze zu verwenden, egal ob sie transformiert sind oder nicht. Alle anderen Datenbestände und Datensätze sind vom Typ "ISO". 
+            <div class="example">
+               INSPIRE 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string / BROKER|<u>ISO</u>|INSPIRE</td> 
+          <td>BROKER: wird bei der Themenzuordnung aus dem Datenbestand in die zugeordneten Broker-Metadatensätze übernommen.</td> 
+          <td>Bitte Schreibweise beachten. Erfolgt keine Angabe, wird der Standardwert "ISO" angenommen. </td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>inspireAnnex</td> 
+          <td>Angabe des INSPIRE-Annex-Themas (Kurzbezeichnung)</td> 
+          <td>Die Angabe des zu beschreibenden Annex-Themas erfolgt über die Kurzbezeichnung, bestehend aus zwei Zeichen. </td> 
+          <td class="multiplicity-column">K..1, nur bei Metadatentyp=INSPIRE</td> 
+          <td>xsd:string / GG|GN|AU|AD|CP|TN|HY|PS|EL|GE|LC|OI|SU|BU|SO| LU|HH|US|EF|PF|AF|PD|AM|NZ|AC|MF|OF|SR|BR|HB|SD|ER|MR</td> 
+          <td>BROKER: wird bei der Themenzuordnung aus dem Datenbestand übernommen. ISO: veranlasst, dass beim Einrichten der 19119 das entsprechende INSPIRE-Schlagwort, die dazugehörige Themenkategoerie (Konventionendokument GDI.DE) und - soweit möglich - die GML-Spezifikation in den Vertriebsangaben gesetzt werden.</td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>Titel</td> 
+          <td></td> 
+          <td>Titel</td> 
+          <td>Titel des Geometriedatensatzes 
+            <div class="example">
+               Bauwerke 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string / 255 Zeichen Hinweis: Die Länge ist abhängig von der Konfiguration des Repositorys beim Anwendungsbereiber</td> 
+          <td>ISO: wird im METEOR aus den Broker-Metadaten automatisch in den title [Zeile 360] der 19119 übernommen (bidirektional); kann beim Metadatenabgleich mit dem Wert aus der 19115 überschrieben werden. OGC: Anzeige des title aus der 19119 als Title des WFS </td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>Metadaten</td> 
+          <td></td> 
+          <td>Metadaten</td> 
+          <td>weiterführende Informationen zu dem Geometriedatensatz</td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td><a href="#spatial_MetadatenType">MetadatenType</a></td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>SpatialServerType</td> 
+          <td></td> 
+          <td>Datenquelle</td> 
+          <td>Informationen zur Datenquelle. </td> 
+          <td class="multiplicity-column">K..1, alternativ zu WFS</td> 
+          <td> <a href="#spatial_spatialServerTypeType">SpatialServerTypeType</a></td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>DefaultCRS</td> 
+          <td></td> 
+          <td>Standardkoordinatensystem</td> 
+          <td>Standardkoordinatensystem der Raumeinheit. 
+            <div class="example">
+               EPSG:25833 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string</td> 
+          <td>ISO: wird in den RS_Identifier/code [Zeile 207] der 19119 übernommen; Codierung wird angepasst: EPSG:25833 --&gt; http://www.opengis.net/def/crs/EPSG/0/25833</td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>OtherCRS</td> 
+          <td></td> 
+          <td>weitere Koordinatensysteme</td> 
+          <td>Hier können zusätzliche, vom Dienst bereitgestellte CRS angegeben werden. Die Beschreibung der Datenquelle erfolgt im Spatialserver. 
+            <div class="example">
+               EPSG:4258 
+            </div> </td> 
+          <td class="multiplicity-column">0..*</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td>nur für die WFS-Bereitstellung relevant. </td>  
+        </tr> 
+        <tr> 
+          <td>Ausdehnung</td> 
+          <td></td> 
+          <td>Ausdehnung</td> 
+          <td>räumliche Ausdehnung der Geometrien</td> 
+          <td class="mandatoryElement multiplicity-column">1..*</td> 
+          <td><a href="#spatial_AusdehnungType">AusdehnungType</a></td> 
+          <td> 
+            <div>
+               ISO: wird in geographicElement [Zeile 336] der 19119 übernommen - umgerechnet in 4326. 
+            </div> </td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>SLD</td> 
+          <td></td> 
+          <td>Darstellungsbeschreibung (SLD)</td> 
+          <td>Angabe einer spezifischen URL auf eine SLD-Datei für die Visualisierung der Geometrien abweichend von der Standardausprägung in der Anwendung.</td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:anyURI</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>SD_ID</td> 
+          <td></td> 
+          <td>Sachdaten-ID</td> 
+          <td>Angabe einer Sachdaten-ID zur Verknüpfung mit den Geometrien zur gemeisamen Abgabe der Daten per WFS 
+            <div class="example">
+               sach_bplan@senstadt 
+            </div> </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td>nur für die WFS-Bereitstellung relevant.</td>  
+        </tr> 
+        <tr> 
+          <td>KartenUrl</td> 
+          <td></td> 
+          <td>Kartenlink</td> 
+          <td>URL zum Start der Anwendung mit Anzeige der Karte, aus der die Geometrien abgeleitet wurden (externer Aufruf) zur Anzeige im Dienstedatenblatt. 
+            <div class="example">
+               http://@@ServerName@senstadt@@/fb?loginkey=showMap&amp;mapId=bplan@senstadt 
+            </div> </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:anyURI</td> 
+          <td></td> 
+          <td>nur für die WFS-Bereitstellung relevant.</td>  
+        </tr> 
+        <tr> 
+          <td>ZusatzText</td> 
+          <td></td> 
+          <td>Zusatztext</td> 
+          <td>Zusätzlicher Text zur Anzeige in der Recherche (bei der Raumauswahl nach Raumeinheiten) als Hilfe für die Filterangabe 
+            <div class="example">
+               I - B5a, IX - D, V - VE2, IX* 
+            </div> </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td>nur die Nutzung der Geometrien in der Raumauswahl relevant.</td>  
+        </tr> 
+        <tr> 
+          <td>IsoMetadata</td> 
+          <td></td> 
+          <td>ISO 19119</td> 
+          <td>bettet die ISO 19119 in ihrer XML-Struktur ein, um eine gemeinsame Verarbeitung zu ermöglichen</td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td><a href="#iso_MD_Metadata">MD_Metadata</a></td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr class="complexElement"> 
+          <td id="spatial_MetadatenType">MetadatenType</td> 
+          <td></td> 
+          <td>Broker-Metadaten</td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>Kurzbeschreibung</td> 
+          <td></td> 
+          <td>Kurzbeschreibung</td> 
+          <td>Kurze inhaltliche Beschreibung der Geometrien. Es wird empfohlen, die Kurzbeschreibung aus der Karte zu übernehmen. 
+            <div class="example">
+               Geometrien von Geltungsbereichen der verbindlichen Bauleitplanung. Gesamtbestand festgesetzter und im Verfahren befindlicher Bebauungspläne, einschließlich vorhabenbezogener Bebauungspläne sowie der generellen Bebauungspläne 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string / 4000 Zeichen Hinweis: Die Länge ist abhängig von Konfiguration des Repositorys beim Anwendungsbereiber</td> 
+          <td> 
+            <div>
+               ISO: wird in den abstract [Zeile 25] der 19119 übernommen; kann beim Metadatenabgleich mit dem Wert aus der 19115 (Beschreibung) überschrieben werden; 
+            </div> 
+            <div>
+               OGC: Anzeige des abstract aus der 19119 als Abstract im WFS 
+            </div> </td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>InhaltlicheBeschreibung</td> 
+          <td></td> 
+          <td>Inhaltliche Beschreibung</td> 
+          <td>URL auf eine detaillierte inhaltliche Beschreibung des Geometriedatensatzes. 
+            <div class="example">
+               http://@@ServerName@senstadt@@@@text@senstadt@@bplan_01.html 
+            </div> </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:anyURI</td> 
+          <td> 
+            <div>
+               ISO: wird bei der Generierung der ISO 19119 in die Vertriebsangaben in linkage [Zeile 397] und description [Zeile 401] übernommen. Es erfolgt keine Aktualisierung bei Anpassung im Broker, eine erneute Generierung wäre für die Aktualisierung erforderlich. 
+            </div> </td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>TechnischeBeschreibung</td> 
+          <td></td> 
+          <td>Inhaltliche Beschreibung</td> 
+          <td>URL auf eine detaillierte technische Beschreibung des Geometriedatensatzes. 
+            <div class="example">
+               http://@@ServerName@senstadt@@@@text@senstadt@@tech.html 
+            </div> Da im WFS die Aliasnamen der Attribute verloren gehen, erfolgt hier eine entsprechende Übersetzung für den Dienste-Nutzer. </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:anyURI</td> 
+          <td> 
+            <div>
+               ISO: wird bei der Generierung der ISO 19119 in die Vertriebsangaben in linkage [Zeile 397] und description [Zeile 401] übernommen. Es erfolgt keine Aktualisierung bei Anpassung im Broker, eine erneute Generierung wäre für die Aktualisierung erforderlich. 
+            </div> </td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>Datengrundlage</td> 
+          <td></td> 
+          <td>Datengrundlage</td> 
+          <td>Angabe, auf welcher Datengrundlage die Geometrien erfasst wurden. In der Regel wird hier die Karte eingetragen, aus der die Geometrien abgeleitet wurden. </td> 
+          <td class="multiplicity-column">0..*</td> 
+          <td><a href="#spatial_InhaltType">InhaltType</a></td> 
+          <td></td> 
+          <td>Angabe nur sinnvoll, wenn die Sachdaten im Geodatenkatalog eigenständig gezeigt werden sollen.</td>  
+        </tr> 
+        <tr> 
+          <td>Schlagwoerter</td> 
+          <td></td> 
+          <td>Schlagwörter</td> 
+          <td>Suchbegriffe, Schlüsselwörter, ihr Typ und Quellenangabe; GDI-DE: Keyword "inspireidentifiziert" muss für alle Georessourcen geführt werden, welche inspireidentifiziert sind; Keyword "opendata" wenn zutreffend (siehe Architektur der Geodateninfrastruktur Deutschland: Konventionen zu Metadaten der GDI.DE (Konventionendokument), V1.2, 01.08.2017, Kapitel 2.2 bzw. Kap. 3.5) 
+            <div class="example">
+               Geltungsbereiche, Bebauungsplan, B-Plan, Bplan, Bpläne, B-Pläne 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..*</td> 
+          <td>xsd:string</td> 
+          <td> 
+            <div>
+               ISO: Die Schlagworte werden - ohne Angabe eines Thesaurus in keyword [Zeile 53] der ISO 19119 übernommen. Bei Generierung der 19119 wird das Schlagwort "infoFeatureAccessService" mit dem GEMET als Thesaurus gesetzt. 
+            </div> 
+            <div>
+               OGC: Anzeige der keywords aus der 19119 als KeywordList im WMS. 
+            </div> </td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>Erstellungsdatum</td> 
+          <td></td> 
+          <td>Erstellungsdatum</td> 
+          <td>Gibt eine Information darüber, wann der beschriebene Datenbestand erzeugt wurde. 
+            <div class="example">
+               2004-05-03 
+            </div> </td> 
+          <td class="multiplicity-column">K..1, eine der drei Datumsangaben ist Pflicht</td> 
+          <td>xsd:string</td> 
+          <td> 
+            <div>
+               ISO: wird als date [Zeile 362] in die 19119 übernommen; kann beim Metadatenabgleich mit dem Wert aus der 19115 (Datum) überschrieben werden 
+            </div> </td> 
+          <td>Schreibweise yyyy-mm-dd beachten: Vier Ziffern für das Jahr, zwei Ziffern für den Monat, zwei Ziffern für den Tag</td>  
+        </tr> 
+        <tr> 
+          <td>Revisionsdatum</td> 
+          <td></td> 
+          <td>Revisionsdatum</td> 
+          <td>Gibt eine Information darüber, wann der beschriebene Datenbestand geändert wurde. 
+            <div class="example">
+               2004-05-03 
+            </div> </td> 
+          <td class="multiplicity-column">K..1, eine der drei Datumsangaben ist Pflicht</td> 
+          <td>xsd:string</td> 
+          <td> 
+            <div>
+               ISO: wird als date [Zeile 362] in die 19119 übernommen; kann beim Metadatenabgleich mit dem Wert aus der 19115 (Datum) überschrieben werden 
+            </div> </td> 
+          <td>Schreibweise yyyy-mm-dd beachten: Vier Ziffern für das Jahr, zwei Ziffern für den Monat, zwei Ziffern für den Tag</td>  
+        </tr> 
+        <tr> 
+          <td>Veroeffentlichungsdatum</td> 
+          <td></td> 
+          <td>Veroeffentlichungsdatum</td> 
+          <td>Gibt eine Information darüber, wann der beschriebene Datenbestand geändert wurde. 
+            <div class="example">
+               2004-05-03 
+            </div> </td> 
+          <td class="multiplicity-column">K..1, eine der drei Datumsangaben ist Pflich</td> 
+          <td>xsd:anyURI</td> 
+          <td> 
+            <div>
+               ISO: wird als date [Zeile 362] in die 19119 übernommen; kann beim Metadatenabgleich mit dem Wert aus der 19115 (Datum) überschrieben werden 
+            </div> </td> 
+          <td>Schreibweise yyyy-mm-dd beachten: Vier Ziffern für das Jahr, zwei Ziffern für den Monat, zwei Ziffern für den Tag</td>  
+        </tr> 
+        <tr> 
+          <td>gueltigVon</td> 
+          <td></td> 
+          <td>gültig von</td> 
+          <td>Gibt eine Information darüber, ab wann der beschriebene Datenbestand gültig ist. </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:string</td> 
+          <td> 
+            <div>
+               ISO: wird als EX_TemporalExtent/extent [351] die 19119 übernommen. 
+            </div> </td> 
+          <td>Schreibweise yyyy-mm-dd beachten: Vier Ziffern für das Jahr, zwei Ziffern für den Monat, zwei Ziffern für den Tag</td>  
+        </tr> 
+        <tr> 
+          <td>gueltigBis</td> 
+          <td></td> 
+          <td>gültig bis</td> 
+          <td>Gibt eine Information darüber, bis wann der beschriebene Datenbestand gültig ist. </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:string</td> 
+          <td> 
+            <div>
+               ISO: wird als EX_TemporalExtent/extent [351] die 19119 übernommen. 
+            </div> </td> 
+          <td>Schreibweise yyyy-mm-dd beachten: Vier Ziffern für das Jahr, zwei Ziffern für den Monat, zwei Ziffern für den Tag</td>  
+        </tr> 
+        <tr> 
+          <td>Vorschau</td> 
+          <td></td> 
+          <td>Vorschaugrafik</td> 
+          <td>Verweis auf ein Vorschaubild für den Datenbestand </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td><a href="#spatial_InhaltType">InhaltType</a></td> 
+          <td> 
+            <div>
+               ISO: Wird mit der Beschreibung "Vorschaugrafik" in MD_BrowseGraphic [Zeile 48] der ISO 19119 übernommen. 
+            </div> </td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>CapabilitiesUrl</td> 
+          <td></td> 
+          <td>Capabilities-URL</td> 
+          <td>URL zum Dienst des Geometriedatensatzes (WFS). Die URL ist Voraussetzung zur Generierung der Dienste-Metadaten (ISO 19119) über den Broker bzw. METEOR. 
+            <div class="example">
+               http://@@ServerName@senstadt@@/fb/wfs/geometry/senstadt/[themenId] 
+            </div> </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:anyURI</td> 
+          <td> 
+            <div>
+               ISO: beim Generieren der Dienste-Metadaten wird der Wert erstellt und in den connectPoint der Dienste-Metadaten übernommen. 
+            </div> </td> 
+          <td>Verwendung der externen Aufrufe der Anwendung.</td>  
+        </tr> 
+        <tr> 
+          <td>Kontakt</td> 
+          <td></td> 
+          <td>Kontakt</td> 
+          <td>Kontaktangaben zum Datenbestand</td> 
+          <td class="mandatoryElement multiplicity-column">1..*</td> 
+          <td><a href="#spatial_KontaktType">KontaktType</a></td> 
+          <td> </td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>Massstabszahl</td> 
+          <td></td> 
+          <td>Maßstabszahl</td> 
+          <td>Angabe des Erfasungsmaßstabes für die Karte. Dieser gibt Auskunft über die Detailgenauigkeit der Karte. 
+            <div class="example">
+               1000 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:long</td> 
+          <td>ISO: kann beim Metadatenabgleich mit dem Wert aus der 19115 (räumliche Auflösung) überschrieben werden </td> 
+          <td></td>  
+        </tr> 
+        <tr class="complexElement"> 
+          <td id="spatial_InhaltType">InhaltType</td> 
+          <td></td> 
+          <td>InhaltType</td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td> </td> 
+          <td>universelles Element zur Kennzeichnung textueller Daten und Referenzen</td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>Typ</td> 
+          <td>Typ</td> 
+          <td>Typ des zu beschreibenden Inhalts. 
+            <div class="example">
+               HTML 
+            </div> Beispiel eines Elements in XML für übergeordnetes Element "Datengrundlage": 
+            <div class="example">
+               &lt;Datengrundlage Typ="HTML"&gt;&lt;Inhalt&gt;Meldevorgang&gt;&lt;/Datengrundlage&gt; 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string / HTML|IMG|URL|XML</td> 
+          <td></td> 
+          <td>Das Element "Inhalt" wird im übergeordneten Element eingetragen, das Attribut "Typ" wird als Attribut im übergeordneten Element angegeben (siehe XML-Beispiel)</td>  
+        </tr> 
+        <tr> 
+          <td>Inhalt</td> 
+          <td></td> 
+          <td>Inhalt</td> 
+          <td>Angabe eines Links, unformatierten bzw. formatierten Textes - in Abhängigkeit des ausgewählten Typs. Typ HTML: 
+            <div class="example">
+               Daten aus der Kaufpreissammlung 
+            </div> Typ IMG: 
+            <div class="example">
+               http://@@ServerName@senstadt@@@@leg@senstadt@@leg_bplan2005.gif 
+            </div> Typ URL: 
+            <div class="example">
+               http://@@ServerName@senstadt@@@@text@senstadt@@geltungsbereiche.html 
+            </div> Typ XML: 
+            <div class="example">
+               &lt;a href="http://www.stadtentwicklung.berlin.de/planen/b-planverfahren/berlin/de/allg.shtml" target="_blank"&gt;Allgemeine Informationen zu Bebauungsplanverfahren&lt;/a&gt; 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td>Soll formatierter Text hinterlegt werden, ist der Typ=XML zu wählen und der Text zusätzlich in ein &lt;div&gt;-Element einzubetten. Er muss den Regeln der HTML-Codierung entsprechen.</td>  
+        </tr> 
+        <tr class="complexElement"> 
+          <td id="spatial_KontaktType">KontaktType</td> 
+          <td></td> 
+          <td>Kontakt</td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td> </td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>Name</td> 
+          <td></td> 
+          <td>Name</td> 
+          <td>Name des Ansprechpartners 
+            <div class="example">
+               Herr Mustermann 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string</td> 
+          <td>ISO: Angabe aus dem 1. Kontakt wird als individualName [Zeile 375] in den 1. Kontakt der 19119 übernommen</td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>Organisationsname</td> 
+          <td></td> 
+          <td>Organisationsname</td> 
+          <td>Organisationsname des Ansprechpartners 
+            <div class="example">
+               Senatsverwaltung für Stadtentwicklung und Wohnen Berlin 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string</td> 
+          <td>ISO: Angabe aus dem 1. Kontakt wird als organisationName [Zeile 376] in den 1. Kontakt der 19119 übernommen</td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>Kontaktart</td> 
+          <td></td> 
+          <td>Kontaktart</td> 
+          <td>„fachlicher“ oder „technischer“ Ansprechpartner 
+            <div class="example">
+               fachlich 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string 
+            <div>
+               fachlich|technisch 
+            </div> </td> 
+          <td>ISO: Kontaktart wird in "Funktion/Rolle" in Dienste-Metadaten abgebildet --&gt; 1. Kontakt wird als "pointOfContact" in Dienste-Metadaten angegeben.</td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>Telefon</td> 
+          <td></td> 
+          <td>Telefon</td> 
+          <td>Telefonnummer des Ansprechpartners 
+            <div class="example">
+               +49-30-9025-0000 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string</td> 
+          <td>ISO: Angabe aus dem 1. Kontakt wird als voice [Zeile 408] in den 1. Kontakt der 19119 übernommen</td> 
+          <td>BE: Langschreibweise, wie im Beispiel gezeigt, verwenden</td>  
+        </tr> 
+        <tr> 
+          <td>Fax</td> 
+          <td></td> 
+          <td>Fax</td> 
+          <td>Faxnummer des Ansprechpartners 
+            <div class="example">
+               +49-30-9025-0099 
+            </div> </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:string</td> 
+          <td>ISO: Angabe aus dem 1. Kontakt wird als facsimile [Zeile 409] in den 1. Kontakt der 19119 übernommen</td> 
+          <td>BE: Langschreibweise, wie im Beispiel gezeigt, verwenden</td>  
+        </tr> 
+        <tr> 
+          <td>Adresse</td> 
+          <td></td> 
+          <td>Adresse</td> 
+          <td>Adresse des Ansprechpartners</td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td><a href="#spatial_AdresseType">AdresseType</a></td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr class="complexElement"> 
+          <td id="spatial_AdresseType">AdresseType</td> 
+          <td></td> 
+          <td>Adresse</td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td> </td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>Strasse</td> 
+          <td></td> 
+          <td>Strasse</td> 
+          <td>Strasse und Hausnummer in der Adressenangabe 
+            <div class="example">
+               Württembergische Straße 6 
+            </div> </td> 
+          <td class="multiplicity-column">0..*</td> 
+          <td>xsd:string</td> 
+          <td>ISO: Angabe aus dem 1. Kontakt wird als deliveryPoint [Zeile 381] in den 1. Kontakt der 19119 übernommen</td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>Stadt</td> 
+          <td></td> 
+          <td>Stadt</td> 
+          <td>Ortsname in der Adressenangabe 
+            <div class="example">
+               Berlin 
+            </div> </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:string</td> 
+          <td>ISO: Angabe aus dem 1. Kontakt wird als city [Zeile 382] in den 1. Kontakt der 19119 übernommen</td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>Bundesland</td> 
+          <td></td> 
+          <td>Bundesland</td> 
+          <td>Bundesland in der Adressenangabe 
+            <div class="example">
+               Berlin 
+            </div> </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:string 
+            <div>
+               fachlich|technisch 
+            </div> </td> 
+          <td>ISO:Angabe aus dem 1. Kontakt wird als administriveArea [Zeile 383] in den 1. Kontakt der 19119 übernommen </td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>Postleitzahl</td> 
+          <td></td> 
+          <td>Postleitzahl</td> 
+          <td>Postleitzahl in der Adressenangabe 
+            <div class="example">
+               10707 
+            </div> </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:string</td> 
+          <td>ISO: Angabe aus dem 1. Kontakt wird als postalCode [Zeile 384] in den 1. Kontakt der 19119 übernommen</td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>Land</td> 
+          <td></td> 
+          <td>Land</td> 
+          <td>Land in der Adressenangabe 
+            <div class="example">
+               Deutschland 
+            </div> </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:string</td> 
+          <td>ISO: Angabe aus dem 1. Kontakt wird als country [Zeile 385] in den 1. Kontakt der 19119 übernommen</td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>EMail</td> 
+          <td></td> 
+          <td>E-Mail</td> 
+          <td>E-Mail des Ansprechpartners 
+            <div class="example">
+               mail@sensw.berlin.de 
+            </div> </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:string</td> 
+          <td>ISO: Angabe aus dem 1. Kontakt wird als electronicMailAddress [Zeile 386] in den 1. Kontakt der 19119 übernommen </td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>WWW</td> 
+          <td></td> 
+          <td>Web-Site</td> 
+          <td>Link auf eine Web-Seite des Ansprechpartners 
+            <div class="example">
+               https://www.stadtentwicklung.berlin.de/kontakt/ 
+            </div> </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:anyURI</td> 
+          <td>ISO: Angabe aus dem 1. Kontakt wird als linkage [Zeile 387] in den 1. Kontakt der 19119 übernommen </td> 
+          <td></td>  
+        </tr> 
+        <tr class="complexElement"> 
+          <td id="spatial_AusdehnungType">AusdehnungType</td> 
+          <td></td> 
+          <td>Ausdehnung</td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>crs</td> 
+          <td>Koordinatenreferenzsystem</td> 
+          <td>Koordinatenreferenzsystem des Ausschnitts 
+            <div class="example">
+               EPSG:25833 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>xlu</td> 
+          <td>x-Koordinate / links unten</td> 
+          <td>x-Koordinate / links unten der BBOX 
+            <div class="example">
+               369097.8529 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:double</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>ylu</td> 
+          <td>y-Koordinate / links unten</td> 
+          <td>y-Koordinate / links unten der BBOX 
+            <div class="example">
+               5799298.1358 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:double</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>xro</td> 
+          <td>x-Koordinate / rechts oben</td> 
+          <td>x-Koordinate / rechts oben der BBOX 
+            <div class="example">
+               416865.038 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:double</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>yro</td> 
+          <td>y-Koordinate / rechts oben</td> 
+          <td>y-Koordinate / rechts oben der BBOX 
+            <div class="example">
+               5838236.2097 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:double</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr class="complexElement"> 
+          <td id="spatial_SpatialServerTypeType">SpatialServerTypeType</td> 
+          <td></td> 
+          <td>Datenquelle: allgemein</td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td> </td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>selectionDistance</td> 
+          <td>Selektionstoleranz</td> 
+          <td>"Fangbereich" für ein auszuwählendes Element für die Selektion 
+            <div class="example">
+               10.0 
+            </div> </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:double</td> 
+          <td></td> 
+          <td>Der angegebene Wert bezieht sich auf Koordinateneinheiten des verwendeten Koordinatensystems.</td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>maxCount</td> 
+          <td>Datensatzmengenbegrenzung</td> 
+          <td>Ist die WFS-Bereitstellung vorgesehen, kann hier die max. Anzahl abzugebender Datensätze konfiguriert werden. Sie sollte mit der max. Anzahl der zu holenden Datensätze konform sein. Wird nichts angegeben, erfolgt keine Einschränkung. 
+            <div class="example">
+               10000 
+            </div> </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:integer</td> 
+          <td></td> 
+          <td>nur bei Abgabe über WFS relevant</td>  
+        </tr> 
+        <tr> 
+          <td>Oracle8iServer</td> 
+          <td></td> 
+          <td>Oracle8i-Spatialserver</td> 
+          <td>Spatialserver vom Typ Oracle8i </td> 
+          <td class="multiplicity-column">K..1</td> 
+          <td><a href="#spatial_Oracle8iServerType">Oracle8iServerType</a></td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>Oracle9iServer</td> 
+          <td></td> 
+          <td>Oracle9i-Spatialserver</td> 
+          <td>Spatialserver vom Typ Oracle9i </td> 
+          <td class="multiplicity-column">K..1</td> 
+          <td><a href="#spatial_Oracle9iServerType">Oracle9iServerType</a></td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>MySQLServer</td> 
+          <td></td> 
+          <td>MySQL-Spatialserver</td> 
+          <td>Spatialserver vom Typ MySQL </td> 
+          <td class="multiplicity-column">K..1</td> 
+          <td><a href="#spatial_MySQLGisServerType">MySQLGisServerType</a></td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>PostGisServer</td> 
+          <td></td> 
+          <td>PostGis-Spatialserver</td> 
+          <td>Spatialserver vom Typ PostGis </td> 
+          <td class="multiplicity-column">K..1</td> 
+          <td><a href="#spatial_PostGisServerType">PostGisServerType</a></td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>SqlServerServer</td> 
+          <td></td> 
+          <td>SqlServer-Spatialserver</td> 
+          <td>Spatialserver vom Typ SqlServer </td> 
+          <td class="multiplicity-column">K..1</td> 
+          <td><a href="#spatial_SQlServerServerType">SQlServerServerType</a></td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+        </tr> 
+        <tr> 
+          <td>WfsServer</td> 
+          <td></td> 
+          <td>WFS-Spatialserver</td> 
+          <td>Spatialserver vom Typ WFS </td> 
+          <td class="multiplicity-column">K..1</td> 
+          <td><a href="#spatial_WfsServerType">WfsServerType</a></td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr class="complexElement"> 
+          <td id="#spatial_DatabaseServerType">DatabaseServerType</td> 
+          <td></td> 
+          <td>Datenquelle: Datenbank</td> 
+          <td> </td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>ConnectString</td> 
+          <td></td> 
+          <td>Verbindungsstring</td> 
+          <td> ORACLE: 
+            <div class="example">
+               jdbc:oracle:thin:[dbuser]/[dbpasswd]@@dbserver@senstadt@@ 
+            </div> oder: 
+            <div class="example">
+               jdbc:oracle:thin:[dbuser]/[dbpasswd]@[server]:1521:[dbAlias] 
+            </div> Postgres: 
+            <div class="example">
+               jdbc:postgresql://[server]:5432/[db]?user=[dbuser]&amp;password=[passwd] 
+            </div> SQL-Server: 
+            <div class="example">
+               jdbc:sqlserver://[server];databasename=[dbname];user=[dbuser];password=[passwd] 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>TableName</td> 
+          <td></td> 
+          <td>Tabellenname</td> 
+          <td>Name der Datenbanktabelle, in der die Geometrien gespeichert sind. </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>ShapeColumnName</td> 
+          <td></td> 
+          <td>Shape-Spaltenname</td> 
+          <td>Name der Spalte in dem die Geometriedaten hinterlegt sind 
+            <div class="example">
+               SHAPE 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>IdColumnName</td> 
+          <td></td> 
+          <td>ID-Spaltenname</td> 
+          <td>Name der Spalte, in dem die ID gespeichert ist 
+            <div class="example">
+               INSPIRE_ID 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>IdColumnName</td> 
+          <td></td> 
+          <td>ID-Spaltenname</td> 
+          <td>Name der Spalte, in dem die ID gespeichert ist </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>IdColumnType</td> 
+          <td></td> 
+          <td>ID-Spaltentyp</td> 
+          <td>Da die ID nicht zwingend vom Typ "Text" sein muss, kann hier der Typ der Schlüsselspalte angegeben werden. </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:string / <u>String</u>|Integer</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>AliasColumnName</td> 
+          <td></td> 
+          <td>Alias-Spaltenname</td> 
+          <td>zur Anzeige im Cient kann optional eine Aliasspalte angegeben werden. Statt der ID wird dann der Inhalt dieser Spalte angezeigt. </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>WhereCondition</td> 
+          <td></td> 
+          <td>Abfragebeschränkung</td> 
+          <td>Beschränkung der Datenabfrage</td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>MaxExtent</td> 
+          <td></td> 
+          <td>maximale Ausdehnung</td> 
+          <td>Hier muss angegeben werden, in welchem Bereich (Kantenlänge eines Rechteckes) Raumeinheiten über Karten dargestellt werden sollen. 
+            <div class="example">
+               20000 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:integer</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>OtherCrs</td> 
+          <td></td> 
+          <td>andere Koordinatensysteme</td> 
+          <td>nur für die WFS-Bereitstellung relevant. Hier können zusätzliche, vom Dienst bereitgestellte CRS angegeben werden. Diese sollten in der DB in unterschiedlichen Geomtriespalten bereits vorliegen, um zeitintensive Umrechnungen zur Laufzeit zu vermeiden! </td> 
+          <td class="multiplicity-column">0..*</td> 
+          <td><a href="#spatial_OtherCrsType">OtherCrsType</a></td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr class="complexElement"> 
+          <td id="spatial_Oracle8iServerType">Oracle8iServerType</td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td>erweitert DatabaseServerType</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr class="complexElement"> 
+          <td id="spatial_Oracle9iServerType">Oracle9iServerType</td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td>erweitert DatabaseServerType</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr class="complexElement"> 
+          <td id="spatial_MySQLServerType">MySQLServerType</td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td>erweitert DatabaseServerType</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr class="complexElement"> 
+          <td id="spatial_PostGisServerType">PostGisServerType</td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td>erweitert DatabaseServerType</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr class="complexElement"> 
+          <td id="spatial_SqlServerServerType">SqlServerServerType</td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td>erweitert DatabaseServerType</td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+        </tr> 
+        <tr class="complexElement"> 
+          <td id="spatial_WfsServerType">WfsServerType</td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td>erweitert DatabaseServerType</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>httpUserName</td> 
+          <td>Benutzername</td> 
+          <td>Name des Benutzers </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td>kann auch für HTTPS-Authentifizierung verwendet werden.</td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>httpUserPassword</td> 
+          <td>Benutzerpasswort</td> 
+          <td>Passwort des Benutzers </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td>kann auch für HTTPS-Authentifizierung verwendet werden.</td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>maxFeatures</td> 
+          <td>Featureanzahlbegrenzung</td> 
+          <td>max. Anzahl der zu holenden Features 
+            <div class="example">
+               10000 
+            </div> </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:integer</td> 
+          <td></td> 
+          <td>nur bei Abgabe über WFS relevant</td>  
+        </tr> 
+        <tr> 
+          <td>FeatureURL</td> 
+          <td></td> 
+          <td>Feature-URL</td> 
+          <td>Adresse des Web Feature Servers 
+            <div class="example">
+               http://fbarc.stadt-berlin.de/ArcGIS/services/RBS_OD_ADR_V_10_0/MapServer/WFSServer 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:anyURI</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>FeatureTypeName</td> 
+          <td></td> 
+          <td>Feature-Type</td> 
+          <td>Angabe des FeatureType</td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td><a href="#spatial_FeatureTypeName">FeatureTypeName</a></td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>ShapePropertyName</td> 
+          <td></td> 
+          <td>Geometrie-Spaltenname</td> 
+          <td>Name der Spalte, in dem die Geometriedaten hinterlegt sind 
+            <div class="example">
+               Shape 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>IdPropertyName</td> 
+          <td></td> 
+          <td>Schlüsselspaltenname</td> 
+          <td>GMLID. Der Eintrag bleibt leer! </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>AliasPropertyName</td> 
+          <td></td> 
+          <td>Alias-Spaltenname</td> 
+          <td>zur Anzeige im Cient kann optional eine Aliasspalte angegeben werden. Statt der ID wird dann der Inhalt dieser Spalte angezeigt. </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>Version</td> 
+          <td></td> 
+          <td>WFS-Version</td> 
+          <td>Angabe der WFS-Version (i.d.R. 1.1.0 oder 2.0.0). Ist die WFS-Bereitstellung vorgesehen, muss die hier angegebene Version beachtet werden. Bei WFS 1.1.0 kann "nur" der simpleWFS 2.0.0 unterstützt werden. </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>MaxExtent</td> 
+          <td></td> 
+          <td>maximale Ausdehnung</td> 
+          <td>Hier muss angegeben werden, in welchem Bereich (Kantenlänge eines Rechteckes) Raumeinheiten über Karten dargestellt werden sollen. </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:double</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>SupportedCrs</td> 
+          <td></td> 
+          <td>unterstützte Koordinatensysteme</td> 
+          <td>nur für die WFS-Bereitstellung relevant. Hier können zusätzliche, vom Dienst bereitgestellte CRS angegeben werden. Diese sollten vom eigentlichen Diensteserver ebenfalls unterstützt werden, um zeitintensive Umrechnungen zur Laufzeit zu vermeiden </td> 
+          <td class="multiplicity-column">0..*</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr class="complexElement"> 
+          <td id="spatial_FeatureTypeName">FeatureTypeName</td> 
+          <td></td> 
+          <td>Datenquelle: WFS (FeatureType)</td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td> </td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>name</td> 
+          <td>Feature-Type-Name</td> 
+          <td>Name des FeatureTypes (ab WFS 1.1.0 mit Angabe des Präfix) </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string </td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>nameSpace</td> 
+          <td>Feature-Type-Namensraum</td> 
+          <td>Namensraum des Feature-Types </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:string </td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr class="complexElement"> 
+          <td id="#spatial_OtherCrsType">OtherCrsType</td> 
+          <td></td> 
+          <td>Beschreibung der zusätzlichen Datenquelle</td> 
+          <td> </td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>crs</td> 
+          <td>Koordinatenreferenzsystem</td> 
+          <td>Koordinatenreferenzsystem der Daten 
+            <div class="example">
+               EPSG:4258 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>tableName</td> 
+          <td>Tabellenname</td> 
+          <td>Name der Datenbanktabelle, in der die Geometrien gespeichert sind. </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>shapeColumnName</td> 
+          <td>Shape-Spaltenname</td> 
+          <td>Name der Spalte, in der die Geometrien gespeichert sind. 
+            <div class="example">
+               SHAPE 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td>Groß-/Kleinschreibweise beachten (bei ORACLE alles groß schreiben; bei Postgres/SQL-Server alles klein)</td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>idColumnName</td> 
+          <td>ID-Spaltenname</td> 
+          <td>Name der Spalte, in dem die ID gespeichert ist 
+            <div class="example">
+               INSPIRE_ID 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>aliasColumnName</td> 
+          <td>Alias-Spaltenname</td> 
+          <td>zur Anzeige im Cient kann optional eine Aliasspalte angegeben werden. Statt der ID wird dann der Inhalt dieser Spalte angezeigt. </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+      </tbody> 
+    </table>  
+  </body>
+</html>

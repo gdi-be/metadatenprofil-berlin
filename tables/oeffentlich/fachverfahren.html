@@ -1,0 +1,612 @@
+<!doctype html>
+<html>
+  <head> 
+    <meta charset="UTF-8"> 
+    <title>BE-Metadatenprofil/Fachverfahren</title> 
+    <link rel="stylesheet" href="../assets/styles/profile.css"> 
+  </head> 
+  <body> 
+    <nav class="menu"> 
+      <ul class="menu-list"> 
+        <li class="menu-item"><a href="datenbestand.html">Datenbestand</a></li> 
+        <li class="menu-item"><a href="iso.html">ISO 19115, 19119</a></li> 
+        <li class="menu-item"><a href="karte.html">Karte</a></li> 
+        <li class="menu-item"><a href="sachdatensatz.html">Sachdatensatz</a></li> 
+        <li class="menu-item"><a href="atom.html">ATOM-Feed</a></li> 
+        <li class="menu-item"><a href="geometriedatensatz.html">Geometriedatensatz</a></li> 
+        <li class="menu-item"><a href="fachverfahren.html">Fachverfahren</a></li> 
+        <li class="menu-item right"><a href="#top">nach oben</a></li> 
+      </ul> 
+    </nav> 
+    <table id="project"> 
+      <thead> 
+        <tr> 
+          <th>Name des Elements</th> 
+          <th>Name des Attributs</th> 
+          <th>Bezeichnung</th> 
+          <th>Definition 
+            <div class="example">
+               Beispiel 
+            </div> </th> 
+          <th>Multiplizität</th> 
+          <th>Datentyp/Wertebereich</th> 
+          <th>Relation zu</th> 
+          <th>Anmerkung</th>  
+        </tr> 
+      </thead> 
+      <tbody> 
+        <tr class="complexElement"> 
+          <td>Projekt</td> 
+          <td></td> 
+          <td>Wurzelelement der Datensatzklasse Fachverfahren</td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>id</td> 
+          <td>Identifikator</td> 
+          <td>Eindeutiger Bezeichner für das Fachverfahren innerhalb der GDI Berlin. 
+            <div class="example">
+               fv_alkis@senstadt 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string / 80 Zeichen Hinweis: Die Länge ist abhängig von Konfiguration des Repositorys beim Anwendungsbereiber. Für die Vergabe des Namens sind nur folgende Zeichen zulässig: Buchstaben (ohne Umlaute und ß), Zahlen, Minuszeichen, Punkte, Doppelpunkte und Unterstriche!</td> 
+          <td></td> 
+          <td>Die Angabe muss immer die entsprechende Domäne enthalten (i.d.R. "senstadt")</td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>metadatenTyp</td> 
+          <td>Metadatentyp</td> 
+          <td>Angabe des Metadatentyps. Über den Metadatentyp werden Inhalte und Pflichten im METEOR gesteuert. Die Angabe "INSPIRE" ist für alle inspirebetroffenen Datenbestände und Datensätze zu verwenden, egal ob sie transformiert sind oder nicht. Alle anderen Datenbestände und Datensätze sind vom Typ "ISO". 
+            <div class="example">
+               ISO 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string / BROKER|<u>ISO</u>|INSPIRE</td> 
+          <td>BROKER: wird bei der Themenzuordnung aus dem Datenbestand in die zugeordneten Broker-Metadatensätze übernommen.</td> 
+          <td>Bitte Schreibweise beachten. Erfolgt keine Angabe, wird der Standardwert "ISO" angenommen. </td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>inspireAnnex</td> 
+          <td>Angabe des INSPIRE-Annex-Themas (Kurzbezeichnung)</td> 
+          <td>Die Angabe des zu beschreibenden Annex-Themas erfolgt über die Kurzbezeichnung, bestehend aus zwei Zeichen. </td> 
+          <td class="multiplicity-column">K..1, nur bei Metadatentyp=INSPIRE</td> 
+          <td>xsd:string / GG|GN|AU|AD|CP|TN|HY|PS|EL|GE|LC|OI|SU|BU|SO| LU|HH|US|EF|PF|AF|PD|AM|NZ|AC|MF|OF|SR|BR|HB|SD|ER|MR</td> 
+          <td>BROKER: wird bei der Themenzuordnung aus dem Datenbestand übernommen. </td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>Titel</td> 
+          <td></td> 
+          <td>Titel</td> 
+          <td>Titel des Fachverfahrens 
+            <div class="example">
+               Geobasisdaten online 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td></td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>Metadaten</td> 
+          <td></td> 
+          <td>Metadaten</td> 
+          <td>weiterführende Informationen zum Fachverfahren</td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td><a href="#project_MetadatenType">MetadatenType</a></td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>EXTREF</td> 
+          <td></td> 
+          <td>externe Referenz</td> 
+          <td>Anzeige des Textes, der statt des Links in der Oberfläche angezeigt werden soll</td> 
+          <td class="mandatoryElement multiplicity-column">0..*</td> 
+          <td><a href="#project_EXTREFType">EXTREFType</a></td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>Ausdehnung</td> 
+          <td></td> 
+          <td>Ausdehnung</td> 
+          <td>räumliche Ausdehnung des Fachverfahrens für die räumliche Recherche (Raumauswahl)</td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td><a href="#project_AusdehnungType">AusdehnungType</a></td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr class="complexElement"> 
+          <td id="project_MetadatenType">MetadatenType</td> 
+          <td></td> 
+          <td>Broker-Metadaten</td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>Kurzbeschreibung</td> 
+          <td></td> 
+          <td>Kurzbeschreibung</td> 
+          <td>Kurze inhaltliche Beschreibung des Fachverfahrens. Im Client werden nur die ersten 500 Zeichen angezeigt. </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string / 4000 Zeichen Hinweis: Die Länge ist abhängig von Konfiguration des Repositorys beim Anwendungsbereiber</td> 
+          <td> 
+            <div>
+               ISO: wird in den abstract [Zeile 25] der 19119 übernommen; kann beim Metadatenabgleich mit dem Wert aus der 19115 (Beschreibung) überschrieben werden; 
+            </div> </td> 
+          <td></td>  
+        </tr>  
+        <tr> 
+          <td>InhaltlicheBeschreibung</td> 
+          <td></td> 
+          <td>Inhaltliche Beschreibung</td> 
+          <td>URL auf eine detaillierte inhaltliche Beschreibung des Fachverfahrens. </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:anyURI</td> 
+          <td> </td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>TechnischeBeschreibung</td> 
+          <td></td> 
+          <td>Inhaltliche Beschreibung</td> 
+          <td>URL auf eine detaillierte technische Beschreibung des Fachverfahrens. </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:anyURI</td> 
+          <td> </td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>Veroeffentlichung</td> 
+          <td></td> 
+          <td>Veröffentlichung</td> 
+          <td>Veröffentlichung der Metadatenbeschreibung </td> 
+          <td class="multiplicity-column">0..*</td> 
+          <td><a href="#project_InhaltType">InhaltType</a></td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>Schlagwoerter</td> 
+          <td></td> 
+          <td>Schlagwörter</td> 
+          <td>Suchbegriffe, Schlüsselwörter, ihr Typ und Quellenangabe; 
+            <div class="example">
+               Flurstücke, Geobasisdaten, Eigentümer 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..*</td> 
+          <td>xsd:string</td> 
+          <td> </td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>Erstellungsdatum</td> 
+          <td></td> 
+          <td>Erstellungsdatum</td> 
+          <td>Gibt eine Information darüber, wann der beschriebene Datenbestand erzeugt wurde. 
+            <div class="example">
+               2004-05-03 
+            </div> </td> 
+          <td class="multiplicity-column">K..1, eine der drei Datumsangaben ist Pflicht</td> 
+          <td>xsd:string</td> 
+          <td> </td> 
+          <td>Schreibweise yyyy-mm-dd beachten: Vier Ziffern für das Jahr, zwei Ziffern für den Monat, zwei Ziffern für den Tag</td>  
+        </tr> 
+        <tr> 
+          <td>Revisionsdatum</td> 
+          <td></td> 
+          <td>Revisionsdatum</td> 
+          <td>Gibt eine Information darüber, wann der beschriebene Datenbestand geändert wurde. 
+            <div class="example">
+               2004-05-03 
+            </div> </td> 
+          <td class="multiplicity-column">K..1, eine der drei Datumsangaben ist Pflicht</td> 
+          <td>xsd:string</td> 
+          <td> </td> 
+          <td>Schreibweise yyyy-mm-dd beachten: Vier Ziffern für das Jahr, zwei Ziffern für den Monat, zwei Ziffern für den Tag</td>  
+        </tr> 
+        <tr> 
+          <td>Veroeffentlichungsdatum</td> 
+          <td></td> 
+          <td>Veroeffentlichungsdatum</td> 
+          <td>Gibt eine Information darüber, wann der beschriebene Datenbestand geändert wurde. 
+            <div class="example">
+               2004-05-03 
+            </div> </td> 
+          <td class="multiplicity-column">K..1, eine der drei Datumsangaben ist Pflicht</td> 
+          <td>xsd:anyURI</td> 
+          <td> </td> 
+          <td>Schreibweise yyyy-mm-dd beachten: Vier Ziffern für das Jahr, zwei Ziffern für den Monat, zwei Ziffern für den Tag</td>  
+        </tr> 
+        <tr> 
+          <td>Vorschau</td> 
+          <td></td> 
+          <td>Vorschaugrafik</td> 
+          <td>Verweis auf ein Vorschaubild für den Datenbestand </td> 
+          <td class="multiplicity-column">1..1</td> 
+          <td><a href="#project_InhaltType">InhaltType</a></td> 
+          <td> </td> 
+          <td>Element muss vorhanden sein, ggf. leer</td>  
+        </tr> 
+        <tr> 
+          <td>RufUrl</td> 
+          <td></td> 
+          <td>Direktstart-URL</td> 
+          <td>Start-URL 
+            <div class="example">
+               http://@@ServerName@senstadt@@/fb?loginkey=projectStart&amp;themeId=fv_alkis@senstadt 
+            </div> Wird im METEOR beim Einrichten automatisch gesetzt. </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:anyURI</td> 
+          <td> </td> 
+          <td>Verwendung der externen Aufrufe der Anwendung.</td>  
+        </tr>   
+        <tr> 
+          <td>Kontakt</td> 
+          <td></td> 
+          <td>Kontakt</td> 
+          <td>Kontaktangaben zum Datenbestand</td> 
+          <td class="mandatoryElement multiplicity-column">1..*</td> 
+          <td><a href="#project_KontaktType">KontaktType</a></td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr class="complexElement"> 
+          <td id="project_InhaltType">InhaltType</td> 
+          <td></td> 
+          <td>InhaltType</td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td> </td> 
+          <td>universelles Element zur Kennzeichnung textueller Daten und Referenzen</td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>Typ</td> 
+          <td>Typ</td> 
+          <td>Typ des zu beschreibenden Inhalts. 
+            <div class="example">
+               HTML 
+            </div> Beispiel eines Elements in XML für übergeordnetes Element "Vorschau" (Vorschaugrafik): 
+            <div class="example">
+               &lt;Vorschau Typ="URL"&gt;&lt;Inhalt&gt;http://@@ServerName@senstadt@@@@vorschau@senstadt@@sachdaten/svor_bplan.gif&lt;/Inhalt&gt;&lt;/Vorschau&gt; 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string / HTML|IMG|URL|XML</td> 
+          <td></td> 
+          <td>Das Element "Inhalt" wird im übergeordneten Element eingetragen, das Attribut "Typ" wird als Attribut im übergeordneten Element angegeben (siehe XML-Beispiel)</td>  
+        </tr> 
+        <tr> 
+          <td>Inhalt</td> 
+          <td></td> 
+          <td>Inhalt</td> 
+          <td>Angabe eines Links, unformatierten bzw. formatierten Textes - in Abhängigkeit des ausgewählten Typs. Typ HTML: 
+            <div class="example">
+               Daten aus der Kaufpreissammlung 
+            </div> Typ IMG: 
+            <div class="example">
+               http://@@ServerName@senstadt@@@@leg@senstadt@@leg_alkis.gif 
+            </div> Typ URL: 
+            <div class="example">
+               http://@@ServerName@senstadt@@@@text@senstadt@@geltungsbereiche.html 
+            </div> Typ XML: 
+            <div class="example">
+               &lt;a href="http://www.stadtentwicklung.berlin.de/planen/b-planverfahren/berlin/de/allg.shtml" target="_blank"&gt;Allgemeine Informationen zum ALKIS&lt;/a&gt; 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td>Soll formatierter Text hinterlegt werden, ist der Typ=XML zu wählen und der Text zusätzlich in ein &lt;div&gt;-Element einzubetten. Er muss den Regeln der HTML-Codierung entsprechen.</td>  
+        </tr> 
+        <tr class="complexElement"> 
+          <td id="project_KontaktType">KontaktType</td> 
+          <td></td> 
+          <td>Kontakt</td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td> </td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>Name</td> 
+          <td></td> 
+          <td>Name</td> 
+          <td>Name des Ansprechpartners 
+            <div class="example">
+               Herr Mustermann 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>Organisationsname</td> 
+          <td></td> 
+          <td>Organisationsname</td> 
+          <td>Organisationsname des Ansprechpartners 
+            <div class="example">
+               Senatsverwaltung für Stadtentwicklung und Wohnen Berlin 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>Kontaktart</td> 
+          <td></td> 
+          <td>Kontaktart</td> 
+          <td>„fachlicher“ oder „technischer“ Ansprechpartner 
+            <div class="example">
+               fachlich 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string 
+            <div>
+               fachlich|technisch 
+            </div> </td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>Telefon</td> 
+          <td></td> 
+          <td>Telefon</td> 
+          <td>Telefonnummer des Ansprechpartners 
+            <div class="example">
+               +49-30-9025-0000 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string</td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>Fax</td> 
+          <td></td> 
+          <td>Fax</td> 
+          <td>Faxnummer des Ansprechpartners 
+            <div class="example">
+               +49-30-9025-0099 
+            </div> </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td>BE: Langschreibweise, wie im Beispiel gezeigt, verwenden</td>  
+        </tr> 
+        <tr> 
+          <td>Adresse</td> 
+          <td></td> 
+          <td>Adresse</td> 
+          <td>Adresse des Ansprechpartners</td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td><a href="#project_AdresseType">AdresseType</a></td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr class="complexElement"> 
+          <td id="project_AdresseType">AdresseType</td> 
+          <td></td> 
+          <td>Adresse</td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td> </td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>Strasse</td> 
+          <td></td> 
+          <td>Strasse</td> 
+          <td>Strasse und Hausnummer in der Adressenangabe 
+            <div class="example">
+               Württembergische Straße 6 
+            </div> </td> 
+          <td class="multiplicity-column">0..*</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>Stadt</td> 
+          <td></td> 
+          <td>Stadt</td> 
+          <td>Ortsname in der Adressenangabe 
+            <div class="example">
+               Berlin 
+            </div> </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>Bundesland</td> 
+          <td></td> 
+          <td>Bundesland</td> 
+          <td>Bundesland in der Adressenangabe 
+            <div class="example">
+               Berlin 
+            </div> </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:string 
+            <div>
+               fachlich|technisch 
+            </div> </td> 
+          <td> </td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>Postleitzahl</td> 
+          <td></td> 
+          <td>Postleitzahl</td> 
+          <td>Postleitzahl in der Adressenangabe 
+            <div class="example">
+               10707 
+            </div> </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>Land</td> 
+          <td></td> 
+          <td>Land</td> 
+          <td>Land in der Adressenangabe 
+            <div class="example">
+               Deutschland 
+            </div> </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>EMail</td> 
+          <td></td> 
+          <td>E-Mail</td> 
+          <td>E-Mail des Ansprechpartners 
+            <div class="example">
+               mail@sensw.berlin.de 
+            </div> </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:string</td> 
+          <td> </td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>WWW</td> 
+          <td></td> 
+          <td>Web-Site</td> 
+          <td>Link auf eine Web-Seite des Ansprechpartners 
+            <div class="example">
+               https://www.stadtentwicklung.berlin.de/kontakt/ 
+            </div> </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:anyURI</td> 
+          <td> </td> 
+          <td></td>  
+        </tr> 
+        <tr class="complexElement"> 
+          <td id="project_AusdehnungType">AusdehnungType</td> 
+          <td></td> 
+          <td>Ausdehnung</td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>crs</td> 
+          <td>Koordinatenreferenzsystem</td> 
+          <td>Koordinatenreferenzsystem des Ausschnitts 
+            <div class="example">
+               EPSG:25833 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>xlu</td> 
+          <td>x-Koordinate / links unten</td> 
+          <td>x-Koordinate / links unten der BBOX 
+            <div class="example">
+               369097.8529 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:double</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>ylu</td> 
+          <td>y-Koordinate / links unten</td> 
+          <td>y-Koordinate / links unten der BBOX 
+            <div class="example">
+               5799298.1358 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:double</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>xro</td> 
+          <td>x-Koordinate / rechts oben</td> 
+          <td>x-Koordinate / rechts oben der BBOX 
+            <div class="example">
+               416865.038 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:double</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>yro</td> 
+          <td>y-Koordinate / rechts oben</td> 
+          <td>y-Koordinate / rechts oben der BBOX 
+            <div class="example">
+               5838236.2097 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:double</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr class="complexElement"> 
+          <td id="project_EXTREFType">EXTREFType</td> 
+          <td></td> 
+          <td>Link auf Anwendung und Beschreibung</td> 
+          <td>Beschreibung des Links 
+            <div class="example">
+               Geobasisdaten 
+            </div> </td> 
+          <td></td> 
+          <td>erweitert xsd:string</td> 
+          <td> </td> 
+          <td>Es handelt sich hierbei um ein "Complex Text-Only Element", d. h. zusätzlich zu den Attributen ist der Wert direkt in den "Content" (au ch "Text") des Elements einzutragen. Beispiel für vollständig instanziiertes Element: 
+            <div class="example">
+               &lt;EXTREF href="http://www.stadtentwicklung.berlin.de/geoinformation/geobasisdaten/index.shtml" &gt;Geobasisdaten&lt;/EXTREF&gt; 
+            </div> </td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>href</td> 
+          <td>Link (zu externer Referenz)</td> 
+          <td>Angabe des Links zum Start der Anwendung. 
+            <div class="example">
+               http://www.stadtentwicklung.berlin.de/geoinformation/geobasisdaten/index.shtml 
+            </div> </td> 
+          <td class="multiplicity-column">1..1</td> 
+          <td>xsd:anyURI</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+      </tbody> 
+    </table>  
+  </body>
+</html>

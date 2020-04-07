@@ -1,0 +1,12 @@
+<?xml version="1.0" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" version="1.0">
+  <xsd:element name="Metadaten" type="Metadaten"/>
+    <xsd:complexType name="Metadaten">
+      <xsd:sequence>
+        <xsd:element name="Titel" type="xsd:string"/>
+      </xsd:sequence>
+		<xsd:attribute name="id" type="xsd:string" use="required"/>
+		<xsd:attribute name="metadatenTyp" type="xsd:string" use="required"/>
+		<xsd:attribute name="inspireAnnex" type="xsd:string"/>
+    </xsd:complexType>
+</xsd:schema>

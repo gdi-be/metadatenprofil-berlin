@@ -1,0 +1,1896 @@
+<!doctype html>
+<html>
+  <head> 
+    <meta charset="UTF-8"> 
+    <title>BE-Metadatenprofil/Sachdaten</title> 
+    <link rel="stylesheet" href="../assets/styles/profile.css"> 
+  </head> 
+  <body> 
+    <ul class="menu-list"> 
+      <li class="menu-item"><a href="datenbestand.html">Datenbestand</a></li> 
+      <li class="menu-item"><a href="iso.html">ISO 19115, 19119</a></li> 
+      <li class="menu-item"><a href="karte.html">Karte</a></li> 
+      <li class="menu-item"><a href="sachdatensatz.html">Sachdatensatz</a></li> 
+      <li class="menu-item"><a href="atom.html">ATOM-Feed</a></li> 
+      <li class="menu-item"><a href="geometriedatensatz.html">Geometriedatensatz</a></li> 
+      <li class="menu-item"><a href="fachverfahren.html">Fachverfahren</a></li> 
+      <li class="menu-item right"><a href="#top">nach oben</a></li> 
+    </ul> 
+    <table id="alphadata"> 
+      <thead> 
+        <tr> 
+          <th>Name des Elements</th> 
+          <th>Name des Attributs</th> 
+          <th>Bezeichnung</th> 
+          <th>Definition 
+            <div class="example">
+               Beispiel 
+            </div> </th> 
+          <th>Multiplizität</th> 
+          <th>Datentyp/Wertebereich</th> 
+          <th>Relation zu</th> 
+          <th>Anmerkung</th>  
+        </tr> 
+      </thead> 
+      <tbody> 
+        <tr class="complexElement"> 
+          <td>Sachdaten</td> 
+          <td></td> 
+          <td>Wurzelelement der Datensatzklasse Sachdaten</td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>id</td> 
+          <td>Identifikator</td> 
+          <td>Eindeutiger Bezeichner für einen Sachdatensatz innerhalb der GDI Berlin. 
+            <div class="example">
+               denkmal@senstadt 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string / 80 Zeichen Hinweis: Die Länge ist abhängig von Konfiguration des Repositorys beim Anwendungsbereiber. Für die Vergabe des Namens sind nur folgende Zeichen zulässig: Buchstaben (ohne Umlaute und ß), Zahlen, Minuszeichen, Punkte, Doppelpunkte und Unterstriche!</td> 
+          <td>ISO: Basis für die Generierung des fileIdentifier [Zeile 2] der 19119 OGC: letzter Bestandteil der Dienste-URL (https://[rechner]/fb/wfs/data/senstadt/[id]</td> 
+          <td>Die Angabe muss immer die entsprechende Domäne enthalten (i.d.R. "senstadt")</td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>mt_klasse</td> 
+          <td>Merkmalsträgerklasse</td> 
+          <td>Metadatensätze mit gleicher Merkmalsträgerklasse sind miteinander verknüpft. 
+            <div class="example">
+               bplan@senstadt 
+            </div> für alle Daten, die sich auf die Geometrien der Bebauungspläne (Geltungsbereiche) beziehen </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td>Bei der Übernahme der XML ins Repository muss die MTK dort vorhanden sein. Die Angabe muss immer die entsprechende Domäne enthalten. Fehlt eine passende MTK, muss Verbindung zum Administrator (Betreiber der GDI-BE) aufgenommen werden. Nur dieser kann eine MTK definieren und für die Nutzung zur Verfügung stellen. </td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>metadatenTyp</td> 
+          <td>Metadatentyp</td> 
+          <td>Angabe des Metadatentyps. Über den Metadatentyp werden Inhalte und Pflichten im METEOR gesteuert. Die Angabe "INSPIRE" ist für alle inspirebetroffenen Datenbestände und Datensätze zu verwenden, egal ob sie transformiert sind oder nicht. Alle anderen Datenbestände und Datensätze sind vom Typ "ISO". 
+            <div class="example">
+               INSPIRE 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string / BROKER|<u>ISO</u>|INSPIRE</td> 
+          <td>BROKER: wird bei der Themenzuordnung aus dem Datenbestand in die zugeordneten Broker-Metadatensätze übernommen.</td> 
+          <td>Bitte Schreibweise beachten. Erfolgt keine Angabe, wird der Standardwert "ISO" angenommen. </td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>inspireAnnex</td> 
+          <td>Angabe des INSPIRE-Annex-Themas (Kurzbezeichnung)</td> 
+          <td>Die Angabe des zu beschreibenden Annex-Themas erfolgt über die Kurzbezeichnung, bestehend aus zwei Zeichen. </td> 
+          <td class="multiplicity-column">K..1, nur bei Metadatentyp=INSPIRE</td> 
+          <td>xsd:string / GG|GN|AU|AD|CP|TN|HY|PS|EL|GE|LC|OI|SU|BU|SO| LU|HH|US|EF|PF|AF|PD|AM|NZ|AC|MF|OF|SR|BR|HB|SD|ER|MR</td> 
+          <td>BROKER: wird bei der Themenzuordnung aus dem Datenbestand übernommen. ISO: veranlasst, dass beim Einrichten der 19119 das entsprechende INSPIRE-Schlagwort, die dazugehörige Themenkategoerie (Konventionendokument GDI.DE) und - soweit möglich - die GML-Spezifikation in den Vertriebsangaben gesetzt werden.</td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>Titel</td> 
+          <td></td> 
+          <td>Titel</td> 
+          <td>Titel der Sachdaten 
+            <div class="example">
+               Bauwerke 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string / 255 Zeichen Hinweis: Die Länge ist abhängig von der Konfiguration des Repositorys beim Anwendungsbereiber</td> 
+          <td>ISO: wird im METEOR aus den Broker-Metadaten automatisch in den title [Zeile 360] der 19119 übernommen (bidirektional); kann beim Metadatenabgleich mit dem Wert aus der 19115 überschrieben werden. OGC: Anzeige des title aus der 19119 als Title des WFS </td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>Metadaten</td> 
+          <td></td> 
+          <td>Metadaten</td> 
+          <td>weiterführende Informationen zu den Sachdaten</td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td><a href="#alphadata_MetadatenType">MetadatenType</a></td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>AlphaDataDatabase</td> 
+          <td></td> 
+          <td>Datenbank</td> 
+          <td>Die Datenquelle ist eine Datenbank (ORACLE, PostGre). </td> 
+          <td class="multiplicity-column">K..1, alternativ zu WFS</td> 
+          <td> <a href="#alphadata_AlphaDataDatabaseType">AlphaDataDatabaseType</a></td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>AlphaDataServerWfs</td> 
+          <td></td> 
+          <td>WFS</td> 
+          <td>Die Datenquelle ist ein WFS. </td> 
+          <td class="multiplicity-column">K..1, alternativ zu Datenbank</td> 
+          <td> <a href="#alphadata_AlphaDataServerWfsType">AlphaDataServerWfsType</a></td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>KeyColumn</td> 
+          <td></td> 
+          <td>Schlüsselspalte</td> 
+          <td>Angaben zur Schlüsselspalte. </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td> <a href="#alphadata_KeyColumnType">KeyColumnType</a></td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>SelectColumn</td> 
+          <td></td> 
+          <td>Auswahlspalte</td> 
+          <td>Angaben zu weiteren Sachdatenspalten. </td> 
+          <td class="mandatoryElement multiplicity-column">1..*</td> 
+          <td> <a href="#alphadata_SelectColumnType">SelectColumnType</a></td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>GeometryColumn</td> 
+          <td></td> 
+          <td>Auswahlspalte</td> 
+          <td>Angaben zur Geometriespalte </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td> <a href="#alphadata_GeometryColumnType">GeometryColumnType</a></td> 
+          <td></td> 
+          <td>nur für Abgabe per WFS, keine Nutzung im Client</td>  
+        </tr> 
+        <tr> 
+          <td>Ausdehnung</td> 
+          <td></td> 
+          <td>Ausdehnung</td> 
+          <td>räumliche Ausdehnung der Sachdaten für die räumliche Recherche (Raumauswahl);</td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td><a href="#alphadata_AusdehnungType">AusdehnungType</a></td> 
+          <td> 
+            <div>
+               ISO: wird in geographicElement [Zeile 336] der 19119 übernommen - umgerechnet in 4326. 
+            </div> </td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>Karte</td> 
+          <td></td> 
+          <td>Karte</td> 
+          <td>Angaben zum Wechsel aus der Sachdaten- in die Kartenpräsentation</td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td><a href="#alphadata_KarteType">KarteType</a></td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>IsoMetadata</td> 
+          <td></td> 
+          <td>ISO 19119</td> 
+          <td>bettet die ISO 19119 in ihrer XML-Struktur ein, um eine gemeinsame Verarbeitung zu ermöglichen</td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td><a href="#iso_MD_Metadata">MD_Metadata</a></td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr class="complexElement"> 
+          <td id="alphadata_MetadatenType">MetadatenType</td> 
+          <td></td> 
+          <td>Broker-Metadaten</td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>Kurzbeschreibung</td> 
+          <td></td> 
+          <td>Kurzbeschreibung</td> 
+          <td>Kurze inhaltliche Beschreibung der Sachdaten. Im Client werden nur die ersten 500 Zeichen angezeigt, die restlichen Zeichen können dazugeschaltet werden. 
+            <div class="example">
+               Bauwerke aus dem detaillierten Straßennetz von Berlin, z.B. Tunnel und Brücken 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string / 4000 Zeichen Hinweis: Die Länge ist abhängig von Konfiguration des Repositorys beim Anwendungsbereiber</td> 
+          <td> 
+            <div>
+               ISO: wird in den abstract [Zeile 25] der 19119 übernommen; kann beim Metadatenabgleich mit dem Wert aus der 19115 (Beschreibung) überschrieben werden; 
+            </div> 
+            <div>
+               OGC: Anzeige des abstract aus der 19119 als Abstract im WFS 
+            </div> </td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>Themennutzung</td> 
+          <td></td> 
+          <td>Beschreibung der Nutzungsmöglichkeiten der Karte im Client</td> 
+          <td>Möglichkeit, eine URL auf eine externe Datei (i.d.R. PDF) anzugeben, in der beschrieben ist, was man mit dem Datensatz tun kann. In der Oberfläche wird immer der Text "zur Information" angezeigt. 
+            <div class="example">
+               https://www.waskannich.pdf 
+            </div> </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:anyURI</td> 
+          <td></td> 
+          <td>Angabe nur sinnvoll, wenn die Sachdaten im Geodatenkatalog eigenständig gezeigt werden sollen.</td>  
+        </tr> 
+        <tr> 
+          <td>InhaltlicheBeschreibung</td> 
+          <td></td> 
+          <td>Inhaltliche Beschreibung</td> 
+          <td>URL auf eine detaillierte inhaltliche Beschreibung der Sachdaten. 
+            <div class="example">
+               http://@@ServerName@senstadt@@@@text@senstadt@@geltungsbereiche.html 
+            </div> </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:anyURI</td> 
+          <td> 
+            <div>
+               ISO: wird bei der Generierung der ISO 19119 in die Vertriebsangaben in linkage [Zeile 397] und description [Zeile 401] übernommen. Es erfolgt keine Aktualisierung bei Anpassung im Broker, eine erneute Generierung wäre für die Aktualisierung erforderlich. 
+            </div> </td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>TechnischeBeschreibung</td> 
+          <td></td> 
+          <td>Inhaltliche Beschreibung</td> 
+          <td>URL auf eine detaillierte technische Beschreibung der Sachdaten. 
+            <div class="example">
+               http://@@ServerName@senstadt@@@@text@senstadt@@tech.html 
+            </div> Da im WFS die Aliasnamen der Attribute verloren gehen, erfolgt hier eine entsprechende Übersetzung für den Dienste-Nutzer. </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:anyURI</td> 
+          <td> 
+            <div>
+               ISO: wird bei der Generierung der ISO 19119 in die Vertriebsangaben in linkage [Zeile 397] und description [Zeile 401] übernommen. Es erfolgt keine Aktualisierung bei Anpassung im Broker, eine erneute Generierung wäre für die Aktualisierung erforderlich. 
+            </div> </td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>Dienstebeschreibung</td> 
+          <td></td> 
+          <td>Dienstebeschreibung</td> 
+          <td>Angabe der Dienste, über welche die in diesem Metadatensatz beschriebenen Daten bereitgestellt werden. Die Anzeige erfolgt in der Ergebnisliste und Kurzinformation mit Link auf das entsprechende Dienstblatt. </td> 
+          <td class="multiplicity-column">0..*</td> 
+          <td><a href="#alphadata_DienstebeschreibungType">DienstebeschreibungType</a></td> 
+          <td></td> 
+          <td>Angabe nur sinnvoll, wenn die Sachdaten im Geodatenkatalog eigenständig gezeigt werden sollen.</td>  
+        </tr> 
+        <tr> 
+          <td>Datengrundlage</td> 
+          <td></td> 
+          <td>Datengrundlage</td> 
+          <td>Angabe, auf welcher Datengrundlage die Sachdaten erfasst wurden. </td> 
+          <td class="multiplicity-column">0..*</td> 
+          <td><a href="#alphadata_InhaltType">InhaltType</a></td> 
+          <td></td> 
+          <td>Angabe nur sinnvoll, wenn die Sachdaten im Geodatenkatalog eigenständig gezeigt werden sollen.</td>  
+        </tr> 
+        <tr> 
+          <td>Veroeffentlichung</td> 
+          <td></td> 
+          <td>Veröffentichung</td> 
+          <td>Hinweise auf weitere Veröffentlichungen zu den Sachdaten. </td> 
+          <td class="multiplicity-column">0..*</td> 
+          <td><a href="#alphadata_InhaltType">InhaltType</a></td> 
+          <td></td> 
+          <td>Angabe nur sinnvoll, wenn die Sachdaten im Geodatenkatalog eigenständig gezeigt werden sollen.</td>  
+        </tr> 
+        <tr> 
+          <td>Schlagwoerter</td> 
+          <td></td> 
+          <td>Schlagwörter</td> 
+          <td>Suchbegriffe, Schlüsselwörter, ihr Typ und Quellenangabe; GDI-DE: Keyword "inspireidentifiziert" muss für alle Georessourcen geführt werden, welche inspireidentifiziert sind; Keyword "opendata" wenn zutreffend (siehe Architektur der Geodateninfrastruktur Deutschland: Konventionen zu Metadaten der GDI.DE (Konventionendokument), V1.2, 01.08.2017, Kapitel 2.2 bzw. Kap. 3.5) 
+            <div class="example">
+               Geltungsbereiche, Bebauungsplan, B-Plan, Bplan, Bpläne, B-Pläne 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..*</td> 
+          <td>xsd:string</td> 
+          <td> 
+            <div>
+               ISO: Die Schlagworte werden - ohne Angabe eines Thesaurus in keyword [Zeile 53] der ISO 19119 übernommen. Bei Generierung der 19119 wird das Schlagwort "infoFeatureAccessService" mit dem GEMET als Thesaurus gesetzt. 
+            </div> 
+            <div>
+               OGC: Anzeige der keywords aus der 19119 als KeywordList im WMS. 
+            </div> </td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>Erstellungsdatum</td> 
+          <td></td> 
+          <td>Erstellungsdatum</td> 
+          <td>Gibt eine Information darüber, wann der beschriebene Datenbestand erzeugt wurde. 
+            <div class="example">
+               2004-05-03 
+            </div> </td> 
+          <td class="multiplicity-column">K..1, eine der drei Datumsangaben ist Pflicht</td> 
+          <td>xsd:string</td> 
+          <td> 
+            <div>
+               ISO: wird als date [Zeile 362] in die 19119 übernommen; kann beim Metadatenabgleich mit dem Wert aus der 19115 (Datum) überschrieben werden 
+            </div> </td> 
+          <td>Schreibweise yyyy-mm-dd beachten: Vier Ziffern für das Jahr, zwei Ziffern für den Monat, zwei Ziffern für den Tag</td>  
+        </tr> 
+        <tr> 
+          <td>Revisionsdatum</td> 
+          <td></td> 
+          <td>Revisionsdatum</td> 
+          <td>Gibt eine Information darüber, wann der beschriebene Datenbestand geändert wurde. 
+            <div class="example">
+               2004-05-03 
+            </div> </td> 
+          <td class="multiplicity-column">K..1, eine der drei Datumsangaben ist Pflicht</td> 
+          <td>xsd:string</td> 
+          <td> 
+            <div>
+               ISO: wird als date [Zeile 362] in die 19119 übernommen; kann beim Metadatenabgleich mit dem Wert aus der 19115 (Datum) überschrieben werden 
+            </div> </td> 
+          <td>Schreibweise yyyy-mm-dd beachten: Vier Ziffern für das Jahr, zwei Ziffern für den Monat, zwei Ziffern für den Tag</td>  
+        </tr> 
+        <tr> 
+          <td>Veroeffentlichungsdatum</td> 
+          <td></td> 
+          <td>Veroeffentlichungsdatum</td> 
+          <td>Gibt eine Information darüber, wann der beschriebene Datenbestand geändert wurde. 
+            <div class="example">
+               2004-05-03 
+            </div> </td> 
+          <td class="multiplicity-column">K..1, eine der drei Datumsangaben ist Pflich</td> 
+          <td>xsd:anyURI</td> 
+          <td> 
+            <div>
+               ISO: wird als date [Zeile 362] in die 19119 übernommen; kann beim Metadatenabgleich mit dem Wert aus der 19115 (Datum) überschrieben werden 
+            </div> </td> 
+          <td>Schreibweise yyyy-mm-dd beachten: Vier Ziffern für das Jahr, zwei Ziffern für den Monat, zwei Ziffern für den Tag</td>  
+        </tr> 
+        <tr> 
+          <td>gueltigVon</td> 
+          <td></td> 
+          <td>gültig von</td> 
+          <td>Gibt eine Information darüber, ab wann der beschriebene Datenbestand gültig ist. </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:string</td> 
+          <td> 
+            <div>
+               ISO: wird als EX_TemporalExtent/extent [351] die 19119 übernommen. 
+            </div> </td> 
+          <td>Schreibweise yyyy-mm-dd beachten: Vier Ziffern für das Jahr, zwei Ziffern für den Monat, zwei Ziffern für den Tag</td>  
+        </tr> 
+        <tr> 
+          <td>gueltigBis</td> 
+          <td></td> 
+          <td>gültig bis</td> 
+          <td>Gibt eine Information darüber, bis wann der beschriebene Datenbestand gültig ist. </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:string</td> 
+          <td> 
+            <div>
+               ISO: wird als EX_TemporalExtent/extent [351] die 19119 übernommen. 
+            </div> </td> 
+          <td>Schreibweise yyyy-mm-dd beachten: Vier Ziffern für das Jahr, zwei Ziffern für den Monat, zwei Ziffern für den Tag</td>  
+        </tr> 
+        <tr> 
+          <td>Vorschau</td> 
+          <td></td> 
+          <td>Vorschau</td> 
+          <td>Verweis auf ein Vorschaubild für den Datenbestand </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td><a href="#alphadata_InhaltType">InhaltType</a></td> 
+          <td> 
+            <div>
+               ISO: Wird mit der Beschreibung "Vorschaugrafik" in MD_BrowseGraphic [Zeile 48] der ISO 19119 übernommen. 
+            </div> </td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>RufUrl</td> 
+          <td></td> 
+          <td>Direktstart-URL</td> 
+          <td>URL zum Start der Anwendung mit Anzeige der Sachdaten (externer Aufruf) 
+            <div class="example">
+               http://@@ServerName@senstadt@@/fb/index.jsp?loginkey=alphaDataStart&amp;alphaDataId=sach_bplan@senstadt 
+            </div> Wird im METEOR beim Einrichten automatisch gesetzt. </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:anyURI</td> 
+          <td> 
+            <div>
+               ISO: wird bei der Generierung der ISO 19119 in die Vertriebsangaben in linkage [Zeile 397] übernommen. 
+            </div> </td> 
+          <td>Verwendung der externen Aufrufe der Anwendung.</td>  
+        </tr> 
+        <tr> 
+          <td>CapabilitiesUrl</td> 
+          <td></td> 
+          <td>Capabilities-URL</td> 
+          <td>URL zum Dienst der Sachdaten (WFS). Die URL ist Voraussetzung zur Generierung der Dienste-Metadaten (ISO 19119) über den Broker bzw. METEOR. 
+            <div class="example">
+               http://@@ServerName@senstadt@@/fb/wfs/data/senstadt/[themenId] 
+            </div> </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:anyURI</td> 
+          <td> 
+            <div>
+               ISO: beim Generieren der Dienste-Metadaten wird der Wert erstellt und in den connectPoint der Dienste-Metadaten übernommen. 
+            </div> </td> 
+          <td>Verwendung der externen Aufrufe der Anwendung.</td>  
+        </tr> 
+        <tr> 
+          <td>Kontakt</td> 
+          <td></td> 
+          <td>Kontakt</td> 
+          <td>Kontaktangaben zum Datenbestand</td> 
+          <td class="mandatoryElement multiplicity-column">1..*</td> 
+          <td><a href="#alphadata_KontaktType">KontaktType</a></td> 
+          <td> </td> 
+          <td></td>  
+        </tr> 
+        <tr class="complexElement"> 
+          <td id="alphadata_InhaltType">InhaltType</td> 
+          <td></td> 
+          <td>InhaltType</td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td> </td> 
+          <td>universelles Element zur Kennzeichnung textueller Daten und Referenzen</td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>Typ</td> 
+          <td>Typ</td> 
+          <td>Typ des zu beschreibenden Inhalts. 
+            <div class="example">
+               HTML 
+            </div> Beispiel eines Elements in XML für übergeordnetes Element "Vorschau" (Vorschaugrafik): 
+            <div class="example">
+               &lt;Vorschau Typ="URL"&gt;&lt;Inhalt&gt;http://@@ServerName@senstadt@@@@vorschau@senstadt@@sachdaten/svor_bplan.gif&lt;/Inhalt&gt;&lt;/Vorschau&gt; 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string / HTML|IMG|URL|XML</td> 
+          <td></td> 
+          <td>Das Element "Inhalt" wird im übergeordneten Element eingetragen, das Attribut "Typ" wird als Attribut im übergeordneten Element angegeben (siehe XML-Beispiel)</td>  
+        </tr> 
+        <tr> 
+          <td>Inhalt</td> 
+          <td></td> 
+          <td>Inhalt</td> 
+          <td>Angabe eines Links, unformatierten bzw. formatierten Textes - in Abhängigkeit des ausgewählten Typs. Typ HTML: 
+            <div class="example">
+               Daten aus der Kaufpreissammlung 
+            </div> Typ IMG: 
+            <div class="example">
+               http://@@ServerName@senstadt@@@@leg@senstadt@@leg_bplan2005.gif 
+            </div> Typ URL: 
+            <div class="example">
+               http://@@ServerName@senstadt@@@@text@senstadt@@geltungsbereiche.html 
+            </div> Typ XML: 
+            <div class="example">
+               &lt;a href="http://www.stadtentwicklung.berlin.de/planen/b-planverfahren/berlin/de/allg.shtml" target="_blank"&gt;Allgemeine Informationen zu Bebauungsplanverfahren&lt;/a&gt; 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td>Soll formatierter Text hinterlegt werden, ist der Typ=XML zu wählen und der Text zusätzlich in ein &lt;div&gt;-Element einzubetten. Er muss den Regeln der HTML-Codierung entsprechen.</td>  
+        </tr> 
+        <tr class="complexElement"> 
+          <td id="alphadata_DienstebeschreibungType">DienstebeschreibungType</td> 
+          <td></td> 
+          <td>Dienstebeschreibung</td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td> </td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>typ</td> 
+          <td>Service-Typ</td> 
+          <td>Typ des Services / Dienstes 
+            <div class="example">
+               WFS 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string 
+            <div>
+               WMS|WFS|ATOM 
+            </div> </td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>url</td> 
+          <td>Service-URL</td> 
+          <td>URL des Services / Dienstes. 
+            <div class="example">
+               http://@@ServerName@senstadt@@/fb/berlin/service.jsp?id=sach_bplan@senstadt&amp;type=WFS 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:anyURI</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr class="complexElement"> 
+          <td id="alphadata_KontaktType">KontaktType</td> 
+          <td></td> 
+          <td>Kontakt</td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td> </td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>Name</td> 
+          <td></td> 
+          <td>Name</td> 
+          <td>Name des Ansprechpartners 
+            <div class="example">
+               Herr Mustermann 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string</td> 
+          <td>ISO: Angabe aus dem 1. Kontakt wird als individualName [Zeile 375] in den 1. Kontakt der 19119 übernommen</td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>Organisationsname</td> 
+          <td></td> 
+          <td>Organisationsname</td> 
+          <td>Organisationsname des Ansprechpartners 
+            <div class="example">
+               Senatsverwaltung für Stadtentwicklung und Wohnen Berlin 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string</td> 
+          <td>ISO: Angabe aus dem 1. Kontakt wird als organisationName [Zeile 376] in den 1. Kontakt der 19119 übernommen</td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>Kontaktart</td> 
+          <td></td> 
+          <td>Kontaktart</td> 
+          <td>„fachlicher“ oder „technischer“ Ansprechpartner 
+            <div class="example">
+               fachlich 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string 
+            <div>
+               fachlich|technisch 
+            </div> </td> 
+          <td>ISO: Kontaktart wird in "Funktion/Rolle" in Dienste-Metadaten abgebildet --&gt; 1. Kontakt wird als "pointOfContact" in Dienste-Metadaten angegeben.</td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>Telefon</td> 
+          <td></td> 
+          <td>Telefon</td> 
+          <td>Telefonnummer des Ansprechpartners 
+            <div class="example">
+               +49-30-9025-0000 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string</td> 
+          <td>ISO: Angabe aus dem 1. Kontakt wird als voice [Zeile 408] in den 1. Kontakt der 19119 übernommen</td> 
+          <td>BE: Langschreibweise, wie im Beispiel gezeigt, verwenden</td>  
+        </tr> 
+        <tr> 
+          <td>Fax</td> 
+          <td></td> 
+          <td>Fax</td> 
+          <td>Faxnummer des Ansprechpartners 
+            <div class="example">
+               +49-30-9025-0099 
+            </div> </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:string</td> 
+          <td>ISO: Angabe aus dem 1. Kontakt wird als facsimile [Zeile 409] in den 1. Kontakt der 19119 übernommen</td> 
+          <td>BE: Langschreibweise, wie im Beispiel gezeigt, verwenden</td>  
+        </tr> 
+        <tr> 
+          <td>Adresse</td> 
+          <td></td> 
+          <td>Adresse</td> 
+          <td>Adresse des Ansprechpartners</td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td><a href="#alphadata_AdresseType">AdresseType</a></td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr class="complexElement"> 
+          <td id="alphadata_AdresseType">AdresseType</td> 
+          <td></td> 
+          <td>Adresse</td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td> </td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>Strasse</td> 
+          <td></td> 
+          <td>Strasse</td> 
+          <td>Strasse und Hausnummer in der Adressenangabe 
+            <div class="example">
+               Württembergische Straße 6 
+            </div> </td> 
+          <td class="multiplicity-column">0..*</td> 
+          <td>xsd:string</td> 
+          <td>ISO: Angabe aus dem 1. Kontakt wird als deliveryPoint [Zeile 381] in den 1. Kontakt der 19119 übernommen</td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>Stadt</td> 
+          <td></td> 
+          <td>Stadt</td> 
+          <td>Ortsname in der Adressenangabe 
+            <div class="example">
+               Berlin 
+            </div> </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:string</td> 
+          <td>ISO: Angabe aus dem 1. Kontakt wird als city [Zeile 382] in den 1. Kontakt der 19119 übernommen</td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>Bundesland</td> 
+          <td></td> 
+          <td>Bundesland</td> 
+          <td>Bundesland in der Adressenangabe 
+            <div class="example">
+               Berlin 
+            </div> </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:string 
+            <div>
+               fachlich|technisch 
+            </div> </td> 
+          <td>ISO:Angabe aus dem 1. Kontakt wird als administriveArea [Zeile 383] in den 1. Kontakt der 19119 übernommen </td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>Postleitzahl</td> 
+          <td></td> 
+          <td>Postleitzahl</td> 
+          <td>Postleitzahl in der Adressenangabe 
+            <div class="example">
+               10707 
+            </div> </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:string</td> 
+          <td>ISO: Angabe aus dem 1. Kontakt wird als postalCode [Zeile 384] in den 1. Kontakt der 19119 übernommen</td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>Land</td> 
+          <td></td> 
+          <td>Land</td> 
+          <td>Land in der Adressenangabe 
+            <div class="example">
+               Deutschland 
+            </div> </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:string</td> 
+          <td>ISO: Angabe aus dem 1. Kontakt wird als country [Zeile 385] in den 1. Kontakt der 19119 übernommen</td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>EMail</td> 
+          <td></td> 
+          <td>E-Mail</td> 
+          <td>E-Mail des Ansprechpartners 
+            <div class="example">
+               mail@sensw.berlin.de 
+            </div> </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:string</td> 
+          <td>ISO: Angabe aus dem 1. Kontakt wird als electronicMailAddress [Zeile 386] in den 1. Kontakt der 19119 übernommen </td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>WWW</td> 
+          <td></td> 
+          <td>Web-Site</td> 
+          <td>Link auf eine Web-Seite des Ansprechpartners 
+            <div class="example">
+               https://www.stadtentwicklung.berlin.de/kontakt/ 
+            </div> </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:anyURI</td> 
+          <td>ISO: Angabe aus dem 1. Kontakt wird als linkage [Zeile 387] in den 1. Kontakt der 19119 übernommen </td> 
+          <td></td>  
+        </tr> 
+        <tr class="complexElement"> 
+          <td id="alphadata_AusdehnungType">AusdehnungType</td> 
+          <td></td> 
+          <td>Ausdehnung</td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>crs</td> 
+          <td>Koordinatenreferenzsystem</td> 
+          <td>Koordinatenreferenzsystem des Ausschnitts 
+            <div class="example">
+               EPSG:25833 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>xlu</td> 
+          <td>x-Koordinate / links unten</td> 
+          <td>x-Koordinate / links unten der BBOX 
+            <div class="example">
+               369097.8529 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:double</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>ylu</td> 
+          <td>y-Koordinate / links unten</td> 
+          <td>y-Koordinate / links unten der BBOX 
+            <div class="example">
+               5799298.1358 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:double</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>xro</td> 
+          <td>x-Koordinate / rechts oben</td> 
+          <td>x-Koordinate / rechts oben der BBOX 
+            <div class="example">
+               416865.038 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:double</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>yro</td> 
+          <td>y-Koordinate / rechts oben</td> 
+          <td>y-Koordinate / rechts oben der BBOX 
+            <div class="example">
+               5838236.2097 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:double</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr class="complexElement"> 
+          <td id="alphadata_AlphaDataDatabaseType">AlphaDataDatabaseType</td> 
+          <td></td> 
+          <td>Datenquelle: Datenbank</td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td> </td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>maxCount</td> 
+          <td>Datensatzmengenbegrenzung</td> 
+          <td>maximale Menge (maxFeature bzw. count) abzugebender Datensätze bei der Bereitstellung über einen WFS. Der hier angegebene Werte sollte - je nach Datenquelle - mit den Werten "max. Anzahl der zu holenden Datensätze" und dem in der Datenquelle ggf. angegebenen WFS-Server und der dort beschriebenen Anzahl max. abzugebender Datensätze abgeglichen werden. 
+            <div class="example">
+               10000 
+            </div> </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:integer</td> 
+          <td></td> 
+          <td>nur bei Abgabe über WFS relevant</td>  
+        </tr> 
+        <tr> 
+          <td>JDBC_Driver_Name</td> 
+          <td></td> 
+          <td>Datenbank-Treiber-Name</td> 
+          <td>Bezeichnung des Datenbanktreibers ORACLE: ORACLE: 
+            <div class="example">
+               oracle.jdbc.OracleDriver 
+            </div> PostGre: 
+            <div class="example">
+               org.postgresql.Driver 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>JDBC_Connect_String</td> 
+          <td></td> 
+          <td>Verbindungsstring</td> 
+          <td>Angabe des Verbindungsstrings zur Datenbank. Dieser setzt sich zusammen aus dem Treiber, dem Datenbankbenutzer und der Datenbankverbindung ORACLE: 
+            <div class="example">
+               jdbc:oracle:thin:[dbuser]/[dbpasswd]@@dbserver@senstadt@@ 
+            </div> oder: 
+            <div class="example">
+               jdbc:oracle:thin:[dbuser]/[dbpasswd]@[server]:1521:[dbAlias] 
+            </div> PostGre: 
+            <div class="example">
+               jdbc:postgresql://[server]:5432/[db]?user=[dbuser]&amp;password=[passwd] 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>TableNames</td> 
+          <td></td> 
+          <td>Tabellennamen</td> 
+          <td>Angabe des Tabellennamens, in der die Sachdaten gespeichert sind. </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td>Soll auf mehrere Tabellen zugegriffen werden, müssen die Tabellennamen kommasepariert angegeben werden.</td>  
+        </tr> 
+        <tr> 
+          <td>JoinCondition</td> 
+          <td></td> 
+          <td>Verknüpfung</td> 
+          <td>Angabe eines JOIN für die Verknüpfung mit anderen Tabellen</td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>WhereCondition</td> 
+          <td></td> 
+          <td>Einschränkung</td> 
+          <td>Beschränkung der Datenabfrage mittels SQL WHERE</td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>OrderByColumns</td> 
+          <td></td> 
+          <td>Sortierung</td> 
+          <td>Angabe der Spalten, nach denen die Daten in der Sachdatenpräsention sortiert werden sollen.</td> 
+          <td class="multiplicity-column">0..*</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr class="complexElement"> 
+          <td id="alphadata_AlphaDataServerWfsType">AlphaDataServerWfsType</td> 
+          <td></td> 
+          <td>Datenquelle: WFS</td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td> </td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>maxCount</td> 
+          <td>Featureanzahlbegrenzung</td> 
+          <td>maximale Menge (maxFeature bzw. count) abzugebender Datensätze bei der Bereitstellung über einen WFS. Der hier angegebene Werte sollte - je nach Datenquelle - mit den Werten "max. Anzahl der zu holenden Datensätze" und dem in der Datenquelle ggf. angegebenen WFS-Server und der dort beschriebenen Anzahl max. abzugebender Datensätze abgeglichen werden. 
+            <div class="example">
+               10000 
+            </div> </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:integer</td> 
+          <td></td> 
+          <td>nur bei Abgabe über WFS relevant</td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>httpUserName</td> 
+          <td>Benutzername</td> 
+          <td>Name des Benutzers </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td>kann auch für HTTPS-Authentifizierung verwendet werden.</td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>httpUserPassword</td> 
+          <td>Benutzerpasswort</td> 
+          <td>Passwort des Benutzers </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td>kann auch für HTTPS-Authentifizierung verwendet werden.</td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>maxFeatures</td> 
+          <td>Featureanzahlbegrenzung</td> 
+          <td>max. Anzahl der zu holenden Features 
+            <div class="example">
+               10000 
+            </div> </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:integer</td> 
+          <td></td> 
+          <td>nur bei Abgabe über WFS relevant</td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>version</td> 
+          <td>WFS-Version</td> 
+          <td>Angabe der WFS-Version (i.d.R. 1.1.0 oder 2.0.0). Ist die WFS-Bereitstellung vorgesehen, muss die hier angegebene Version beachtet werden. Bei WFS 1.1.0 kann "nur" der simpleWFS 2.0.0 unterstützt werden. </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td>nur bei Abgabe über WFS relevant</td>  
+        </tr> 
+        <tr> 
+          <td>FeatureURL</td> 
+          <td></td> 
+          <td>Feature-URL</td> 
+          <td>Adresse des Web Feature Servers 
+            <div class="example">
+               http://fbarc.stadt-berlin.de/ArcGIS/services/RBS_OD_ADR_V_10_0/MapServer/WFSServer 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:anyURI</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>FeatureTypeName</td> 
+          <td></td> 
+          <td>Feature-Type</td> 
+          <td>Angabe des FeatureType</td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td><a href="#alphadata_FeatureTypeName">FeatureTypeName</a></td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr class="complexElement"> 
+          <td id="alphadata_FeatureTypeName">FeatureTypeName</td> 
+          <td></td> 
+          <td>Datenquelle: WFS (FeatureType)</td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td> </td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>name</td> 
+          <td>Feature-Type-Name</td> 
+          <td>Name des FeatureTypes (ab WFS 1.1.0 mit Angabe des Präfix) </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string </td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>nameSpace</td> 
+          <td>Feature-Type-Namensraum</td> 
+          <td>Namensraum des Feature-Types </td> 
+          <td class="mandatoryElement multiplicity-column">0..1</td> 
+          <td>xsd:string </td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr class="complexElement"> 
+          <td id="#alphadata_KeyColumnType">KeyColumnType</td> 
+          <td></td> 
+          <td>Schlüsselspalte</td> 
+          <td> </td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>ColumnName</td> 
+          <td></td> 
+          <td>Spaltenname</td> 
+          <td>Name der Sachdatenspalte. Jede Datenbankspalte kann nur einmal beschrieben werden! 
+            <div class="example">
+               INSPIRE_ID 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td>Groß-/Kleinschreibweise beachten (bei ORACLE alles groß schreiben; bei PostGre alles klein)</td>  
+        </tr>  
+        <tr> 
+          <td>ColumnAlias</td> 
+          <td></td> 
+          <td>Alias</td> 
+          <td>Alias (zur Anzeige in der Oberfläche) 
+            <div class="example">
+               ID 
+            </div> </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td>Funktionalität abhängig von der verwendeten Datenbank</td>  
+        </tr> 
+        <tr> 
+          <td>ColumnFunction</td> 
+          <td></td> 
+          <td>Spaltenfunktion</td> 
+          <td>Angabe einer Datenbankfunktion. Auf diese Weise kann bspw. der Inhalt zweier Spalten zu einer zusammengefasst oder das Format einer DB-Spalte geändert werden. </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td>Funktionalität abhängig von der verwendeten Datenbank</td>  
+        </tr> 
+        <tr> 
+          <td>ColumnDescription</td> 
+          <td></td> 
+          <td>Beschreibung</td> 
+          <td>Zusätzliche beschreibende Informationen zu der Spalte. Bei der Abgabe über WFS wird die Angabe im DescribeFeatureType angezeigt. </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>ColumnTableName</td> 
+          <td></td> 
+          <td>Tabellenname</td> 
+          <td>Name der Tabelle, bei Beschreibung von Daten aus verschiedenen Tabellen </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>ColumnTableSchema</td> 
+          <td></td> 
+          <td>Tabellenschema</td> 
+          <td>Schema der Tabelle, bei Beschreibung von Daten aus verschiedenen DB-Schemata </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>ColumnLength</td> 
+          <td></td> 
+          <td>Spaltenlänge</td> 
+          <td>Länge des Feldes </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:integer / Standardwert ist 0</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>ColumnType</td> 
+          <td></td> 
+          <td>Spaltentyp</td> 
+          <td>Typ der DB-Spalte: T für Texte, N für num. Zahlen </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string / T|N|BigDecimal|Integer|Long|Short</td> 
+          <td></td> 
+          <td>Die Angabe des Spaltentyps dient v.a. dazu, die Anfragen an das entsprechende datenhaltende System korrekt formulieren und die Daten in Client korrekt anzeigen zu können.</td>  
+        </tr> 
+        <tr> 
+          <td>ColumnFilter</td> 
+          <td></td> 
+          <td>Spaltenfilter</td> 
+          <td>Definition eines Filters für die Sachdatenrecherche </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td><a href="#alphadata_ColumnFilterType">ColumnFilterType</a></td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr class="complexElement"> 
+          <td id="#alphadata_SelectColumnType">SelectColumnType</td> 
+          <td></td> 
+          <td>Spaltenbeschreibung</td> 
+          <td> </td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>ColumnName</td> 
+          <td></td> 
+          <td>Spaltenname</td> 
+          <td>Name der Sachdatenspalte. Jede Datenbankspalte kann nur einmal beschrieben werden! 
+            <div class="example">
+               ID 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td>Groß-/Kleinschreibweise beachten (bei ORACLE alles groß schreiben; bei PostGre alles klein)</td>  
+        </tr>  
+        <tr> 
+          <td>ColumnAlias</td> 
+          <td></td> 
+          <td>Alias</td> 
+          <td>Alias (zur Anzeige in der Oberfläche) 
+            <div class="example">
+               Link zur öffentlichen Auslegung 
+            </div> </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td>Funktionalität abhängig von der verwendeten Datenbank</td>  
+        </tr> 
+        <tr> 
+          <td>ColumnFunction</td> 
+          <td></td> 
+          <td>Spaltenfunktion</td> 
+          <td>Angabe einer Datenbankfunktion. Auf diese Weise kann bspw. der Inhalt zweier Spalten zu einer zusammengefasst oder das Format einer DB-Spalte geändert werden. </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>ColumnDescription</td> 
+          <td></td> 
+          <td>Beschreibung</td> 
+          <td>Zusätzliche beschreibende Informationen zu der Spalte. Bei der Abgabe über WFS wird die Angabe im DescribeFeatureType angezeigt. 
+            <div class="example">
+               Dritthäufigste Baumart im Hauptbestand dieser Fläche, Höhe [m] 
+            </div> </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>ColumnTableName</td> 
+          <td></td> 
+          <td>Tabellenname</td> 
+          <td>Name der Tabelle, bei Beschreibung von Daten aus verschiedenen Tabellen </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>ColumnTableSchema</td> 
+          <td></td> 
+          <td>Tabellenschema</td> 
+          <td>Schema der Tabelle, bei Beschreibung von Daten aus verschiedenen DB-Schemata </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>ColumnLength</td> 
+          <td></td> 
+          <td>Spaltenlänge</td> 
+          <td>Länge des Feldes </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:integer / Standardwert ist 0</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>ColumnSettings</td> 
+          <td></td> 
+          <td>Spalteneinstellung</td> 
+          <td>Angaben zur Bearbeitung von Sachdaten </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td><a href="#alphadata_ColumnSettingsType">ColumnSettingsType</a></td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>ColumnType</td> 
+          <td></td> 
+          <td>Spaltentyp</td> 
+          <td>Typ der DB-Spalte. Gültige Werte siehe Datentyp/Wertebereich 
+            <div class="example">
+               T 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string / T|N|BigDecimal|Integer|Long|Short|Byte| Double|Date|Time|Timestamp|Boolean|Link|Geometry</td> 
+          <td>Im METEOR erfolgt die Anzeige der Datentypen folgendermaßen: 
+            <ul> 
+              <li>Text</li> 
+              <li>Zahl (Numerisch)</li> 
+              <li>Zahl (BigDecimal)</li> 
+              <li>Zahl (Integer)</li> 
+              <li>Zahl (Long)</li> 
+              <li>Zahl (Byte))</li> 
+              <li>Zahl (Double)</li> 
+              <li>Datum</li> 
+              <li>Zeit</li> 
+              <li>Zeitstempel</li> 
+              <li>Boolean</li> 
+              <li>Link</li> 
+              <li>Geometrie</li> 
+            </ul> </td> 
+          <td>Die Angabe des Spaltentyps dient v.a. dazu, die Anfragen an das entsprechende datenhaltende System korrekt formulieren und die Daten in Client korrekt anzeigen zu können.</td>  
+        </tr>  
+        <tr> 
+          <td>ColumnFormat</td> 
+          <td></td> 
+          <td>Format</td> 
+          <td>Die Anzeige der Daten im Client kann durch Formatangaben beeinflusst werden. </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>ColumnFilter</td> 
+          <td></td> 
+          <td>Spaltenfilter</td> 
+          <td>Definition eines Filters für die Sachdatenrecherche </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td><a href="#alphadata_ColumnFilterType">ColumnFilterType</a></td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>ColumnView</td> 
+          <td></td> 
+          <td>Spaltenansicht</td> 
+          <td>Informationen zur Ansicht der Spalte in der Sachdatenpräsentation (Einzelansicht, Listenansicht, Statistikfunktion) </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td><a href="#alphadata_ColumnViewType">ColumnViewType</a></td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>Catalog</td> 
+          <td></td> 
+          <td>Katalogtabelle</td> 
+          <td>Angaben zur Verwendung einer Katalogtabelle bei Verwendung von Auswahllisten mit Katalogtabelle (Catalogbox) </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td><a href="#alphadata_CatalogType">CatalogType</a></td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr class="complexElement"> 
+          <td id="#alphadata_ColumnSettingsType">ColumnSettingsType</td> 
+          <td></td> 
+          <td>Bearbeitung</td> 
+          <td> </td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>defaultvalue</td> 
+          <td>Vorbelegung</td> 
+          <td>Standardwert für die Sachdatenbearbeitung </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td>leer angeben, wenn keine Vorbelegung erfolgen soll</td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>required</td> 
+          <td>Pflichtfeld</td> 
+          <td>Kennzeichnung, ob Feld verpflichtend auszufüllen ist </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:boolean true|<u>false</u></td> 
+          <td></td> 
+          <td>leer angeben, wenn keine Vorbelegung erfolgen soll</td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>writeable</td> 
+          <td>editierbar</td> 
+          <td>Kennzeichnung, ob Feld editierbar </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:boolean true|<u>false</u></td> 
+          <td></td> 
+          <td>leer angeben, wenn keine Vorbelegung erfolgen soll</td>  
+        </tr> 
+        <tr class="complexElement"> 
+          <td id="#alphadata_ColumnFilterType">ColumnFilterType</td> 
+          <td></td> 
+          <td>Filter</td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>autocomplete</td> 
+          <td>Autovervollständigung</td> 
+          <td>Kennzeichnung, Autovervollständigung angezeigt werden soll </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:boolean / true|<u>false</u></td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>doubleLineView</td> 
+          <td>untereinander anzeigen</td> 
+          <td>Möglichkeit, sich die Eingabefelder untereinander anzeigen zu lassen </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:boolean / true|<u>false</u></td> 
+          <td></td> 
+          <td>Bei Auswahl eines doppelten Eingabefeldes kann die Anzeige der Felder in Client entweder in einer Zeile oder untereinander erfolgen. Dazu bitte auf true setzen. Für andere Filtertypen gilt die Auswahl nicht!</td>  
+        </tr> 
+        <tr> 
+          <td>FilterAlias</td> 
+          <td></td> 
+          <td>Filteralias</td> 
+          <td>Bezeichnung für den Filter. Kann von der Feldbezeichnung abweichen </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>FilterType</td> 
+          <td></td> 
+          <td>Filtertyp</td> 
+          <td>Typ des Filters. Es kann immer nur ein Filtertyp gewählt werden. 
+            <div class="example">
+               Auswahlliste (SelectBox) 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string / SelectBox|CatalogBox|EditField|EditOrderField|DoubleEditOrderField</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>FilterFormat</td> 
+          <td></td> 
+          <td>Filterformat</td> 
+          <td>Die Anzeige der Daten im Client kann durch Formatangaben beeinflusst werden. So kann bspw. die Datumsanzeige auf Monat/Jahr reduziert oder die Anzahl der Nachkommastellen gesteuert werden. 
+            <div class="example">
+               dd.MM.yyyy 
+            </div> --&gt; 06.07.2002 oder 
+            <div class="example">
+               #0.0 
+            </div> --&gt; 0,8 (mit einer Nachkommastelle, Wert wird gerundet) 
+            <div class="example">
+               #0.0# 
+            </div> --&gt; 0,79 (mit einer bel. Anzahl an Stellen vor und nach dem Komma) 
+            <div class="example">
+               ,###,###.0 
+            </div> --&gt; 7.900,0 (mit Tausender-Trenner vor dem Komma) </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>Defaultvalue</td> 
+          <td></td> 
+          <td>Vorbelegung</td> 
+          <td>Vorbelegung für die jeweiligen Filter. Der Inhalt ist abhängig von der gewählten Filterart: 
+            <ul> 
+              <li>SelectBox|CatalogBox|EditField: Value</li> 
+              <li>EditOrderField: MinValue, MinOrderValue</li> 
+              <li>DoubleEditOrderField: MinValue, MinOrderValue, MaxValue, MaxOrderValue</li> 
+            </ul> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td id="#alphadata_DefaultvalueType">DefaultvalueType</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>FilterWhereCondition</td> 
+          <td></td> 
+          <td>Filterabfragebedingung</td> 
+          <td>Einschränkung für die Auswahllisten. Abfragebedingung mit SQL WHERE </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr class="complexElement"> 
+          <td id="alphadata_DefaultvalueType">DefaultvalueType</td> 
+          <td></td> 
+          <td>Filtermöglichkeiten</td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>MinValue</td> 
+          <td>Minimalwert</td> 
+          <td>Eingabefeld mit Vergleichsmöglichkeit: Wertangabe 
+            <div class="example">
+               50 
+            </div> </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>MinOrderValue</td> 
+          <td>Minimalvergleichswert</td> 
+          <td>Eingabefeld mit Vergleichsmöglichkeit: Operator: 
+            <div class="example">
+               li 
+            </div> </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:string / li|le|eq|be|bi</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>MaxValue</td> 
+          <td>Maximalwert</td> 
+          <td>doppeltes Eingabefeld mit Vergleichsmöglichkeit: Wertangabe 
+            <div class="example">
+               100 
+            </div> </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>MaxOrderValue</td> 
+          <td>Maximalvergleichswert</td> 
+          <td>doppeltes Eingabefeld mit Vergleichsmöglichkeit: Operator: 
+            <div class="example">
+               bi 
+            </div> </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:string / li|le|eq|be|bi</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>Value</td> 
+          <td>Standardwert</td> 
+          <td>Vorbelegung des Filters bei SelectBox oder Editfield 
+            <div class="example">
+               A* 
+            </div> </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr class="complexElement"> 
+          <td id="alphadata_ColumnViewType">ColumnViewType</td> 
+          <td></td> 
+          <td>Clientnutzung</td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>listview</td> 
+          <td>Listenansicht</td> 
+          <td>Steuerung, ob die Sachdatenspalte in Listenansicht angezeigt werden soll </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:boolean / <u>true</u>|false</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>listviewenabled</td> 
+          <td>Listenansicht-Auswählbarkeit</td> 
+          <td>Steuerung, ob die Checkbox zum Schalten der Sichtbarkeit für die Listenansicht angezeigt wird </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:boolean / <u>true</u>|false</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>elementview</td> 
+          <td>Einzelansicht</td> 
+          <td>Steuerung, ob die Sachdatenspalte in Einzelansicht angezeigt werden soll </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:boolean / <u>true</u>|false</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>elementviewenabled</td> 
+          <td>Einzelansicht-Auswählbarkeit</td> 
+          <td>Steuerung, ob die Checkbox zum Schalten der Sichtbarkeit für die Einzelansicht angezeigt wird </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:boolean / <u>true</u>|false</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>statisticsview</td> 
+          <td>Statistik-Auswählbarkeit</td> 
+          <td>Bestimmt für numerische Spalten, ob für sie eine Berechnung von Statistikfunktionen erlaubt ist. </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:boolean / true|<u>false</u></td> 
+          <td></td> 
+          <td>nur für numerische Spalten</td>  
+        </tr> 
+        <tr class="complexElement"> 
+          <td id="alphadata_CatalogType">CatalogType</td> 
+          <td></td> 
+          <td>Katalogtabelle</td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>TableName</td> 
+          <td>Tabellenname</td> 
+          <td>Name der Katalogtabelle 
+            <div class="example">
+               BEZIRKE 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>KeyColumnName</td> 
+          <td>Schlüsselspaltenname</td> 
+          <td>Name der Schlüsselspalte 
+            <div class="example">
+               BEZ_NR 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>ValueColumnName</td> 
+          <td>Wertespaltenname</td> 
+          <td>Name der Spalte mit den WERTEN 
+            <div class="example">
+               BEZ_NAME 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>OrderColumnName</td> 
+          <td>Sortierspaltenname</td> 
+          <td>Spalte zur Sortierung </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>DefaultKey</td> 
+          <td>Standardwert</td> 
+          <td>Vorbelegung des Filters 
+            <div class="example">
+               Mitte 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>descendingSort</td> 
+          <td>absteigende Sortierung</td> 
+          <td>Kennzeichnung, ob absteigend sortiert werden soll </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:boolean / true|<u>false</u></td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>schema</td> 
+          <td>Schemaname</td> 
+          <td>Schema der Tabelle, bei Beschreibung von Daten aus verschiedenen DB-Schemata </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>WhereCondition</td> 
+          <td></td> 
+          <td>Einschränkung</td> 
+          <td>Einschränkung mittels SQL WHERE </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr class="complexElement"> 
+          <td id="alphadata_GeometryColumnType">GeometryColumnType</td> 
+          <td></td> 
+          <td>Geometriespalte</td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>ColumnName</td> 
+          <td></td> 
+          <td>Spaltenname</td> 
+          <td>Name der Geometriespalte 
+            <div class="example">
+               SHAPE 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>ColumnType</td> 
+          <td></td> 
+          <td>Spaltentyp</td> 
+          <td>Typ der Spalte, im Falle von GeometryColumn ist der Wert automatisch belegt 
+            <div class="example">
+               Geometry 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string / Geometry</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>ColumnJoinCondition</td> 
+          <td></td> 
+          <td>Verbindung</td> 
+          <td>Verknüpfung von Tabelle und Spalten. Werden die Geometriedaten aus einer anderen Tabelle des gleichen oder gar eines anderen Datenbankschemas eingebunden, müssen die Geometrie- und Sachdatentabelle miteinander verknüpft werden. Dabei sind Datenbankfunktionalität zu nutzen! Verwendet wird "INNER JOIN", wenn die Sach- und Geometriedaten gleich sind. Verwendet wird "RIGHT OUTER JOIN", wenn mehr oder genauso viele Sachdaten wie Geometriedaten vorhanden sind. Verwendet wird "LEFT OUTER JOIN", wenn weniger Sachdaten als Geometriedaten vorhanden sind. 
+            <div class="example">
+               LEFT OUTER JOIN KONTUR.TAB1 ON KONTUR.TAB1.NAME=S_TAB2.ID 
+            </div> </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>ColumnTableName</td> 
+          <td></td> 
+          <td>Tabellenname</td> 
+          <td>Name der Tabelle </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>ColumnTableSchema</td> 
+          <td></td> 
+          <td>Tabellenschema</td> 
+          <td>Schema der Tabelle </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>DefaultCrs</td> 
+          <td></td> 
+          <td>Standardkoordinatensystem</td> 
+          <td>Standardkoordinatensystem der Geometrien 
+            <div class="example">
+               EPSG:25833 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>OtherCrs</td> 
+          <td></td> 
+          <td>weitere Standardkoordinatensysteme</td> 
+          <td>nur für die WFS-Bereitstellung relevant. Hier können zusätzliche, vom Dienst bereitgestellte CRS angegeben werden. Diese sollten in der DB in unterschiedlichen Geomtriespalten bereits vorliegen, um zeitintensive Umrechnungen zur Laufzeit zu vermeiden! Die Beschreibung der Datenquelle erfolgt in "OtherCoordsystem". </td> 
+          <td class="multiplicity-column">0..*</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>SupportedCrs</td> 
+          <td></td> 
+          <td>Datenquelle WFS: vom Server unterstützte weitere Koordinatensysteme</td> 
+          <td>Angabe des zusätzlichen Koordinatensystems, dass vom WFs-Server unterstützt wird. 
+            <div class="example">
+               EPSG:4258 
+            </div> </td> 
+          <td class="multiplicity-column">0..*, alternativ zu OtherCoordsystem</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td>OtherCoordsystem</td> 
+          <td></td> 
+          <td>Datenquelle Datenbank: vom Server unterstützte weitere Koordinatensysteme</td> 
+          <td>Beschreibung des Datenzugriffs auf Geometrien in einer zusätzlichen Projektion </td> 
+          <td class="multiplicity-column">0..*, alternativ zu SupportCrs</td> 
+          <td><a href="#alphadata_OtherCoordsystemType">OtherCoordsystemType</a></td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr class="complexElement"> 
+          <td id="alphadata_OtherCoordsystemType">OtherCoordsystemType</td> 
+          <td></td> 
+          <td>weitere Koordinatensysteme</td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>crs</td> 
+          <td>Koordinatenreferenzsystem</td> 
+          <td>Koordinatenreferenzsystem wird festgelegt nach Auswahl der verfügbaren CRS 
+            <div class="example">
+               EPSG:4258 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>shapeColumnName</td> 
+          <td>Geometriespaltenname</td> 
+          <td>Name der Geometriespalte, in der Daten zum Koordinatensystem stehen. Die Geometrien sollten auch wirklich in der angegebenen Projektion vorliegen. 
+            <div class="example">
+               SHAPE_4258 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>tableName</td> 
+          <td>Tabellenname</td> 
+          <td>Name der Tabelle aus der Datenbank </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>schemaName</td> 
+          <td>Schemaname</td> 
+          <td>Name des Schemas aus der Datenbank </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>join</td> 
+          <td>Verknüpfung</td> 
+          <td>Verknüpfung von Tabelle und Spalten </td> 
+          <td class="multiplicity-column">0..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr class="complexElement"> 
+          <td id="alphadata_KarteType">KarteType</td> 
+          <td></td> 
+          <td>Link zur Karte</td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>mapId</td> 
+          <td>Karten-ID</td> 
+          <td>Identifikator der zugeordneten Karte mit Domäne 
+            <div class="example">
+               k_bplan@senstadt 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+        <tr> 
+          <td></td> 
+          <td>layerAlias</td> 
+          <td>Layer-Alias</td> 
+          <td>Alias der Kartenebene zum Zoomen auf das entsprechende Element im Client 
+            <div class="example">
+               bp_fest 
+            </div> </td> 
+          <td class="mandatoryElement multiplicity-column">1..1</td> 
+          <td>xsd:string</td> 
+          <td></td> 
+          <td></td>  
+        </tr> 
+      </tbody> 
+    </table> 
+    <a class="toTopButton" href="#top">nach oben</a>  
+  </body>
+</html>

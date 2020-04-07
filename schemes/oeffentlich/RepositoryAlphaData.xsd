@@ -1,0 +1,214 @@
+<?xml version="1.0"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" version="1.0">
+	<xsd:element name="Sachdaten" type="SachdatenType"/>
+	<xsd:complexType name="SachdatenType">
+		<xsd:sequence>
+			<xsd:element name="Titel" type="xsd:string"/>
+			<xsd:element name="Metadaten" type="MetadatenType"/>
+			<xsd:choice maxOccurs="unbounded">
+				<xsd:element name="AlphaDataDatabase" type="AlphaDataDatabaseType" minOccurs="0"/>
+				<xsd:element name="AlphaDataServerWfs" type="AlphaDataServerWfsType" minOccurs="0"/>
+			</xsd:choice>
+			<xsd:element name="KeyColumn" type="KeyColumnType"/>
+			<xsd:element name="SelectColumn" type="SelectColumnType" maxOccurs="unbounded"/>
+			<xsd:element name="GeometryColumn" type="GeometryColumnType" minOccurs="0"/>
+			<xsd:element name="Ausdehnung" type="AusdehnungType"/>
+			<xsd:element name="Karte" type="KarteType"/>
+		</xsd:sequence>
+		<xsd:attribute name="id" type="xsd:string" use="required"/>
+		<xsd:attribute name="mt_klasse" type="xsd:string" use="required"/>
+		<xsd:attribute name="metadatenTyp" type="xsd:string" use="required"/>
+		<xsd:attribute name="inspireAnnex" type="xsd:string"/>
+	</xsd:complexType>
+	<xsd:complexType name="MetadatenType">
+		<xsd:sequence>
+			<xsd:element name="Kurzbeschreibung" type="xsd:string"/>
+			<xsd:element name="Themennutzung" type="xsd:anyURI" minOccurs="0"/>
+			<xsd:element name="InhaltlicheBeschreibung" type="xsd:anyURI" minOccurs="0"/>
+			<xsd:element name="TechnischeBeschreibung" type="xsd:anyURI" minOccurs="0"/>
+			<xsd:element name="Dienstebeschreibung" type="xsd:anyURI" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="Datengrundlage" type="InhaltType" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="Veroeffentlichung" type="InhaltType" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="Schlagwoerter" type="xsd:string" maxOccurs="unbounded"/>
+            <xsd:choice>
+              <xsd:sequence>
+                <xsd:element name="Erstellungsdatum" type="xsd:string"/>
+                <xsd:element name="Revisionsdatum" type="xsd:string" minOccurs="0"/>
+                <xsd:element name="Veroeffentlichungsdatum" type="xsd:string" minOccurs="0"/>
+              </xsd:sequence>
+              <xsd:sequence>
+                <xsd:element name="Revisionsdatum" type="xsd:string"/>
+                <xsd:element name="Veroeffentlichungsdatum" type="xsd:string" minOccurs="0"/>
+              </xsd:sequence>
+              <xsd:sequence>
+                <xsd:element name="Veroeffentlichungsdatum" type="xsd:string"/>
+              </xsd:sequence>
+            </xsd:choice>
+			<xsd:element name="gueltigVon" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="gueltigBis" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Vorschau" type="InhaltType"/>
+			<xsd:element name="RufUrl" type="xsd:anyURI"/>
+			<xsd:element name="CapabilitiesUrl" type="xsd:anyURI" minOccurs="0"/>
+			<xsd:element name="Kontakt" type="KontaktType" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="KontaktType">
+		<xsd:sequence>
+			<xsd:element name="Name" type="xsd:string"/>
+			<xsd:element name="Organisationsname" type="xsd:string"/>
+			<xsd:element name="Kontaktart" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Telefon" type="xsd:string"/>
+			<xsd:element name="Fax" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Adresse" type="AdresseType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AdresseType">
+		<xsd:sequence>
+			<xsd:element name="Strasse" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="Stadt" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Bundesland" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Postleitzahl" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Land" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="EMail" type="xsd:string"/>
+			<xsd:element name="WWW" type="xsd:anyURI" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="InhaltType">
+		<xsd:sequence>
+			<xsd:element name="Inhalt" type="xsd:string" />
+		</xsd:sequence>
+		<xsd:attribute name="typ" type="xsd:string" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="DienstebeschreibungType">
+		<xsd:attribute name="typ" type="xsd:string" use="required"/>
+		<xsd:attribute name="url" type="xsd:anyURI" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="AlphaDataDatabaseType">
+		<xsd:sequence>
+			<xsd:element name="JDBC_Driver_Name" type="xsd:string"/>
+			<xsd:element name="JDBC_Connect_String" type="xsd:string"/>
+			<xsd:element name="TableNames" type="xsd:string"/>
+			<xsd:element name="WhereCondition" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="OrderByColumns" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="maxCount" type="xsd:int"/>
+	</xsd:complexType>
+	<xsd:complexType name="AlphaDataServerWfsType">
+		<xsd:sequence>
+			<xsd:element name="FeatureURL" type="xsd:anyURI"/>
+			<xsd:element name="FeatureTypeName" type="FeatureTypeName"/>
+		</xsd:sequence>
+		<xsd:attribute name="maxCount" type="xsd:int"/>
+		<xsd:attribute name="httpUserName" type="xsd:string"/>
+		<xsd:attribute name="httpUserPassword" type="xsd:string"/>
+		<xsd:attribute name="maxFeatures" type="xsd:int"/>
+		<xsd:attribute name="version" type="xsd:string" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="FeatureTypeName">
+		<xsd:attribute name="name" type="xsd:string"/>
+		<xsd:attribute name="nameSpace" type="xsd:string"/>
+	</xsd:complexType>
+	<xsd:complexType name="KeyColumnType">
+		<xsd:sequence>
+			<xsd:element name="ColumnName" type="xsd:string"/>
+			<xsd:element name="ColumnAlias" type="xsd:string"/>
+			<xsd:element name="ColumnFunction" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ColumnDescription" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ColumnTableName" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ColumnTableSchema" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ColumnLength" type="xsd:int"/>
+			<xsd:element name="ColumnType" type="xsd:string"/>
+			<xsd:element name="ColumnFilter" type="ColumnFilterType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="SelectColumnType">
+		<xsd:sequence>
+			<xsd:element name="ColumnName" type="xsd:string"/>
+			<xsd:element name="ColumnAlias" type="xsd:string"/>
+			<xsd:element name="ColumnFunction" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ColumnDescription" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ColumnTableName" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ColumnTableSchema" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ColumnLength" type="xsd:int"/>
+			<xsd:element name="ColumnSettings" type="ColumnSettingsType" minOccurs="0"/>
+			<xsd:element name="ColumnType" type="xsd:string"/>
+			<xsd:element name="ColumnImpressum" type="xsd:string"/>
+			<xsd:element name="ColumnFormat" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ColumnFilter" type="ColumnFilterType" minOccurs="0"/>
+			<xsd:element name="ColumnView" type="ColumnViewType" minOccurs="0"/>
+			<xsd:element name="Catalog" type="columnCatalogType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ColumnSettingsType">
+		<xsd:attribute name="defaultvalue" type="xsd:string" use="required"/>
+		<xsd:attribute name="required" type="xsd:boolean" use="required"/>
+		<xsd:attribute name="writeable" type="xsd:boolean" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="ColumnFilterType">
+		<xsd:sequence>
+			<xsd:element name="FilterAlias" type="xsd:string"/>
+			<xsd:element name="FilterType" type="xsd:string"/>
+			<xsd:element name="FilterFormat" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Defaultvalue" type="DefaultvalueType"/>
+			<xsd:element name="FilterWhereCondition" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="doubleLineView" type="xsd:boolean"/>
+	</xsd:complexType>
+	<xsd:complexType name="DefaultvalueType">
+		<xsd:attribute name="MinValue" type="xsd:string"/>
+		<xsd:attribute name="MinOrderValue" type="xsd:string"/>
+		<xsd:attribute name="MaxValue" type="xsd:string"/>
+		<xsd:attribute name="MaxOrderValue" type="xsd:string"/>
+		<xsd:attribute name="Value" type="xsd:string"/>
+	</xsd:complexType>
+	<xsd:complexType name="ColumnViewType">
+		<xsd:attribute name="listview" type="xsd:boolean" use="required"/>
+		<xsd:attribute name="listviewenabled" type="xsd:boolean" use="required"/>
+		<xsd:attribute name="elementview" type="xsd:boolean" use="required"/>
+		<xsd:attribute name="elementviewenabled" type="xsd:boolean" use="required"/>
+		<xsd:attribute name="statisticsview" type="xsd:boolean" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="columnCatalogType">
+		<xsd:sequence>
+			<xsd:element name="WhereCondition" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="TableName" type="xsd:string" use="required"/>
+		<xsd:attribute name="KeyColumnName" type="xsd:string" use="required"/>
+		<xsd:attribute name="ValueColumnName" type="xsd:string" use="required"/>
+		<xsd:attribute name="OrderColumnName" type="xsd:string"/>
+		<xsd:attribute name="DefaultKey" type="xsd:string" use="required"/>
+		<xsd:attribute name="descendingSort" type="xsd:boolean"/>
+		<xsd:attribute name="schema" type="xsd:string"/>
+	</xsd:complexType>
+	<xsd:complexType name="GeometryColumnType">
+		<xsd:sequence>
+			<xsd:element name="ColumnName" type="xsd:string"/>
+			<xsd:element name="ColumnType" type="xsd:string"/>
+			<xsd:element name="ColumnJoinCondition" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ColumnTableName" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ColumnTableSchema" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DefaultCrs" type="xsd:string"/>
+			<xsd:element name="OtherCrs" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="SupportedCrs" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="OtherCoordsystem" type="OtherCoordsystemType" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="OtherCoordsystemType">
+		<xsd:attribute name="crs" type="xsd:string" use="required"/>
+		<xsd:attribute name="shapeColumnName" type="xsd:string" use="required"/>
+		<xsd:attribute name="tableName" type="xsd:string"/>
+		<xsd:attribute name="schemaName" type="xsd:string"/>
+		<xsd:attribute name="join" type="xsd:string"/>
+	</xsd:complexType>
+	<xsd:complexType name="AusdehnungType">
+		<xsd:attribute name="crs" type="xsd:string" use="required"/>
+		<xsd:attribute name="xlu" type="xsd:double" use="required"/>
+		<xsd:attribute name="ylu" type="xsd:double" use="required"/>
+		<xsd:attribute name="xro" type="xsd:double" use="required"/>
+		<xsd:attribute name="yro" type="xsd:double" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="KarteType">
+		<xsd:attribute name="mapId" type="xsd:string" use="required"/>
+		<xsd:attribute name="layerAlias" type="xsd:string" use="required"/>
+	</xsd:complexType>
+</xsd:schema>
