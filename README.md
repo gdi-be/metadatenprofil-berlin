@@ -47,7 +47,7 @@ Formale Beschreibung des Inhaltsmodells und Anwendungsprofils einer bestimmten K
 Synonym: Sachdatensätze. Datensatzklasse im BROKER-Informationssystem, für welche ein eigenes Metadatenschema existiert.
 
 ##### Spatiale Karte
-Innerhalb der GDI-BE verwendete Bezeichnung für eine Datenbanktabellen mit räumlicher Information, welche über das Format [sld](https://en.wikipedia.org/wiki/Styled_Layer_Descriptor) durch die Mapserver-Komponente des BROKER-Informationssystems visualisiert wird.
+Innerhalb der GDI-BE verwendete Bezeichnung für eine Datenbanktabelle mit räumlicher Information, welche über das Format [sld](https://en.wikipedia.org/wiki/Styled_Layer_Descriptor) durch die Mapserver-Komponente des BROKER-Informationssystems visualisiert wird.
 
 ##### Webdienst
 Synonyme: Webservice, Dienst. Eindeutig identifizierbare und standardisierte Schnittstelle zum Abruf von Geodaten oder Metadaten über das http-Protokoll. In der GDI-BE kommen derzeit die durch das OGC spezifizierten Webdienste WMS, WFS und CSW zum Einsatz.
