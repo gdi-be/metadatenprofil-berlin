@@ -80,7 +80,7 @@
           <td class="mandatoryElement multiplicity-column">1..1</td>
           <td>xsd:string / BROKER|<u>ISO</u>|INSPIRE</td>
           <td>BROKER: wird bei der Themenzuordnung aus dem Datenbestand in die zugeordneten Broker-Metadatensätze übernommen.</td>
-          <td>Bitte Schreibweise beachten. Erfolgt keine Angabe, wird der Standardwert "ISO" angenommen. </td>
+          <td><b>## bleibt ggf. erhalten ##</b><br>Bitte Schreibweise beachten. Erfolgt keine Angabe, wird der Standardwert "ISO" angenommen. </td>
         </tr>
         <tr>
           <td></td>
@@ -116,7 +116,7 @@
           <td class="mandatoryElement multiplicity-column">1..1</td>
           <td>xsd:boolean / true|<u>false</u></td>
           <td></td>
-          <td></td>
+          <td><b>## bleibt ggf. erhalten ##</b><br></td>
         </tr>
         <tr>
           <td>Titel</td>
@@ -152,7 +152,7 @@
           <td class="mandatoryElement multiplicity-column">1..1</td>
           <td>xsd:string / yade|ogcmap|spatial</td>
           <td></td>
-          <td>siehe BE-Profil, Teil A Dokumentation, Kap. 2.3.1 </td>
+          <td><b>## bleibt ggf. erhalten als "Dienst-Server" ##</b><br>siehe BE-Profil, Teil A Dokumentation, Kap. 2.3.1 </td>
         </tr>
         <tr>
           <td>GIS-ServerName</td>
@@ -168,7 +168,7 @@
           <td class="mandatoryElement multiplicity-column">1..1</td>
           <td><a href="#map_GIS-ServerNameType">GIS-ServerNameType / MapService@senstadt| WMS-Adresse </a></td>
           <td></td>
-          <td>bleibt bei der Auswahl "spatiale Karte" (Code: spatial) leer </td>
+          <td><b>## bleibt ggf. erhalten als "Dienst-Server URL" ##</b><br>bleibt bei der Auswahl "spatiale Karte" (Code: spatial) leer </td>
         </tr>
         <tr>
           <td>DefaultCRS</td>
@@ -181,7 +181,7 @@
           <td class="mandatoryElement multiplicity-column">1..1</td>
           <td>xsd:string </td>
           <td>ISO: wird in den RS_Identifier/code [Zeile 207] der 19119 übernommen; Codierung wird angepasst: EPSG:25833 --&gt; http://www.opengis.net/def/crs/EPSG/0/25833</td>
-          <td></td>
+          <td><b>## bleibt ggf. erhalten als Line 188 in ISO: "default_CRS" ##</b><br></td>
         </tr>
         <tr>
           <td>Uebersichtskarte</td>
@@ -211,7 +211,7 @@
           <td class="multiplicity-column">K..1, alternativ zu Anfangsmaßstab</td>
           <td><a href="#map_AusdehnungType">AusdehnungType</a></td>
           <td></td>
-          <td>Erfolgt keine Angabe, wird auf die maximale Ausdehnung gezoomt - unter Berücksichtigung der in allen Kartenebenenen definierten Maßstabsbereiche. </td>
+          <td><b>## bleibt ggf. erhalten ##</b><br>Erfolgt keine Angabe, wird auf die maximale Ausdehnung gezoomt - unter Berücksichtigung der in allen Kartenebenenen definierten Maßstabsbereiche. </td>
         </tr>
         <tr>
           <td>Ausdehnung</td>
@@ -299,7 +299,7 @@
           <td class="multiplicity-column">0..1</td>
           <td>xsd:anyURI</td>
           <td></td>
-          <td></td>
+          <td><b>## bleibt ggf. erhalten als Line 34 in ISO: "specificUsage" ##</b><br></td>
         </tr>
         <tr>
           <td>InhaltlicheBeschreibung</td>
@@ -380,7 +380,7 @@
           <td class="multiplicity-column">0..*</td>
           <td><a href="#map_InhaltType">InhaltType</a></td>
           <td></td>
-          <td></td>
+          <td><b>## bleibt ggf. erhalten als Line 35.1 in ISO: "aggregationInfo" ##</b></td>
         </tr>
         <tr>
           <td>Veroeffentlichung</td>
@@ -390,7 +390,7 @@
           <td class="multiplicity-column">0..*</td>
           <td><a href="#map_InhaltType">InhaltType</a></td>
           <td></td>
-          <td></td>
+          <td><b>## bleibt ggf. erhalten ##</b></td>
         </tr>
         <tr>
           <td>Schlagwoerter</td>
@@ -1123,7 +1123,7 @@
           <td class="mandatoryElement multiplicity-column">1..1</td>
           <td>xsd:string</td>
           <td></td>
-          <td>bei der Aufnahme des Metadatensatzes ins Repository muss die MTK dort vorhanden sein. Die Angabe muss immer die entsprechende Domäne enthalten: none@senstadt, denkmal@senstadt</td>
+          <td><b>## bleibt ggf. erhalten als Line 35.1 in ISO 19115: "aggregationInfo" ##</b>bei der Aufnahme des Metadatensatzes ins Repository muss die MTK dort vorhanden sein. Die Angabe muss immer die entsprechende Domäne enthalten: none@senstadt, denkmal@senstadt</td>
         </tr>
         <tr>
           <td></td>
