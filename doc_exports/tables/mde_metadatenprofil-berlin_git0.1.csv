@@ -1,7 +1,4 @@
-Nummer [ID];Feldname [key];Anzeige-Titel  [label];Multiplizität;Art des Feldes;Typ;Rolle;Export zu ISO;Andere Wege;Funktionsweise;Codelisten und Vorbelegungen;"Hilfe
-Button";Kopier Button;"Übernahme
-Button";"Übernahme
-Button (Vorlage)";Löschen Button
+Nummer [ID];Feldname [key];Anzeige-Titel  [label];Multiplizität;Art des Feldes;Typ;Rolle;Export zu ISO;Andere Wege;Funktionsweise;Codelisten und Vorbelegungen;Hilfe-Button;Kopier-Button;Übernahme-Button;Übernahme-Button (Vorlage);Löschen Button
 Basisangaben;;;;;;;;;;;;;;;
 1;isoMetadata.title;Titel des Datenbestandes;1..1;Formularfeld;Freitextfeld (maximal 250 Zeichen);"DHS
 Redakteur";"ISO 24
