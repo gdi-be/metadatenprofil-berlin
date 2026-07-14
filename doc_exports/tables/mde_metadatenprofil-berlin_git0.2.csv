@@ -1,4 +1,4 @@
-﻿Nummer [ID];Feldname [key];Anzeige-Titel [label];Multiplizität;Art des Feldes;Typ;Rolle;Export zu ISO;Andere Wege;Funktionsweise;Codelisten und Vorbelegungen;Hilfe-Button;Kopier-Button;Übernahme-Button;Übernahme-Button (Vorlage);Löschen-Button
+Nummer [ID];Feldname [key];Anzeige-Titel [label];Multiplizität;Art des Feldes;Typ;Rolle;Export zu ISO;Andere Wege;Funktionsweise;Codelisten und Vorbelegungen;Hilfe-Button;Kopier-Button;Übernahme-Button;Übernahme-Button (Vorlage);Löschen-Button
 Basisangaben;;;;;;;;;;;;;;;
 1;isoMetadata.title;Titel des Datenbestandes;1..1;Formularfeld;Freitextfeld (maximal 250 Zeichen);DHS<br>Redakteur;ISO 24<br>(360 - title);;Der Titel des Datenbestandes muss im internen Metadatenkatalog eineindeutig sein. Das Formular verhindert durch Überprüfung eine Fehleingabe.<br>Ab 100 Zeichen wird die Zeichenanzeige rot eingefärbt.;;1;1;0;1;0
 2;isoMetadata.description;Kurzbeschreibung des Datenbestandes;1..1;Formularfeld;Freitextfeld (maximal 1250 Zeichen);DHS<br>Redakteur;ISO 25 (abstract);;Erfassen eines unformatierten Textes als Kurzbschreibung. Zeilenumbrüche sind zulässig.;;1;1;0;1;0
@@ -86,5 +86,3 @@ WFS;;;;;;;;;;;;;;;
 67;isoMetadata.services.featureTypes.columns.filterType;Attribut-Filter-Typ;0..1;deaktiviert;Auswahlliste;Redakteur;-;Geoportal;Optionales Erfassen des Attribut-Filtertyps für mögliche Oberflächenfilterfunktionen.<br>Vorrübergehend deaktiviert.;;1;1;0;0;0
 Sonstige;;;;;;;;;;;;;;;
 3;clientMetadata.comments;Kommentare;1..1;Kommentare-Button;Freitextfeld;DHS<br>Redakteur;-;intern;Erfassen von Kommentaren zur internen Kommunikation zwischen den verschiedenen Rollen.;;1;0;0;0;1
-;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;
