@@ -266,5 +266,3 @@ Vorrübergehend deaktiviert."		1	1	0	0	0
 Sonstige															
 3	clientMetadata.comments	Kommentare	1..1	Kommentare-Button	Freitextfeld	"DHS
 Redakteur"	-	intern	Erfassen von Kommentaren zur internen Kommunikation zwischen den verschiedenen Rollen.		1	0	0	0	1
-															
-															
