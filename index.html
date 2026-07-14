@@ -1,133 +1,71 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BE Metadata Profile/ISO</title>
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: Arial, sans-serif;
-      background: #f8f9fa;
-      overflow: hidden;
-    }
-
-    .container {
-      display: flex;
-      flex-direction: column;
-      height: 100vh;
-    }
-
-    /* Navigation Menu - Top */
-    .nav-menu {
-      background: white;
-      border-bottom: 1px solid #dee2e6;
-      padding: 15px 20px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-      display: flex;
-      align-items: center;
-      gap: 15px;
-      overflow-x: auto;
-      flex-shrink: 0;
-    }
-
-    .nav-menu h1 {
-      font-size: 1.2em;
-      color: #212529;
-      white-space: nowrap;
-      margin-right: 20px;
-    }
-
-    .menu-btn {
-      padding: 8px 16px;
-      background: #f8f9fa;
-      border: 1px solid #dee2e6;
-      border-radius: 4px;
-      color: #495057;
-      font-size: 0.9em;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      white-space: nowrap;
-    }
-
-    .menu-btn:hover {
-      background: #e7f3ff;
-      border-color: #0366d6;
-      color: #0366d6;
-    }
-
-    .menu-btn.active {
-      background: #0366d6;
-      border-color: #0366d6;
-      color: white;
-      font-weight: 600;
-    }
-
-    /* Content Area with iframe */
-    .content {
-      flex: 1;
-      overflow: hidden;
-    }
-
-    iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
-    }
-
-    /* Mobile Responsive */
-    @media (max-width: 768px) {
-      .nav-menu {
-        flex-wrap: nowrap;
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-      }
-
-      .nav-menu h1 {
-        font-size: 1em;
-      }
-
-      .menu-btn {
-        font-size: 0.85em;
-        padding: 6px 12px;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <title>Profil des Metadateneditors der GDI Berlin - Version 1.0</title>
+    <!-- Grid.js Themes & Stylesheets -->
+    <link href="https://unpkg.com" rel="stylesheet" />
+    <style>
+        body { font-family: sans-serif; padding: 20px; background: #f9f9f9; }
+        .container { max-width: 1200px; margin: 0 auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        h1 { color: #333; }
+        /* Sorgt dafür, dass LF-Zeilenumbrüche im Browser als echte Umbrüche gerendert werden */
+        .gridjs-td { white-space: pre-line !important; vertical-align: top !important; }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <nav class="nav-menu">
-      <h1>BE Metadata Profile/ISO</h1>
-      <button class="menu-btn" onclick="showTable('table-1.html')">ISO</button>
-      <button class="menu-btn" onclick="showTable('table-2.html')">Formular</button>
-    </nav>
 
-    <main class="content">
-      <iframe id="tableFrame" src="doc_exports/tables/table-1.html"></iframe>
-    </main>
-  </div>
+<div class="container">
+    <h1>Metadatenfelder des Metadateneditors</h1>
+    <div id="wrapper"></div>
+</div>
 
-  <script>
-    function showTable(filename) {
-      // Update iframe source
-      document.getElementById('tableFrame').src = 'doc_exports/tables/' + filename;
+<!-- Grid.js Bibliothek laden -->
+<script src="https://unpkg.com"></script>
+<script>
+    // HIER DEN NAMEN IHRER TSV-DATEI EINTRAGEN:
+    const tsvDatei = "mde_metadatenprofil-berlin_git0.1.tsv"; 
 
-      // Update active button
-      document.querySelectorAll('.menu-btn').forEach(btn => {
-        btn.classList.remove('active');
-      });
-      event.target.classList.add('active');
-    }
+    fetch(tsvDatei)
+        .then(response => response.text())
+        .then(text => {
+            // Trennung der Tabellenzeilen strikt nach CRLF (\r\n)
+            const rows = text.split(/\r\n/).filter(row => row.trim() !== "");
+            if (rows.length === 0) return;
 
-    // Mark first button as active on load
-    window.addEventListener('DOMContentLoaded', () => {
-      document.querySelectorAll('.menu-btn')[0].classList.add('active');
-    });
-  </script>
+            // Header (erste Zeile) extrahieren
+            const headers = rows[0].split("\t");
+
+            // Daten extrahieren und verarbeiten
+            const data = rows.slice(1).map(row => {
+                return row.split("\t").map(cell => {
+                    // Entfernt eventuelle überflüssige Leerzeichen, behält das LF aber bei
+                    return cell.trim();
+                });
+            });
+
+            // Tabelle initialisieren
+            new gridjs.Grid({
+                columns: headers,
+                data: data,
+                search: true, // Macht Ihre Tabelle durchsuchbar!
+                sort: true,   // Macht Spalten sortierbar
+                pagination: {
+                    limit: 10 // Zeigt 10 Zeilen pro Seite
+                },
+                language: {
+                    'search': { 'placeholder': 'Suchen...' },
+                    'pagination': {
+                        'previous': 'Zurück',
+                        'next': 'Weiter',
+                        'showing': 'Zeige',
+                        'results': () => 'Einträge'
+                    }
+                }
+            }).render(document.getElementById("wrapper"));
+        })
+        .catch(err => console.error("Fehler beim Laden der TSV-Datei:", err));
+</script>
+
 </body>
 </html>
