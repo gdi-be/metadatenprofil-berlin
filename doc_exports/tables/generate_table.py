@@ -3,7 +3,7 @@ import os
 
 def generate_html():
     # 1. YAML Datei einlesen
-    yaml_path = 'metadatenprofil.yaml'
+    yaml_path = 'mde_metadatenprofil-berlin_git0.1.yaml'
     if not os.path.exists(yaml_path):
         print(f"Datei {yaml_path} nicht gefunden.")
         return
