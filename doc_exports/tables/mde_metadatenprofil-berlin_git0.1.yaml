@@ -1,0 +1,1492 @@
+- section: "Basisangaben"
+  fields:
+    - id: 1
+      key: "isoMetadata.title"
+      label: "Titel des Datenbestandes"
+      multiplicity: "1..1"
+      field_type: "Formularfeld"
+      type: "Freitextfeld (maximal 250 Zeichen)"
+      role: "DHS / Redakteur"
+      iso_export: "ISO 24 / (360 - title)"
+      other_channels: ""
+      description: |
+        Der Titel des Datenbestandes muss im internen Metadatenkatalog eineindeutig sein. Das Formular verhindert durch Überprüfung eine Fehleingabe.
+        Ab 100 Zeichen wird die Zeichenanzeige rot eingefärbt.
+      codelists_defaults: ""
+      buttons:
+        help: true
+        copy: true
+        adopt: false
+        template: true
+        delete: false
+    - id: 2
+      key: "isoMetadata.description"
+      label: "Kurzbeschreibung des Datenbestandes"
+      multiplicity: "1..1"
+      field_type: "Formularfeld"
+      type: "Freitextfeld (maximal 1250 Zeichen)"
+      role: "DHS / Redakteur"
+      iso_export: "ISO 25 (abstract)"
+      other_channels: ""
+      description: |
+        Erfassen eines unformatierten Textes als Kurzbschreibung. Zeilenumbrüche sind zulässig.
+      codelists_defaults: ""
+      buttons:
+        help: true
+        copy: true
+        adopt: false
+        template: true
+        delete: false
+    - id: 15
+      key: "isoMetadata.keywords"
+      label: "Schlagwörter"
+      multiplicity: "1..*"
+      field_type: "Formularfeld"
+      type: "Vorbelegungen / Thesaurus / Freitextfeld"
+      role: "DHS / Redakteur"
+      iso_export: "ISO 53"
+      other_channels: "Geoserver"
+      description: |
+        Erfassen von thematischen Schlagwörtern über:
+        Thesaurus Umthes, Einzeleingabe, kommaseparierte Eingabe.
+        Übernahme in Datenbestands- und alle Dienst-Metadaten.
+        Alle bedingten Schlagwörter werden bei der ISO-Erzeugung automatisch gesetzt und werden in der Schlagwortliste ausgegraut angezeigt.
+      codelists_defaults: |
+        Umthes Thesaurus: https://sns.uba.de
+        
+        Vorbelegungen für GDI-BE: Karten, Geodaten, Berlin
+        Zusätzlich für Darstellungsdienste: Karten
+        Zusätzlich für Downloaddienste: Sachdaten
+        
+        Vorbelegungen für GDI-DE:
+        Für offene NB: opendata, open data
+        Für INSPIRE Daten: inspireidentifiziert
+      buttons:
+        help: true
+        copy: true
+        adopt: false
+        template: true
+        delete: false
+    - id: 29
+      key: "isoMetadata.preview"
+      label: "Vorschaubild"
+      multiplicity: "1..1"
+      field_type: "Formularfeld"
+      type: "URL"
+      role: "DHS / Redakteur"
+      iso_export: "ISO 31 / (ISO 48-51)"
+      other_channels: ""
+      description: |
+        Erfassen einer URL auf eine im Internet aufrufbare Vorschaugrafik.
+      codelists_defaults: ""
+      buttons:
+        help: true
+        copy: true
+        adopt: false
+        template: true
+        delete: false
+    - id: 19
+      key: "isoMetadata.pointsOfContact"
+      label: "Kontaktangaben"
+      multiplicity: "1..*"
+      field_type: "Bereich"
+      type: "Inkrement"
+      role: "DHS / Redakteur"
+      iso_export: "ISO 29 / ISO 379 - role"
+      other_channels: ""
+      description: |
+        Ein Kontakt ist mindestens auszufüllen. Die Anzahl kann über den Plus-Button erhöht werden.
+        Beim Erzeugen von ISO-MD wird die Art des Kontaktes automatisiert auf "pointOfContact" in ISO-Feld 379 gesetzt.
+        Kontaktangaben des angemeldeten Nutzenden können per Übernahme-Button aus dem angebundenen AD-Userverzeichnis in eine neue Kontaktangabe übernommen werden und angepasst werden.
+      codelists_defaults: |
+        Vorbelegung für Metadatenkontaktangabe aller Metadaten:
+        https://github.com/gdi-be/mde-deployment/blob/main/codelists/contact.yaml
+        
+        Vorbelegung ISO 379: pointOfContact
+      buttons:
+        help: true
+        copy: false
+        adopt: true
+        template: true
+        delete: true
+    - id: 20
+      key: "isoMetadata.pointsOfContact.name"
+      label: "Name"
+      multiplicity: "1..1"
+      field_type: "Formularfeld"
+      type: "AD-Suchfeld / Freitextfeld"
+      role: "DHS / Redakteur"
+      iso_export: "ISO 375"
+      other_channels: ""
+      description: "Erfassen eines Kontaktnamens."
+      codelists_defaults: ""
+      buttons:
+        help: false
+        copy: true
+        adopt: false
+        template: false
+        delete: false
+    - id: 21
+      key: "isoMetadata.pointsOfContact.organisation"
+      label: "Organisation"
+      multiplicity: "1..1"
+      field_type: "Formularfeld"
+      type: "AD-Suchfeld / Freitextfeld"
+      role: "DHS / Redakteur"
+      iso_export: "ISO 376"
+      other_channels: ""
+      description: "Erfassen einer Kontaktorganisation."
+      codelists_defaults: ""
+      buttons:
+        help: false
+        copy: true
+        adopt: false
+        template: false
+        delete: false
+    - id: 22
+      key: "isoMetadata.pointsOfContact.phone"
+      label: "Telefonnummer"
+      multiplicity: "1..1"
+      field_type: "Formularfeld"
+      type: "AD-Suchfeld / Freitextfeld"
+      role: "DHS / Redakteur"
+      iso_export: "ISO 388"
+      other_channels: ""
+      description: "Erfassen einer Kontakttelefonnummer."
+      codelists_defaults: ""
+      buttons:
+        help: false
+        copy: true
+        adopt: false
+        template: false
+        delete: false
+    - id: 23
+      key: "isoMetadata.pointsOfContact.email"
+      label: "E-Mailadresse"
+      multiplicity: "1..1"
+      field_type: "Formularfeld"
+      type: "AD-Suchfeld / Freitextfeld"
+      role: "DHS / Redakteur"
+      iso_export: "ISO 386"
+      other_channels: ""
+      description: "Erfassen einer gültigen Kontakt-Emailadresse."
+      codelists_defaults: ""
+      buttons:
+        help: false
+        copy: true
+        adopt: false
+        template: false
+        delete: false
+- section: "Einordnung"
+  fields:
+    - id: 5
+      key: "isoMetadata.metadataProfile"
+      label: "Metadaten-Typ"
+      multiplicity: "1..1"
+      field_type: "Formularfeld"
+      type: "Auswahlliste"
+      role: "DHS / Redakteur"
+      iso_export: "-"
+      other_channels: ""
+      description: |
+        Auswahl der entsprechenden INSPIRE Relevanz. Entsprechend werden abhängige Metadatenfelder angezeigt oder nicht. Ebenso werden bei der ISO-Erzeugung entsprechende Templates und Erzegungsregeln angewandt.
+        Beim ändern des INSPIRE-Typs zu ISO sollen die zusätzlichen Felder dennoch gespeichert bleiben, sie tauchen im Formular aber nicht mehr auf und werden bei der ISO-Erzeugung nicht berücksichtigt.
+      codelists_defaults: |
+        Codeliste:
+        - ISO
+        - INSPIRE identifiziert
+        - INSPIRE harmonisiert
+      buttons:
+        help: true
+        copy: true
+        adopt: false
+        template: true
+        delete: false
+    - id: 7
+      key: "isoMetadata.inspireTheme"
+      label: "INSPIRE Annex Thema"
+      multiplicity: "K..1"
+      field_type: "Formularfeld"
+      type: "Auswahlliste"
+      role: "DHS / Redakteur"
+      iso_export: "ISO 53"
+      other_channels: "Geoserver"
+      description: |
+        Konditionales Feld: Es wird nur angezeigt, wenn Metadatentyp "INSPIRE-harmonisiert" oder "INSPIRE-identifiziert" ausgewählt wurde.
+        Mehrfachauswahl möglich, wenn Typ = INSPIRE identifiziert. Wenn Typ = INSPIRE harmonisiert, dann kann nur ein Thema ausgewählt werden. 
+        Das Feld bedingt automatische Vorbelegungen bzw. INSPIRE spezifische Auswahllisten in weiteren Formularfeldern und bei der ISO-Erzeugung.
+      codelists_defaults: "https://inspire.ec.europa.eu/theme/theme.de.xml"
+      buttons:
+        help: true
+        copy: true
+        adopt: false
+        template: true
+        delete: false
+    - id: 70
+      key: "isoMetadata.inspireFormatName"
+      label: "Schema-Name des INSPIRE Themas"
+      multiplicity: "K..1"
+      field_type: "Formularfeld"
+      type: "Auswahlliste"
+      role: "Redakteur"
+      iso_export: "ISO 270 / (ISO 285)"
+      other_channels: ""
+      description: |
+        Konditionales Feld, wird nur angezeigt, wenn Metadatentyp "INSPIRE-harmonisiert" ausgewählt wurde.
+        Auswahl der aus dem Annex-Thema zugehörigen Schemata.
+      codelists_defaults: |
+        https://inspire.ec.europa.eu/applicationschema/applicationschema.de.xml
+      buttons:
+        help: true
+        copy: true
+        adopt: false
+        template: true
+        delete: false
+    - id: 38
+      key: "isoMetadata.inspireAnnexVersion"
+      label: "Schema-Version des INSPIRE Themas"
+      multiplicity: "K..1"
+      field_type: "Formularfeld"
+      type: "Freitextfeld"
+      role: "Redakteur"
+      iso_export: "ISO 270 / (ISO 286)"
+      other_channels: ""
+      description: |
+        Konditionales Feld, wird nur angezeigt, wenn Metadatentyp "INSPIRE-harmonisiert" ausgewählt wurde.
+        Eintragen der INSPIRE-Annex-Schema Version in ein Freitextfeld. Alle anderen Metadaten-Typen bekommen an dieser Stelle eine automatische Vorbelegung.
+      codelists_defaults: |
+        https://inspire.ec.europa.eu/applicationschema/applicationschema.de.xml
+      buttons:
+        help: true
+        copy: true
+        adopt: false
+        template: true
+        delete: false
+    - id: 37
+      key: "isoMetadata.valid"
+      label: "Überprüfung des Qualitätsberichts"
+      multiplicity: "K..1"
+      field_type: "Formularfeld"
+      type: "Entscheidung J/N"
+      role: "Redakteur"
+      iso_export: "ISO 107 / (ISO 128-132)"
+      other_channels: ""
+      description: |
+        Konditionales Feld, wird nur angezeigt, wenn Metadatentyp "INSPIRE-harmonisiert" ausgewählt wurde.
+      codelists_defaults: ""
+      buttons:
+        help: true
+        copy: true
+        adopt: false
+        template: true
+        delete: false
+    - id: 4
+      key: "isoMetadata.privacy"
+      label: "Datenschutz-Einstellungen"
+      multiplicity: "1..1"
+      field_type: "Formularfeld"
+      type: "Auswahlliste"
+      role: "DHS / Redakteur"
+      iso_export: "-"
+      other_channels: "Gateway"
+      description: |
+        Die Auswahl aus der Liste bedingt die Vorbelegung der Nutzungsbestimmungen:
+        Wird "Nicht Datenschut relevant" ausgewählt, so wird bei den NB die codeliste "terms_of_use.yaml" angezeigt.
+        Wird ein anderer Datenschutz ausgewählt, wird bei den NB die codeliste "terms_of_use_on_privacy.yaml" angezeigt.
+      codelists_defaults: |
+        https://github.com/gdi-be/mde-deployment/blob/main/codelists/privacy.yaml
+      buttons:
+        help: true
+        copy: true
+        adopt: false
+        template: true
+        delete: false
+    - id: 25
+      key: "isoMetadata.termsOfUseId"
+      label: "Nutzungsbestimmungen"
+      multiplicity: "1..1"
+      field_type: "Formularfeld"
+      type: "Auswahlliste"
+      role: "DHS / Redakteur"
+      iso_export: "ISO 20 / (ISO 67-72)"
+      other_channels: ""
+      description: |
+        Auswahlliste ist abhängig vom ausgewählten Datenschutz:
+        Wird "Nicht Datenschut relevant" ausgewählt, so wird bei den NB die codeliste "terms_of_use.yaml" angezeigt. Vorbelegung mit "Datenlizenz Deutschland Zero 2.0".
+        Wird ein anderer Datenschutz ausgewählt, wird bei den NB die codeliste "terms_of_use_on_privacy.yaml" angezeigt. Vorbelegung mit "Dienstgebrauch".
+      codelists_defaults: |
+        https://github.com/gdi-be/mde-deployment/blob/main/codelists/terms_of_use.yaml
+        
+        https://github.com/gdi-be/mde-deployment/blob/main/codelists/terms_of_use_on_privacy.yaml
+      buttons:
+        help: true
+        copy: true
+        adopt: false
+        template: true
+        delete: false
+    - id: 26
+      key: "isoMetadata.termsOfUseSource"
+      label: "Quellenangabe"
+      multiplicity: "k..1"
+      field_type: "Formularfeld"
+      type: "Freitextfeld"
+      role: "DHS / Redakteur"
+      iso_export: "ISO 20 / (ISO 67-72)"
+      other_channels: ""
+      description: |
+        Konditionales Feld. Es erscheint nur, wenn die NB 2, 3 oder 4 der  "terms_of_use.yaml" ausgewählt wurde. Die NB 1 brauch keine Quellenangabe. Erfassen der anzugebenden Quelle. Diese wird bei der ISO-Erzeugung als Variable in die JSON-Notation und in den Text der Nutzungsbestimmungen übernommen.
+      codelists_defaults: ""
+      buttons:
+        help: true
+        copy: true
+        adopt: false
+        template: true
+        delete: false
+    - id: 6
+      key: "isoMetadata.highValueDataset"
+      label: "High Value Datensatz"
+      multiplicity: "1..1"
+      field_type: "Bereich"
+      type: "Entscheidung J/N"
+      role: "DHS / Redakteur"
+      iso_export: "-"
+      other_channels: ""
+      description: |
+        Ein "ja" bedingt das Eintragen der HVD-Kategorie in die ISO-Metadaten. Ebenso muss bei "ja" das Feld HVD-Kategorie ausgefüllt werden.
+      codelists_defaults: ""
+      buttons:
+        help: true
+        copy: true
+        adopt: false
+        template: true
+        delete: false
+    - id: 8
+      key: "isoMetadata.highValueDataCategory"
+      label: "HVD Kategorien"
+      multiplicity: "K..1"
+      field_type: "Formularfeld"
+      type: "Auswahlliste"
+      role: "DHS / Redakteur"
+      iso_export: "ISO 53"
+      other_channels: ""
+      description: |
+        Auswahlliste von HVD-Kategorien, wenn HVD-Betroffenheit vorliegt. Mehrfachauswahl möglich. Keine Automatische Vorbelegung.
+      codelists_defaults: "http://data.europa.eu/bna/asd487ae75"
+      buttons:
+        help: false
+        copy: false
+        adopt: false
+        template: false
+        delete: false
+    - id: 13
+      key: "isoMetadata.topicCategory"
+      label: "Themenkategorie"
+      multiplicity: "1..1"
+      field_type: "Formularfeld"
+      type: "Auswahlliste"
+      role: "Redakteur"
+      iso_export: "ISO 41"
+      other_channels: "Geoportal"
+      description: |
+        Wenn oben ein INSPIRE Thema ausgewählt wurde, wird die Auswahlliste entsprechend der Zuordnungstabelle der GDI-DE vorausgefüllt. Wenn nicht, kann aus der Auswahlliste ein Eintrag frei ausgewählt werden.
+      codelists_defaults: |
+        ISO-Codelist: https://standards.iso.org/iso/19139/resources/gmxCodelists.xml#MD_KeywordTypeCode
+        
+        Zuordnungstabelle zu INSPIRE-Thema: https://www.gdi-de.org/download/AK_Metadaten_Konventionen_zu_Metadaten.pdf#page=85
+      buttons:
+        help: true
+        copy: true
+        adopt: false
+        template: true
+        delete: false
+- section: "Zeitliche und Räumliche Angaben"
+  fields:
+    - id: 9
+      key: "isoMetadata.created"
+      label: "Erstellungsdatum"
+      multiplicity: "0..1"
+      field_type: "Formularfeld"
+      type: "Datumsauswahl"
+      role: "DHS / Redakteur"
+      iso_export: "ISO 24 / (394 - date, / 395 - dateType)"
+      other_channels: ""
+      description: |
+        Optionales Feld. Erfassen einer Datumsangabe, freihändig oder über eine Kalenderauswahl.
+        Übernahme der Angabe in alle zugehörigen Dienstmetadaten.
+      codelists_defaults: ""
+      buttons:
+        help: true
+        copy: true
+        adopt: false
+        template: true
+        delete: false
+    - id: 10
+      key: "isoMetadata.published"
+      label: "Veröffentlichungsdatum"
+      multiplicity: "1..1"
+      field_type: "Formularfeld"
+      type: "Datumsauswahl"
+      role: "DHS / Redakteur"
+      iso_export: "ISO 24 / (394 - date, / 395 - dateType)"
+      other_channels: ""
+      description: |
+        Optionales Feld. Erfassen einer Datumsangabe, freihändig oder über eine Kalenderauswahl.
+        Übernahme der Angabe in alle zugehörigen Dienstmetadaten.
+      codelists_defaults: ""
+      buttons:
+        help: true
+        copy: true
+        adopt: false
+        template: true
+        delete: false
+    - id: 14
+      key: "isoMetadata.maintenanceFrequency"
+      label: "Pflegeintervall"
+      multiplicity: "1..1"
+      field_type: "Formularfeld"
+      type: "Auswahlliste"
+      role: "DHS / Redakteur"
+      iso_export: "ISO 143"
+      other_channels: ""
+      description: |
+        Erfassen des Pflegeintervalls über  eine Auswahlliste auf Basis der ISO-Codeliste.
+        Übernahme der Angabe in alle zugehörigen Dienstmetadaten.
+      codelists_defaults: |
+        Codeliste: https://standards.iso.org/iso/19139/resources/gmxCodelists.xml
+        
+        Vorbelegung: asNeeded
+      buttons:
+        help: true
+        copy: true
+        adopt: false
+        template: true
+        delete: false
+    - id: 11
+      key: "isoMetadata.modified"
+      label: "letzte Aktualisierung"
+      multiplicity: "0..1"
+      field_type: "Formularfeld"
+      type: "Datumsauswahl"
+      role: "DHS / Redakteur"
+      iso_export: "ISO 24 / (394 - date, / 395 - dateType)"
+      other_channels: ""
+      description: |
+        Optionales Feld. Erfassen einer Datumsangabe, freihändig oder über eine Kalenderauswahl.
+        Übernahme der Angabe in alle zugehörigen Dienstmetadaten.
+      codelists_defaults: ""
+      buttons:
+        help: true
+        copy: true
+        adopt: false
+        template: true
+        delete: false
+    - id: -
+      key: "-"
+      label: "Gültigkeitszeitraum"
+      multiplicity: "0..1"
+      field_type: "Bereich"
+      type: "Überschrift"
+      role: "DHS / Redakteur"
+      iso_export: "-"
+      other_channels: ""
+      description: |
+        Optionales Feld. Erfassen eines Anfang- und eines Enddatums, freihändig oder über eine Kalenderauswahl.
+        Übernahme der Angabe in alle zugehörigen Dienstmetadaten.
+      codelists_defaults: ""
+      buttons:
+        help: true
+        copy: true
+        adopt: false
+        template: true
+        delete: false
+    - id: 12
+      key: "isoMetadata.validFrom"
+      label: "gültig ab"
+      multiplicity: "1..1"
+      field_type: "Formularfeld"
+      type: "Datumsauswahl"
+      role: "DHS / Redakteur"
+      iso_export: "ISO 45 / (ISO 351 - extent)"
+      other_channels: ""
+      description: |
+        Optionales Feld. Erfassen eines Anfangsdatums, freihändig oder über eine Kalenderauswahl.
+        Übernahme der Angabe in alle zugehörigen Dienstmetadaten.
+      codelists_defaults: ""
+      buttons:
+        help: false
+        copy: false
+        adopt: false
+        template: false
+        delete: false
+    - id: 24
+      key: "isoMetadata.validTo"
+      label: "gültig bis"
+      multiplicity: "1..1"
+      field_type: "Formularfeld"
+      type: "Datumsauswahl"
+      role: "DHS / Redakteur"
+      iso_export: "ISO 45 / (ISO 351 - extent)"
+      other_channels: ""
+      description: |
+        Optionales Feld. Erfassen eines Enddatums, freihändig oder über eine Kalenderauswahl.
+        Übernahme der Angabe in alle zugehörigen Dienstmetadaten.
+      codelists_defaults: ""
+      buttons:
+        help: false
+        copy: false
+        adopt: false
+        template: false
+        delete: false
+    - id: 16
+      key: "technicalMetadata.deliveredCrs"
+      label: "geliefertes Koordinatensystem"
+      multiplicity: "0..1"
+      field_type: "Formularfeld"
+      type: "Freitextfeld"
+      role: "DHS / Redakteur"
+      iso_export: "-"
+      other_channels: "intern"
+      description: "Erfassen des gelieferten CRS in einem Freitextfeld."
+      codelists_defaults: "Vorbelegung: 25833"
+      buttons:
+        help: true
+        copy: true
+        adopt: false
+        template: true
+        delete: false
+    - id: 17
+      key: "isoMetadata.crs"
+      label: "abzugebendes Koordinatensystem"
+      multiplicity: "1..1"
+      field_type: "Formularfeld"
+      type: "Auswahlliste"
+      role: "Redakteur"
+      iso_export: "ISO 13 / (ISO 186 - referenceSystemIdentifier)"
+      other_channels: ""
+      description: |
+        Erfassen des CRS über eine Auswahlliste in dem die Daten in der sekundären Datenhaltung vorliegen und über Dienste abgegeben werden.
+      codelists_defaults: |
+        https://github.com/gdi-be/mde-deployment/blob/main/codelists/crs.yaml
+        
+        Vorbelegung: 25833
+      buttons:
+        help: true
+        copy: true
+        adopt: false
+        template: true
+        delete: false
+    - id: 18
+      key: "isoMetadata.extent"
+      label: "Räumliche Ausdehnung"
+      multiplicity: "1..1"
+      field_type: "Bereich"
+      type: "Überschrift"
+      role: "Redakteur"
+      iso_export: "-"
+      other_channels: ""
+      description: |
+        Erfassen der Ausdehnung des Datensatzes. Vorlagen sind für Berlin und Brandenburg über Buttons auswählbar. Freie Eingabe von Koordinaten im ausgewählten CRS möglich. 
+        Übernahme der Angabe in alle zugehörigen Dienstmetadaten.
+        Bedingt die Angabe des Regionalschlüssels bei der ISO-Erzeugung bei Auswahl der Vorlage Berlin.
+      codelists_defaults: |
+        https://github.com/gdi-be/mde-deployment/blob/main/codelists/extents.yaml
+      buttons:
+        help: true
+        copy: false
+        adopt: false
+        template: true
+        delete: false
+    - id: 71
+      key: "isoMetadata.extent.minx"
+      label: "Minimaler X-Wert"
+      multiplicity: "1..1"
+      field_type: "Formularfeld"
+      type: "Gleitkommazahl"
+      role: "Redakteur"
+      iso_export: "ISO 45 / (ISO 346)"
+      other_channels: ""
+      description: |
+        Freie Eingabe von Koordinaten im ausgewählten CRS möglich. 
+        Übernahme der Angabe in alle zugehörigen Dienstmetadaten.
+      codelists_defaults: ""
+      buttons:
+        help: false
+        copy: false
+        adopt: false
+        template: false
+        delete: false
+    - id: 72
+      key: "isoMetadata.extent.maxx"
+      label: "Maximaler X-Wert"
+      multiplicity: "1..1"
+      field_type: "Formularfeld"
+      type: "Gleitkommazahl"
+      role: "Redakteur"
+      iso_export: "ISO 45 / (ISO 347)"
+      other_channels: ""
+      description: |
+        Freie Eingabe von Koordinaten im ausgewählten CRS möglich. 
+        Übernahme der Angabe in alle zugehörigen Dienstmetadaten.
+      codelists_defaults: ""
+      buttons:
+        help: false
+        copy: false
+        adopt: false
+        template: false
+        delete: false
+    - id: 73
+      key: "isoMetadata.extent.miny"
+      label: "Minimaler Y-Wert"
+      multiplicity: "1..1"
+      field_type: "Formularfeld"
+      type: "Gleitkommazahl"
+      role: "Redakteur"
+      iso_export: "ISO 45 / (ISO 344)"
+      other_channels: ""
+      description: |
+        Freie Eingabe von Koordinaten im ausgewählten CRS möglich. 
+        Übernahme der Angabe in alle zugehörigen Dienstmetadaten.
+      codelists_defaults: ""
+      buttons:
+        help: false
+        copy: false
+        adopt: false
+        template: false
+        delete: false
+    - id: 74
+      key: "isoMetadata.extent.maxy"
+      label: "Maximaler Y-Wert"
+      multiplicity: "1..1"
+      field_type: "Formularfeld"
+      type: "Gleitkommazahl"
+      role: "Redakteur"
+      iso_export: "ISO 45 / (ISO 345)"
+      other_channels: ""
+      description: |
+        Freie Eingabe von Koordinaten im ausgewählten CRS möglich. 
+        Übernahme der Angabe in alle zugehörigen Dienstmetadaten.
+      codelists_defaults: ""
+      buttons:
+        help: false
+        copy: false
+        adopt: false
+        template: false
+        delete: false
+    - id: -
+      key: "-"
+      label: "Räumliche Auflösung"
+      multiplicity: "1..1"
+      field_type: "Bereich"
+      type: "Entscheidung"
+      role: "DHS / Redakteur"
+      iso_export: ""
+      other_channels: ""
+      description: |
+        Erfassen, ob Vergleichsmaßstab oder Bodenauflösung verpflichtend auszufüllen ist.
+      codelists_defaults: ""
+      buttons:
+        help: true
+        copy: true
+        adopt: false
+        template: true
+        delete: false
+    - id: 27
+      key: "isoMetadata.scale"
+      label: "Vergleichsmaßstab"
+      multiplicity: "k..1"
+      field_type: "Formularfeld"
+      type: "Ganze Zahl"
+      role: "DHS / Redakteur"
+      iso_export: "ISO 38 / (ISO 57)"
+      other_channels: ""
+      description: |
+        Konditionales Feld, Verpflichtung und Anzeige im Formular ist abhängig von der Auswahl unter "Auflösung".
+      codelists_defaults: ""
+      buttons:
+        help: false
+        copy: false
+        adopt: false
+        template: false
+        delete: false
+    - id: 28
+      key: "isoMetadata.resolutions"
+      label: "Bodenauflösung"
+      multiplicity: "k..1"
+      field_type: "Formularfeld"
+      type: "Gleitkommazahl"
+      role: "DHS / Redakteur"
+      iso_export: "ISO 38 / (ISO 61)"
+      other_channels: ""
+      description: |
+        Konditionales Feld, Verpflichtung und Anzeige im Formular ist abhängig von der Auswahl unter "Auflösung".
+      codelists_defaults: ""
+      buttons:
+        help: false
+        copy: false
+        adopt: false
+        template: false
+        delete: false
+    - id: 39
+      key: "isoMetadata.spatialRepresentationTypes"
+      label: "Räumliche Darstellungsart"
+      multiplicity: "1..1"
+      field_type: "Formularfeld"
+      type: "Auswahlliste"
+      role: "Redakteur"
+      iso_export: "ISO 37"
+      other_channels: ""
+      description: |
+        Erfassen der Darstellungsart durch Auswahl aus einer ISO-basierten Auswahlliste.
+      codelists_defaults: "Codeliste ISO 19115: B.5.26 MD_SpatialRepresentationTypeCode"
+      buttons:
+        help: true
+        copy: true
+        adopt: false
+        template: true
+        delete: false
+- section: "Weitere Angaben"
+  fields:
+    - id: 30
+      key: "isoMetadata.contentDescription"
+      label: "Inhaltliche Beschreibung"
+      multiplicity: "0..1"
+      field_type: "Formularfeld"
+      type: "URL"
+      role: "DHS / Redakteur"
+      iso_export: "ISO 283 / (ISO 396-402)"
+      other_channels: ""
+      description: |
+        Optionales Erfassen einer URL auf ein PDF-Dokument.
+        Die URL auf diese Ressource wird unter transfer-Options mit dem Code "information" und der Beschreibung "Inhaltliche Beschreibung" verlinkt.
+      codelists_defaults: |
+        Vorbelegung ISO 401 - description: "Inhaltliche Beschreibung"
+        
+        Vorbelegung ISO 402 - function: "information"
+      buttons:
+        help: true
+        copy: true
+        adopt: false
+        template: true
+        delete: false
+    - id: 31
+      key: "isoMetadata.technicalDescription"
+      label: "Technische Beschreibung"
+      multiplicity: "0..1"
+      field_type: "Formularfeld"
+      type: "URL"
+      role: "DHS / Redakteur"
+      iso_export: "ISO 283 / (ISO 396-402)"
+      other_channels: ""
+      description: |
+        Optionales Erfassen einer URL auf ein PDF-Dokument.
+        Die URL auf diese Ressource wird unter transfer-Options mit dem Code "information" und der Beschreibung "Technische Beschreibung" verlinkt.
+      codelists_defaults: |
+        Vorbelegung ISO 401 - description: "Technische Beschreibung"
+        
+        Vorbelegung ISO 402 - function: "information"
+      buttons:
+        help: true
+        copy: true
+        adopt: false
+        template: true
+        delete: false
+    - id: 32
+      key: "isoMetadata.lineage"
+      label: "Herkunft der Daten"
+      multiplicity: "0..*"
+      field_type: "Bereich"
+      type: "Inkrement"
+      role: "DHS / Redakteur"
+      iso_export: "entweder ISO 83 - statement / oder ISO 96 - sourceCitation"
+      other_channels: ""
+      description: |
+        Optionales Erfassen von keiner, einer oder mehreren Datengrundlagen.
+      codelists_defaults: ""
+      buttons:
+        help: true
+        copy: false
+        adopt: false
+        template: true
+        delete: true
+    - id: 33
+      key: "isoMetadata.lineage.title"
+      label: "Titel"
+      multiplicity: "k..1"
+      field_type: "Formularfeld"
+      type: "Freitextfeld/ Suchfeld/ Vorschlagsliste"
+      role: "DHS / Redakteur"
+      iso_export: "ISO 96 / 360 - title"
+      other_channels: ""
+      description: |
+        Konditionales Feld in Abhängigkeit vom Feld Datengrundlage. Erfassen eines Datengrundlagen-Titels als Freitext oder Suchen und Übernahme eines Datenbestand-Titels aus dem bestehenden Katalog mittels Auswahl aus einer Vorschlagsliste. Die Übernahme wird nicht automatisch aktualisiert, wenn sich der eingetragene Datenbestand verändert.
+      codelists_defaults: ""
+      buttons:
+        help: false
+        copy: true
+        adopt: false
+        template: false
+        delete: false
+    - id: 34
+      key: "isoMetadata.lineage.date"
+      label: "Datum der Veröffentlichung"
+      multiplicity: "k..1"
+      field_type: "Formularfeld"
+      type: "Datumsauswahl"
+      role: "DHS / Redakteur"
+      iso_export: "ISO 96 / 362 - date"
+      other_channels: ""
+      description: |
+        Konditionales Feld in Abhängigkeit vom Feld Datengrundlage. Erfassen des Datums der Veröffentlichung einer Datengrundlage. Wird bei Auswahl eines Datenbestandes aus dem eigenen Katalog automatisch übernommen. Die Übernahme wird nicht automatisch aktualisiert, wenn sich der eingetragene Datenbestand verändert.
+      codelists_defaults: ""
+      buttons:
+        help: false
+        copy: true
+        adopt: false
+        template: false
+        delete: false
+    - id: 35
+      key: "isoMetadata.lineage.identifier"
+      label: "Identifier"
+      multiplicity: "k..1"
+      field_type: "Formularfeld"
+      type: "URL mit Identifier"
+      role: "DHS / Redakteur"
+      iso_export: "ISO 96 / 365 - identifier"
+      other_channels: ""
+      description: |
+        Konditionales Feld in Abhängigkeit vom Feld Datengrundlage. Erfassen des Identifiers bzw. eines eindeutigen Ressourcenaufrufs einer Datengrundlage. Wird bei Auswahl eines Datenbestandes aus dem eigenen Katalog automatisch übernommen bzw. erzeugt. Die Übernahme wird nicht automatisch aktualisiert, wenn sich der eingetragene Datenbestand verändert.
+      codelists_defaults: |
+        Vorbelegung für Präfix des Identifiers unter "registry": https://github.com/gdi-be/mde-deployment/blob/main/codelists/metadatavariables.yaml
+      buttons:
+        help: false
+        copy: true
+        adopt: false
+        template: false
+        delete: false
+    - id: 36
+      key: "clientMetadata.relatedTopics"
+      label: "Verwandte Themen (MTK)"
+      multiplicity: "0..1"
+      field_type: "Leseansicht"
+      type: "Freitextfeld"
+      role: "Redakteur"
+      iso_export: "-"
+      other_channels: "intern"
+      description: |
+        Keine Erfassung im Formular möglich. Anzeige nur in der Leseansicht.
+      codelists_defaults: ""
+      buttons:
+        help: false
+        copy: false
+        adopt: false
+        template: false
+        delete: false
+    - id: 41
+      key: "isoMetadata.contentDescriptions"
+      label: "Weitere Informationen"
+      multiplicity: "0..*"
+      field_type: "Bereich"
+      type: "Inkrement"
+      role: "DHS / Redakteur"
+      iso_export: "ISO 283"
+      other_channels: ""
+      description: |
+        Optionales Erfassen von keinem, einem oder mehreren Verweisen auf weitere Quellen zu dem Datenbestand.
+      codelists_defaults: ""
+      buttons:
+        help: true
+        copy: false
+        adopt: false
+        template: true
+        delete: true
+    - id: 42
+      key: "isoMetadata.contentDescriptions.title"
+      label: "Titel"
+      multiplicity: "0..1"
+      field_type: "Formularfeld"
+      type: "Freitext"
+      role: "DHS / Redakteur"
+      iso_export: "ISO 401"
+      other_channels: ""
+      description: "Erfassen eines Quellen-Titels als Freitext."
+      codelists_defaults: ""
+      buttons:
+        help: false
+        copy: true
+        adopt: false
+        template: false
+        delete: false
+    - id: 43
+      key: "isoMetadata.contentDescriptions.code"
+      label: "Code"
+      multiplicity: "0..1"
+      field_type: "Formularfeld"
+      type: "Auswahlliste"
+      role: "DHS / Redakteur"
+      iso_export: "ISO 402"
+      other_channels: ""
+      description: |
+        Erfassen der Funktion der angebebenen Quelle aus der ISO-Code-Auswahlliste.
+      codelists_defaults: "Codeliste ISO 19115: B.5.3 CI_OnLineFunctionCode"
+      buttons:
+        help: false
+        copy: true
+        adopt: false
+        template: false
+        delete: false
+    - id: 44
+      key: "isoMetadata.contentDescriptions.url"
+      label: "URL"
+      multiplicity: "0..1"
+      field_type: "Formularfeld"
+      type: "URL"
+      role: "DHS / Redakteur"
+      iso_export: "ISO 397"
+      other_channels: ""
+      description: "Erfassen einer validen URL auf eine bestehende Ressource."
+      codelists_defaults: ""
+      buttons:
+        help: false
+        copy: true
+        adopt: false
+        template: false
+        delete: false
+- section: "Dienste"
+  fields:
+    - id: 40
+      key: "isoMetadata.services"
+      label: "+"
+      multiplicity: "0..*"
+      field_type: "Bereich"
+      type: "Inkrement"
+      role: "DHS / Redakteur"
+      iso_export: "-"
+      other_channels: "Geoserver"
+      description: |
+        Optionales Erfassen von keinem, einem oder mehreren Diensten des Datenbestandes.
+      codelists_defaults: ""
+      buttons:
+        help: false
+        copy: false
+        adopt: false
+        template: false
+        delete: true
+    - id: 58
+      key: "isoMetadata.services.type"
+      label: "Dienst-Typ"
+      multiplicity: "1..1"
+      field_type: "Formularfeld"
+      type: "Auswahlliste"
+      role: "DHS / Redakteur"
+      iso_export: "-"
+      other_channels: "Geoserver"
+      description: "Erfassen des Dienste-Typs."
+      codelists_defaults: |
+        Codeliste: 
+        WMS, WMTS, WFS, ATOM
+      buttons:
+        help: true
+        copy: true
+        adopt: false
+        template: false
+        delete: false
+    - id: 59
+      key: "isoMetadata.services.title"
+      label: "Titel des Dienstes"
+      multiplicity: "1..1"
+      field_type: "Formularfeld"
+      type: "Freitext (max 250 Zeichen)"
+      role: "DHS / Redakteur"
+      iso_export: "ISO 24 / (360 - title)"
+      other_channels: "Geoserver - Titel des Dienstes / Geoportal - Titel der Karte"
+      description: |
+        Erfassen des Dienste-Titels als Freitext.
+        Ab 100 Zeichen wird die Zeichenanzeige rot eingefärbt.
+      codelists_defaults: ""
+      buttons:
+        help: true
+        copy: true
+        adopt: true
+        template: false
+        delete: false
+    - id: 60
+      key: "isoMetadata.services.shortDescription"
+      label: "Kurzbeschreibung des Dienstes"
+      multiplicity: "1..1"
+      field_type: "Formularfeld"
+      type: "Freitext (max 500 Zeichen)"
+      role: "DHS / Redakteur"
+      iso_export: "ISO 25 / (abstract)"
+      other_channels: ""
+      description: "Erfassen der Dienste-Kurzbeschreibung als Freitext."
+      codelists_defaults: ""
+      buttons:
+        help: true
+        copy: true
+        adopt: true
+        template: false
+        delete: false
+    - id: 45
+      key: "isoMetadata.services.workspace"
+      label: "Arbeitsbereich des Dienstes"
+      multiplicity: "1..1"
+      field_type: "Formularfeld"
+      type: "Textfeld mit ^[a-z0-9_]+$"
+      role: "Redakteur"
+      iso_export: "-"
+      other_channels: "Geoserver - Name Arbeitsbereich"
+      description: |
+        Erfassen eines eindeutigen Bezeichners für den Arbeitsbereich des Dienstes.
+        Tupel aus Dienst-Typ und Dienst-ID muss metadatenübergreifend eindeutig sein. Das Formular verhindert durch Überprüfung eine Fehleingabe.
+      codelists_defaults: ""
+      buttons:
+        help: true
+        copy: true
+        adopt: false
+        template: false
+        delete: false
+    - id: 46
+      key: "isoMetadata.services.preview"
+      label: "Vorschau des Dienstes"
+      multiplicity: "1..1"
+      field_type: "Formularfeld"
+      type: "URL"
+      role: "DHS / Redakteur"
+      iso_export: "ISO 31 / (ISO 48-51)"
+      other_channels: ""
+      description: |
+        Automatische Übernahme der Vorschau aus dem Datenbestand. Anpassen oder Ersetzen im Freitextfeld möglich.
+      codelists_defaults: ""
+      buttons:
+        help: true
+        copy: true
+        adopt: true
+        template: false
+        delete: false
+- section: "WMS / WMTS"
+  fields:
+    - id: 47
+      key: "isoMetadata.services.legendImage"
+      label: "Gesamtlegende"
+      multiplicity: "0..1"
+      field_type: "Bereich"
+      type: "Überschrift"
+      role: "DHS / Redakteur"
+      iso_export: "ISO 31"
+      other_channels: ""
+      description: |
+        Erfassen einer Gesamtlegende für einen Darstellungsdienst. Breite, Höhe und Datenformat werden automatisiert abgeleitet, in der Datenbank abgelegt und bei der ISO-Erzeugung in die Metadaten übernommen.
+      codelists_defaults: ""
+      buttons:
+        help: true
+        copy: false
+        adopt: false
+        template: false
+        delete: false
+    - id: 75
+      key: "isoMetadata.services.legendImage.url"
+      label: "URL"
+      multiplicity: "0..1"
+      field_type: "Formularfeld"
+      type: "URL"
+      role: "DHS / Redakteur"
+      iso_export: "ISO 49"
+      other_channels: ""
+      description: "Erfassen einer validen URL auf eine bestehende Ressource."
+      codelists_defaults: ""
+      buttons:
+        help: false
+        copy: true
+        adopt: false
+        template: false
+        delete: false
+    - id: 76
+      key: "isoMetadata.services.legendImage.format"
+      label: "Format"
+      multiplicity: "0..1"
+      field_type: "Formularfeld"
+      type: "Freitext"
+      role: "DHS / Redakteur"
+      iso_export: "ISO 51"
+      other_channels: ""
+      description: |
+        Das Format wird automatisch vom angegebenen Bild ermittelt, wenn die URL valide ist.
+      codelists_defaults: ""
+      buttons:
+        help: false
+        copy: true
+        adopt: false
+        template: false
+        delete: false
+    - id: 77
+      key: "isoMetadata.services.legendImage.width"
+      label: "Breite"
+      multiplicity: "0..1"
+      field_type: "Formularfeld"
+      type: "Ganze Zahlen"
+      role: "DHS / Redakteur"
+      iso_export: "-"
+      other_channels: ""
+      description: |
+        Die Breite wird automatisch vom angegebenen Bild ermittelt, wenn die URL valide ist.
+      codelists_defaults: ""
+      buttons:
+        help: false
+        copy: true
+        adopt: false
+        template: false
+        delete: false
+    - id: 78
+      key: "isoMetadata.services.legendImage.height"
+      label: "Höhe"
+      multiplicity: "0..1"
+      field_type: "Formularfeld"
+      type: "Ganze Zahlen"
+      role: "DHS / Redakteur"
+      iso_export: "-"
+      other_channels: ""
+      description: |
+        Die Höhe wird automatisch vom angegebenen Bild ermittelt, wenn die URL valide ist.
+      codelists_defaults: ""
+      buttons:
+        help: false
+        copy: true
+        adopt: false
+        template: false
+        delete: false
+    - id: 48
+      key: "clientMetadata.layers"
+      label: "Kartenebenen"
+      multiplicity: "1..*"
+      field_type: "Bereich"
+      type: "Inkrement"
+      role: "DHS / Redakteur"
+      iso_export: "-"
+      other_channels: "intern / Geoserver"
+      description: "Erfassen mindestens einer oder mehrerer Kartenebenen."
+      codelists_defaults: ""
+      buttons:
+        help: true
+        copy: false
+        adopt: false
+        template: false
+        delete: true
+    - id: 49
+      key: "clientMetadata.layers.title"
+      label: "Titel der Kartenebene"
+      multiplicity: "1..1"
+      field_type: "Formularfeld"
+      type: "Freitext (max 250 Zeichen)"
+      role: "DHS / Redakteur"
+      iso_export: "-"
+      other_channels: "Geoserver"
+      description: "Erfassen des Ebenen-Titels als Freitext."
+      codelists_defaults: ""
+      buttons:
+        help: true
+        copy: true
+        adopt: false
+        template: false
+        delete: false
+    - id: 50
+      key: "clientMetadata.layers.name"
+      label: "Name der Kartenebene"
+      multiplicity: "1..1"
+      field_type: "Formularfeld"
+      type: "Freitext / (nur ASCII / max 100 Zeichen)"
+      role: "Redakteur"
+      iso_export: "-"
+      other_channels: "Geoserver"
+      description: "Erfassen des Ebenen-Namens als Freitext."
+      codelists_defaults: ""
+      buttons:
+        help: true
+        copy: true
+        adopt: false
+        template: false
+        delete: false
+    - id: 52
+      key: "clientMetadata.layers.styleTitle"
+      label: "Titel des Styles"
+      multiplicity: "k..1"
+      field_type: "Formularfeld"
+      type: "Freitext / (max 250 Zeichen)"
+      role: "Redakteur"
+      iso_export: "-"
+      other_channels: "Geoserver - SLD-userStyle"
+      description: |
+        Optionales Erfassen des Style-Titels als Freitext. Wenn  unter "Metadatentyp" -> "INSPIRE-harmonisiert" ausgewählt wurde, ist es ein Pflichtfeld.
+      codelists_defaults: ""
+      buttons:
+        help: true
+        copy: true
+        adopt: false
+        template: false
+        delete: false
+    - id: 51
+      key: "clientMetadata.layers.styleName"
+      label: "Name des Style"
+      multiplicity: "1..1"
+      field_type: "Formularfeld"
+      type: "Freitext / (Nur ASCII max 100 Zeichen)"
+      role: "Redakteur"
+      iso_export: "-"
+      other_channels: "Geoserver"
+      description: |
+        Erfassen des Style-Namens als Freitext, Sonderzeichen sind untersagt.
+      codelists_defaults: ""
+      buttons:
+        help: true
+        copy: true
+        adopt: false
+        template: false
+        delete: false
+    - id: 53
+      key: "clientMetadata.layers.legendImage"
+      label: "Legende"
+      multiplicity: "0..1"
+      field_type: "Formularfeld"
+      type: "URL / oder Upload"
+      role: "DHS / Redakteur"
+      iso_export: "-"
+      other_channels: "Geoserver"
+      description: "Erfassen einer validen URL auf eine bestehende Ressource."
+      codelists_defaults: ""
+      buttons:
+        help: true
+        copy: true
+        adopt: false
+        template: false
+        delete: false
+    - id: 54
+      key: "clientMetadata.layers.shortDescription"
+      label: "Kurzbeschreibung"
+      multiplicity: "1..1"
+      field_type: "Formularfeld"
+      type: "Freitext (max 500 Zeichen)"
+      role: "DHS / Redakteur"
+      iso_export: "-"
+      other_channels: "Geoserver"
+      description: "Erfassen der Ebenen-Kurzbeschreibung als Freitext."
+      codelists_defaults: ""
+      buttons:
+        help: true
+        copy: true
+        adopt: false
+        template: false
+        delete: false
+    - id: 55
+      key: "clientMetadata.layers.datasource"
+      label: "Ablageort der Daten"
+      multiplicity: "0..1"
+      field_type: "Formularfeld"
+      type: "Freitext oder Upload"
+      role: "DHS / Redakteur"
+      iso_export: "-"
+      other_channels: "intern"
+      description: |
+        Optionales Erfassen eines Ablageortes der von der DHS übergebenden Geodaten für diese Kartenebene.
+      codelists_defaults: ""
+      buttons:
+        help: true
+        copy: true
+        adopt: false
+        template: false
+        delete: false
+    - id: 68
+      key: "clientMetadata.layers.secondaryDatasource"
+      label: "sekundäre Datenhaltung"
+      multiplicity: "0..1"
+      field_type: "Formularfeld"
+      type: "Freitext"
+      role: "Redakteur"
+      iso_export: "-"
+      other_channels: "DB / GeoServer"
+      description: |
+        Optionales Erfassen des Ablageortes in der sekundären Datenhaltung der GDI.
+      codelists_defaults: ""
+      buttons:
+        help: true
+        copy: true
+        adopt: false
+        template: false
+        delete: false
+- section: "WFS"
+  fields:
+    - id: 56
+      key: "isoMetadata.services.featureTypes"
+      label: "FeatureTypes"
+      multiplicity: "1..*"
+      field_type: "Bereich"
+      type: "Inkrement"
+      role: "DHS / Redakteur"
+      iso_export: "-"
+      other_channels: "Geoserver"
+      description: "Erfassen mindestens eines oder mehrerer FeatureTypes."
+      codelists_defaults: ""
+      buttons:
+        help: true
+        copy: false
+        adopt: false
+        template: false
+        delete: true
+    - id: 61
+      key: "isoMetadata.services.featureTypes.title"
+      label: "Titel des FeatureTypes"
+      multiplicity: "1..1"
+      field_type: "Formularfeld"
+      type: "Freitextfeld / (max 100 Zeichen)"
+      role: "DHS / Redakteur"
+      iso_export: "-"
+      other_channels: "Geoserver"
+      description: "Erfassen des FeatureType-Titels als Freitext."
+      codelists_defaults: ""
+      buttons:
+        help: true
+        copy: true
+        adopt: false
+        template: false
+        delete: false
+    - id: 62
+      key: "isoMetadata.services.featureTypes.name"
+      label: "Name des FeatureTypes"
+      multiplicity: "1..1"
+      field_type: "Formularfeld"
+      type: "Freitextfeld / (nur ASCII / max 100 Zeichen)"
+      role: "Redakteur"
+      iso_export: "-"
+      other_channels: "Geoserver"
+      description: "Erfassen des FeatureType-Namens als Freitext."
+      codelists_defaults: ""
+      buttons:
+        help: true
+        copy: true
+        adopt: false
+        template: false
+        delete: false
+    - id: 69
+      key: "isoMetadata.services.featureTypes.shortDescription"
+      label: "Kurzbeschreibung des FeatureTypes"
+      multiplicity: "1..1"
+      field_type: "Formularfeld"
+      type: "Freitext (max 500 Zeichen)"
+      role: "DHS / Redakteur"
+      iso_export: "-"
+      other_channels: "Geoserver"
+      description: "Erfassen der FeatureType-Kurzbeschreibung als Freitext."
+      codelists_defaults: ""
+      buttons:
+        help: true
+        copy: true
+        adopt: false
+        template: false
+        delete: false
+    - id: 63
+      key: "isoMetadata.services.featureTypes.columns"
+      label: "Attribute"
+      multiplicity: "1..*"
+      field_type: "Bereich"
+      type: "Inkrement"
+      role: "DHS / Redakteur"
+      iso_export: "-"
+      other_channels: "Geoserver"
+      description: "Erfassen mindestens eines oder mehrerer Attribute."
+      codelists_defaults: ""
+      buttons:
+        help: true
+        copy: false
+        adopt: false
+        template: false
+        delete: true
+    - id: 64
+      key: "isoMetadata.services.featureTypes.columns.name"
+      label: "Attribut-Name"
+      multiplicity: "1..1"
+      field_type: "Formularfeld"
+      type: "Freitextfeld / (nur ASCII / max 100 Zeichen)"
+      role: "DHS / Redakteur"
+      iso_export: "-"
+      other_channels: "Datenbank / Geoserver"
+      description: "Erfassen eines Attribut-Namens."
+      codelists_defaults: ""
+      buttons:
+        help: true
+        copy: true
+        adopt: false
+        template: false
+        delete: false
+    - id: 65
+      key: "isoMetadata.services.featureTypes.columns.alias"
+      label: "Attribut-Alias"
+      multiplicity: "1..1"
+      field_type: "Formularfeld"
+      type: "Freitextfeld"
+      role: "DHS / Redakteur"
+      iso_export: "-"
+      other_channels: "Datenbank / Geoserver / Geoportal"
+      description: |
+        Erfassen eines Attribut-Alias für das angelegt Attribut (Menschenlesbarer Titel).
+      codelists_defaults: ""
+      buttons:
+        help: true
+        copy: true
+        adopt: false
+        template: false
+        delete: false
+    - id: 66
+      key: "isoMetadata.services.featureTypes.columns.type"
+      label: "Attribut-Datentyp"
+      multiplicity: "0..1"
+      field_type: "Formularfeld"
+      type: "Auswahlliste"
+      role: "Redakteur"
+      iso_export: "-"
+      other_channels: "Datenbank / Geoserver / Geoportal"
+      description: |
+        Optionales Erfassen des Attribut-Datentyps in der sekundären GDI Datenhaltung.
+      codelists_defaults: ""
+      buttons:
+        help: true
+        copy: true
+        adopt: false
+        template: false
+        delete: false
+    - id: 67
+      key: "isoMetadata.services.featureTypes.columns.filterType"
+      label: "Attribut-Filter-Typ"
+      multiplicity: "0..1"
+      field_type: "deaktiviert"
+      type: "Auswahlliste"
+      role: "Redakteur"
+      iso_export: "-"
+      other_channels: "Geoportal"
+      description: |
+        Optionales Erfassen des Attribut-Filtertyps für mögliche Oberflächenfilterfunktionen.
+        Vorrübergehend deaktiviert.
+      codelists_defaults: ""
+      buttons:
+        help: true
+        copy: true
+        adopt: false
+        template: false
+        delete: false
+- section: "Sonstige"
+  fields:
+    - id: 3
+      key: "clientMetadata.comments"
+      label: "Kommentare"
+      multiplicity: "1..1"
+      field_type: "Kommentare-Button"
+      type: "Freitextfeld"
+      role: "DHS / Redakteur"
+      iso_export: "-"
+      other_channels: "intern"
+      description: |
+        Erfassen von Kommentaren zur internen Kommunikation zwischen den verschiedenen Rollen.
+      codelists_defaults: ""
+      buttons:
+        help: true
+        copy: false
+        adopt: false
+        template: false
+        delete: true
