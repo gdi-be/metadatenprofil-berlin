@@ -1,0 +1,41 @@
+name: Generate HTML Table and Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - new_profile
+  workflow_dispatch: # Ermöglicht manuelles Starten
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-network: true
+          python-version: '3.10'
+
+      - name: Install Dependencies
+        run: |
+          pip install pyyaml
+
+      - name: Run HTML Generator Script
+        run: |
+          python generate_table.py
+
+      - name: Upload Artifact for GitHub Pages
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.' # Lädt das aktuelle Verzeichnis inklusive der neuen index.html hoch
+
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v4
