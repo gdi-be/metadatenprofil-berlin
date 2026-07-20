@@ -30,7 +30,7 @@ jobs:
 
       - name: Run HTML Generator Script
         run: |
-          python generate_table.py
+          python doc_exports/tables/generate_table.py
 
       - name: Upload Artifact for GitHub Pages
         uses: actions/upload-pages-artifact@v3
